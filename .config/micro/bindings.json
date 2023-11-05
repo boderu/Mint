@@ -1,0 +1,19 @@
+{
+    "Alt-/":			"lua:comment.comment",
+    "CtrlUnderscore":	"lua:comment.comment",
+    "F5":				"lua:wc.wordCount",
+
+    "Alt-Ctrl-s":		"SaveAs",
+    
+    "Alt-t":			"AddTab",
+    "Alt-Right":		"NextTab",
+    "Alt-Left":			"PreviousTab",
+
+    "Alt-v":			"VSplit",
+    "Alt-h":			"HSplit",
+    "Alt-Down":			"NextSplit",
+    "Alt-Up":			"PreviousSplit",
+
+    "Alt-:":			"ShellMode",
+    "Alt-.":			"CommandMode"
+}

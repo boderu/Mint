@@ -1,0 +1,30 @@
+#!/bin/bash
+#######################################################################################################################
+# Skript zur Sicherung von Remote-Repositories
+#
+#######################################################################################################################
+
+# über alle Git-Verzeichnisse iterieren
+find . -name '*?.git' -type d |
+while read DIRGIT
+do
+	# aktuelles Verzeichnis merken und in neues Verzeichnis verzweigen
+	pushd "$DIRGIT" > /dev/null
+	pwd
+	REPOSITORY="$(basename "$(pwd)")"
+
+	git fetch -v --all
+
+	# Par2-Sicherung für das Repository anlegen (ein Verzeichnis höher)
+	cd ..
+	echo $REPOSITORY
+	rm -v --force ${REPOSITORY}*.par2
+	par2 create -vR ${REPOSITORY}.par2 $(find $REPOSITORY -type f | tr '\n' ' ')
+
+	# in ursprüngliches Verzeichnis zurückkehren
+	popd > /dev/null
+	echo
+
+done
+
+# EOF #################################################################################################################

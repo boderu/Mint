@@ -1,0 +1,21 @@
+#!/bin/bash
+# ======================================================================================================================
+#
+# Dieses Skript ermittelt rekursiv , beginnend mit dem aktuellen Verzeichnis, alle Git-Repositories und führt ein
+# git fetch --all
+# aus.
+#
+# ======================================================================================================================
+
+# alle Verzeichnisse rekursiv durchsuchen und übergeordnetes Verzeichnis ermitteln, alles fetchen
+find . -type d -name '.git' | sed 's/\/\.git$//g' | \
+while read DIRGIT
+do
+	echo "Fetch $DIRGIT" | sed 's/\.\///g'
+	pushd "$DIRGIT" &> /dev/null
+	git fetch --all | sed 's/^/\t/g'
+	popd &> /dev/null
+	echo
+done
+
+# EOF ==================================================================================================================

@@ -1,0 +1,90 @@
+#!/bin/bash
+# Skript zum automatisierten Download von YouTube-Vidos
+# das Skript iteriert über alle vorhandenen Verzeichnisse und Unterverzeichnisse in dem Ordner (inklusive dieses
+# Ordners) dieses Skripts und sucht nach einer Datei mit dem Namen '.url'.
+# In dieser Datei müssen die URLs der YouTube-Seite enthalten sein (pro Zeile eine).
+# Ist '.url' nicht vorhanden, wird das Verzeichnis ignoriert. Auch versteckte Verzeichnisse werden ignoriert.
+# In eine weiteren Datei mit dem Namen '.dateafter' kann ist in der der ersten Zeile der Zeitpunkt des letzten
+# Downloads vermerkt sein. Das Skript lädt nur Videos ab (inklusive) diesem Datum herunter und aktualisiert dann die
+# Angabe.  Das Datumsformat ist yyyymmdd. Ist die Datei nicht vorhanden, werden alle (oder die angegebene Anzahl)
+# Videos geladen. Die Datei wird durch das Skript nicht automatisch erstellt.
+#
+# Parameter 1 (optional):	Maximale Anzahl der zu downloadenen Videos.
+#							Wird dieser Parameter verwendet, dann wird die Datei '.dateafter' nicht aktualisiert!
+#
+# Beispiele:	./ytfetch
+#				./ytfetch 8
+#
+########################################################################################################################
+
+# wurde der Parameter verwendet?
+if [ $# == 1 ]
+then
+	# ja, die angegebene Anzahl der Videos soll begrenzt werden
+	MAXDOWNLOADS="--max-downloads $1"
+fi
+
+# über alle Verzeichnise und Unterverzeichnisse iterieren
+while read DIR
+do
+	# aktuelles Verzeichnis merken und in neues Verzeichnis verzweigen
+	pushd "$DIR" > /dev/null
+	echo "Directory: $DIR"
+
+	# gibt es in diesem Verzeichnis ein Datei mit dem Namen'.url'?
+	if [ -f ".url" ]
+	then
+		# ja, eine '.url' existiert --> aktuellen Downloadzeitpunkt vermerken
+		DATEAFTER_PRESENT=$(date '+%Y%m%d')
+
+		# gibt es eine Datei mit dem Namen '.dateafter'?
+		if [ -f ".dateafter" ]
+		then
+			# ja, eine '.dateafter' existiert --> Datum auf den Inhalt dieser Datei setzen
+			DATEAFTER=$(head --lines=1 .dateafter)
+		else
+			# nein, eine '.dateafter' existiert nicht --> Datum auf den 01.01.1900 setzen (alles downloaden)
+			DATEAFTER=19000101
+		fi
+
+		# ist DATEAFTER nicht mit dem aktuellen Datum identisch?
+		if [ $DATEAFTER != $DATEAFTER_PRESENT ]
+		then
+			# das Datum ist unterschiedlich --> alle Videos seit diesem Zeitpunkt downloaden
+
+			# alle URLs abarbeiten
+			while read URL
+			do
+				echo "$URL: $DATEAFTER"
+				yt-dlp  --socket-timeout 10 --ignore-config --download-archive '.archive' -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best' --downloader aria2c --dateafter $DATEAFTER $MAXDOWNLOADS "$URL"
+				echo
+			done < .url
+		else
+			echo "Download skipped (date after)!"
+		fi
+
+		# gibt es eine Datei mit dem Namen '.dateafter'?
+		if [ -f ".dateafter" ]
+		then
+			# ja, eine '.dateafter' existiert
+			# wurde der Parameter nicht verwendet?
+			if [ $# == 0 ]
+			then
+				# ja, der Parameter wurde nicht verwendet --> aktuelles Datum speichern
+				echo -n $DATEAFTER_PRESENT > '.dateafter'
+			fi
+		fi
+	else
+		# nein, eine '.url' existiert nicht
+		echo "No URL found."
+	fi
+
+	echo
+
+	# in ursprüngliches Verzeichnis zurückkehren
+	popd > /dev/null
+
+# zeilenweise Liste mit allen Verzeichnissen dem while-read-do-done Block übergeben (ohne versteckte Verzeichnisse)
+done <<< $(find . -type d -print | grep -v '/\.' | sed -e 's/^\.\///' | sort)
+
+# EOF

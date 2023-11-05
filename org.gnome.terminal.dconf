@@ -1,0 +1,22 @@
+[legacy]
+menu-accelerator-enabled=false
+
+[legacy/profiles:]
+default='424db45d-f24b-4723-9bae-7925fa25ba44'
+list=['b1dcc9dd-5262-4d8d-a863-c897e6d979b9', '424db45d-f24b-4723-9bae-7925fa25ba44']
+
+[legacy/profiles:/:424db45d-f24b-4723-9bae-7925fa25ba44]
+audible-bell=true
+background-color='rgb(31,31,31)'
+cursor-shape='ibeam'
+default-size-columns=140
+default-size-rows=38
+use-theme-colors=false
+visible-name='BodeRu'
+
+[legacy/profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9]
+background-color='rgb(31,31,31)'
+cursor-shape='ibeam'
+default-size-columns=140
+default-size-rows=38
+use-theme-colors=false

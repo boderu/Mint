@@ -1,0 +1,15 @@
+/* CSS-Anweisungen zur Designanpassung hier eingeben */
+
+@define-color darkroom_bg_color @grey_10;
+@define-color darkroom_preview_bg_color @darkroom_bg_color;
+@define-color lighttable_bg_color @grey_05;
+@define-color lighttable_preview_bg_color @darkroom_bg_color;
+@define-color thumbnail_font_color @grey_50;
+@define-color thumbnail_bg_color @grey_10;
+@define-color thumbnail_selected_bg_color @grey_20;
+@define-color thumbnail_hover_bg_color @grey_25;
+@define-color filmstrip_bg_color @grey_10;
+@define-color timeline_bg_color shade(@grey_25, 1.0);
+@define-color timeline_fg_color @text_color;
+@define-color timeline_text_bg_color alpha(black, .8);
+@define-color timeline_text_fg_color alpha(white, .9);

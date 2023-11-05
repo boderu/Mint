@@ -1,0 +1,36 @@
+[plugins]
+active-plugins=['textsize', 'trailsave', 'joinlines', 'docinfo', 'open-uri-context-menu', 'bracketcompletion', 'time', 'filebrowser', 'sort', 'modelines', 'spell']
+
+[plugins/filebrowser/on-load]
+root='file:///'
+tree-view=true
+virtual-root='file:///home/boderu'
+
+[preferences/editor]
+bracket-matching=true
+display-line-numbers=true
+display-right-margin=true
+draw-whitespace=true
+draw-whitespace-inside=true
+draw-whitespace-leading=true
+draw-whitespace-trailing=true
+ensure-trailing-newline=false
+highlight-current-line=true
+insert-spaces=false
+scheme='kate'
+tabs-size=uint32 4
+
+[preferences/ui]
+minimap-visible=false
+statusbar-visible=true
+
+[state/history-entry]
+history-replace-with=['$HOME', '$DIRHOME']
+history-search-for=['$DIRHOME', '/home/boderu']
+
+[state/window]
+bottom-panel-size=140
+side-panel-active-page=-1725528271
+side-panel-size=200
+size=(1281, 791)
+state=87168

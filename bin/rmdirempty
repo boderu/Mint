@@ -1,0 +1,57 @@
+#!/usr/bin/env bash
+# Remove empty folders
+
+EXITVALUE=0
+
+# create a FIFO file, used to manage the I/O redirection from shell
+PIPE=$(mktemp -u --tmpdir ${0##*/}.XXXXXXXX)
+mkfifo $PIPE
+
+# attach a file descriptor to the file
+exec 3<> $PIPE
+
+# start GUI as background task
+yad	--title="Remove empty directories" \
+	--window-icon=user-trash-symbolic \
+	--button=gtk-close \
+	--geometry 600x350 \
+	--list \
+	--tail \
+	--grid-lines=hor \
+	--ellipsize=END \
+	--checklist \
+	--column=#:CHK \
+	--column=Directory:TEXT \
+	<&3 &
+
+# for all command line arguments
+for ARG in "$@"
+do
+	echo Argument: $ARG
+	# is this a directory?
+	if [ -d "$ARG" ]
+	then
+		# find all (not hidden) subdirectories
+		find "$ARG" -type d -empty -not -wholename '*/.*' | \
+		while read DIR
+		do
+			echo "true" >&3
+			echo "$(echo $DIR | sed 's/&/&amp;/g')" >&3
+
+			# directory empty?
+			if [ "0" = $(ls -A "$DIR" | wc -l) ]
+			then
+				echo "    empty: $DIR"
+			else
+				echo "    full:  $DIR"
+			fi
+		done
+	fi
+done
+
+read -p "press Enter ..."
+rm -f $PIPE
+
+exit $EXITVALUE
+
+# EOF

@@ -1,0 +1,12 @@
+#!/bin/bash
+# ======================================================================================================================
+#
+# Dieses Skript ermittelt rekursiv , beginnend mit dem aktuellen Verzeichnis, alle Git-Repositories.
+# Das aktuelle Verzeichnis wird dabei aus der Liste entfernt.
+#
+# ======================================================================================================================
+
+# alle Verzeichnisse rekursiv durchsuchen und übergeordnetes Verzeichnis ermitteln
+find . -type d -name '.git' | sort | sed 's/\.\///g' | sed 's/\/\.git$//g' | sed '/^\.git$/d' | git-componentsbranch
+
+# EOF ==================================================================================================================

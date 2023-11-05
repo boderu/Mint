@@ -1,0 +1,12 @@
+darktablerc
+data.db
+data.db-pre-4.4.2
+library.db
+library.db-pre-4.4.2
+data.db.lock
+library.db.lock
+lua
+luarc
+shortcutsrc
+shortcutsrc.edit
+shortcutsrc.backup

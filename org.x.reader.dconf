@@ -1,0 +1,17 @@
+[default]
+continuous=true
+dual-page=false
+dual-page-odd-left=false
+fullscreen=false
+inverted-colors=false
+show-sidebar=true
+sidebar-page='thumbnails'
+sidebar-size=301
+sizing-mode='fit-width'
+window-maximized=false
+window-ratio=(2.1325878594249201, 1.7587034813925571)
+
+[toolbar]
+show-expand-window=true
+show-history-buttons=true
+show-zoom-action=true
