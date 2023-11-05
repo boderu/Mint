@@ -401,12 +401,22 @@ echo
 echo "lokale Konfigurationen einrichten"
 if [ -d "Mint" ]
 then
-	cd Settings
+	cd Mint
 	git fetch --all
 	git pull
 	cd ..
 else
 	git clone https://github.com/boderu/Mint.git
+fi
+
+if [ -d ".oh-my-zsh" ]
+then
+	cd .oh-my-zsh
+	git fetch --all
+	git pull
+	cd ..
+else
+	git clone https://github.com/ohmyzsh/ohmyzsh.git
 fi
 
 echo "FireFox Download Helper App."
@@ -493,23 +503,24 @@ function Link
 } # Link()
 
 
-Link "$HOME/Mint/.bashrc"						"$HOME/.bashrc"
-Link "$HOME/Mint/.bash_logout"					"$HOME/.bash_logout"
-Link "$HOME/Mint/.bash_aliases"					"$HOME/.bash_aliases"
-Link "$HOME/Mint/.profile"						"$HOME/.profile"
-Link "$HOME/Mint/.selected_editor"				"$HOME/.selected_editor"
-Link "$HOME/Mint/bin"							"$HOME/bin"
-Link "$HOME/Mint/.ne"							"$HOME/.ne"
-Link "$HOME/Mint/.config/broot"					"$HOME/.config/broot"
-Link "$HOME/Mint/.config/btop"					"$HOME/.config/btop"
-Link "$HOME/Mint/.config/darktable"				"$HOME/.config/darktable"
-Link "$HOME/Mint/.config/htop"					"$HOME/.config/htop"
-Link "$HOME/Mint/.config/lazygit"				"$HOME/.config/lazygit"
-Link "$HOME/Mint/.config/micro"					"$HOME/.config/micro"
-Link "$HOME/Mint/.config/vlc"					"$HOME/.config/vlc"
-Link "$HOME/Mint/.local/share/nemo"				"$HOME/.local/share/nemo"
-Link "$HOME/Mint/.vuescan"						"$HOME/.vuescan"
-Link "$HOME/Mint/Templates"						"$HOME/Vorlagen"
+Link "$HOME/Mint/.bashrc"									"$HOME/.bashrc"
+Link "$HOME/Mint/.bash_logout"								"$HOME/.bash_logout"
+Link "$HOME/Mint/.bash_aliases"								"$HOME/.bash_aliases"
+Link "$HOME/Mint/.profile"									"$HOME/.profile"
+Link "$HOME/Mint/.zshrc"									"$HOME/.zshrc"
+Link "$HOME/Mint/.selected_editor"							"$HOME/.selected_editor"
+Link "$HOME/Mint/bin"										"$HOME/bin"
+Link "$HOME/Mint/.ne"										"$HOME/.ne"
+Link "$HOME/Mint/.config/broot"								"$HOME/.config/broot"
+Link "$HOME/Mint/.config/btop"								"$HOME/.config/btop"
+Link "$HOME/Mint/.config/darktable"							"$HOME/.config/darktable"
+Link "$HOME/Mint/.config/htop"								"$HOME/.config/htop"
+Link "$HOME/Mint/.config/lazygit"							"$HOME/.config/lazygit"
+Link "$HOME/Mint/.config/micro"								"$HOME/.config/micro"
+Link "$HOME/Mint/.config/vlc"								"$HOME/.config/vlc"
+Link "$HOME/Mint/.local/share/nemo"							"$HOME/.local/share/nemo"
+Link "$HOME/Mint/.vuescan"									"$HOME/.vuescan"
+Link "$HOME/Mint/Templates"									"$HOME/Vorlagen"
 
 Link "$HOME/SynologyDrive/Mint/.vuescanrc"					"$HOME/.vuescanrc"
 Link "$HOME/SynologyDrive/Mint/.ssh"						"$HOME/.ssh"
@@ -525,11 +536,11 @@ Link 	"$HOME/SynologyDrive/Mint/.local/bin/avr8-gnu-toolchain-linux_x86_64"	\
 		"$HOME/.local/bin/avr8-gnu-toolchain-linux_x86_64"
 #Link "$HOME/SynologyDrive/Mint/.config/darktable"			"$HOME/.config/darktable"
 
-Link "$HOME/SynologyDrive/Bilder"					"$HOME/Bilder"
-Link "$HOME/SynologyDrive/Dokumente"				"$HOME/Dokumente"
-Link "$HOME/SynologyDrive/Downloads"				"$HOME/Downloads"
-Link "$HOME/SynologyDrive/Calibre-Bibliothek"		"$HOME/Calibre-Bibliothek"
-Link "$HOME/SynologyDrive/Musik"					"$HOME/Musik"
+Link "$HOME/SynologyDrive/Bilder"							"$HOME/Bilder"
+Link "$HOME/SynologyDrive/Dokumente"						"$HOME/Dokumente"
+Link "$HOME/SynologyDrive/Downloads"						"$HOME/Downloads"
+Link "$HOME/SynologyDrive/Calibre-Bibliothek"				"$HOME/Calibre-Bibliothek"
+Link "$HOME/SynologyDrive/Musik"							"$HOME/Musik"
 
 
 echo
