@@ -2,6 +2,8 @@
 # Skript um Linux Mint einzurichten. Verlinke und starte dieses Skript in und aus dem Homeverzeichnis!
 # Das System sollte bereits die ersten Updates haben und die Verbindung zum Internet muss funktionieren.
 
+cd $HOME
+
 if [[ "$USER" != "guest" ]]
 then
 	echo "zusätzliche PPAs hinzufügen"
@@ -77,8 +79,17 @@ then
 	sudo apt install -y --install-recommends trash-cli
 	sudo apt install -y --install-recommends btop
 	sudo apt install -y --install-recommends tldr
+	sudo apt install -y --install-recommends highlight
+	sudo apt install -y --install-recommends atool
+	sudo apt install -y --install-recommends caca-utils
+	sudo apt install -y --install-recommends w3m
+	sudo apt install -y --install-recommends poppler-utils
+	sudo apt install -y --install-recommends ranger
 	sudo apt install -y --install-recommends thefuck
-	sudo apt install -y --install-recommends solaar-gnome3
+	sudo apt install -y --install-recommends oping
+	sudo apt install -y --install-recommends tmux
+	sudo apt install -y --install-recommends jq
+	sudo apt install -y --install-recommends progress
 
 	sudo apt install -y --install-recommends build-essential
 	sudo apt install -y --install-recommends xutils-dev
@@ -123,6 +134,7 @@ then
 	sudo apt install -y --install-recommends fraqtive
 	sudo apt install -y --install-recommends unison
 	sudo apt install -y --install-recommends unison-gtk
+	sudo apt install -y --install-recommends solaar-gnome3
 #	sudo apt install -y --install-recommends kdeconnect
 
 	sudo apt install -y --install-recommends widelands
@@ -423,6 +435,7 @@ mkdir -pv "$HOME/dwhelper"
 # $2 Ziel:		the symbolic link to be created
 function Link
 {
+	echo
 	# Exisitiert das Ziel?
 	if [ -e "$2" ]
 	then
@@ -434,7 +447,7 @@ function Link
 			echo "$2 ist bereits ein symbolischer Link"
 
 			# zeigt der symbolische Link nicht auf die Quelle?
-			if [[ $(readlink "$2") != "$2" ]]
+			if [[ $(readlink "$2") != "$1" ]]
 			then
 				# ja, der symbolische Link zeigt nicht auf die Quelle
 				echo "symbolischer Link $2 zeigt nicht auf die Quelle --> überschreiben"
@@ -442,7 +455,8 @@ function Link
 				if [ -e "$1" ]
 				then
 					# ja, die Quelle existiert
-					ln -svf "$1" "$2"		# symbolischen Link überschreiben
+					rm "$2"					# existierenden Link löschen
+					ln -sv "$1" "$2"		# symbolischen Link erzeugen
 				else
 					# nein, die Quelle existiert nicht
 					echo "Die Quelle existiert nicht!"
@@ -594,7 +608,7 @@ echo "4) Ändere die Toolbar, ..."
 echo "5) Ändere die internen Firefox-Einstellungen (about:config)"
 echo "   browser.uidensity --> 1"
 echo "   signon.includeOtherSubdomainsInLookup --> false"
-read -p "drücke Enter ..."
+#read -p "drücke Enter ..."
 
 echo
 echo "Einrichtung beendet."
