@@ -90,6 +90,7 @@ then
 	sudo apt install -y --install-recommends tmux
 	sudo apt install -y --install-recommends jq
 	sudo apt install -y --install-recommends progress
+	sudo apt install -y --install-recommends zsh
 
 	sudo apt install -y --install-recommends build-essential
 	sudo apt install -y --install-recommends xutils-dev
@@ -416,7 +417,7 @@ then
 	git pull
 	cd ..
 else
-	git clone https://github.com/ohmyzsh/ohmyzsh.git
+	git clone https://github.com/ohmyzsh/ohmyzsh.git .oh-my-zsh
 fi
 
 echo "FireFox Download Helper App."
