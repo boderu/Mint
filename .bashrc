@@ -135,7 +135,7 @@ fi
 umask 0027
 
 # fast navigation whithin the filesystem with broot
-source /home/boderu/.config/broot/launcher/bash/br
+source "$HOME/.config/broot/launcher/bash/br"
 
 # bash history
 bind '"\e[5~": history-search-backward'

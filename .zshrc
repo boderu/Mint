@@ -139,9 +139,9 @@ zstyle ':completion:*' verbose true
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
-source $HOME/.bash_aliases
+source "$HOME/.bash_aliases"
 
 # fast navigation whithin the filesystem with broot
-source /home/boderu/.config/broot/launcher/bash/br
+source "$HOME/.config/broot/launcher/bash/br"
 
 # EOF
