@@ -134,22 +134,8 @@ fi
 
 umask 0027
 
-# fast navigation whithin the filesystem with broot (~/bin/broot)
-function br
-{
-	local cmd cmd_file code
-	cmd_file=$(mktemp)
-	if broot --outcmd "$cmd_file" "$@"
-	then
-		cmd=$(<"$cmd_file")
-		rm -f "$cmd_file"
-		eval "$cmd"
-	else
-		code=$?
-		rm -f "$cmd_file"
-		return "$code"
-	fi
-}
+# fast navigation whithin the filesystem with broot
+source /home/boderu/.config/broot/launcher/bash/br
 
 # bash history
 bind '"\e[5~": history-search-backward'

@@ -520,6 +520,7 @@ Link "$HOME/Mint/.config/lazygit"							"$HOME/.config/lazygit"
 Link "$HOME/Mint/.config/micro"								"$HOME/.config/micro"
 Link "$HOME/Mint/.config/vlc"								"$HOME/.config/vlc"
 Link "$HOME/Mint/.local/share/nemo"							"$HOME/.local/share/nemo"
+Link "$HOME/Mint/.local/share/broot"						"$HOME/.local/share/broot"
 Link "$HOME/Mint/.vuescan"									"$HOME/.vuescan"
 Link "$HOME/Mint/Templates"									"$HOME/Vorlagen"
 

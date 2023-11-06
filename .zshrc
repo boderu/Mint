@@ -141,4 +141,7 @@ zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
 source $HOME/.bash_aliases
 
+# fast navigation whithin the filesystem with broot
+source /home/boderu/.config/broot/launcher/bash/br
+
 # EOF
