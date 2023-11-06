@@ -2,6 +2,76 @@
 # Skript um Linux Mint einzurichten. Verlinke und starte dieses Skript in und aus dem Homeverzeichnis!
 # Das System sollte bereits die ersten Updates haben und die Verbindung zum Internet muss funktionieren.
 
+function CppCheckInstall
+{
+	sudo make install MATCHCOMPILER=yes FILESDIR=/usr/share/cppcheck HAVE_RULES=yes \
+	CXXFLAGS="-O2 -DNDEBUG -Wall -Wno-sign-compare -Wno-unused-function"
+}
+
+
+# Funktion: erzeuge symbolische Links mit erweiterter Prüfung
+# $1 Quelle:	Datei oder Verzeichnis welches verlinkt werden soll
+# $2 Ziel:		der zu erzeugende symbolische Link
+function Link
+{
+	echo
+	# Exisitiert das Ziel?
+	if [ -e "$2" ]
+	then
+		# ja, das Ziel existiert
+		# ist das Ziel bereits ein symbolischer Link?
+		if [ -L "$2" ]
+		then
+			# ja, das Ziel ist bereits ein symbolischer Link
+			echo "$2 ist bereits ein symbolischer Link"
+
+			# zeigt der symbolische Link nicht auf die Quelle?
+			if [[ $(readlink "$2") != "$1" ]]
+			then
+				# ja, der symbolische Link zeigt nicht auf die Quelle
+				echo "symbolischer Link $2 zeigt nicht auf die Quelle --> überschreiben"
+				# existiert die Quelle?
+				if [ -e "$1" ]
+				then
+					# ja, die Quelle existiert
+					rm "$2"					# existierenden Link löschen
+					ln -sv "$1" "$2"		# symbolischen Link erzeugen
+				else
+					# nein, die Quelle existiert nicht
+					echo "Die Quelle existiert nicht!"
+				fi
+			fi
+		else
+			# nein, das Ziel ist kein symbolischer Link
+			# existiert die Quelle?
+			if [ -e "$1" ]
+			then
+				# ja, die Quelle existiert
+				echo "$2 ist kein symbolischer Link --> existierende Datei oder Verzeichnis sichern"
+				mv -fv "$2" "$2.saved"	# eine existierende Sicherung wird überschrieben
+				rm -fRv "$2"			# vorhandene Datei oder Verzeichnis löschen
+				ln -sv "$1" "$2"		# symbolischen Link erzeugen
+			else
+				# nein, die Quelle existiert nicht
+				echo "Die Quelle existiert nicht!"
+			fi
+		fi
+	else
+		# nein, das Ziel existiert nicht
+			# existiert die Quelle?
+			if [ -e "$1" ]
+			then
+				# ja, die Quelle existiert
+				rm -fRv "$2"			# vorhandenes Ziel löschen (evtl. fehlerhafter Link)
+				ln -sv "$1" "$2"		# symbolischen Link erzeugen
+			else
+				# nein, die Quelle existiert nicht
+				echo "Die Quelle $1 existiert nicht!"
+			fi
+	fi
+} # Link()
+
+
 cd $HOME
 
 if [[ "$USER" != "guest" ]]
@@ -308,7 +378,27 @@ then
 	sudo apt-get install -y libpcre3-dev
 	git clone https://github.com/danmar/cppcheck.git
 	cd cppcheck
-	sudo make install MATCHCOMPILER=yes FILESDIR=/usr/share/cppcheck HAVE_RULES=yes CXXFLAGS="-O2 -DNDEBUG -Wall -Wno-sign-compare -Wno-unused-function"
+
+	# gibt es eine Versionsinformation von einer vorhergehenden Installation?
+	if [ -f "$HOME/.cppcheck_version" ]
+	then
+		# ja, CppCheck wurde schon einmal installiert
+		# hat sich die Version des Repository geändert?
+		if [[ $(cat "$HOME/.cppcheck_version") != $(git log --pretty="%H" -n 1) ]]
+		then
+			# ja, die Versionen sind unterschiedlich --> aktuelle Version merken und CppCheck installieren
+			echo "neue CppCheck-Version vorhanden --> Update"
+			git log --pretty="%H" -n 1 > "$HOME/.cppcheck_version"
+			CppCheckInstall
+		else
+			echo "CppCheck-Versionen identisch --> keine Installation"
+		fi
+	else
+		# nein, CppCheck wurde noch nicht installiert
+		echo "installierte CppCheck-Version nicht vorhanden --> neue Installation"
+		git log --pretty="%H" -n 1 > "$HOME/.cppcheck_version"
+		CppCheckInstall
+	fi
 	cd ..
 	sudo rm -Rf cppcheck
 	echo "CppCeck Version: $(cppcheck --version)"
@@ -439,69 +529,6 @@ mkdir -pv "$HOME/.local/bin"
 mkdir -pv "$HOME/Media/Stable Diffusion"
 mkdir -pv "$HOME/Warpinator"
 mkdir -pv "$HOME/dwhelper"
-
-
-# Funktion: erzeuge symbolische Links mit erweiterter Prüfung
-# $1 Quelle:	file or directory which has to be linked
-# $2 Ziel:		the symbolic link to be created
-function Link
-{
-	echo
-	# Exisitiert das Ziel?
-	if [ -e "$2" ]
-	then
-		# ja, das Ziel existiert
-		# ist das Ziel bereits ein symbolischer Link?
-		if [ -L "$2" ]
-		then
-			# ja, das Ziel ist bereits ein symbolischer Link
-			echo "$2 ist bereits ein symbolischer Link"
-
-			# zeigt der symbolische Link nicht auf die Quelle?
-			if [[ $(readlink "$2") != "$1" ]]
-			then
-				# ja, der symbolische Link zeigt nicht auf die Quelle
-				echo "symbolischer Link $2 zeigt nicht auf die Quelle --> überschreiben"
-				# existiert die Quelle?
-				if [ -e "$1" ]
-				then
-					# ja, die Quelle existiert
-					rm "$2"					# existierenden Link löschen
-					ln -sv "$1" "$2"		# symbolischen Link erzeugen
-				else
-					# nein, die Quelle existiert nicht
-					echo "Die Quelle existiert nicht!"
-				fi
-			fi
-		else
-			# nein, das Ziel ist kein symbolischer Link
-			# existiert die Quelle?
-			if [ -e "$1" ]
-			then
-				# ja, die Quelle existiert
-				echo "$2 ist kein symbolischer Link --> existierende Datei oder Verzeichnis sichern"
-				mv -fv "$2" "$2.saved"	# eine existierende Sicherung wird überschrieben
-				rm -fRv "$2"			# vorhandene Datei oder Verzeichnis löschen
-				ln -sv "$1" "$2"		# symbolischen Link erzeugen
-			else
-				# nein, die Quelle existiert nicht
-				echo "Die Quelle existiert nicht!"
-			fi
-		fi
-	else
-		# nein, das Ziel existiert nicht
-			# existiert die Quelle?
-			if [ -e "$1" ]
-			then
-				# ja, die Quelle existiert
-				rm -fRv "$2"			# vorhandenes Ziel löschen (evtl. fehlerhafter Link)
-				ln -sv "$1" "$2"		# symbolischen Link erzeugen
-			else
-				# nein, die Quelle existiert nicht
-				echo "Die Quelle $1 existiert nicht!"
-			fi
-	fi
-} # Link()
 
 
 Link "$HOME/Mint/.bashrc"									"$HOME/.bashrc"
