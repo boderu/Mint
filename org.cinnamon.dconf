@@ -32,7 +32,7 @@ exec-arg='--'
 
 [desktop/background]
 picture-options='zoom'
-picture-uri='file:///home/boderu/Settings/wallpaper.png'
+picture-uri='file:///home/boderu/SynologyDrive/Mint/wallpaper.png'
 
 [desktop/background/slideshow]
 delay=15
@@ -47,6 +47,9 @@ toolkit-accessibility=false
 
 [desktop/media-handling]
 autorun-never=false
+autorun-x-content-ignore=['x-content/video-bluray']
+autorun-x-content-open-folder=['x-content/bootable-media']
+autorun-x-content-start-app=['x-content/unix-software', 'x-content/bootable-media', 'x-content/video-bluray']
 
 [desktop/notifications]
 bottom-notifications=true
