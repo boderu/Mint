@@ -74,18 +74,34 @@ function Link
 
 cd $HOME
 
+echo "einige Verzeichnisse erzeugen"
+mkdir -pv "$HOME/.config"
+mkdir -pv "$HOME/.local/share"
+mkdir -pv "$HOME/.local/bin"
+mkdir -pv "$HOME/Media/Stable Diffusion"
+mkdir -pv "$HOME/Warpinator"
+mkdir -pv "$HOME/Frameworks"
+mkdir -pv "$HOME/dwhelper"
+mkdir -pv "$HOME/WsCCS"
+mkdir -pv "$HOME/WsEclipse"
+mkdir -pv "$HOME/WsFreeCAD"
+mkdir -pv "$HOME/WsKiCAD"
+mkdir -pv "$HOME/WsXilinx"
+mkdir -pv "$HOME/WsXilinxSDK"
+
+
 if [[ "$USER" != "guest" ]]
 then
 	echo "zusätzliche PPAs hinzufügen"
-	sudo add-apt-repository -y ppa:libreoffice/ppa
-	sudo add-apt-repository -y ppa:mozillateam/thunderbird-next
-	sudo add-apt-repository -y ppa:ubuntuhandbook1/shotwell
-	sudo add-apt-repository -y ppa:ubuntuhandbook1/darktable
-	sudo add-apt-repository -y ppa:kicad/kicad-7.0-releases
-	sudo add-apt-repository -y ppa:tomtomtom/yt-dlp
-	sudo add-apt-repository -y ppa:longsleep/golang-backports
-	sudo add-apt-repository -y ppa:aos1/diff-so-fancy
-	sudo add-apt-repository -y ppa:widelands-dev/widelands
+	echo ; sudo add-apt-repository -y ppa:libreoffice/ppa
+	echo ; sudo add-apt-repository -y ppa:mozillateam/thunderbird-next
+	echo ; sudo add-apt-repository -y ppa:ubuntuhandbook1/shotwell
+	echo ; sudo add-apt-repository -y ppa:ubuntuhandbook1/darktable
+	echo ; sudo add-apt-repository -y ppa:kicad/kicad-7.0-releases
+	echo ; sudo add-apt-repository -y ppa:tomtomtom/yt-dlp
+	echo ; sudo add-apt-repository -y ppa:longsleep/golang-backports
+	echo ; sudo add-apt-repository -y ppa:aos1/diff-so-fancy
+	echo ; sudo add-apt-repository -y ppa:widelands-dev/widelands
 
 
 	echo
@@ -101,118 +117,118 @@ then
 
 	echo
 	echo "weitere Pakete installieren"
-	sudo apt install -y --install-recommends git
-	sudo apt install -y --install-recommends subversion
-	sudo apt install -y --install-recommends unoconv
-	sudo apt install -y --install-recommends catdoc
-	sudo apt install -y --install-recommends docx2txt
+	echo ; sudo apt install -y --install-recommends git
+	echo ; sudo apt install -y --install-recommends subversion
+	echo ; sudo apt install -y --install-recommends unoconv
+	echo ; sudo apt install -y --install-recommends catdoc
+	echo ; sudo apt install -y --install-recommends docx2txt
 
-	sudo apt install -y --install-recommends rclone
-	sudo apt install -y --install-recommends rclone-browser
+	echo ; sudo apt install -y --install-recommends rclone
+	echo ; sudo apt install -y --install-recommends rclone-browser
 
-	sudo apt install -y --install-recommends fonts-firacode
-	sudo apt install -y --install-recommends fonts-powerline
-	sudo apt install -y --install-recommends ttf-mscorefonts-installer
-	sudo apt install -y --install-recommends cmatrix
-	sudo apt install -y --install-recommends libreoffice-style-yaru
-	sudo apt install -y --install-recommends libreoffice-style-elementary
-	sudo apt install -y --install-recommends libreoffice-style-elementary
-	sudo apt install -y --install-recommends libreoffice-style-sifr
-	sudo apt install -y --install-recommends libreoffice-style-sukapura
-	sudo apt install -y --install-recommends openclipart
-	sudo apt install -y --install-recommends openclipart-libreoffice
+	echo ; sudo apt install -y --install-recommends fonts-firacode
+	echo ; sudo apt install -y --install-recommends fonts-powerline
+	echo ; sudo apt install -y --install-recommends ttf-mscorefonts-installer
+	echo ; sudo apt install -y --install-recommends cmatrix
+	echo ; sudo apt install -y --install-recommends libreoffice-style-yaru
+	echo ; sudo apt install -y --install-recommends libreoffice-style-elementary
+	echo ; sudo apt install -y --install-recommends libreoffice-style-elementary
+	echo ; sudo apt install -y --install-recommends libreoffice-style-sifr
+	echo ; sudo apt install -y --install-recommends libreoffice-style-sukapura
+	echo ; sudo apt install -y --install-recommends openclipart
+	echo ; sudo apt install -y --install-recommends openclipart-libreoffice
 
 
-	sudo apt install -y --install-recommends htop
-	sudo apt install -y --install-recommends inxi
-	sudo apt install -y --install-recommends neofetch
-	sudo apt install -y --install-recommends yad
-	sudo apt install -y --install-recommends sox
-	sudo apt install -y --install-recommends zenity
-	sudo apt install -y --install-recommends libsox-fmt-mp3
-	sudo apt install -y --install-recommends mc
-	sudo apt install -y --install-recommends di
-	sudo apt install -y --install-recommends ncdu
-	sudo apt install -y --install-recommends scdaemon
-	sudo apt install -y --install-recommends micro
-	sudo apt install -y --install-recommends bat
-	sudo apt install -y --install-recommends stress
-	sudo apt install -y --install-recommends clamav
-	sudo apt install -y --install-recommends exa
-	sudo apt install -y --install-recommends glmark2
-	sudo apt install -y --install-recommends hardlink
-	sudo apt install -y --install-recommends rmlint rmlint-doc
-	sudo apt install -y --install-recommends prettyping
-	sudo apt install -y --install-recommends par2
-	sudo apt install -y --install-recommends nmap
-	sudo apt install -y --install-recommends tree
-	sudo apt install -y --install-recommends trash-cli
-	sudo apt install -y --install-recommends btop
-	sudo apt install -y --install-recommends tldr
-	sudo apt install -y --install-recommends highlight
-	sudo apt install -y --install-recommends atool
-	sudo apt install -y --install-recommends caca-utils
-	sudo apt install -y --install-recommends w3m
-	sudo apt install -y --install-recommends poppler-utils
-	sudo apt install -y --install-recommends ranger
-	sudo apt install -y --install-recommends thefuck
-	sudo apt install -y --install-recommends oping
-	sudo apt install -y --install-recommends tmux
-	sudo apt install -y --install-recommends jq
-	sudo apt install -y --install-recommends progress
-	sudo apt install -y --install-recommends zsh
+	echo ; sudo apt install -y --install-recommends htop
+	echo ; sudo apt install -y --install-recommends inxi
+	echo ; sudo apt install -y --install-recommends neofetch
+	echo ; sudo apt install -y --install-recommends yad
+	echo ; sudo apt install -y --install-recommends sox
+	echo ; sudo apt install -y --install-recommends zenity
+	echo ; sudo apt install -y --install-recommends libsox-fmt-mp3
+	echo ; sudo apt install -y --install-recommends mc
+	echo ; sudo apt install -y --install-recommends di
+	echo ; sudo apt install -y --install-recommends ncdu
+	echo ; sudo apt install -y --install-recommends scdaemon
+	echo ; sudo apt install -y --install-recommends micro
+	echo ; sudo apt install -y --install-recommends bat
+	echo ; sudo apt install -y --install-recommends stress
+	echo ; sudo apt install -y --install-recommends clamav
+	echo ; sudo apt install -y --install-recommends exa
+	echo ; sudo apt install -y --install-recommends glmark2
+	echo ; sudo apt install -y --install-recommends hardlink
+	echo ; sudo apt install -y --install-recommends rmlint rmlint-doc
+	echo ; sudo apt install -y --install-recommends prettyping
+	echo ; sudo apt install -y --install-recommends par2
+	echo ; sudo apt install -y --install-recommends nmap
+	echo ; sudo apt install -y --install-recommends tree
+	echo ; sudo apt install -y --install-recommends trash-cli
+	echo ; sudo apt install -y --install-recommends btop
+	echo ; sudo apt install -y --install-recommends tldr
+	echo ; sudo apt install -y --install-recommends highlight
+	echo ; sudo apt install -y --install-recommends atool
+	echo ; sudo apt install -y --install-recommends caca-utils
+	echo ; sudo apt install -y --install-recommends w3m
+	echo ; sudo apt install -y --install-recommends poppler-utils
+	echo ; sudo apt install -y --install-recommends ranger
+	echo ; sudo apt install -y --install-recommends thefuck
+	echo ; sudo apt install -y --install-recommends oping
+	echo ; sudo apt install -y --install-recommends tmux
+	echo ; sudo apt install -y --install-recommends jq
+	echo ; sudo apt install -y --install-recommends progress
+	echo ; sudo apt install -y --install-recommends zsh
 
-	sudo apt install -y --install-recommends build-essential
-	sudo apt install -y --install-recommends xutils-dev
-	sudo apt install -y --install-recommends gcovr
-	sudo apt install -y --install-recommends attr
-	sudo apt install -y --install-recommends binutils-arm-none-eabi gcc-arm-none-eabi gcc-arm-none-eabi-source
-	sudo apt install -y --install-recommends doxygen doxygen-doc doxygen-latex
-	sudo apt install -y --install-recommends graphviz graphviz-doc
-	sudo apt install -y --install-recommends ruby ri ruby-roo bundler ruby-dev
-	sudo apt install -y --install-recommends asciidoctor asciidoctor-doc
-	sudo apt install -y --install-recommends gnuplot
-	sudo apt install -y --install-recommends wxmaxima
-	sudo apt install -y --install-recommends xmlcopyeditor
+	echo ; sudo apt install -y --install-recommends build-essential
+	echo ; sudo apt install -y --install-recommends xutils-dev
+	echo ; sudo apt install -y --install-recommends gcovr
+	echo ; sudo apt install -y --install-recommends attr
+	echo ; sudo apt install -y --install-recommends binutils-arm-none-eabi gcc-arm-none-eabi gcc-arm-none-eabi-source
+	echo ; sudo apt install -y --install-recommends doxygen doxygen-doc doxygen-latex
+	echo ; sudo apt install -y --install-recommends graphviz graphviz-doc
+	echo ; sudo apt install -y --install-recommends ruby ri ruby-roo bundler ruby-dev
+	echo ; sudo apt install -y --install-recommends asciidoctor asciidoctor-doc
+	echo ; sudo apt install -y --install-recommends gnuplot
+	echo ; sudo apt install -y --install-recommends wxmaxima
+	echo ; sudo apt install -y --install-recommends xmlcopyeditor
 
-	sudo apt install -y --install-recommends python3-gpg python3-pip python3-brotli
-	sudo apt install -y --install-recommends default-jre
-	sudo apt install -y --install-recommends libreadline-dev libpcre3-dev
-	sudo apt install -y --install-recommends yt-dlp rtmpdump ffmpeg ffmpegthumbs aria2
-	sudo apt install -y --install-recommends golang-go
-	sudo apt install -y --install-recommends diff-so-fancy
-	sudo apt install -y --install-recommends rustc cargo
+	echo ; sudo apt install -y --install-recommends python3-gpg python3-pip python3-brotli
+	echo ; sudo apt install -y --install-recommends default-jre
+	echo ; sudo apt install -y --install-recommends libreadline-dev libpcre3-dev
+	echo ; sudo apt install -y --install-recommends yt-dlp rtmpdump ffmpeg ffmpegthumbs aria2
+	echo ; sudo apt install -y --install-recommends golang-go
+	echo ; sudo apt install -y --install-recommends diff-so-fancy
+	echo ; sudo apt install -y --install-recommends rustc cargo
 
-	sudo apt install -y --install-recommends kicad
-	sudo apt install -y --install-recommends brasero
-	sudo apt install -y --install-recommends xtrkcad
-	sudo apt install -y --install-recommends sweep
-	sudo apt install -y --install-recommends gpick
-	sudo apt install -y --install-recommends shotwell
-	sudo apt install -y --install-recommends darktable
-	sudo apt install -y --install-recommends evolution
-	sudo apt install -y --install-recommends gparted
-	sudo apt install -y --install-recommends libreoffice-script-provider-python
-	sudo apt install -y --install-recommends nemo-seahorse
-	sudo apt install -y --install-recommends nemo-gtkhash
-	sudo apt install -y --install-recommends nemo-terminal
-	sudo apt install -y --install-recommends nemo-image-converter
-	sudo apt install -y --install-recommends nemo-compare
-	sudo apt install -y --install-recommends nemo-filename-repairer
-	sudo apt install -y --install-recommends nemo-audio-tab
-	sudo apt install -y --install-recommends pan
-	sudo apt install -y --install-recommends gnupg2
-	sudo apt install -y --install-recommends fraqtive
-	sudo apt install -y --install-recommends unison
-	sudo apt install -y --install-recommends unison-gtk
-	sudo apt install -y --install-recommends solaar-gnome3
-#	sudo apt install -y --install-recommends kdeconnect
+	echo ; sudo apt install -y --install-recommends kicad
+	echo ; sudo apt install -y --install-recommends brasero
+	echo ; sudo apt install -y --install-recommends xtrkcad
+	echo ; sudo apt install -y --install-recommends sweep
+	echo ; sudo apt install -y --install-recommends gpick
+	echo ; sudo apt install -y --install-recommends shotwell
+	echo ; sudo apt install -y --install-recommends darktable
+	echo ; sudo apt install -y --install-recommends evolution
+	echo ; sudo apt install -y --install-recommends gparted
+	echo ; sudo apt install -y --install-recommends libreoffice-script-provider-python
+	echo ; sudo apt install -y --install-recommends nemo-seahorse
+	echo ; sudo apt install -y --install-recommends nemo-gtkhash
+	echo ; sudo apt install -y --install-recommends nemo-terminal
+	echo ; sudo apt install -y --install-recommends nemo-image-converter
+	echo ; sudo apt install -y --install-recommends nemo-compare
+	echo ; sudo apt install -y --install-recommends nemo-filename-repairer
+	echo ; sudo apt install -y --install-recommends nemo-audio-tab
+	echo ; sudo apt install -y --install-recommends pan
+	echo ; sudo apt install -y --install-recommends gnupg2
+	echo ; sudo apt install -y --install-recommends fraqtive
+	echo ; sudo apt install -y --install-recommends unison
+	echo ; sudo apt install -y --install-recommends unison-gtk
+	echo ; sudo apt install -y --install-recommends solaar-gnome3
+#	echo ; sudo apt install -y --install-recommends kdeconnect
 
-	sudo apt install -y --install-recommends widelands
+	echo ; sudo apt install -y --install-recommends widelands
 
-	sudo apt install -y --install-recommends wine
-	sudo apt install -y --install-recommends virtualbox
-	sudo apt install -y --install-recommends firefox-locale-de
+	echo ; sudo apt install -y --install-recommends wine
+	echo ; sudo apt install -y --install-recommends virtualbox
+	echo ; sudo apt install -y --install-recommends firefox-locale-de
 
 	echo
 	echo "zusätzliche Rust (Cargo) Pakete"
@@ -221,130 +237,132 @@ then
 
 	echo
 	echo "zusätzliche Ruby Pakete"
-	sudo gem install asciidoctor-diagram
-	sudo gem install roo
+	echo ; sudo gem install asciidoctor-diagram
+	echo ; sudo gem install roo
 
 	echo
 	echo "zusätzliche Python Pakete"
-	sudo apt install -y --install-recommends libgtk-3-dev
-	sudo apt install -y --install-recommends libgstreamer-gl1.0-0
-	sudo apt install -y --install-recommends freeglut3
-	sudo apt install -y --install-recommends freeglut3-dev
-	sudo apt install -y --install-recommends python3-gst-1.0
-	sudo apt install -y --install-recommends libglib2.0-dev
-	sudo apt install -y --install-recommends ubuntu-restricted-extras
-	sudo apt install -y --install-recommends libgstreamer-plugins-base1.0-dev
-	sudo apt install -y --install-recommends wxglade
-	sudo apt install -y --install-recommends python3-pip
-	sudo apt install -y --install-recommends python3-tk
-	sudo apt install -y --install-recommends python3-setuptools
-	sudo apt install -y --install-recommends python3-dev
+	echo ; sudo apt install -y --install-recommends libgtk-3-dev
+	echo ; sudo apt install -y --install-recommends libgstreamer-gl1.0-0
+	echo ; sudo apt install -y --install-recommends freeglut3
+	echo ; sudo apt install -y --install-recommends freeglut3-dev
+	echo ; sudo apt install -y --install-recommends python3-gst-1.0
+	echo ; sudo apt install -y --install-recommends libglib2.0-dev
+	echo ; sudo apt install -y --install-recommends ubuntu-restricted-extras
+	echo ; sudo apt install -y --install-recommends libgstreamer-plugins-base1.0-dev
+	echo ; sudo apt install -y --install-recommends wxglade
+	echo ; sudo apt install -y --install-recommends python3-pip
+	echo ; sudo apt install -y --install-recommends python3-tk
+	echo ; sudo apt install -y --install-recommends python3-setuptools
+	echo ; sudo apt install -y --install-recommends python3-dev
 
 	echo
 	echo "Flatpaks installieren"
-	sudo flatpak install -y --noninteractive com.github.tchx84.Flatseal
-	sudo flatpak install -y --noninteractive io.github.flattool.Warehouse
-	sudo flatpak install -y --noninteractive io.github.giantpinkrobots.flatsweep
-	sudo flatpak install -y --noninteractive net.displaycal.DisplayCAL
-#	sudo flatpak install -y --noninteractive org.winehq.Wine
-	sudo flatpak install -y --noninteractive ca.desrt.dconf-editor
+	echo ; sudo flatpak update
+	echo ; sudo flatpak install -y --noninteractive com.github.tchx84.Flatseal
+	echo ; sudo flatpak install -y --noninteractive io.github.flattool.Warehouse
+	echo ; sudo flatpak install -y --noninteractive io.github.giantpinkrobots.flatsweep
+	echo ; sudo flatpak install -y --noninteractive net.displaycal.DisplayCAL
+#	echo ; sudo flatpak install -y --noninteractive org.winehq.Wine
+	echo ; sudo flatpak install -y --noninteractive ca.desrt.dconf-editor
 
-	sudo flatpak install -y --noninteractive org.stellarium.Stellarium
-	sudo flatpak install -y --noninteractive org.gnome.Maps
+	echo ; sudo flatpak install -y --noninteractive org.stellarium.Stellarium
+	echo ; sudo flatpak install -y --noninteractive org.gnome.Maps
 
-	sudo flatpak install -y --noninteractive com.bitwarden.desktop
-	sudo flatpak install -y --noninteractive net.cozic.joplin_desktop
-	sudo flatpak install -y --noninteractive com.nextcloud.desktopclient.nextcloud
-	sudo flatpak install -y --noninteractive com.synology.SynologyDrive
-	sudo flatpak install -y --noninteractive org.signal.Signal
-	sudo flatpak install -y --noninteractive us.zoom.Zoom
-	sudo flatpak install -y --noninteractive com.skype.Client
+	echo ; sudo flatpak install -y --noninteractive com.bitwarden.desktop
+	echo ; sudo flatpak install -y --noninteractive net.cozic.joplin_desktop
+	echo ; sudo flatpak install -y --noninteractive com.nextcloud.desktopclient.nextcloud
+	echo ; sudo flatpak install -y --noninteractive com.synology.SynologyDrive
+	echo ; sudo flatpak install -y --noninteractive org.signal.Signal
+	echo ; sudo flatpak install -y --noninteractive us.zoom.Zoom
+	echo ; sudo flatpak install -y --noninteractive com.skype.Client
 
-	sudo flatpak install -y --noninteractive com.visualstudio.code
-	sudo flatpak install -y --noninteractive com.jetbrains.PyCharm-Community
-	sudo flatpak install -y --noninteractive com.jgraph.drawio.desktop
-	sudo flatpak install -y --noninteractive org.scilab.Scilab
-	sudo flatpak install -y --noninteractive org.octave.Octave
-	sudo flatpak install -y --noninteractive org.gaphor.Gaphor
-	sudo flatpak install -y --noninteractive org.wireshark.Wireshark
-	sudo flatpak install -y --noninteractive com.github.marktext.marktext
-	sudo flatpak install -y --noninteractive com.github.afrantzis.Bless
-	sudo flatpak install -y --noninteractive org.wxhexeditor.wxHexEditor
-	sudo flatpak install -y --noninteractive org.sqlitebrowser.sqlitebrowser
-	sudo flatpak install -y --noninteractive org.gnome.meld
-	sudo flatpak install -y --noninteractive cc.arduino.arduinoide
-	sudo flatpak install -y --noninteractive com.github.fabiocolacio.marker
-	sudo flatpak install -y --noninteractive org.kde.labplot2
+	echo ; sudo flatpak install -y --noninteractive com.visualstudio.code
+	echo ; sudo flatpak install -y --noninteractive com.jetbrains.PyCharm-Community
+	echo ; sudo flatpak install -y --noninteractive com.jgraph.drawio.desktop
+	echo ; sudo flatpak install -y --noninteractive org.scilab.Scilab
+	echo ; sudo flatpak install -y --noninteractive org.octave.Octave
+	echo ; sudo flatpak install -y --noninteractive org.gaphor.Gaphor
+	echo ; sudo flatpak install -y --noninteractive org.wireshark.Wireshark
+	echo ; sudo flatpak install -y --noninteractive com.github.marktext.marktext
+	echo ; sudo flatpak install -y --noninteractive com.github.afrantzis.Bless
+	echo ; sudo flatpak install -y --noninteractive org.wxhexeditor.wxHexEditor
+	echo ; sudo flatpak install -y --noninteractive org.sqlitebrowser.sqlitebrowser
+	echo ; sudo flatpak install -y --noninteractive org.gnome.meld
+	echo ; sudo flatpak install -y --noninteractive cc.arduino.arduinoide
+	echo ; sudo flatpak install -y --noninteractive com.github.fabiocolacio.marker
+	echo ; sudo flatpak install -y --noninteractive org.kde.labplot2
 
-	sudo flatpak install -y --noninteractive com.prusa3d.PrusaSlicer
-	sudo flatpak install -y --noninteractive org.freecadweb.FreeCAD
+	echo ; sudo flatpak install -y --noninteractive com.prusa3d.PrusaSlicer
+	echo ; sudo flatpak install -y --noninteractive org.freecadweb.FreeCAD
 
-	sudo flatpak install -y --noninteractive org.freefilesync.FreeFileSync
-	sudo flatpak install -y --noninteractive com.github.qarmin.czkawka
-#	sudo flatpak install -y --noninteractive com.hamrick.VueScan
-#	sudo flatpak install -y --noninteractive org.mozilla.Thunderbird
-#	sudo flatpak install -y --noninteractive eu.betterbird.Betterbird
-#	sudo flatpak install -y --noninteractive com.ulduzsoft.Birdtray
-#	sudo flatpak install -y --noninteractive org.gnome.Evolution
-	sudo flatpak install -y --noninteractive org.gnome.Contacts
-	sudo flatpak install -y --noninteractive org.gnucash.GnuCash
-	sudo flatpak install -y --noninteractive com.calibre_ebook.calibre
-	sudo flatpak install -y --noninteractive com.github.jeromerobert.pdfarranger
-	sudo flatpak install -y --noninteractive com.github.junrrein.PDFSlicer
-	sudo flatpak install -y --noninteractive org.gramps_project.Gramps
-	sudo flatpak install -y --noninteractive net.scribus.Scribus
-	sudo flatpak install -y --noninteractive org.filezillaproject.Filezilla
-	sudo flatpak install -y --noninteractive org.gnome.moserial
-	sudo flatpak install -y --noninteractive io.dbeaver.DBeaverCommunity
-	sudo flatpak install -y --noninteractive org.raspberrypi.rpi-imager
+	echo ; sudo flatpak install -y --noninteractive org.freefilesync.FreeFileSync
+	echo ; sudo flatpak install -y --noninteractive com.github.qarmin.czkawka
+#	echo ; sudo flatpak install -y --noninteractive com.hamrick.VueScan
+#	echo ; sudo flatpak install -y --noninteractive org.mozilla.Thunderbird
+#	echo ; sudo flatpak install -y --noninteractive eu.betterbird.Betterbird
+#	echo ; sudo flatpak install -y --noninteractive com.ulduzsoft.Birdtray
+#	echo ; sudo flatpak install -y --noninteractive org.gnome.Evolution
+	echo ; sudo flatpak install -y --noninteractive org.gnome.Contacts
+	echo ; sudo flatpak install -y --noninteractive org.gnucash.GnuCash
+	echo ; sudo flatpak install -y --noninteractive com.calibre_ebook.calibre
+	echo ; sudo flatpak install -y --noninteractive com.github.jeromerobert.pdfarranger
+	echo ; sudo flatpak install -y --noninteractive com.github.junrrein.PDFSlicer
+	echo ; sudo flatpak install -y --noninteractive org.gramps_project.Gramps
+	echo ; sudo flatpak install -y --noninteractive net.scribus.Scribus
+	echo ; sudo flatpak install -y --noninteractive org.filezillaproject.Filezilla
+	echo ; sudo flatpak install -y --noninteractive org.gnome.moserial
+	echo ; sudo flatpak install -y --noninteractive io.dbeaver.DBeaverCommunity
+	echo ; sudo flatpak install -y --noninteractive org.raspberrypi.rpi-imager
+	echo ; sudo flatpak install -y --noninteractive io.gitlab.adhami3310.Impression
 
-	sudo flatpak install -y --noninteractive org.gimp.GIMP
-	sudo flatpak install -y --noninteractive net.sourceforge.Hugin
-	sudo flatpak install -y --noninteractive org.inkscape.Inkscape
-	sudo flatpak install -y --noninteractive com.rawtherapee.RawTherapee
-	sudo flatpak install -y --noninteractive org.darktable.Darktable
-	sudo flatpak install -y --noninteractive org.blender.Blender
-	sudo flatpak install -y --noninteractive org.blender.Blender.Codecs
-	sudo flatpak install -y --noninteractive org.gnome.eog
-	sudo flatpak install -y --noninteractive com.interversehq.qView
-	sudo flatpak install -y --noninteractive com.github.buddhi1980.mandelbulber2
-	sudo flatpak install -y --noninteractive com.github.tenderowl.frog
+	echo ; sudo flatpak install -y --noninteractive org.gimp.GIMP
+	echo ; sudo flatpak install -y --noninteractive net.sourceforge.Hugin
+	echo ; sudo flatpak install -y --noninteractive org.inkscape.Inkscape
+	echo ; sudo flatpak install -y --noninteractive com.rawtherapee.RawTherapee
+	echo ; sudo flatpak install -y --noninteractive org.darktable.Darktable
+	echo ; sudo flatpak install -y --noninteractive org.blender.Blender
+	echo ; sudo flatpak install -y --noninteractive org.blender.Blender.Codecs
+	echo ; sudo flatpak install -y --noninteractive org.gnome.eog
+	echo ; sudo flatpak install -y --noninteractive com.interversehq.qView
+	echo ; sudo flatpak install -y --noninteractive com.github.buddhi1980.mandelbulber2
+	echo ; sudo flatpak install -y --noninteractive com.github.tenderowl.frog
 
-	sudo flatpak install -y --noninteractive com.makemkv.MakeMKV
-	sudo flatpak install -y --noninteractive com.obsproject.Studio
-	sudo flatpak install -y --noninteractive fr.handbrake.ghb
-	sudo flatpak install -y --noninteractive org.shotcut.Shotcut
-	sudo flatpak install -y --noninteractive tv.plex.PlexDesktop
-	sudo flatpak install -y --noninteractive io.mpv.Mpv
-	sudo flatpak install -y --noninteractive org.gnome.Totem
-	sudo flatpak install -y --noninteractive org.videolan.VLC
-	sudo flatpak install -y --noninteractive org.gnome.Cheese
-	sudo flatpak install -y --noninteractive com.ozmartians.VidCutter
-	sudo flatpak install -y --noninteractive net.mediaarea.MediaInfo
-	sudo flatpak install -y --noninteractive io.freetubeapp.FreeTube
-	sudo flatpak install -y --noninteractive org.gnome.World.PikaBackup
+	echo ; sudo flatpak install -y --noninteractive com.makemkv.MakeMKV
+	echo ; sudo flatpak install -y --noninteractive com.obsproject.Studio
+	echo ; sudo flatpak install -y --noninteractive fr.handbrake.ghb
+	echo ; sudo flatpak install -y --noninteractive org.shotcut.Shotcut
+	echo ; sudo flatpak install -y --noninteractive tv.plex.PlexDesktop
+	echo ; sudo flatpak install -y --noninteractive io.mpv.Mpv
+	echo ; sudo flatpak install -y --noninteractive org.gnome.Totem
+	echo ; sudo flatpak install -y --noninteractive org.videolan.VLC
+	echo ; sudo flatpak install -y --noninteractive org.gnome.Cheese
+	echo ; sudo flatpak install -y --noninteractive com.ozmartians.VidCutter
+	echo ; sudo flatpak install -y --noninteractive net.mediaarea.MediaInfo
+	echo ; sudo flatpak install -y --noninteractive io.freetubeapp.FreeTube
+	echo ; sudo flatpak install -y --noninteractive org.gnome.World.PikaBackup
 
-	sudo flatpak install -y --noninteractive com.spotify.Client
-	sudo flatpak install -y --noninteractive de.haeckerfelix.Shortwave
-	sudo flatpak install -y --noninteractive org.audacityteam.Audacity
-	sudo flatpak install -y --noninteractive org.audacityteam.Audacity.Codecs
-	sudo flatpak install -y --noninteractive org.clementine_player.Clementine
-	sudo flatpak install -y --noninteractive org.gnome.Rhythmbox3
-	sudo flatpak install -y --noninteractive org.gnome.SoundJuicer
-	sudo flatpak install -y --noninteractive org.gnome.EasyTAG
-	sudo flatpak install -y --noninteractive org.ardour.Ardour
+	echo ; sudo flatpak install -y --noninteractive com.spotify.Client
+	echo ; sudo flatpak install -y --noninteractive de.haeckerfelix.Shortwave
+	echo ; sudo flatpak install -y --noninteractive org.audacityteam.Audacity
+	echo ; sudo flatpak install -y --noninteractive org.audacityteam.Audacity.Codecs
+	echo ; sudo flatpak install -y --noninteractive org.clementine_player.Clementine
+	echo ; sudo flatpak install -y --noninteractive org.gnome.Rhythmbox3
+	echo ; sudo flatpak install -y --noninteractive org.gnome.SoundJuicer
+	echo ; sudo flatpak install -y --noninteractive org.gnome.EasyTAG
+	echo ; sudo flatpak install -y --noninteractive org.ardour.Ardour
 
-	sudo flatpak install -y --noninteractive org.gnome.Mahjongg
-	sudo flatpak install -y --noninteractive net.sourceforge.lgames.LBreakoutHD
-	sudo flatpak install -y --noninteractive org.frozen_bubble.frozen-bubble
-	sudo flatpak install -y --noninteractive org.gnome.Aisleriot
-	sudo flatpak install -y --noninteractive org.gnome.Klotski
-	sudo flatpak install -y --noninteractive org.gnome.Mahjongg
-	sudo flatpak install -y --noninteractive org.gnome.Mines
-	sudo flatpak install -y --noninteractive org.sauerbraten.Sauerbraten
-	sudo flatpak install -y --noninteractive org.seul.pingus
-	sudo flatpak install -y --noninteractive org.hedgewars.Hedgewars
-	sudo flatpak install -y --noninteractive org.gnome.Sudoku
+	echo ; sudo flatpak install -y --noninteractive org.gnome.Mahjongg
+	echo ; sudo flatpak install -y --noninteractive net.sourceforge.lgames.LBreakoutHD
+	echo ; sudo flatpak install -y --noninteractive org.frozen_bubble.frozen-bubble
+	echo ; sudo flatpak install -y --noninteractive org.gnome.Aisleriot
+	echo ; sudo flatpak install -y --noninteractive org.gnome.Klotski
+	echo ; sudo flatpak install -y --noninteractive org.gnome.Mahjongg
+	echo ; sudo flatpak install -y --noninteractive org.gnome.Mines
+	echo ; sudo flatpak install -y --noninteractive org.sauerbraten.Sauerbraten
+	echo ; sudo flatpak install -y --noninteractive org.seul.pingus
+	echo ; sudo flatpak install -y --noninteractive org.hedgewars.Hedgewars
+	echo ; sudo flatpak install -y --noninteractive org.gnome.Sudoku
 
 
 	echo
@@ -488,6 +506,7 @@ pip install python-pptx
 pip install -U -f https://extras.wxpython.org/wxPython4/extras/linux/gtk3/ubuntu-22.04 wxPython
 #pip3 install -v --user wxPython
 
+
 echo
 echo "lokale Konfigurationen einrichten"
 if [ -d "Mint" ]
@@ -510,6 +529,24 @@ else
 	git clone https://github.com/ohmyzsh/ohmyzsh.git .oh-my-zsh
 fi
 
+
+echo
+echo "Frameworks auschecken oder aktualisieren"
+
+if [ -d "$HOME/Frameworks/KiCAD" ]
+then
+	pushd "$HOME/Frameworks/KiCAD"
+	git fetch --all
+	git pull
+	popd
+else
+	pushd "$HOME/Frameworks"
+	git clone https://github.com/boderu/Framework.KiCAD.git KiCAD
+	popd
+fi
+
+
+echo
 echo "FireFox Download Helper App."
 if [ -f "$HOME/SynologyDrive/Mint/Apps/DownloadHelper/net.downloadhelper.coapp-1.6.3-1_amd64.deb" ]
 then
@@ -521,14 +558,6 @@ if [ -f "$HOME/SynologyDrive/Mint/Apps/VueScan/vue*.deb" ]
 then
 	sudo apt install -y $HOME/SynologyDrive/Mint/Apps/VueScan/vue*.deb
 fi
-
-
-mkdir -pv "$HOME/.config"
-mkdir -pv "$HOME/.local/share"
-mkdir -pv "$HOME/.local/bin"
-mkdir -pv "$HOME/Media/Stable Diffusion"
-mkdir -pv "$HOME/Warpinator"
-mkdir -pv "$HOME/dwhelper"
 
 
 Link "$HOME/Mint/.bashrc"									"$HOME/.bashrc"
