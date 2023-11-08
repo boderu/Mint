@@ -258,7 +258,8 @@ then
 
 	echo
 	echo "Flatpaks installieren"
-	echo ; sudo flatpak update
+	echo ; sudo flatpak update -y --noninteractive
+
 	echo ; sudo flatpak install -y --noninteractive com.github.tchx84.Flatseal
 	echo ; sudo flatpak install -y --noninteractive io.github.flattool.Warehouse
 	echo ; sudo flatpak install -y --noninteractive io.github.giantpinkrobots.flatsweep
