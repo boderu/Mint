@@ -639,7 +639,17 @@ popd
 
 
 # Apps und Desktop konfigurieren
-dconf load /org/cinnamon/			< $HOME/Mint/org.cinnamon.dconf
+# gibt es eine abweichende Font-Skalierung?
+if [ -f $HOME/.text-scaling-factor ]
+then
+	echo "eine abweichende Font-Skalierung von $(cat $HOME/.text-scaling-factor) einrichten"
+	cat $HOME/Mint/org.cinnamon.dconf | \
+		sed "s/text-scaling-factor=.*/text-scaling-factor=$(cat $HOME/.text-scaling-factor)/" | \
+		dconf load /org/cinnamon/
+else
+	dconf load /org/cinnamon/ < $HOME/Mint/org.cinnamon.dconf
+fi
+
 dconf load /org/nemo/				< $HOME/Mint/org.nemo.dconf
 dconf load /org/x/editor/			< $HOME/Mint/org.x.editor.dconf
 dconf load /org/x/pix/				< $HOME/Mint/org.x.pix.dconf
