@@ -316,6 +316,7 @@ then
 	echo ; sudo flatpak install -y --noninteractive io.dbeaver.DBeaverCommunity
 	echo ; sudo flatpak install -y --noninteractive org.raspberrypi.rpi-imager
 	echo ; sudo flatpak install -y --noninteractive io.gitlab.adhami3310.Impression
+	echo ; sudo flatpak install -y --noninteractive de.bund.ausweisapp.ausweisapp2
 
 	echo ; sudo flatpak install -y --noninteractive org.gimp.GIMP
 	echo ; sudo flatpak install -y --noninteractive net.sourceforge.Hugin
