@@ -122,6 +122,7 @@ then
 	echo ; sudo apt install -y --install-recommends unoconv
 	echo ; sudo apt install -y --install-recommends catdoc
 	echo ; sudo apt install -y --install-recommends docx2txt
+	echo ; sudo apt install -y --install-recommends wget
 
 	echo ; sudo apt install -y --install-recommends rclone
 	echo ; sudo apt install -y --install-recommends rclone-browser
@@ -191,7 +192,6 @@ then
 	echo ; sudo apt install -y --install-recommends wxmaxima
 	echo ; sudo apt install -y --install-recommends xmlcopyeditor
 
-	echo ; sudo apt install -y --install-recommends python3-gpg python3-pip python3-brotli
 	echo ; sudo apt install -y --install-recommends default-jre
 	echo ; sudo apt install -y --install-recommends libreadline-dev libpcre3-dev
 	echo ; sudo apt install -y --install-recommends yt-dlp rtmpdump ffmpeg ffmpegthumbs aria2
@@ -241,7 +241,12 @@ then
 	echo ; sudo gem install roo
 
 	echo
-	echo "zusätzliche Python Pakete"
+	echo "Python und zusätzliche Pakete"
+	echo ; sudo apt install -y --install-recommends python3
+	echo ; sudo apt install -y --install-recommends python3-pip
+	echo ; sudo apt install -y --install-recommends python3-gpg
+	echo ; sudo apt install -y --install-recommends python3-venv
+	echo ; sudo apt install -y --install-recommends python3-brotli
 	echo ; sudo apt install -y --install-recommends libgtk-3-dev
 	echo ; sudo apt install -y --install-recommends libgstreamer-gl1.0-0
 	echo ; sudo apt install -y --install-recommends freeglut3
@@ -251,7 +256,6 @@ then
 	echo ; sudo apt install -y --install-recommends ubuntu-restricted-extras
 	echo ; sudo apt install -y --install-recommends libgstreamer-plugins-base1.0-dev
 	echo ; sudo apt install -y --install-recommends wxglade
-	echo ; sudo apt install -y --install-recommends python3-pip
 	echo ; sudo apt install -y --install-recommends python3-tk
 	echo ; sudo apt install -y --install-recommends python3-setuptools
 	echo ; sudo apt install -y --install-recommends python3-dev
@@ -429,18 +433,23 @@ then
 	sudo apt install -y --install-recommends libc6-i386 libusb-0.1-4 libgconf-2-4 libncurses5 libpython2.7 libtinfo5
 
 
-	#echo
-	#echo "Install Easy Diffusion"
+	echo
+	echo "Easy Diffusion installieren"
+	if [ ! -d "$HOME/easy-diffusion" ]
+	then
+		wget "https://github.com/cmdr2/stable-diffusion-ui/releases/latest/download/Easy-Diffusion-Linux.zip"
+		unzip Easy-Diffusion-Linux.zip
+		rm -f Easy-Diffusion-Linux.zip
+	fi
 
 
 	#echo
 	#echo "Install Automatic 1111"
-	#sudo apt install -y --install-recommends wget git python3 python3-venv
-	#wget https://raw.githubusercontent.com/AUTOMATIC1111/stable-diffusion-webui/master/webui.sh
-	#rm .fv webui.sh
+	#sudo apt install -y --install-recommends libgl1 libglib2.0-0
+	#wget -q https://raw.githubusercontent.com/AUTOMATIC1111/stable-diffusion-webui/master/webui.sh
 	#chmod +x webui.sh
 	#./webui.sh
-	#rm .fv webui.sh
+	#rm -fv webui.sh
 
 
 	echo

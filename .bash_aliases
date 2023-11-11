@@ -12,3 +12,4 @@ alias c='batcat'
 alias scanip="nmap -sn 192.168.1.0/24 | awk '/for/ {print substr(\$0,22)}'"
 alias gitlog='git log --pretty=format:"%h %s" --graph'
 alias lg='lazygit'
+alias easy="cd $HOME/easy-diffusion && ./start.sh"
