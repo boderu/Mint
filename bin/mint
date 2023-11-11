@@ -97,6 +97,7 @@ then
 	echo ; sudo add-apt-repository -y ppa:mozillateam/thunderbird-next
 	echo ; sudo add-apt-repository -y ppa:ubuntuhandbook1/shotwell
 	echo ; sudo add-apt-repository -y ppa:ubuntuhandbook1/darktable
+	echo ; sudo add-apt-repository -y ppa:freecad-maintainers/freecad-stable
 	echo ; sudo add-apt-repository -y ppa:kicad/kicad-7.0-releases
 	echo ; sudo add-apt-repository -y ppa:tomtomtom/yt-dlp
 	echo ; sudo add-apt-repository -y ppa:longsleep/golang-backports
@@ -199,6 +200,7 @@ then
 	echo ; sudo apt install -y --install-recommends diff-so-fancy
 	echo ; sudo apt install -y --install-recommends rustc cargo
 
+	echo ; sudo apt install -y --install-recommends freecad
 	echo ; sudo apt install -y --install-recommends kicad
 	echo ; sudo apt install -y --install-recommends brasero
 	echo ; sudo apt install -y --install-recommends xtrkcad
