@@ -17,9 +17,9 @@
     "edit_sheet_height": -1,
     "edit_sheet_visible_columns": "0 1 2 3 4 5 6 7",
     "edit_sheet_width": -1,
-    "edit_symbol_height": -1,
+    "edit_symbol_height": 566,
     "edit_symbol_visible_columns": "0 1 2 3 4 5 6 7",
-    "edit_symbol_width": -1,
+    "edit_symbol_width": 1116,
     "erc_severities": 24,
     "footprint_preview": true,
     "print_sheet_reference": true,
@@ -34,7 +34,7 @@
     "show_sheet_filename_case_sensitivity_dialog": true
   },
   "aui": {
-    "hierarchy_panel_docked_width": 200,
+    "hierarchy_panel_docked_width": 298,
     "hierarchy_panel_float_height": 200,
     "hierarchy_panel_float_width": 200,
     "schematic_hierarchy_float": false,
@@ -144,9 +144,9 @@
     "window": {
       "display": 0,
       "maximized": false,
-      "perspective": "",
-      "pos_x": 0,
-      "pos_y": 0,
+      "perspective": "layout2|name=InfoBar;caption=;state=131454;dir=1;layer=1;row=0;pos=0;prop=100000;bestw=20;besth=30;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=MainToolbar;caption=;state=139632;dir=1;layer=6;row=0;pos=0;prop=100000;bestw=630;besth=34;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=MsgPanel;caption=;state=131452;dir=3;layer=6;row=0;pos=0;prop=100000;bestw=400;besth=38;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Libraries;caption=;state=1020;dir=4;layer=2;row=0;pos=0;prop=100000;bestw=200;besth=-1;minw=100;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Symbols;caption=;state=1020;dir=4;layer=1;row=0;pos=0;prop=100000;bestw=300;besth=-1;minw=100;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=DrawFrame;caption=;state=1020;dir=5;layer=0;row=0;pos=0;prop=100000;bestw=400;besth=160;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|dock_size(1,6,0)=34|dock_size(3,6,0)=38|dock_size(4,2,0)=152|dock_size(4,1,0)=152|dock_size(5,0,0)=150|",
+      "pos_x": 1670,
+      "pos_y": 880,
       "size_x": 500,
       "size_y": 400
     }
@@ -227,10 +227,11 @@
   "system": {
     "file_history": [
       "/home/boderu/WsKiCAD/cbEval.STM32G0B1KET6/cbEval.STM32G0B1KET6.kicad_sch",
+      "/home/boderu/WsKiCAD/Test2Delete/Test2Delete.kicad_sch",
+      "/home/boderu/WsKiCAD/AFE_Testballon/AFE_Converter_2v0.kicad_sch",
       "/home/boderu/WsKiCAD/cbEval.Stripboard/cbEval.Stripboard.kicad_sch",
       "/home/boderu/WsKiCAD/cbEval.PwrSupply.Linear/cbEval.PwrSupply.Linear.kicad_sch",
-      "/home/boderu/WsKiCAD/cbEval.ATtiny412_1614/cbEval.ATtiny412_1614.kicad_sch",
-      "/home/boderu/WsKiCAD/Test2Delete/Test2Delete.kicad_sch"
+      "/home/boderu/WsKiCAD/cbEval.ATtiny412_1614/cbEval.ATtiny412_1614.kicad_sch"
     ],
     "first_run_shown": false,
     "last_imperial_units": 5,
@@ -261,10 +262,10 @@
     },
     "maximized": false,
     "mru_path": "",
-    "perspective": "layout2|name=InfoBar;caption=;state=131454;dir=1;layer=1;row=0;pos=0;prop=100000;bestw=20;besth=30;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=MainToolbar;caption=;state=139632;dir=1;layer=6;row=0;pos=0;prop=100000;bestw=1204;besth=34;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=MsgPanel;caption=;state=131452;dir=3;layer=6;row=0;pos=0;prop=100000;bestw=400;besth=38;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=SchematicHierarchy;caption=Schaltplan-Hierarchie;state=2099148;dir=4;layer=3;row=0;pos=0;prop=100000;bestw=200;besth=200;minw=120;minh=60;maxw=-1;maxh=-1;floatx=252;floaty=45;floatw=200;floath=200|name=OptToolbar;caption=;state=139596;dir=4;layer=2;row=0;pos=0;prop=100000;bestw=34;besth=396;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=ToolsToolbar;caption=;state=139596;dir=2;layer=2;row=0;pos=0;prop=100000;bestw=34;besth=762;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=DrawFrame;caption=;state=1020;dir=5;layer=0;row=0;pos=0;prop=100000;bestw=400;besth=160;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|dock_size(1,6,0)=34|dock_size(3,6,0)=38|dock_size(4,2,0)=34|dock_size(2,2,0)=34|dock_size(5,0,0)=402|dock_size(4,3,0)=202|",
-    "pos_x": 297,
-    "pos_y": 578,
-    "size_x": 1854,
+    "perspective": "layout2|name=InfoBar;caption=;state=131454;dir=1;layer=1;row=0;pos=0;prop=100000;bestw=20;besth=30;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=MainToolbar;caption=;state=139632;dir=1;layer=6;row=0;pos=0;prop=100000;bestw=1204;besth=34;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=MsgPanel;caption=;state=131452;dir=3;layer=6;row=0;pos=0;prop=100000;bestw=400;besth=38;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=SchematicHierarchy;caption=Schaltplan-Hierarchie;state=2099148;dir=4;layer=3;row=0;pos=0;prop=100000;bestw=298;besth=200;minw=120;minh=60;maxw=-1;maxh=-1;floatx=350;floaty=45;floatw=200;floath=200|name=OptToolbar;caption=;state=139596;dir=4;layer=2;row=0;pos=0;prop=100000;bestw=34;besth=396;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=ToolsToolbar;caption=;state=139596;dir=2;layer=2;row=0;pos=0;prop=100000;bestw=34;besth=762;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=DrawFrame;caption=;state=1020;dir=5;layer=0;row=0;pos=0;prop=100000;bestw=400;besth=160;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|dock_size(1,6,0)=34|dock_size(3,6,0)=38|dock_size(4,2,0)=34|dock_size(2,2,0)=34|dock_size(5,0,0)=402|dock_size(4,3,0)=300|",
+    "pos_x": 254,
+    "pos_y": 577,
+    "size_x": 2334,
     "size_y": 1516,
     "zoom_factors": [
       0.05,

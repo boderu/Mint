@@ -1,7 +1,7 @@
 {
   "action_plugins": [],
   "appearance": {
-    "color_theme": "_builtin_default"
+    "color_theme": "BodeRu"
   },
   "aui": {
     "appearance_expand_layer_display": true,
@@ -109,12 +109,12 @@
     "autozoom": true,
     "cursor": {
       "always_show_cursor": true,
-      "fullscreen_cursor": false
+      "fullscreen_cursor": true
     },
     "display": 0,
     "fp_list_width": 300,
     "grid": {
-      "axes_enabled": false,
+      "axes_enabled": true,
       "fast_grid_1": 4,
       "fast_grid_2": 5,
       "last_size": 4,
@@ -153,12 +153,12 @@
     "lib_list_width": 200,
     "maximized": false,
     "mru_path": "",
-    "perspective": "",
-    "pos_x": 0,
-    "pos_y": 0,
-    "size_x": 0,
-    "size_y": 0,
-    "zoom": 1.0,
+    "perspective": "layout2|name=MainToolbar;caption=;state=139632;dir=1;layer=6;row=0;pos=0;prop=100000;bestw=917;besth=35;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=OptToolbar;caption=;state=139596;dir=4;layer=3;row=0;pos=0;prop=100000;bestw=34;besth=410;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=MsgPanel;caption=;state=131452;dir=3;layer=6;row=0;pos=0;prop=100000;bestw=400;besth=38;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Libraries;caption=;state=1020;dir=4;layer=2;row=0;pos=0;prop=100000;bestw=200;besth=-1;minw=100;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Footprints;caption=;state=1020;dir=4;layer=1;row=0;pos=0;prop=100000;bestw=300;besth=-1;minw=100;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=DrawFrame;caption=;state=1020;dir=5;layer=0;row=0;pos=0;prop=100000;bestw=400;besth=160;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|dock_size(1,6,0)=35|dock_size(4,3,0)=34|dock_size(3,6,0)=38|dock_size(4,2,0)=202|dock_size(4,1,0)=302|dock_size(5,0,0)=384|",
+    "pos_x": 1280,
+    "pos_y": 720,
+    "size_x": 1280,
+    "size_y": 720,
+    "zoom": 9.42442081463284,
     "zoom_factors": []
   },
   "footprint_wizard": {
@@ -332,10 +332,10 @@
   "system": {
     "file_history": [
       "/home/boderu/WsKiCAD/cbEval.STM32G0B1KET6/cbEval.STM32G0B1KET6.kicad_pcb",
+      "/home/boderu/WsKiCAD/AFE_Testballon/AFE_Converter_2v0.kicad_pcb",
       "/home/boderu/WsKiCAD/cbEval.Stripboard/cbEval.Stripboard.kicad_pcb",
       "/home/boderu/WsKiCAD/cbEval.PwrSupply.Linear/cbEval.PwrSupply.Linear.kicad_pcb",
-      "/home/boderu/WsKiCAD/cbEval.ATtiny412_1614/cbEval.ATtiny412_1614.kicad_pcb",
-      "/home/boderu/WsKiCAD/AFE_Testballon/AFE_Converter_2v0.kicad_pcb"
+      "/home/boderu/WsKiCAD/cbEval.ATtiny412_1614/cbEval.ATtiny412_1614.kicad_pcb"
     ],
     "first_run_shown": false,
     "last_footprint3d_dir": "",
@@ -378,7 +378,7 @@
   "window": {
     "cursor": {
       "always_show_cursor": true,
-      "fullscreen_cursor": false
+      "fullscreen_cursor": true
     },
     "display": 0,
     "footprint_text_shown_columns": "0 1 2 3 4 5 6",
@@ -422,8 +422,8 @@
     "maximized": false,
     "mru_path": "",
     "perspective": "layout2|name=InfoBar;caption=;state=131454;dir=1;layer=1;row=0;pos=0;prop=100000;bestw=20;besth=30;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=MainToolbar;caption=;state=139632;dir=1;layer=6;row=0;pos=0;prop=100000;bestw=1213;besth=35;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=AuxToolbar;caption=;state=139644;dir=1;layer=5;row=0;pos=0;prop=100000;bestw=1288;besth=35;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=MsgPanel;caption=;state=131452;dir=3;layer=6;row=0;pos=0;prop=100000;bestw=400;besth=38;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=OptToolbar;caption=;state=139596;dir=4;layer=3;row=0;pos=0;prop=100000;bestw=34;besth=638;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=ToolsToolbar;caption=;state=139596;dir=2;layer=3;row=0;pos=0;prop=100000;bestw=34;besth=675;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=LayersManager;caption=Erscheinungsbild;state=1532;dir=2;layer=4;row=0;pos=0;prop=100000;bestw=180;besth=-1;minw=180;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=SelectionFilter;caption=Auswahlfilter;state=1532;dir=2;layer=4;row=0;pos=1;prop=0;bestw=180;besth=-1;minw=180;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=PropertiesManager;caption=Eigenschaften;state=1534;dir=4;layer=5;row=0;pos=0;prop=100000;bestw=300;besth=-1;minw=240;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=DrawFrame;caption=;state=1020;dir=5;layer=0;row=0;pos=0;prop=100000;bestw=400;besth=160;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Search;caption=Suche;state=2098686;dir=3;layer=0;row=0;pos=0;prop=100000;bestw=180;besth=-1;minw=180;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=480;floath=200|dock_size(1,6,0)=35|dock_size(1,5,0)=35|dock_size(3,6,0)=38|dock_size(4,3,0)=34|dock_size(2,3,0)=34|dock_size(2,4,0)=342|dock_size(5,0,0)=402|",
-    "pos_x": 547,
-    "pos_y": 428,
+    "pos_x": 1706,
+    "pos_y": 61,
     "size_x": 2056,
     "size_y": 1563,
     "zoom_factors": [

@@ -59,11 +59,11 @@
     "check_for_updates": 2,
     "file_history": [
       "/home/boderu/WsKiCAD/cbEval.STM32G0B1KET6/cbEval.STM32G0B1KET6.kicad_pro",
+      "/home/boderu/WsKiCAD/Test2Delete/Test2Delete.kicad_pro",
+      "/home/boderu/WsKiCAD/AFE_Testballon/AFE_Converter_2v0.kicad_pro",
       "/home/boderu/WsKiCAD/cbEval.Stripboard/cbEval.Stripboard.kicad_pro",
       "/home/boderu/WsKiCAD/cbEval.PwrSupply.Linear/cbEval.PwrSupply.Linear.kicad_pro",
-      "/home/boderu/WsKiCAD/cbEval.ATtiny412_1614/cbEval.ATtiny412_1614.kicad_pro",
-      "/home/boderu/WsKiCAD/Test2Delete/Test2Delete.kicad_pro",
-      "/home/boderu/WsKiCAD/AFE_Testballon/AFE_Converter_2v0.kicad_pro"
+      "/home/boderu/WsKiCAD/cbEval.ATtiny412_1614/cbEval.ATtiny412_1614.kicad_pro"
     ],
     "first_run_shown": false,
     "last_imperial_units": 0,
@@ -120,8 +120,8 @@
     "maximized": false,
     "mru_path": "/home/boderu/WsKiCAD/cbEval.STM32G0B1KET6/",
     "perspective": "layout2|name=MainToolbar;caption=;state=139644;dir=4;layer=2;row=0;pos=0;prop=100000;bestw=34;besth=227;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=ProjectTree;caption=Projektdateien;state=1532;dir=4;layer=1;row=0;pos=0;prop=100000;bestw=471;besth=-1;minw=250;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Launcher;caption=Editoren;state=508;dir=5;layer=0;row=0;pos=0;prop=100000;bestw=893;besth=560;minw=893;minh=560;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|dock_size(4,2,0)=34|dock_size(4,1,0)=471|dock_size(5,0,0)=893|",
-    "pos_x": 511,
-    "pos_y": 1164,
+    "pos_x": 916,
+    "pos_y": 1242,
     "size_x": 1612,
     "size_y": 751,
     "zoom_factors": []
