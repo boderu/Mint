@@ -485,8 +485,8 @@ then
 		grep '\.deb' | \
 		cut -d '"' -f 4 | \
 		wget -i -
-	sudo apt -f install ./drawio-*.deb
-	rm -fv ./drawio-amd64-*.deb
+	sudo apt -f install ./drawio-amd64*.deb
+	rm -fv ./drawio*.deb
 
 
 	echo
