@@ -27,10 +27,10 @@ show-reload-icon-toolbar=true
 show-show-thumbnails-toolbar=true
 
 [preferences/menu-config]
-selection-menu-copy-to=true
+selection-menu-copy-to=false
 selection-menu-duplicate=true
 selection-menu-make-link=true
-selection-menu-move-to=true
+selection-menu-move-to=false
 
 [search]
 search-files-recursively=false
