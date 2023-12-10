@@ -227,6 +227,7 @@ then
 	echo ; sudo apt install -y --install-recommends unison-gtk
 	echo ; sudo apt install -y --install-recommends solaar-gnome3
 #	echo ; sudo apt install -y --install-recommends kdeconnect
+	echo ; sudo apt install -y --install-recommends searchmonkey
 
 	echo ; sudo apt install -y --install-recommends widelands
 
