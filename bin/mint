@@ -119,6 +119,7 @@ then
 
 	echo
 	echo "weitere Pakete installieren"
+	echo ; sudo apt install -y --install-recommends nala
 	echo ; sudo apt install -y --install-recommends git
 	echo ; sudo apt install -y --install-recommends subversion
 	echo ; sudo apt install -y --install-recommends unoconv
@@ -330,6 +331,7 @@ then
 	echo ; sudo flatpak install -y --noninteractive org.raspberrypi.rpi-imager
 	echo ; sudo flatpak install -y --noninteractive io.gitlab.adhami3310.Impression
 	echo ; sudo flatpak uninstall -y --noninteractive de.bund.ausweisapp.ausweisapp2
+	echo ; sudo flatpak install -y --noninteractive org.flameshot.Flameshot
 
 	echo ; sudo flatpak install -y --noninteractive org.gimp.GIMP
 	echo ; sudo flatpak install -y --noninteractive net.sourceforge.Hugin
