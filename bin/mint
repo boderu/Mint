@@ -551,6 +551,16 @@ then
 		sudo chmod u+w /home/Public
 		sudo chmod ug+s /home/Public
 	fi
+
+	echo
+	echo "Limit für Filesystem-Watches (inotify) erhöhen"
+	if [ ! -e /etc/sysctl.d/90-inotify.conf ]
+	then
+		sudo cp $HOME/Mint/Sytem/etc/sysctl.d/90-inotify.conf /etc/sysctl.d/
+		sudo chown root:root /etc/sysctl.d/90-inotify.conf
+		sudo sysctl -p --system
+	fi
+
 fi # if $USER != guest
 
 
