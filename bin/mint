@@ -625,9 +625,10 @@ fi
 
 echo
 echo "FireFox Download Helper App."
-if [ -f "$HOME/SynologyDrive/Mint/Apps/DownloadHelper/net.downloadhelper.coapp-1.6.3-1_amd64.deb" ]
+if [ -f "$HOME/SynologyDrive/Mint/Apps/DownloadHelper/vdhcoapp-2.0.10-linux-x86_64.deb" ]
 then
-	sudo apt install -y $HOME/SynologyDrive/Mint/Apps/DownloadHelper/net.downloadhelper.coapp-1.6.3-1_amd64.deb
+	sudo apt install -y $HOME/SynologyDrive/Mint/Apps/DownloadHelper/vdhcoapp-2.0.10-linux-x86_64.deb
+	/opt/vdhcoapp/vdhcoapp install
 fi
 
 echo "VueScan"
