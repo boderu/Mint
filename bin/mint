@@ -226,6 +226,7 @@ then
 	echo ; sudo apt install -y --install-recommends nemo-compare
 	echo ; sudo apt install -y --install-recommends nemo-filename-repairer
 	echo ; sudo apt install -y --install-recommends nemo-audio-tab
+	echo ; sudo apt install -y --install-recommends nemo-nextcloud
 	echo ; sudo apt install -y --install-recommends pan
 	echo ; sudo apt install -y --install-recommends gnupg2
 	echo ; sudo apt install -y --install-recommends fraqtive
