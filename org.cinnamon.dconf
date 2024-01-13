@@ -40,9 +40,10 @@ image-source='xml:///usr/share/cinnamon-background-properties/linuxmint.xml'
 
 [desktop/interface]
 cursor-size=24
+cursor-theme='Bibata-Modern-Classic'
 gtk-theme='Mint-L-Darker-Grey'
 icon-theme='Mint-Y-Grey'
-text-scaling-factor=1.2000000000000002
+text-scaling-factor=1.2
 toolkit-accessibility=false
 
 [desktop/media-handling]
@@ -84,7 +85,20 @@ min-window-opacity=30
 [gestures]
 enabled=true
 pinch-percent-threshold=uint32 30
+swipe-down-2='PUSH_TILE_DOWN::end'
+swipe-down-3='TOGGLE_OVERVIEW::end'
+swipe-down-4='VOLUME_DOWN::end'
+swipe-left-2='PUSH_TILE_LEFT::end'
+swipe-left-3='WORKSPACE_NEXT::end'
+swipe-left-4='WINDOW_WORKSPACE_PREVIOUS::end'
 swipe-percent-threshold=uint32 30
+swipe-right-2='PUSH_TILE_RIGHT::end'
+swipe-right-3='WORKSPACE_PREVIOUS::end'
+swipe-right-4='WINDOW_WORKSPACE_NEXT::end'
+swipe-up-2='PUSH_TILE_UP::end'
+swipe-up-3='TOGGLE_EXPO::end'
+swipe-up-4='VOLUME_UP::end'
+tap-3=''
 
 [launcher]
 check-frequency=300
@@ -109,4 +123,4 @@ sleep-inactive-ac-timeout=0
 sleep-inactive-battery-timeout=3600
 
 [theme]
-name='Mint-Y-Dark-Grey'
+name='Mint-L-Dark-Grey'

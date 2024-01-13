@@ -1,5 +1,5 @@
 [plugins]
-active-plugins=['textsize', 'joinlines', 'docinfo', 'open-uri-context-menu', 'bracketcompletion', 'time', 'filebrowser', 'sort', 'modelines', 'spell']
+active-plugins=['time', 'textsize', 'spell', 'sort', 'modelines', 'joinlines', 'filebrowser', 'docinfo', 'open-uri-context-menu', 'bracketcompletion']
 
 [plugins/filebrowser/on-load]
 root='file:///'

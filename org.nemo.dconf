@@ -33,13 +33,14 @@ selection-menu-make-link=true
 selection-menu-move-to=false
 
 [search]
+search-file-case-sensitive=false
 search-files-recursively=false
 search-reverse-sort=false
 search-sort-column='name'
 search-visible-columns=['name', 'where', 'date_modified', 'size']
 
 [window-state]
-geometry='1135x831+543+686'
+geometry='1135x831+392+110'
 maximized=false
 sidebar-bookmark-breakpoint=5
 sidebar-width=242
