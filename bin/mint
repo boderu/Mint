@@ -237,6 +237,7 @@ then
 	echo ; sudo apt install -y --install-recommends kdeconnect-cli
 	echo ; sudo apt install -y --install-recommends searchmonkey
 	echo ; sudo apt install -y --install-recommends grsync
+	echo ; sudo apt install -y --install-recommends guake
 
 	echo ; sudo apt install -y --install-recommends widelands
 
