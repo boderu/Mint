@@ -633,7 +633,7 @@ fi
 
 
 echo
-echo "FireFox Download Helper App."
+echo "FireFox Download Helper App"
 if [ -f "$HOME/SynologyDrive/Mint/Apps/DownloadHelper/vdhcoapp-2.0.10-linux-x86_64.deb" ]
 then
 	sudo apt install -y $HOME/SynologyDrive/Mint/Apps/DownloadHelper/vdhcoapp-2.0.10-linux-x86_64.deb
@@ -644,6 +644,21 @@ echo "VueScan"
 if [ -f "$HOME/SynologyDrive/Mint/Apps/VueScan/vue*.deb" ]
 then
 	sudo apt install -y $HOME/SynologyDrive/Mint/Apps/VueScan/vue*.deb
+fi
+
+echo
+echo "Segger j-link"
+if [ -f "$HOME/SynologyDrive/Mint/Apps/Segger/JLink_Linux_*_x86_64.deb" ]
+then
+	sudo apt purge -y jlink
+	sudo apt install -y $HOME/SynologyDrive/Mint/Apps/Segger/JLink_Linux_*_x86_64.deb
+fi
+
+echo
+echo "Segger Ozone Debugger"
+if [ -f "$HOME/SynologyDrive/Mint/Apps/Segger/Ozone_Linux_V330d_x86_64.deb" ]
+then
+	sudo apt install -y $HOME/SynologyDrive/Mint/Apps/Segger/Ozone_Linux_V330d_x86_64.deb
 fi
 
 
