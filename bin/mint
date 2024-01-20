@@ -191,6 +191,8 @@ then
 	echo ; sudo apt install -y --install-recommends gcovr
 	echo ; sudo apt install -y --install-recommends attr
 	echo ; sudo apt install -y --install-recommends binutils-arm-none-eabi gcc-arm-none-eabi gcc-arm-none-eabi-source
+#	echo ; sudo apt install -y --install-recommends libnewlib-arm-none-eabi libstdc++-arm-none-eabi-newlib
+#	echo ; sudo apt install -y --install-recommends picolibc-arm-none-eabi libstdc++-arm-none-eabi-picolibc
 	echo ; sudo apt install -y --install-recommends doxygen doxygen-doc doxygen-latex
 	echo ; sudo apt install -y --install-recommends graphviz graphviz-doc
 	echo ; sudo apt install -y --install-recommends ghostscript
@@ -648,10 +650,10 @@ fi
 
 echo
 echo "Segger j-link"
-if [ -f "$HOME/Nextcloud/Apps/Mint/Segger/JLink_Linux_*_x86_64.deb" ]
+if [ -f "$HOME/Nextcloud/Apps/Mint/Segger/JLink_Linux_V794f_x86_64.deb" ]
 then
 	sudo apt purge -y jlink
-	sudo apt install -y $HOME/Nextcloud/Apps/Mint/Segger/JLink_Linux_*_x86_64.deb
+	sudo apt install -y $HOME/Nextcloud/Apps/Mint/Segger/JLink_Linux_V794f_x86_64.deb
 fi
 
 echo
