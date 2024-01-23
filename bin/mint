@@ -311,13 +311,14 @@ then
 	echo ; sudo flatpak install -y --noninteractive org.octave.Octave
 	echo ; sudo flatpak install -y --noninteractive org.gaphor.Gaphor
 	echo ; sudo flatpak install -y --noninteractive org.wireshark.Wireshark
-	echo ; sudo flatpak install -y --noninteractive com.github.marktext.marktext
+	echo ; sudo flatpak uninstall -y --noninteractive com.github.marktext.marktext
+	echo ; sudo flatpak install -y --noninteractive me.mitya57.ReText
 	echo ; sudo flatpak install -y --noninteractive com.github.afrantzis.Bless
 	echo ; sudo flatpak install -y --noninteractive org.wxhexeditor.wxHexEditor
 	echo ; sudo flatpak install -y --noninteractive org.sqlitebrowser.sqlitebrowser
 	echo ; sudo flatpak install -y --noninteractive org.gnome.meld
 	echo ; sudo flatpak install -y --noninteractive cc.arduino.arduinoide
-	echo ; sudo flatpak install -y --noninteractive com.github.fabiocolacio.marker
+	echo ; sudo flatpak uninstall -y --noninteractive com.github.fabiocolacio.marker
 	echo ; sudo flatpak install -y --noninteractive org.kde.labplot2
 
 	echo ; sudo flatpak install -y --noninteractive com.prusa3d.PrusaSlicer
