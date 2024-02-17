@@ -6,11 +6,8 @@ Name[es]=OCR PDF(s)
 Name[fi]=OCR PDF tekstintunnistus
 Name[fr]=OCR PDF(s)
 Name[hu]=OCR PDF(s)
-Comment=Execute OCR on the selected PDF files to add text information on embedded images, saves result as ".ocr.pdf"
-Comment[de]=OCR auf die ausgewählten PDF-Dateien ausführen, um Textinformationen auf die eingebetteten Bilder hinzuzufügen, speichert das Ergebnis als ".ocr.pdf"
-Comment[es]=Ejecute OCR en los archivos PDF seleccionados para añadir información de texto en las imágenes incrustadas, guarda el resultado como ".ocr.pdf"
-Comment[fi]=Tekstintunnistus valituissa PDF-tiedostossa, tallentaa tuloksen nimellä ".ocr.pdf"
-Comment[fr]=Execute une reconnaissant optique sur les fichiers PDF pour ajouter les informations textuelles aux images, sauvegarde les resultat sous ".ocr.pdf"
+Comment=Execute OCR on the selected PDF files to add text information on embedded images, saves result as '.ocr.pdf'
+Comment[es]=Ejecute OCR en los archivos PDF seleccionados para añadir información de texto en las imágenes incrustadas, guarda el resultado como '.ocr.pdf'
 Comment[hu]=Futtassa az OCR-t a kiválasztott PDF-fájlokon, hogy szöveges információkat adjon a beágyazott képekhez, az eredményt ".ocr.pdf"-ként menti.
 Icon-Name=add-files-to-archive
 

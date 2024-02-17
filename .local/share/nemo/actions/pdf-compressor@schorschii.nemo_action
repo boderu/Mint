@@ -6,12 +6,9 @@ Name[es]=Comprimir PDF(s)
 Name[fi]=Tiivistä PDF
 Name[fr]=Compresser le(s) PDF(s)
 Name[hu]=PDF(ek) tömörítése
-Comment=Compresses the selected PDF files and saves it with suffix ".compressed" (e.g. to send it via email)
-Comment[de]=Komprimiert die ausgewählten PDF-Dateien und speichert sie mit dem Suffix ".compressed" (z.B. zum Versenden via E-Mail)
-Comment[es]=Comprima los archivos PDF seleccionados y los guarda con el sufijo ".compressed" (por ejemplo, para enviarlos por correo electrónico)
-Comment[fi]=Pakkaa PDF:n tiiviimpään kokoon ja tallentaa sen päätteellä ".compressed" (jopa kolmasosa alkuperäisestä koosta)
-Comment[fr]=Compresser les fichiers PDF sélectionnés et le sauvegarder avecle suffix ".compressed" (par. ex pour les envoyer par mail)
-Comment[hu]=Tömöríti a kiválasztott PDF fájlokat, és elmenti ".compressed" utótaggal (például e-mailben történő elküldéshez)
+Comment=Compresses the selected PDF files and saves it with suffix '.compressed' (e.g. to send it via email)
+Comment[es]=Comprima los archivos PDF seleccionados y los guarda con el sufijo '.compressed' (por ejemplo, para enviarlos por correo electrónico)
+Comment[hu]=Tömöríti a kiválasztott PDF fájlokat és elmenti ".compressed" utótaggal (például e-mailben történő elküldéshez)
 Icon-Name=add-files-to-archive
 
 Exec=<pdf-compressor@schorschii/compress-pdf.sh %U>
