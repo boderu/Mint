@@ -83,4 +83,7 @@ then
 	PATH="$HOME/.local/bin/avr8-gnu-toolchain-linux_x86_64/bin:$PATH"
 fi
 
+
+export STM32CubeMX_PATH=/home/boderu/STM32CubeMX
+
 # EOF
