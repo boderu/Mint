@@ -161,4 +161,5 @@
   (lib (name "BTech.PinHeader.2-54mm")(type "KiCad")(uri "/home/boderu/Frameworks/KiCAD/Footprints/BTech.PinHeader.2-54mm.pretty")(options "")(descr ""))
   (lib (name "BTech.Symbols")(type "KiCad")(uri "/home/boderu/Frameworks/KiCAD/Footprints/BTech.Symbols.pretty")(options "")(descr ""))
   (lib (name "BTech.Transformer")(type "KiCad")(uri "/home/boderu/Frameworks/KiCAD/Footprints/BTech.Transformer.pretty")(options "")(descr ""))
+  (lib (name "BTech.Connector.RJ")(type "KiCad")(uri "/home/boderu/Frameworks/KiCAD/Footprints/BTech.Connector.RJ.pretty")(options "")(descr ""))
 )

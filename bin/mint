@@ -100,7 +100,7 @@ then
 	echo ; sudo add-apt-repository --yes ppa:ubuntuhandbook1/darktable
 	echo ; sudo add-apt-repository --yes ppa:freecad-maintainers/freecad-stable
 	echo ; sudo ppa-purge -y ppa:kicad/kicad-7.0-releases
-	echo ; sudo add-apt-repository --yes ppa:kicad/kicad-8.0-releases
+	echo ; sudo ppa-purge -y ppa:kicad/kicad-8.0-releases
 	echo ; sudo add-apt-repository --yes ppa:tomtomtom/yt-dlp
 	echo ; sudo add-apt-repository --yes ppa:longsleep/golang-backports
 	echo ; sudo add-apt-repository --yes ppa:misery/ppa
@@ -211,9 +211,9 @@ then
 	echo ; sudo apt install -y --install-recommends diff-so-fancy
 	echo ; sudo apt install -y --install-recommends rustc cargo
 
-	echo ; sudo apt install -y --install-recommends freecad
-	echo ; sudo apt install -y --install-recommends ngspice
-	echo ; sudo apt install -y --install-recommends kicad
+#	echo ; sudo apt install -y --install-recommends freecad
+#	echo ; sudo apt install -y --install-recommends ngspice
+#	echo ; sudo apt install -y --install-recommends kicad
 	echo ; sudo apt install -y --install-recommends brasero
 	echo ; sudo apt install -y --install-recommends xtrkcad
 	echo ; sudo apt install -y --install-recommends sweep
