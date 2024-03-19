@@ -23,22 +23,47 @@
     "erc_severities": 24,
     "footprint_preview": true,
     "print_sheet_reference": true,
+    "show_directive_labels": true,
     "show_erc_errors": true,
     "show_erc_exclusions": true,
     "show_erc_warnings": true,
     "show_hidden_fields": false,
     "show_hidden_pins": false,
     "show_illegal_symbol_lib_dialog": true,
+    "show_op_currents": true,
+    "show_op_voltages": true,
     "show_page_limits": true,
     "show_sexpr_file_convert_warning": true,
     "show_sheet_filename_case_sensitivity_dialog": true
   },
   "aui": {
-    "hierarchy_panel_docked_width": 298,
+    "float_net_nav_panel": false,
+    "hierarchy_panel_docked_height": -1,
+    "hierarchy_panel_docked_width": 455,
     "hierarchy_panel_float_height": 200,
     "hierarchy_panel_float_width": 200,
+    "net_nav_panel_docked_size": {
+      "height": 250,
+      "width": 160
+    },
+    "net_nav_panel_float_pos": {
+      "x": 50,
+      "y": 200
+    },
+    "net_nav_panel_float_size": {
+      "height": 200,
+      "width": 200
+    },
+    "properties_panel_width": 455,
+    "properties_splitter_proportion": 0.5,
     "schematic_hierarchy_float": false,
-    "show_schematic_hierarchy": true
+    "search_panel_dock_direction": 3,
+    "search_panel_height": 62,
+    "search_panel_width": 39,
+    "show_net_nav_panel": false,
+    "show_properties": true,
+    "show_schematic_hierarchy": true,
+    "show_search": false
   },
   "autoplace_fields": {
     "align_to_grid": false,
@@ -102,8 +127,15 @@
   },
   "field_editor": {
     "column_widths": {},
+    "export_filename": "",
+    "field_widths": {},
     "fields_group_by": {},
-    "fields_show": {}
+    "fields_show": {},
+    "height": 0,
+    "page": 0,
+    "scope": 0,
+    "selection_mode": 0,
+    "width": 0
   },
   "find_replace": {
     "find_history": [],
@@ -123,6 +155,15 @@
     "highlight_factor": 0.5,
     "select_factor": 0.75
   },
+  "import_graphics": {
+    "dxf_units": 0,
+    "interactive_placement": true,
+    "line_width": 0.2,
+    "line_width_units": 0,
+    "origin_units": 0,
+    "origin_x": 0.0,
+    "origin_y": 0.0
+  },
   "input": {
     "drag_is_move": false,
     "esc_clears_net_highlight": true
@@ -135,7 +176,8 @@
     "columns": [
       "Item",
       "Description"
-    ]
+    ],
+    "open_libs": []
   },
   "lib_view": {
     "cmp_list_width": 300,
@@ -182,7 +224,8 @@
     "hpgl_origin": 0,
     "hpgl_paper_size": 0,
     "hpgl_pen_size": 0.5,
-    "other_open_file_after_plot": false
+    "other_open_file_after_plot": false,
+    "pdf_property_popups": true
   },
   "printing": {
     "background": false,
@@ -202,6 +245,7 @@
   },
   "simulator": {
     "cursors_panel_height": 0,
+    "measurements_panel_height": 0,
     "plot_panel_height": 0,
     "plot_panel_width": 0,
     "signal_panel_height": 0,
@@ -222,6 +266,7 @@
     "place_all_units": true,
     "sash_pos_h": 800,
     "sash_pos_v": -1,
+    "sort_mode": 0,
     "width": 1301
   },
   "system": {
@@ -255,15 +300,53 @@
       "last_size": 0,
       "line_width": 1.0,
       "min_spacing": 10.0,
+      "override_connected": true,
+      "override_connected_idx": 1,
+      "override_graphics": false,
+      "override_graphics_idx": 2,
+      "override_text": true,
+      "override_text_idx": 3,
+      "override_vias": false,
+      "override_vias_idx": 0,
+      "override_wires": true,
+      "override_wires_idx": 1,
+      "overrides_enabled": true,
       "show": true,
+      "sizes": [
+        {
+          "name": "",
+          "x": "100 mil",
+          "y": "100 mil"
+        },
+        {
+          "name": "",
+          "x": "50 mil",
+          "y": "50 mil"
+        },
+        {
+          "name": "",
+          "x": "25 mil",
+          "y": "25 mil"
+        },
+        {
+          "name": "",
+          "x": "10 mil",
+          "y": "10 mil"
+        },
+        {
+          "name": "User Grid",
+          "x": "100 mils",
+          "y": "100 mils"
+        }
+      ],
       "snap": 0,
       "style": 2,
-      "user_grid_x": "100 mils",
-      "user_grid_y": "100 mils"
+      "user_grid_x": "",
+      "user_grid_y": ""
     },
     "maximized": false,
     "mru_path": "",
-    "perspective": "layout2|name=InfoBar;caption=;state=131454;dir=1;layer=1;row=0;pos=0;prop=100000;bestw=20;besth=30;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=MainToolbar;caption=;state=139632;dir=1;layer=6;row=0;pos=0;prop=100000;bestw=1204;besth=34;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=MsgPanel;caption=;state=131452;dir=3;layer=6;row=0;pos=0;prop=100000;bestw=400;besth=38;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=SchematicHierarchy;caption=Schaltplan-Hierarchie;state=2099148;dir=4;layer=3;row=0;pos=0;prop=100000;bestw=298;besth=200;minw=120;minh=60;maxw=-1;maxh=-1;floatx=1108;floaty=491;floatw=200;floath=200|name=OptToolbar;caption=;state=139596;dir=4;layer=2;row=0;pos=0;prop=100000;bestw=34;besth=396;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=ToolsToolbar;caption=;state=139596;dir=2;layer=2;row=0;pos=0;prop=100000;bestw=34;besth=762;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=DrawFrame;caption=;state=1020;dir=5;layer=0;row=0;pos=0;prop=100000;bestw=400;besth=160;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|dock_size(1,6,0)=34|dock_size(3,6,0)=38|dock_size(4,2,0)=34|dock_size(2,2,0)=34|dock_size(5,0,0)=402|dock_size(4,3,0)=300|",
+    "perspective": "layout2|name=InfoBar;caption=;state=131454;dir=1;layer=1;row=0;pos=0;prop=100000;bestw=20;besth=30;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=MainToolbar;caption=;state=139632;dir=1;layer=6;row=0;pos=0;prop=100000;bestw=1163;besth=34;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=MsgPanel;caption=;state=131452;dir=3;layer=6;row=0;pos=0;prop=100000;bestw=400;besth=38;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=SchematicHierarchy;caption=Schaltplan-Hierarchie;state=2099148;dir=4;layer=3;row=0;pos=0;prop=100000;bestw=455;besth=200;minw=120;minh=60;maxw=-1;maxh=-1;floatx=942;floaty=634;floatw=200;floath=200|name=PropertiesManager;caption=Eigenschaften;state=2099148;dir=4;layer=3;row=0;pos=1;prop=100000;bestw=300;besth=200;minw=240;minh=60;maxw=-1;maxh=-1;floatx=50;floaty=200;floatw=300;floath=400|name=NetNavigator;caption=Netz-Navigator;state=2099150;dir=4;layer=3;row=0;pos=0;prop=100000;bestw=200;besth=200;minw=120;minh=60;maxw=-1;maxh=-1;floatx=50;floaty=200;floatw=200;floath=200|name=OptToolbar;caption=;state=139596;dir=4;layer=2;row=0;pos=0;prop=100000;bestw=34;besth=460;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=ToolsToolbar;caption=;state=139596;dir=2;layer=2;row=0;pos=0;prop=100000;bestw=34;besth=762;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=DrawFrame;caption=;state=1020;dir=5;layer=0;row=0;pos=0;prop=100000;bestw=400;besth=160;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Search;caption=Suche;state=2098686;dir=3;layer=0;row=0;pos=0;prop=100000;bestw=180;besth=100;minw=180;minh=60;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=480;floath=200|dock_size(1,6,0)=34|dock_size(3,6,0)=38|dock_size(4,3,0)=457|dock_size(4,2,0)=34|dock_size(2,2,0)=34|dock_size(5,0,0)=402|",
     "pos_x": 590,
     "pos_y": 589,
     "size_x": 2334,

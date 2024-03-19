@@ -1,0 +1,25 @@
+[Nemo Action]
+
+Name=Compress PDF(s)
+Name[cs]=Komprimovat soubory PDF
+Name[de]=PDF(s) komprimieren
+Name[es]=Comprimir PDF(s)
+Name[fi]=Tiivistä PDF
+Name[fr]=Compresser le(s) PDF(s)
+Name[hr]=Sažmi PDF
+Name[hu]=PDF(ek) tömörítése
+Name[it]=Comprimi PDF
+Comment=Compresses the selected PDF files and saves it with suffix '.compressed' (e.g. to send it via email)
+Comment[cs]=Zkomprimuje vybrané soubory PDF a uloží je s příponou ".compressed" (např. pro odeslání e-mailem)
+Comment[es]=Comprima los archivos PDF seleccionados y los guarda con el sufijo '.compressed' (por ejemplo, para enviarlos por correo electrónico)
+Comment[hr]=Sažima odabrane PDF datoteke i spremi ih s dodatkom '.compressed' (npr. za slanje putem e-pošte)
+Comment[hu]=Tömöríti a kiválasztott PDF fájlokat és elmenti ".compressed" utótaggal (például e-mailben történő elküldéshez)
+Comment[it]=Comprime i file PDF selezionati e li salva con il suffisso '.compressed' (ad esempio per inviarlo via email)
+Icon-Name=add-files-to-archive
+
+Exec=<pdf-compressor@schorschii/compress-pdf.sh %U>
+
+Mimetypes=application/pdf;
+Selection=notnone
+
+Dependencies=gs
