@@ -1,2 +1,12 @@
 bin/*.exe
 bin/Ondsel_ES_2024.1.0.35694-Linux-x86_64.AppImage
+.local/share/nemo/actions/open-in-remote-terminal@mamolinux
+.local/share/nemo/actions/pdf-compressor@schorschii
+.local/share/nemo/actions/pdf-ocr@schorschii
+.local/share/nemo/actions/send-as-attachment@rcalixte
+.local/share/nemo/actions/send-with-kdeconnect@rcalixte
+.local/share/nemo/actions/open-in-remote-terminal@mamolinux.nemo_action
+.local/share/nemo/actions/pdf-compressor@schorschii.nemo_action
+.local/share/nemo/actions/pdf-ocr@schorschii.nemo_action
+.local/share/nemo/actions/send-as-attachment@rcalixte.nemo_action
+.local/share/nemo/actions/send-with-kdeconnect@rcalixte.nemo_action

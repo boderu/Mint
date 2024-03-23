@@ -1,26 +1,26 @@
-# Image Compressor
-# Copyright (C) 2023
+# Swedish translation for pdf-ocr@schorschii.
+# This file is put in the public domain.
+# Åke Engelbrektson <eson@svenskasprakfiler.se>, 2024.
 #
+#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: 1.0\n"
+"Project-Id-Version: pdf-ocr@schorschii 1.0\n"
 "Report-Msgid-Bugs-To: https://github.com/linuxmint/cinnamon-spices-actions/"
 "issues\n"
 "POT-Creation-Date: 2024-02-05 15:00-0500\n"
-"PO-Revision-Date: \n"
-"Last-Translator: Vajda Örs <ors0092@gmail.com>\n"
+"PO-Revision-Date: 2024-02-29 09:01+0100\n"
+"Last-Translator: Åke Engelbrektson <eson@svenskasprakfiler.se>\n"
 "Language-Team: \n"
-"Language: hu\n"
+"Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.0.1\n"
+"X-Generator: Poedit 3.4.2\n"
 
 #. metadata.json->description
 msgid "Quickly recognize text in images of PDF files via OCR"
-msgstr ""
-"Gyorsan felismerheti a szöveget a PDF-fájlok képeiben az OCR segítségével"
+msgstr "Identifiera snabbt, text i PDF-filer via OCR."
 
 #. metadata.json->name
 msgid "PDF OCR"
@@ -28,12 +28,12 @@ msgstr "PDF OCR"
 
 #. Name
 msgid "OCR PDF(s)"
-msgstr "OCR PDF(s)"
+msgstr "OCR PDF(er)"
 
 #. Comment
 msgid ""
 "Execute OCR on the selected PDF files to add text information on embedded "
 "images, saves result as '.ocr.pdf'"
 msgstr ""
-"Futtassa az OCR-t a kiválasztott PDF-fájlokon, hogy szöveges információkat "
-"adjon a beágyazott képekhez, az eredményt \".ocr.pdf\"-ként menti."
+"Kör OCR på valda PDF-filer för att lägga till textinformation från "
+"inbäddade bilder och sparar resultatet som \".ocr.pdf\"."

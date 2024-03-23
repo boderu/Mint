@@ -100,7 +100,7 @@ then
 	echo ; sudo add-apt-repository --yes ppa:ubuntuhandbook1/darktable
 	echo ; sudo add-apt-repository --yes ppa:freecad-maintainers/freecad-stable
 	echo ; sudo ppa-purge -y ppa:kicad/kicad-7.0-releases
-	echo ; sudo add-apt-repository --yes ppa:kicad/kicad-8.0-releases
+	echo ; sudo ppa-purge -y ppa:kicad/kicad-8.0-releases
 	echo ; sudo add-apt-repository --yes ppa:tomtomtom/yt-dlp
 	echo ; sudo add-apt-repository --yes ppa:longsleep/golang-backports
 	echo ; sudo add-apt-repository --yes ppa:misery/ppa
@@ -211,9 +211,9 @@ then
 	echo ; sudo apt install -y --install-recommends diff-so-fancy
 	echo ; sudo apt install -y --install-recommends rustc cargo
 
-	echo ; sudo apt install -y --install-recommends freecad
-	echo ; sudo apt install -y --install-recommends ngspice
-	echo ; sudo apt install -y --install-recommends kicad
+#	echo ; sudo apt install -y --install-recommends freecad
+#	echo ; sudo apt install -y --install-recommends ngspice
+#	echo ; sudo apt install -y --install-recommends kicad
 	echo ; sudo apt install -y --install-recommends brasero
 	echo ; sudo apt install -y --install-recommends xtrkcad
 	echo ; sudo apt install -y --install-recommends sweep
@@ -323,6 +323,7 @@ then
 	echo ; sudo flatpak install -y --noninteractive cc.arduino.arduinoide
 	echo ; sudo flatpak uninstall -y --noninteractive com.github.fabiocolacio.marker
 	echo ; sudo flatpak install -y --noninteractive org.kde.labplot2
+	echo ; sudo flatpak install -y --noninteractive org.kicad.KiCad
 
 	echo ; sudo flatpak install -y --noninteractive com.prusa3d.PrusaSlicer
 	echo ; sudo flatpak install -y --noninteractive org.freecadweb.FreeCAD
@@ -349,6 +350,7 @@ then
 	echo ; sudo flatpak uninstall -y --noninteractive de.bund.ausweisapp.ausweisapp2
 	echo ; sudo flatpak install -y --noninteractive org.flameshot.Flameshot
 	echo ; sudo flatpak install -y --noninteractive info.portfolio_performance.PortfolioPerformance
+	echo ; sudo flatpak install -y --noninteractive uk.org.zint.zint-qt
 
 	echo ; sudo flatpak install -y --noninteractive org.gimp.GIMP
 	echo ; sudo flatpak install -y --noninteractive net.sourceforge.Hugin

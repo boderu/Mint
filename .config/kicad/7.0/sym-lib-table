@@ -270,4 +270,5 @@
   (lib (name "XTAL.32768")(type "KiCad")(uri "/home/boderu/Frameworks/KiCAD/Symbols/XTAL.32768.kicad_sym")(options "")(descr ""))
   (lib (name "XTAL.CTS.HC49US")(type "KiCad")(uri "/home/boderu/Frameworks/KiCAD/Symbols/XTAL.CTS.HC49US.kicad_sym")(options "")(descr ""))
   (lib (name "Y.Abracon.ASV")(type "KiCad")(uri "/home/boderu/Frameworks/KiCAD/Symbols/Y.Abracon.ASV.kicad_sym")(options "")(descr ""))
+  (lib (name "J.RJ")(type "KiCad")(uri "/home/boderu/Frameworks/KiCAD/Symbols/J.RJ.kicad_sym")(options "")(descr ""))
 )
