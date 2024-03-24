@@ -188,6 +188,7 @@ then
 	echo ; sudo apt install -y --install-recommends progress
 	echo ; sudo apt install -y --install-recommends zsh
 	echo ; sudo apt install -y --install-recommends inetutils-traceroute
+	echo ; sudo apt install -y --install-recommends iperf3
 
 	echo ; sudo apt install -y --install-recommends build-essential
 	echo ; sudo apt install -y --install-recommends xutils-dev
