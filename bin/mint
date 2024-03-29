@@ -368,6 +368,8 @@ then
 	echo ; sudo flatpak install -y --noninteractive com.github.tenderowl.frog
 	echo ; sudo flatpak install -y --noninteractive io.github.ktgw0316.LightZone
 	echo ; sudo flatpak install -y --noninteractive io.github.maurycyliebner.enve
+	echo ; sudo flatpak install -y --noninteractive fr.romainvigier.MetadataCleaner
+	echo ; sudo flatpak install -y --noninteractive io.github.najepaliya.kleaner
 
 	echo ; sudo flatpak install -y --noninteractive com.makemkv.MakeMKV
 	echo ; sudo flatpak install -y --noninteractive com.obsproject.Studio
