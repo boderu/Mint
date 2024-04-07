@@ -562,8 +562,8 @@ then
 		sudo chmod g+s /home/Share
 	fi
 
-	sudo rm -f /home/Share/InstallMint.sh
-	sudo cp ./InstallMint.sh /home/Share/
+	sudo rm -f /home/Share/mint
+	sudo cp $HOME/Mint/bin/mint /home/Share/
 
 	echo
 	echo "Öffentlichen (RO) Ordner für alle Nutzer konfigurieren"
