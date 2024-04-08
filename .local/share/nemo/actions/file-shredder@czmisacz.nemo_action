@@ -1,0 +1,20 @@
+[Nemo Action]
+Name=Shred files
+Name[cs]=Skartovat soubory
+Name[es]=Destruir archivos
+Name[fi]=Silppuriin
+Name[hu]=Fájlok megsemmisítése
+Name[sv]=Förstör filer
+Comment=Securely delete selected files, making them challenging to recover
+Comment[cs]=Bezpečně odstraňte vybrané soubory a ztížíte jejich obnovení
+Comment[es]=Elimine de forma segura los archivos seleccionados, dificultando su recuperación
+Comment[fi]=Poistaa valitut tiedostot tietoturvallisesti, mikä tekee niiden palauttamisesta haastavaa
+Comment[hu]=Biztonságosan törli a kiválasztott fájlokat, így azok helyreállítása nehéz feladat lesz
+Comment[sv]=Ta bort valda filer på ett säkert sätt, vilket gör dem svåra att återställa.
+Icon-Name=folder-templates-symbolic
+Dependencies=shred;bash;zenity;
+Exec=<file-shredder@czmisacz/action.sh "%F">
+Conditions=exec <file-shredder@czmisacz/check.sh "%F">;
+Extensions=any;
+Selection=notnone
+Separator=" "

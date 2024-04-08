@@ -2,6 +2,7 @@
 Name=Open in Remote Terminal
 Name[cs]=Otevřít ve vzdáleném terminálu
 Name[es]=Abrir en terminal remoto
+Name[fi]=Avaa etäpääte
 Name[fr]=Ouvrir dans le Terminal Distant
 Name[hr]=Otvori u udaljenom terminalu
 Name[hu]=Megnyitás távoli terminálban
@@ -10,6 +11,7 @@ Name[tr]=Uzak Terminalde Aç
 Comment=Open a remote terminal in the active remote folder
 Comment[cs]=Otevření vzdáleného terminálu v aktivní vzdálené složce
 Comment[es]=Abra un terminal remoto en la carpeta remota activa
+Comment[fi]=Avaa etäpääte aktiivisessa etäkansiossa
 Comment[fr]=Ouvrir un terminal distant dans le dossier distant actif
 Comment[hr]=Otvori udaljeni terminal u aktivnoj udaljenoj mapi
 Comment[hu]=Távoli terminál megnyitása az aktív távoli mappában

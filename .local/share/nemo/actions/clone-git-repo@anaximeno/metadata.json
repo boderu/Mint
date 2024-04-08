@@ -1,0 +1,8 @@
+{
+    "description": "Clone a git repository into the current folder.",
+    "uuid": "clone-git-repo@anaximeno",
+    "name": "Clone git repo",
+    "author": "anaximeno",
+    "version": "1.0.1",
+    "last-edited": 1712088224
+}
