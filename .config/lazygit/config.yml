@@ -273,10 +273,10 @@ customCommands:
         - type: 'menu'
           title: 'Switching to component'
           options:
+            - name: 'Show changed components'
+              value: 'git-componentschanged'
             - name: 'Show all components'
               value: 'git-componentsall'
-            - name: 'Show only changed components'
-              value: 'git-componentschanged'
         - type: 'menuFromCommand'
           title: 'Component:'
           command: '{{index .PromptResponses 0}}'
