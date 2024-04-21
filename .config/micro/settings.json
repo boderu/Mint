@@ -1,5 +1,8 @@
 {
     "colorcolumn": 120,
     "colorscheme": "gruvbox",
-    "scrollbar": true
+    "hltaberrors": true,
+    "hltrailingws": true,
+    "scrollbar": true,
+    "softwrap": true
 }
