@@ -76,7 +76,7 @@ cd $HOME
 
 echo "einige Verzeichnisse erzeugen"
 mkdir -pv "$HOME/.config"
-mkdir -pv "$HOME/.local/share"
+mkdir -pv "$HOME/.local/share/fonts"
 mkdir -pv "$HOME/.local/bin"
 mkdir -pv "$HOME/Media/Stable Diffusion"
 mkdir -pv "$HOME/Warpinator"
@@ -410,6 +410,18 @@ then
 	echo ; sudo flatpak install -y --noninteractive org.seul.pingus
 	echo ; sudo flatpak install -y --noninteractive org.hedgewars.Hedgewars
 	echo ; sudo flatpak install -y --noninteractive org.gnome.Sudoku
+
+
+	echo
+	echo "Install Nerd Fonts"
+	if [ ! -d "$HOME/.local/share/fonts/NerdFonts" ]
+	then
+		git clone https://github.com/ryanoasis/nerd-fonts.git
+		cd nerd-fonts
+		./install.sh
+		cd ..
+		sudo rm -R --force nerd-fonts
+	fi
 
 
 	echo
