@@ -80,7 +80,7 @@
 	# (see https://dystroy.org/broot/icons for installation and
 	# troubleshooting)
 	#
-	# icon_theme: vscode
+	icon_theme: nerdfont
 
 	###############################################################
 	# Special paths
@@ -165,8 +165,10 @@
 		#  execution: nvim +{line} {file}
 		{
 			invocation: edit
+			key: alt-e
 			shortcut: e
-			execution: "$EDITOR +{line} {file}"
+#			execution: "$EDITOR +{line} {file}"
+			execution: "micro {file}"
 			leave_broot: false
 		}
 
@@ -174,7 +176,8 @@
 		# the current directory or below
 		{
 			invocation: create {subpath}
-			execution: "$EDITOR {directory}/{subpath}"
+#			execution: "$EDITOR {directory}/{subpath}"
+			execution: "touch {directory}/{subpath}"
 			leave_broot: false
 		}
 
@@ -209,11 +212,25 @@
 		}
 
 		# Here's an example of a shortcut bringing you to your home directory
-		# {
-		# 	invocation: home
-		# 	key: ctrl-home
-		# 	execution: ":focus ~"
-		# }
+		{
+			invocation: home
+			key: ctrl-home
+			execution: ":focus ~"
+		}
+
+		# toggle visibilty of files
+		{
+			invocation: toggle_files
+			key: alt-f
+			execution: ":toggle_files"
+		}
+
+		# toggle preview
+		{
+			invocation: toggle_preview
+			key: alt-p
+			execution: ":toggle_preview"
+		}
 
 		# A popular set of shortcuts for going up and down:
 		#
@@ -236,23 +253,24 @@
 
 		# If you develop using git, you might like to often switch
 		# to the git status filter:
-		# {
-		# 	key: ctrl-g
-		# 	execution: ":toggle_git_status"
-		# }
+		{
+			invocation: toggle_git_status
+			key: alt-g
+			execution: ":toggle_git_status"
+		}
 
-		# You can reproduce the bindings of Norton Commander
-		# on copying or moving to the other panel:
-		# {
-		# 	key: F5
-		# 	external: "cp -r {file} {other-panel-directory}"
-		# 	leave_broot: false
-		# }
-		# {
-		# 	key: F6
-		# 	external: "mv {file} {other-panel-directory}"
-		# 	leave_broot: false
-		# }
+		#You can reproduce the bindings of Norton Commander
+		#on copying or moving to the other panel:
+		{
+			key: F5
+			external: "cp -r {file} {other-panel-directory}"
+			leave_broot: false
+		}
+		{
+			key: F6
+			external: "mv {file} {other-panel-directory}"
+			leave_broot: false
+		}
 	]
 
 	###############################################################
