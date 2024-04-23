@@ -73,7 +73,7 @@ class GitTagger:
 
 	def __findCommitObjects(self):
 		for idx, Component in enumerate(self.lComponents):
-			repo = Repo(self.RepositoryPath + '/Components/' + Component[0])
+			repo = Repo(self.BaseRepository.working_tree_dir + '/Components/' + Component[0])
 			# get current object hash
 			ObjectHash = repo.head.commit
 
