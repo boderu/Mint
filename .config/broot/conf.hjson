@@ -165,7 +165,7 @@
 		#  execution: nvim +{line} {file}
 		{
 			invocation: edit
-			key: alt-e
+			key: ctrl-e
 			shortcut: e
 #			execution: "$EDITOR +{line} {file}"
 			execution: "micro {file}"
@@ -205,7 +205,7 @@
 		# (on exit you'll be back in broot)
 		{
 			invocation: terminal
-			key: ctrl-t
+			key: alt-t
 			execution: "$SHELL"
 			set_working_dir: true
 			leave_broot: false
@@ -232,24 +232,11 @@
 			execution: ":toggle_preview"
 		}
 
-		# A popular set of shortcuts for going up and down:
-		#
-		# {
-		# 	key: ctrl-k
-		# 	execution: ":line_up"
-		# }
-		# {
-		# 	key: ctrl-j
-		# 	execution: ":line_down"
-		# }
-		# {
-		# 	key: ctrl-u
-		# 	execution: ":page_up"
-		# }
-		# {
-		# 	key: ctrl-d
-		# 	execution: ":page_down"
-		# }
+		# staging files:
+		{
+			key: F1
+			execution: ":toggle_stage"
+		}
 
 		# If you develop using git, you might like to often switch
 		# to the git status filter:
@@ -259,15 +246,25 @@
 			execution: ":toggle_git_status"
 		}
 
-		#You can reproduce the bindings of Norton Commander
+
+		# move files to trash:
+		{
+			keys:	[
+						F8
+						ctrl-del
+					]
+			execution: ":trash"
+		}
+
+
 		#on copying or moving to the other panel:
 		{
-			key: F5
+			key: F3
 			external: "cp -r {file} {other-panel-directory}"
 			leave_broot: false
 		}
 		{
-			key: F6
+			key: F4
 			external: "mv {file} {other-panel-directory}"
 			leave_broot: false
 		}
