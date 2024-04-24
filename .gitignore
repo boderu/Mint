@@ -1,3 +1,4 @@
 bin/busmaster-installers-3.2.2
 bin/*.exe
 bin/*.AppImage
+.config/micro/backups
