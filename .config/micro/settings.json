@@ -5,5 +5,7 @@
     "hltrailingws": true,
     "indentchar": "",
     "scrollbar": true,
-    "softwrap": true
+    "scrollbarchar": "",
+    "softwrap": true,
+    "statusformatl": "$(filename) $(modified) $(status.paste)  ft:$(opt:filetype)  $(opt:fileformat)  $(opt:encoding)  $(lines) lines ($(line),$(col))  $(percentage)%"
 }
