@@ -263,6 +263,7 @@ then
 	echo "zusätzliche Rust (Cargo) Pakete"
 	cargo install du-dust
 	cargo install exa
+	cargo install git-graph
 
 
 	echo
@@ -713,6 +714,7 @@ Link "$HOME/Mint/.ne"										"$HOME/.ne"
 Link "$HOME/Mint/.config/broot"								"$HOME/.config/broot"
 Link "$HOME/Mint/.config/btop"								"$HOME/.config/btop"
 Link "$HOME/Mint/.config/darktable"							"$HOME/.config/darktable"
+Link "$HOME/Mint/.config/git-graph"							"$HOME/.config/git-graph"
 Link "$HOME/Mint/.config/htop"								"$HOME/.config/htop"
 Link "$HOME/Mint/.config/kicad"								"$HOME/.config/kicad"
 Link "$HOME/Mint/.config/lazygit"							"$HOME/.config/lazygit"
