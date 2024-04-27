@@ -119,6 +119,7 @@ then
 	echo "bereits vorhandene Pakete entfernen"
 	sudo apt remove -y rhythmbox
 	sudo apt remove -y micro
+	sudo apt remove -y exa
 
 
 	echo
@@ -166,7 +167,7 @@ then
 	echo ; sudo apt install -y --install-recommends bat
 	echo ; sudo apt install -y --install-recommends stress
 	echo ; sudo apt install -y --install-recommends clamav
-	echo ; sudo apt install -y --install-recommends exa
+#	echo ; sudo apt install -y --install-recommends exa
 	echo ; sudo apt install -y --install-recommends glmark2
 	echo ; sudo apt install -y --install-recommends hardlink
 	echo ; sudo apt install -y --install-recommends rmlint rmlint-doc
@@ -260,7 +261,8 @@ then
 
 	echo
 	echo "zusätzliche Rust (Cargo) Pakete"
-	sudo cargo install du-dust
+	cargo install du-dust
+	cargo install exa
 
 
 	echo
