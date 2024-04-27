@@ -152,14 +152,14 @@ function parse_git_dirty
 		printf "-"
 		return
 	else
-		printf "[\e[0m "
+		printf " [\e[0m "
 	fi
 
 	# untracked files
 	if echo -e ${GITSTATUS} | grep -c '^ ??' &> /dev/null
 	then
 		echo -e ${GITSTATUS} | grep -c '^ ??' | tr -d '\n'
-		echo -ne "\e[1m\e[33m?\e[0m "
+		echo -ne "\e[1m\e[33m󱀶\e[0m "
 	else
 		printf ""
 	fi
@@ -168,7 +168,7 @@ function parse_git_dirty
 	if echo -e ${GITSTATUS} | grep -c '^ A' &> /dev/null
 	then
 		echo -e ${GITSTATUS} | grep -c '^ A' | tr -d '\n'
-		echo -ne "\e[1m\e[33m+\e[0m "
+		echo -ne "\e[1m\e[33m\e[0m "
 	else
 		printf ""
 	fi
@@ -177,7 +177,7 @@ function parse_git_dirty
 	if echo -e ${GITSTATUS} | grep -c '^ M' &> /dev/null
 	then
 		echo -e ${GITSTATUS} | grep -c '^ M' | tr -d '\n'
-		echo -ne "\e[1m\e[33mM\e[0m "
+		echo -ne "\e[1m\e[33m\e[0m "
 	else
 		printf ""
 	fi
@@ -186,7 +186,7 @@ function parse_git_dirty
 	if echo -e ${GITSTATUS} | grep -c '^ R' &> /dev/null
 	then
 		echo -e ${GITSTATUS} | grep -c '^ R' | tr -d '\n'
-		echo -ne "\e[1m\e[33mR\e[0m "
+		echo -ne "\e[1m\e[33m\e[0m "
 	else
 		printf ""
 	fi
@@ -195,7 +195,7 @@ function parse_git_dirty
 	if echo -e ${GITSTATUS} | grep -c '^ C' &> /dev/null
 	then
 		echo -e ${GITSTATUS} | grep -c '^ C' | tr -d '\n'
-		echo -ne "\e[1m\e[33mC\e[0m "
+		echo -ne "\e[1m\e[33m\e[0m "
 	else
 		printf ""
 	fi
@@ -204,7 +204,7 @@ function parse_git_dirty
 	if echo -e ${GITSTATUS} | grep -c '^ D' &> /dev/null
 	then
 		echo -e ${GITSTATUS} | grep -c '^ D' | tr -d '\n'
-		echo -ne "\e[1m\e[33mD\e[0m "
+		echo -ne "\e[1m\e[33m󰧧\e[0m "
 	else
 		printf ""
 	fi
@@ -229,8 +229,8 @@ prompt()
 export PS1=\
 "\n\
 ╭─\$(EXCODE="\$?" ; [ \$EXCODE == 0 ] && echo "\\e[1m\\e[32m\$EXCODE\\e[0m" || echo "\\e[1m\\e[31m\$EXCODE\\e[0m") \
-[\[\033[0;32m\]\w\[\033[0m\]] (\033[33m\]\$(parse_git_branch)\[\033[31m\]\$(parse_git_dirty)\[\033[00m\]) \n\
-╰─[\[\033[1;36m\]\u\[\033[00m\]@\[\033[0;33m\]\h\[\033[00m\]]: \
+\[\033[0;32m\]  \w\[\033[0m\] \033[33m\] \$(parse_git_branch)\[\033[31m\]\$(parse_git_dirty)\[\033[00m\] \n\
+╰─ \[\033[1;36m\]\u\[\033[00m\]@\[\033[0;33m\]\h\[\033[00m\]: \
 "
 }
 
