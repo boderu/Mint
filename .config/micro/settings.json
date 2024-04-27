@@ -3,6 +3,7 @@
     "colorscheme": "gruvbox",
     "hltaberrors": true,
     "hltrailingws": true,
+    "indentchar": "",
     "scrollbar": true,
     "softwrap": true
 }
