@@ -221,16 +221,16 @@ parse_git_branch()
 
 	# my form
 	LANGUAGE='en_US.UTF-8'
-	git status --porcelain=v1 --branch 2> /dev/null | grep '##' | sed 's/^## //g'
+	git status --porcelain=v1 --branch 2> /dev/null | grep '##' | sed 's/^## //g' | sed 's/\.\.\./  /g'
 }
 
 prompt()
 {
 export PS1=\
 "\n\
-╭─\$(EXCODE="\$?" ; [ \$EXCODE == 0 ] && echo "\\e[1m\\e[32m\$EXCODE\\e[0m" || echo "\\e[1m\\e[31m\$EXCODE\\e[0m") \
-\[\033[0;32m\]  \w\[\033[0m\] \033[33m\] \$(parse_git_branch)\[\033[31m\]\$(parse_git_dirty)\[\033[00m\] \n\
-╰─ \[\033[1;36m\]\u\[\033[00m\]@\[\033[0;33m\]\h\[\033[00m\]: \
+╭─󰈆 \$(EXCODE="\$?" ; [ \$EXCODE == 0 ] && echo "\\e[1m\\e[32m\$EXCODE\\e[0m" || echo "\\e[1m\\e[31m\$EXCODE\\e[0m") \
+\[\033[0;32m\]   \w\[\033[0m\] \033[33m\]  \$(parse_git_branch)\[\033[31m\]\$(parse_git_dirty)\[\033[00m\] \n\
+╰─ \[\033[1;36m\]\u\[\033[00m\]  󰒍 \[\033[0;33m\]\h\[\033[00m\]  \
 "
 }
 
@@ -242,7 +242,7 @@ PROMPT_COMMAND='prompt'
 PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 
 # status report
-neofetch --color_blocks off
+#neofetch --color_blocks off
 
 export LANGUAGE='en_US.UTF-8'
 
