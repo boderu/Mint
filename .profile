@@ -85,5 +85,6 @@ fi
 
 
 export STM32CubeMX_PATH=/home/boderu/STM32CubeMX
+export EDITOR=micro
 
 # EOF
