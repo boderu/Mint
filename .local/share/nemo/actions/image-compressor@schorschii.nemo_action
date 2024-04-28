@@ -10,6 +10,7 @@ Name[hr]=Sažmi slike
 Name[hu]=Képek tömörítése
 Name[it]=Comprimi immagini
 Name[nl]=Comprimeer afbeeldingen
+Name[pt_BR]=Compactar imagens
 Name[sv]=Komprimera bilder
 Name[tr]=Görüntüleri sıkıştır
 Comment=Compresses the selected images and saves it with suffix '_converted' (e.g. for sending them via email)
@@ -20,6 +21,7 @@ Comment[hr]=Sažima odabrane slike i sprema ih s dodatkom '_converted' (za npr. 
 Comment[hu]=Tömöríti a kiválasztott képeket és elmenti "_converted" utótaggal (például e-mailben történő elküldéshez)
 Comment[it]=Comprime le immagini selezionate e le salva con il suffisso '_converted' (ad esempio per inviarle via email)
 Comment[nl]=Comprimeert de geselecteerde afbeeldingen en slaat ze op met de toevoeging '_converted' (bv. voor verzending via e-mail)
+Comment[pt_BR]=Compacta as imagens selecionadas e as salva com o sufixo '_converted' (por exemplo, para enviá-las por e-mail)
 Comment[sv]=Komprimerar valda bilder och sparar dem suffixet "_converted" (t.ex. för att skicka dem via e-post)
 Icon-Name=imagemagick
 
