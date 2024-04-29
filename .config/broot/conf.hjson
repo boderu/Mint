@@ -99,7 +99,7 @@
 	# If you want the escape key to quit broot when there's nothing
 	# to cancel (for example when you just opened broot), uncomment
 	# this parameter
-	# 
+	#
 	# quit_on_last_cancel: true
 
 	###############################################################
@@ -181,6 +181,14 @@
 			leave_broot: false
 		}
 
+		#  execution: lazygit
+		{
+			invocation: lazygit
+			shortcut: lg
+			execution: "lazygit"
+			leave_broot: false
+		}
+
 		{
 			invocation: git_diff
 			shortcut: gd
@@ -222,10 +230,24 @@
 
 		# If you develop using git, you might like to often switch
 		# to the git status filter:
+		#{
+		#	invocation: toggle_git_status
+		#	key: ctrl-i
+		#	execution: ":toggle_git_status"
+		#}
+
+		# toggle hidden files
 		{
-			invocation: toggle_git_status
-			key: ctrl-i
-			execution: ":toggle_git_status"
+			invocation: toggle_hidden
+			key: ctrl-h
+			execution: ":toggle_hidden"
+		}
+
+		# toggle files
+		{
+			invocation: toggle_files
+			key: ctrl-f
+			execution: ":toggle_files"
 		}
 
 		# file operations (alt) ########################################################################################
@@ -237,11 +259,24 @@
 
 		# move files to trash:
 		{
+			invocation: trash
 			keys:	[
 						F8
 						alt-del
+						alt-t
 					]
 			execution: ":trash"
+		}
+
+		# delete files:
+		{
+			invocation: delete
+			keys:	[
+						alt-backspace
+						alt-d
+					]
+			external: "rm -rf {file}"
+			leave_broot: false
 		}
 
 		#on copying or moving to the other panel:
@@ -281,9 +316,9 @@
 	# If you want to change the colors of broot,
 	# uncomment the following bloc and start messing
 	# with the various values.
-        # A skin entry value is made of two parts separated with a '/':
-        # The first one is the skin for the active panel.
-        # The second one, optional, is the skin for non active panels.
+	# A skin entry value is made of two parts separated with a '/':
+	# The first one is the skin for the active panel.
+	# The second one, optional, is the skin for non active panels.
 	# You may find explanations and other skins on
 	#  https://dystroy.org/broot/skins
 	###############################################################
@@ -373,8 +408,8 @@
 
 	###############################################################
 	# Max Panels Count
-        #
+	#
 	# Change this if you sometimes want to have more than 2 panels
-        # open
-        # max_panels_count: 2
+	# open
+	# max_panels_count: 2
 }

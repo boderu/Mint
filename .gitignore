@@ -1,4 +1,6 @@
 bin/busmaster-installers-3.2.2
 bin/*.exe
 bin/*.AppImage
+.config/darktable/library.db*
+.config/darktable/data.db*
 .config/micro/backups

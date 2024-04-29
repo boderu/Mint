@@ -1,6 +1,8 @@
-alias ll='exa -al --group --color=always --group-directories-first'
-alias la='exa -a --group --color=always --group-directories-first'
-alias l='exa -l --group --color=always --group-directories-first'
+alias ll='exa -al --group --color=always --group-directories-first --icons --git --extended'
+alias llt='exa -al --group --color=always --group-directories-first --icons --git --extended --tree'
+alias la='exa -a --group --color=always --group-directories-first --icons --git --extended'
+alias l='exa -l --group --color=always --group-directories-first --icons --git --extended'
+alias lt='exa -l --group --color=always --group-directories-first --icons --git --extended --tree'
 #alias ll='ls -Alh --dereference-command-line-symlink-to-dir'
 #alias la='ls -A --dereference-command-line-symlink-to-dir'
 #alias l='ls -lh --dereference-command-line-symlink-to-dir'
@@ -13,4 +15,4 @@ alias scanip="nmap -sn 192.168.1.0/24 | awk '/for/ {print substr(\$0,22)}'"
 alias gitlog='git log --pretty=format:"%h %s" --graph'
 alias lg='lazygit'
 alias easy="cd $HOME/easy-diffusion && ./start.sh"
-alias xxx='exit'
+alias x='exit'

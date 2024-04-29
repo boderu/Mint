@@ -119,6 +119,7 @@ then
 	echo "bereits vorhandene Pakete entfernen"
 	sudo apt remove -y rhythmbox
 	sudo apt remove -y micro
+	sudo apt remove -y exa
 
 
 	echo
@@ -166,7 +167,7 @@ then
 	echo ; sudo apt install -y --install-recommends bat
 	echo ; sudo apt install -y --install-recommends stress
 	echo ; sudo apt install -y --install-recommends clamav
-	echo ; sudo apt install -y --install-recommends exa
+#	echo ; sudo apt install -y --install-recommends exa
 	echo ; sudo apt install -y --install-recommends glmark2
 	echo ; sudo apt install -y --install-recommends hardlink
 	echo ; sudo apt install -y --install-recommends rmlint rmlint-doc
@@ -191,6 +192,7 @@ then
 	echo ; sudo apt install -y --install-recommends zsh
 	echo ; sudo apt install -y --install-recommends inetutils-traceroute
 	echo ; sudo apt install -y --install-recommends iperf3
+	echo ; sudo apt install -y --install-recommends stow
 
 	echo ; sudo apt install -y --install-recommends build-essential
 	echo ; sudo apt install -y --install-recommends xutils-dev
@@ -260,7 +262,9 @@ then
 
 	echo
 	echo "zusätzliche Rust (Cargo) Pakete"
-	sudo cargo install du-dust
+	cargo install du-dust
+	cargo install exa
+	cargo install git-graph
 
 
 	echo
@@ -711,6 +715,7 @@ Link "$HOME/Mint/.ne"										"$HOME/.ne"
 Link "$HOME/Mint/.config/broot"								"$HOME/.config/broot"
 Link "$HOME/Mint/.config/btop"								"$HOME/.config/btop"
 Link "$HOME/Mint/.config/darktable"							"$HOME/.config/darktable"
+Link "$HOME/Mint/.config/git-graph"							"$HOME/.config/git-graph"
 Link "$HOME/Mint/.config/htop"								"$HOME/.config/htop"
 Link "$HOME/Mint/.config/kicad"								"$HOME/.config/kicad"
 Link "$HOME/Mint/.config/lazygit"							"$HOME/.config/lazygit"
