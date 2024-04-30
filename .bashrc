@@ -209,7 +209,7 @@ function parse_git_dirty
 		printf ""
 	fi
 
-	printf "\e[31m]"
+	printf "\e[33m]"
 }
 
 parse_git_branch()
@@ -224,13 +224,20 @@ parse_git_branch()
 	git status --porcelain=v1 --branch 2> /dev/null | grep '##' | sed 's/^## //g' | sed 's/\.\.\./  /g'
 }
 
+parent_process()
+{
+	echo -ne ' '
+	ps -o comm= $PPID
+}
+
 prompt()
 {
 export PS1=\
 "\n\
 ╭─󰈆 \$(EXCODE="\$?" ; [ \$EXCODE == 0 ] && echo "\\e[1m\\e[32m\$EXCODE\\e[0m" || echo "\\e[1m\\e[31m\$EXCODE\\e[0m") \
-\[\033[0;32m\]   \w\[\033[0m\] \033[33m\]  \$(parse_git_branch)\[\033[31m\]\$(parse_git_dirty)\[\033[00m\] \n\
-╰─ \[\033[1;36m\]\u\[\033[00m\]  󰒍 \[\033[0;33m\]\h\[\033[00m\]  \
+\[\033[1;34m\]\$(parent_process)\[\033[0m\] \
+\[\033[0;32m\]   \w\[\033[0m\] \033[33m\]  \$(parse_git_branch)\[\033[0;33m\]\$(parse_git_dirty)\[\033[00m\] \n\
+╰─ \[\033[0;36m\]\u\[\033[00m\]  󰒍 \[\033[0;35m\]\h\[\033[00m\]  \
 "
 }
 
