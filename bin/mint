@@ -448,8 +448,8 @@ then
 	sudo rm -f lazygit
 
 
-	echo
-	echo "xplr Dateimanager"
+#	echo
+#	echo "xplr Dateimanager"
 #	git clone https://github.com/sayanarijit/xplr.git
 #	cd xplr
 #	cargo build --locked --release --bin xplr
@@ -516,6 +516,22 @@ then
 		sudo apt update
 	fi
 	sudo apt install -y --install-recommends code
+
+
+	echo
+	echo "sysWORXX USB-CANmodul1"
+	SYSTEC_URL1="https://www.systec-electronic.com/produkte/interfaces-gateways-steuerungen/sysworxx-usb-canmodul1"
+	SYSTEC_URL2="https://www.systec-electronic.com/media/default/Redakteur/Unternehmen/Support/Downloadbereich/Treiber"
+	SYSTEC_NAME=$(curl -s $SYSTEC_URL1 | grep -oe 'systec_can.*\.tar\.bz2')
+	rm --force -R systec_can*
+	curl -O "$SYSTEC_URL2/$SYSTEC_NAME"
+	tar xfvj $SYSTEC_NAME
+	cd $(basename -s .tar.bz2 $SYSTEC_NAME)
+	make
+	sudo make modules_install
+	sudo make firmware_install
+	cd ..
+	rm --force -R systec_can*
 
 
 	echo
@@ -631,6 +647,9 @@ pip install lxml
 pip install python-can
 pip install canopen
 pip install python-pptx
+pip install crcmod
+pip install pandas
+pip install Jinja2
 pip install -U -f https://extras.wxpython.org/wxPython4/extras/linux/gtk3/ubuntu-22.04 wxPython
 #pip3 install -v --user wxPython
 
@@ -804,12 +823,6 @@ dconf load /org/gnome/desktop/interface/	< $HOME/Mint/org.gnome.desktop.interfac
 
 echo
 echo "broot installieren"
-#sudo apt install build-essential libxcb1-dev libxcb-render0-dev libxcb-shape0-dev libxcb-xfixes0-dev -y
-#git clone https://github.com/Canop/broot.git
-#cd broot
-#cargo install --locked --features clipboard --path .
-#cd ..
-#rm -Rf broot
 curl -o broot -L https://dystroy.org/broot/download/x86_64-linux/broot
 sudo mv -f broot /usr/local/bin
 sudo chmod +x /usr/local/bin/broot
