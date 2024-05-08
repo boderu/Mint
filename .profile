@@ -86,5 +86,6 @@ fi
 
 export STM32CubeMX_PATH=/home/boderu/STM32CubeMX
 export EDITOR=micro
+export PYTORCH_CUDA_ALLOC_CONF=max_split_size_mb:32
 
 # EOF
