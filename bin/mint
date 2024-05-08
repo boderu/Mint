@@ -360,6 +360,7 @@ then
 	echo ; sudo flatpak install -y --noninteractive org.flameshot.Flameshot
 	echo ; sudo flatpak install -y --noninteractive info.portfolio_performance.PortfolioPerformance
 	echo ; sudo flatpak install -y --noninteractive uk.org.zint.zint-qt
+	echo ; sudo flatpak install -y --noninteractive org.gnome.gitlab.somas.Apostrophe
 
 	echo ; sudo flatpak install -y --noninteractive org.gimp.GIMP
 	echo ; sudo flatpak install -y --noninteractive net.sourceforge.Hugin
