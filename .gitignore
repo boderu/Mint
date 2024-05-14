@@ -10,3 +10,7 @@ bin/*.AppImage
 .local/share/nemo/actions/clone-git-repo@anaximeno.nemo_action
 .local/share/nemo/actions/send-as-attachment@rcalixte.nemo_action
 .local/share/nemo/actions/clone-git-repo@anaximeno
+.local/share/nemo/actions/pdf-compressor@schorschii
+.local/share/nemo/actions/pdf-ocr@schorschii
+.local/share/nemo/actions/pdf-compressor@schorschii.nemo_action
+.local/share/nemo/actions/pdf-ocr@schorschii.nemo_action
