@@ -393,6 +393,7 @@ then
 	echo ; sudo flatpak install -y --noninteractive org.gnome.World.PikaBackup
 	echo ; sudo flatpak install -y --noninteractive io.gitlab.adhami3310.Footage
 	echo ; sudo flatpak install -y --noninteractive tv.kodi.Kodi
+	echo ; sudo flatpak install -y --noninteractive no.mifi.losslesscut
 
 	echo ; sudo flatpak install -y --noninteractive com.spotify.Client
 	echo ; sudo flatpak install -y --noninteractive de.haeckerfelix.Shortwave
