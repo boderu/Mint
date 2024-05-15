@@ -803,6 +803,127 @@ fi
 popd
 
 
+echo "Zusätzliche Nemo Actions installieren"
+pushd "$HOME/.local/share/nemo/actions/"
+if [ ! -e ".gitignore" ]
+then
+	touch ".gitignore"
+fi
+
+if [ ! -d "send-as-attachment@rcalixte" ]
+then
+	echo "send-as-attachment@rcalixte"
+	wget https://cinnamon-spices.linuxmint.com/files/actions/send-as-attachment@rcalixte.zip && \
+	unzip send-as-attachment@rcalixte.zip
+	rm -f send-as-attachment@rcalixte.zip
+else
+	echo "send-as-attachment@rcalixte already exists"
+fi
+if [ "0" -eq $(cat .gitignore | grep -c "send-as-attachment@rcalixte") ]
+then
+	echo 'send-as-attachment@rcalixte*' >> .gitignore
+fi
+
+if [ ! -d "image-compressor@schorschii" ]
+then
+	echo "image-compressor@schorschii"
+	wget https://cinnamon-spices.linuxmint.com/files/actions/image-compressor@schorschii.zip && \
+	unzip image-compressor@schorschii.zip
+	rm -f image-compressor@schorschii.zip
+else
+	echo "image-compressor@schorschii already exists"
+fi
+if [ "0" -eq $(cat .gitignore | grep -c "image-compressor@schorschii") ]
+then
+	echo 'image-compressor@schorschii*' >> .gitignore
+fi
+
+if [ ! -d "clone-git-repo@anaximeno" ]
+then
+	echo "clone-git-repo@anaximeno"
+	wget https://cinnamon-spices.linuxmint.com/files/actions/clone-git-repo@anaximeno.zip && \
+	unzip clone-git-repo@anaximeno.zip
+	rm -f clone-git-repo@anaximeno.zip
+else
+	echo "clone-git-repo@anaximeno already exists"
+fi
+if [ "0" -eq $(cat .gitignore | grep -c "clone-git-repo@anaximeno") ]
+then
+	echo 'clone-git-repo@anaximeno*' >> .gitignore
+fi
+
+if [ ! -d "file-shredder@czmisacz" ]
+then
+	echo "file-shredder@czmisacz"
+	wget https://cinnamon-spices.linuxmint.com/files/actions/file-shredder@czmisacz.zip && \
+	unzip file-shredder@czmisacz.zip
+	rm -f file-shredder@czmisacz.zip
+else
+	echo "file-shredder@czmisacz already exists"
+fi
+if [ "0" -eq $(cat .gitignore | grep -c "file-shredder@czmisacz") ]
+then
+	echo 'file-shredder@czmisacz*' >> .gitignore
+fi
+
+if [ ! -d "send-with-kdeconnect@rcalixte" ]
+then
+	echo "send-with-kdeconnect@rcalixte"
+	wget https://cinnamon-spices.linuxmint.com/files/actions/send-with-kdeconnect@rcalixte.zip && \
+	unzip send-with-kdeconnect@rcalixte.zip
+	rm -f send-with-kdeconnect@rcalixte.zip
+else
+	echo "send-with-kdeconnect@rcalixte already exists"
+fi
+if [ "0" -eq $(cat .gitignore | grep -c "send-with-kdeconnect@rcalixte") ]
+then
+	echo 'send-with-kdeconnect@rcalixte*' >> .gitignore
+fi
+
+if [ ! -d "open-in-remote-terminal@mamolinux" ]
+then
+	echo "open-in-remote-terminal@mamolinux"
+	wget https://cinnamon-spices.linuxmint.com/files/actions/open-in-remote-terminal@mamolinux.zip && \
+	unzip open-in-remote-terminal@mamolinux.zip
+	rm -f open-in-remote-terminal@mamolinux.zip
+else
+	echo "open-in-remote-terminal@mamolinux already exists"
+fi
+if [ "0" -eq $(cat .gitignore | grep -c "open-in-remote-terminal@mamolinux") ]
+then
+	echo 'open-in-remote-terminal@mamolinux*' >> .gitignore
+fi
+
+if [ ! -d "pdf-compressor@schorschii" ]
+then
+	echo "pdf-compressor@schorschii"
+	wget https://cinnamon-spices.linuxmint.com/files/actions/pdf-compressor@schorschii.zip && \
+	unzip pdf-compressor@schorschii.zip
+	rm -f pdf-compressor@schorschii.zip
+else
+	echo "pdf-compressor@schorschii already exists"
+fi
+if [ "0" -eq $(cat .gitignore | grep -c "pdf-compressor@schorschii") ]
+then
+	echo 'pdf-compressor@schorschii*' >> .gitignore
+fi
+
+if [ ! -d "pdf-ocr@schorschii" ]
+then
+	echo "pdf-ocr@schorschii"
+	wget https://cinnamon-spices.linuxmint.com/files/actions/pdf-ocr@schorschii.zip && \
+	unzip pdf-ocr@schorschii.zip
+	rm -f pdf-ocr@schorschii.zip
+else
+	echo "pdf-ocr@schorschii already exists"
+fi
+if [ "0" -eq $(cat .gitignore | grep -c "pdf-ocr@schorschii") ]
+then
+	echo 'pdf-ocr@schorschii*' >> .gitignore
+fi
+popd
+
+
 # Apps und Desktop konfigurieren
 # gibt es eine abweichende Font-Skalierung?
 if [ -f $HOME/.text-scaling-factor ]
