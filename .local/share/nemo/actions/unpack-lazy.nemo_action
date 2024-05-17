@@ -36,7 +36,7 @@ Comment=Archives are automatically decompressed and deleted. Action will be appl
 # What to run.  Enclose in < > to run an executable that resides in the actions folder.
 # **** REQUIRED ****
 #Exec=gedit %F
-Exec=unpack_lazy.py %F
+Exec=unpack_lazy.sh %F
 
 # Icon name to use in the menu - must be a theme icon name
 Icon-Name=extract-archive-symbolic
