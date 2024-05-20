@@ -193,6 +193,7 @@ then
 	echo ; sudo apt install -y --install-recommends inetutils-traceroute
 	echo ; sudo apt install -y --install-recommends iperf3
 	echo ; sudo apt install -y --install-recommends stow
+	echo ; sudo apt install -y --install-recommends p7zip p7zip-full p7zip-rar unrar zip unzip
 
 	echo ; sudo apt install -y --install-recommends build-essential
 	echo ; sudo apt install -y --install-recommends xutils-dev
@@ -333,6 +334,7 @@ then
 	echo ; sudo flatpak install -y --noninteractive org.kde.labplot2
 	echo ; sudo flatpak install -y --noninteractive org.kicad.KiCad
 	echo ; sudo flatpak install -y --noninteractive pl.youkai.nscan
+	echo ; sudo flatpak install -y --noninteractive io.github.peazip.PeaZip
 
 	echo ; sudo flatpak install -y --noninteractive com.prusa3d.PrusaSlicer
 	echo ; sudo flatpak install -y --noninteractive org.freecadweb.FreeCAD
@@ -361,6 +363,7 @@ then
 	echo ; sudo flatpak install -y --noninteractive info.portfolio_performance.PortfolioPerformance
 	echo ; sudo flatpak install -y --noninteractive uk.org.zint.zint-qt
 	echo ; sudo flatpak install -y --noninteractive org.gnome.gitlab.somas.Apostrophe
+	echo ; sudo flatpak install -y --noninteractive com.github.qarmin.szyszka
 
 	echo ; sudo flatpak install -y --noninteractive org.gimp.GIMP
 	echo ; sudo flatpak install -y --noninteractive net.sourceforge.Hugin
