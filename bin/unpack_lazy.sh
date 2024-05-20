@@ -15,11 +15,31 @@
 
 EXITVALUE=0
 
-# alle Kommandozeilenargumente verarbeiten
+CNT=1	# Zähler zur Berechnung des Fortschritts
+
 for ARG in "$@"
 do
-	echo $ARG
-done
+	let PROGRESS=$CNT*100/$#
+
+	ARG_EXTENSION=${ARG##*.}
+
+	echo $PROGRESS
+#	echo "$(7z t $ARG -y)"
+	echo -n "# $(basename $ARG)"
+	echo " $ARG_EXTENSION"
+
+	let CNT=CNT+1
+	sleep 2
+done | yad	--progress \
+			--enable-log="Log" \
+			--text="Extract archives" \
+			--width=600 \
+			--log-height=100 \
+			--button=gtk-cancel \
+			--log-expanded \
+			--auto-close
+
+#read -p "press Enter ..."
 
 exit $EXITVALUE
 
