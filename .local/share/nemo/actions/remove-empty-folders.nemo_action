@@ -113,7 +113,7 @@ Dependencies=yad;
 #
 # Optional - by default this is false
 
-Terminal=true
+Terminal=false
 
 # Uri scheme - provide a uri scheme that the current location's scheme must match
 # For example:

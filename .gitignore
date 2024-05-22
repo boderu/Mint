@@ -15,3 +15,13 @@ bin/*.AppImage
 .local/share/nemo/actions/pdf-compressor@schorschii.nemo_action
 .local/share/nemo/actions/pdf-ocr@schorschii.nemo_action
 .local/share/nemo/actions/move-into-a-new-folder@anaximeno
+.local/share/nemo/actions/send-with-kdeconnect@rcalixte.nemo_action
+.local/share/nemo/actions/send-as-attachment@rcalixte.nemo_action
+.local/share/nemo/actions/open-in-remote-terminal@mamolinux.nemo_action
+.local/share/nemo/actions/image-compressor@schorschii.nemo_action
+.local/share/nemo/actions/file-shredder@czmisacz.nemo_action
+.local/share/nemo/actions/send-with-kdeconnect@rcalixte
+.local/share/nemo/actions/send-as-attachment@rcalixte
+.local/share/nemo/actions/open-in-remote-terminal@mamolinux
+.local/share/nemo/actions/image-compressor@schorschii
+.local/share/nemo/actions/file-shredder@czmisacz
