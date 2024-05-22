@@ -3,55 +3,68 @@
 
 EXITVALUE=0
 
-# create a FIFO file, used to manage the I/O redirection from shell
-PIPE=$(mktemp -u --tmpdir ${0##*/}.XXXXXXXX)
-mkfifo $PIPE
-
-# attach a file descriptor to the file
-exec 3<> $PIPE
-
-# start GUI as background task
-yad	--title="Remove empty directories" \
-	--window-icon=user-trash-symbolic \
-	--button=gtk-close \
-	--geometry 600x350 \
-	--list \
-	--tail \
-	--grid-lines=hor \
-	--ellipsize=END \
-	--checklist \
-	--column=#:CHK \
-	--column=Directory:TEXT \
-	<&3 &
+# temporäre Datei erzeugen und im Fall eines Skriptfehlers löschen
+FILETMP=$(mktemp) || exit
+trap "rm -f -- '$FILETMP'" EXIT
 
 # for all command line arguments
 for ARG in "$@"
 do
-	echo Argument: $ARG
-	# is this a directory?
+#	echo Argument: $ARG
+	# ist das Argument ein Verzeichnis?
 	if [ -d "$ARG" ]
 	then
-		# find all (not hidden) subdirectories
-		find "$ARG" -type d -empty -not -wholename '*/.*' | \
-		while read DIR
-		do
-			echo "true" >&3
-			echo "$(echo $DIR | sed 's/&/&amp;/g')" >&3
-
-			# directory empty?
-			if [ "0" = $(ls -A "$DIR" | wc -l) ]
-			then
-				echo "    empty: $DIR"
-			else
-				echo "    full:  $DIR"
-			fi
-		done
+		# ja, das Argument ist ein Verzeichnis
+		# --> alle Verzeichnisse/Unterverzeichnisse suchen aber versteckte Verzeichnisse nicht berücksichtigen
+		find "$ARG" -type d -not -wholename '*/.*' | tac >> $FILETMP
 	fi
-done
+done # für alle Argumente
 
-read -p "press Enter ..."
-rm -f $PIPE
+CNT=1									# Zähler zur Berechnung des Fortschritts in einer Session
+CNTDIRS=$(cat $FILETMP | wc --lines)	# Anzahl der leeren Verzeichnisse ermitteln
 
+# alle gefundenen leeren Verzeichnisse verarbeiten
+cat $FILETMP | \
+while read DIR
+do
+	let PROGRESS=$CNT*100/$CNTDIRS
+	echo $PROGRESS
+
+	echo -n "# $DIR: "
+	# ist das Verzeichnis leer?
+	if [ 0 -eq $(ls -A "$DIR" | wc --lines) ]
+	then
+		# ja, das Verzeichnis ist leer
+		# --> Verzeichnis löschen
+		if [ ! $(rmdir "$DIR") ]
+		then
+			echo "removed"
+		else
+			echo "removal unsuccessful"
+			EXITVALUE=1
+		fi
+	else
+		echo "not empty"
+	fi
+
+	let CNT=CNT+1
+#	sleep 2
+
+done | yad	--progress \
+			--enable-log="Log" \
+			--text="Delete empty directories" \
+			--width=600 \
+			--log-height=100 \
+			--button=gtk-cancel \
+			--log-expanded \
+			--timeout=1
+#			--auto-close
+
+#read -p "press Enter ..."
+
+# temporäre Datei regulär löschen, Trap deaktivieren und Skript beenden
+rm -f -- "$FILETMP"
+trap - EXIT
 exit $EXITVALUE
 
 # EOF
