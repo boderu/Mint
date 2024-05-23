@@ -120,6 +120,7 @@ then
 	sudo apt remove -y rhythmbox
 	sudo apt remove -y micro
 	sudo apt remove -y exa
+	sudo apt remove -y rustc cargo
 
 
 	echo
@@ -216,7 +217,7 @@ then
 	echo ; sudo apt install -y --install-recommends yt-dlp rtmpdump ffmpeg ffmpegthumbs aria2
 	echo ; sudo apt install -y --install-recommends golang-go
 	echo ; sudo apt install -y --install-recommends diff-so-fancy
-	echo ; sudo apt install -y --install-recommends rustc cargo
+#	echo ; sudo apt install -y --install-recommends rustc cargo
 
 #	echo ; sudo apt install -y --install-recommends freecad
 #	echo ; sudo apt install -y --install-recommends ngspice
@@ -262,7 +263,10 @@ then
 	echo ; sudo apt install -y --install-recommends ausweisapp2
 
 	echo
-	echo "zusätzliche Rust (Cargo) Pakete"
+	echo "aktuelles Rust und zusätzliche (Cargo) Pakete"
+	curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+	sed -i '/^\. "\$HOME\/.cargo\/env"/d' $HOME/Mint/.bashrc
+	sed -i '/^\. "\$HOME\/.cargo\/env"/d' $HOME/Mint/.profile
 	cargo install du-dust
 	cargo install exa
 	cargo install git-graph
