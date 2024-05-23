@@ -4,14 +4,5 @@ bin/*.AppImage
 .config/darktable/library.db*
 .config/darktable/data.db*
 .config/micro/backups
-.local/share/nemo/actions/clone-git-repo@anaximeno
-.local/share/nemo/actions/send-as-attachment@rcalixte
-.local/share/nemo/actions/file-shredder@czmisacz
-.local/share/nemo/actions/clone-git-repo@anaximeno.nemo_action
-.local/share/nemo/actions/send-as-attachment@rcalixte.nemo_action
-.local/share/nemo/actions/clone-git-repo@anaximeno
-.local/share/nemo/actions/pdf-compressor@schorschii
-.local/share/nemo/actions/pdf-ocr@schorschii
-.local/share/nemo/actions/pdf-compressor@schorschii.nemo_action
-.local/share/nemo/actions/pdf-ocr@schorschii.nemo_action
-.local/share/nemo/actions/move-into-a-new-folder@anaximeno
+.local/share/nemo/actions/*@*
+.local/share/nemo/actions/*@*/
