@@ -58,8 +58,8 @@ gui:
     portraitMode: 'auto' # one of 'auto' | 'never' | 'always'
     filterMode: 'substring' # one of 'substring' | 'fuzzy'; see 'Filtering' section below
     spinner:
-      frames: ['|', '/', '-', '\\']
-      rate: 50 # spinner rate in milliseconds
+        frames: ['|', '/', '-', '\\']
+        rate: 50 # spinner rate in milliseconds
     statusPanelView: 'dashboard' # one of 'dashboard' | 'allBranchesLog'
     skipNoStagedFilesWarning: false
     experimentalShowBranchHeads: false # visualize branch heads with (*) in commits list
@@ -109,9 +109,9 @@ git:
     autoRefresh: true
     fetchAll: true # Pass --all flag when running git fetch. Set to false to fetch only origin (or the current branch's upstream remote if there is one)
     branchLogCmd: 'git-graph --model simple --no-pager --style round --format "%h %as %an %d%n%B%n"'
-#    branchLogCmd: 'git log --graph --color=always --abbrev-commit --decorate --date=relative --pretty=medium {{branchName}} --'
+    #    branchLogCmd: 'git log --graph --color=always --abbrev-commit --decorate --date=relative --pretty=medium {{branchName}} --'
     allBranchesLogCmd: 'git-graph --model simple --no-pager --style round --format full'
-#    allBranchesLogCmd: 'git log --graph --all --color=always --abbrev-commit --decorate --date=relative  --pretty=medium'
+    #    allBranchesLogCmd: 'git log --graph --all --color=always --abbrev-commit --decorate --date=relative  --pretty=medium'
     overrideGpg: false # prevents lazygit from spawning a separate process when using GPG
     disableForcePushing: false
     commitPrefixes: {}
@@ -143,7 +143,7 @@ keybinding:
         quit-alt1: '<c-c>' # alternative/alias of quit
         return: '<esc>' # return to previous menu, will quit if there's nowhere to return
         # When set to a printable character, this will work for returning from non-prompt panels
-        return-alt1: null
+        return-alt1: <disabled>
         quitWithoutChangingDirectory: 'Q'
         togglePanel: '<tab>' # goto the next panel
         prevItem: '<up>' # go one line up
@@ -156,15 +156,15 @@ keybinding:
         gotoBottom: '>' # go to bottom of list
         scrollLeft: 'H' # scroll left within list view
         scrollRight: 'L' # scroll right within list view
-        prevBlock: null # goto the previous block / panel
-        nextBlock: null # goto the next block / panel
+        prevBlock: <disabled> # goto the previous block / panel
+        nextBlock: <disabled> # goto the next block / panel
         prevBlock-alt: 'h' # goto the previous block / panel
         nextBlock-alt: 'l' # goto the next block / panel
         jumpToBlock: ['1', '2', '3', '4', '5'] # goto the Nth block / panel
         nextMatch: 'n'
         prevMatch: 'N'
         optionMenu: '?' # show help menu
-        optionMenu-alt1: null # show help menu
+        optionMenu-alt1: <disabled> # show help menu
         select: '<space>'
         goInto: '<enter>'
         openRecentRepos: '<c-r>'
