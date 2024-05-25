@@ -1,6 +1,7 @@
 [general]
 display-n=0
 display-tab-names=0
+gtk-prefer-dark-theme=true
 gtk-theme-name='Mint-L-Dark-Grey'
 gtk-use-system-default-theme=false
 hide-tabs-if-one-tab=false
@@ -20,7 +21,7 @@ use-popup=true
 use-scrollbar=true
 use-trayicon=true
 window-halignment=0
-window-height=74
+window-height=100
 window-losefocus=false
 window-refocus=false
 window-tabbar=true

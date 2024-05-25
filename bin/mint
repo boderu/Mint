@@ -74,7 +74,7 @@ function Link
 
 cd $HOME
 
-echo "einige Verzeichnisse erzeugen"
+echo "Create some directories"
 mkdir -pv "$HOME/.config"
 mkdir -pv "$HOME/.local/share/fonts"
 mkdir -pv "$HOME/.local/bin"
@@ -92,178 +92,53 @@ mkdir -pv "$HOME/WsXilinxSDK"
 
 if [[ "$USER" != "guest" ]]
 then
-	echo "zusätzliche PPAs hinzufügen oder löschen"
+	#===================================================================================================================
+	echo "Add or delete additional PPAs"
 	echo ; sudo apt-get install -y --install-recommends ppa-purge 
 	echo ; sudo add-apt-repository --yes ppa:libreoffice/ppa
 	echo ; sudo add-apt-repository --yes ppa:mozillateam/thunderbird-next
 	echo ; sudo add-apt-repository --yes ppa:ubuntuhandbook1/shotwell
 	echo ; sudo add-apt-repository --yes ppa:ubuntuhandbook1/darktable
 	echo ; sudo add-apt-repository --yes ppa:freecad-maintainers/freecad-stable
-	echo ; sudo ppa-purge -y ppa:kicad/kicad-7.0-releases
-	echo ; sudo ppa-purge -y ppa:kicad/kicad-8.0-releases
 	echo ; sudo add-apt-repository --yes ppa:tomtomtom/yt-dlp
 	echo ; sudo add-apt-repository --yes ppa:longsleep/golang-backports
 	echo ; sudo add-apt-repository --yes ppa:misery/ppa
 	echo ; sudo add-apt-repository --yes ppa:aos1/diff-so-fancy
 	echo ; sudo add-apt-repository --yes ppa:widelands-dev/widelands
 	echo ; sudo add-apt-repository --yes ppa:nextcloud-devs/client
+	echo ; sudo ppa-purge -y ppa:kicad/kicad-7.0-releases
+	echo ; sudo ppa-purge -y ppa:kicad/kicad-8.0-releases
 
 
-	echo
-	echo "vorhandene Pakete aktualisieren"
+	echo ; echo "Update existing Debian packages"
 	sudo apt update
 	sudo apt upgrade -y
 
+	echo ; echo "Remove Debian packages"
+	if [ -e "$HOME/Mint/deb-remove.conf" ]
+	then
+		cat "$HOME/Mint/deb-remove.conf" | grep -v '^#' | grep -v '^$' | \
+		while read LINE
+		do
+			sudo apt remove -y $LINE
+			echo
+		done
+	fi
 
-	echo
-	echo "bereits vorhandene Pakete entfernen"
-	sudo apt remove -y rhythmbox
-	sudo apt remove -y micro
-	sudo apt remove -y exa
-	sudo apt remove -y rustc cargo
-
-
-	echo
-	echo "weitere Pakete installieren"
-	echo ; sudo apt install -y --install-recommends nala
-	echo ; sudo apt install -y --install-recommends git
-	echo ; sudo apt install -y --install-recommends subversion
-	echo ; sudo apt install -y --install-recommends unoconv
-	echo ; sudo apt install -y --install-recommends catdoc
-	echo ; sudo apt install -y --install-recommends docx2txt
-	echo ; sudo apt install -y --install-recommends wget
-	echo ; sudo apt install -y --install-recommends curl
-
-	echo ; sudo apt install -y --install-recommends rclone
-	echo ; sudo apt install -y --install-recommends rclone-browser
-
-	echo ; sudo apt install -y --install-recommends fonts-firacode
-	echo ; sudo apt install -y --install-recommends fonts-powerline
-	echo ; sudo apt install -y --install-recommends ttf-mscorefonts-installer
-	echo ; sudo apt install -y --install-recommends cmatrix
-	echo ; sudo apt install -y --install-recommends libreoffice-style-yaru
-	echo ; sudo apt install -y --install-recommends libreoffice-style-elementary
-	echo ; sudo apt install -y --install-recommends libreoffice-style-elementary
-	echo ; sudo apt install -y --install-recommends libreoffice-style-sifr
-	echo ; sudo apt install -y --install-recommends libreoffice-style-sukapura
-	echo ; sudo apt install -y --install-recommends openclipart
-	echo ; sudo apt install -y --install-recommends openclipart-libreoffice
+	echo ; echo "Install Debian packages"
+	if [ -e "$HOME/Mint/deb-install.conf" ]
+	then
+		cat "$HOME/Mint/deb-install.conf" | grep -v '^#' | grep -v '^$' | \
+		while read LINE
+		do
+			sudo apt install -y --install-recommends $LINE
+			echo
+		done
+	fi
 
 
-	echo ; sudo apt install -y --install-recommends htop
-	echo ; sudo apt install -y --install-recommends inxi
-	echo ; sudo apt install -y --install-recommends neofetch
-	echo ; sudo apt install -y --install-recommends yad
-	echo ; sudo apt install -y --install-recommends sox
-	echo ; sudo apt install -y --install-recommends zenity
-	echo ; sudo apt install -y --install-recommends ocrmypdf
-	echo ; sudo apt install -y --install-recommends gettext
-	echo ; sudo apt install -y --install-recommends libsox-fmt-mp3
-	echo ; sudo apt install -y --install-recommends mc
-	echo ; sudo apt install -y --install-recommends di
-	echo ; sudo apt install -y --install-recommends ncdu
-	echo ; sudo apt install -y --install-recommends scdaemon
-#	echo ; sudo apt install -y --install-recommends micro
-	echo ; sudo apt install -y --install-recommends xclip
-	echo ; sudo apt install -y --install-recommends bat
-	echo ; sudo apt install -y --install-recommends stress
-	echo ; sudo apt install -y --install-recommends clamav
-#	echo ; sudo apt install -y --install-recommends exa
-	echo ; sudo apt install -y --install-recommends glmark2
-	echo ; sudo apt install -y --install-recommends hardlink
-	echo ; sudo apt install -y --install-recommends rmlint rmlint-doc
-	echo ; sudo apt install -y --install-recommends prettyping
-	echo ; sudo apt install -y --install-recommends par2
-	echo ; sudo apt install -y --install-recommends nmap
-	echo ; sudo apt install -y --install-recommends tree
-	echo ; sudo apt install -y --install-recommends trash-cli
-	echo ; sudo apt install -y --install-recommends btop
-	echo ; sudo apt install -y --install-recommends tldr
-	echo ; sudo apt install -y --install-recommends highlight
-	echo ; sudo apt install -y --install-recommends atool
-	echo ; sudo apt install -y --install-recommends caca-utils
-	echo ; sudo apt install -y --install-recommends w3m
-	echo ; sudo apt install -y --install-recommends poppler-utils
-	echo ; sudo apt install -y --install-recommends ranger
-	echo ; sudo apt install -y --install-recommends thefuck
-	echo ; sudo apt install -y --install-recommends oping
-	echo ; sudo apt install -y --install-recommends tmux
-	echo ; sudo apt install -y --install-recommends jq
-	echo ; sudo apt install -y --install-recommends progress
-	echo ; sudo apt install -y --install-recommends zsh
-	echo ; sudo apt install -y --install-recommends inetutils-traceroute
-	echo ; sudo apt install -y --install-recommends iperf3
-	echo ; sudo apt install -y --install-recommends stow
-	echo ; sudo apt install -y --install-recommends p7zip p7zip-full p7zip-rar unrar zip unzip
-
-	echo ; sudo apt install -y --install-recommends build-essential
-	echo ; sudo apt install -y --install-recommends xutils-dev
-	echo ; sudo apt install -y --install-recommends gcovr
-	echo ; sudo apt install -y --install-recommends attr
-	echo ; sudo apt install -y --install-recommends binutils-arm-none-eabi gcc-arm-none-eabi gcc-arm-none-eabi-source
-#	echo ; sudo apt install -y --install-recommends libnewlib-arm-none-eabi libstdc++-arm-none-eabi-newlib
-#	echo ; sudo apt install -y --install-recommends picolibc-arm-none-eabi libstdc++-arm-none-eabi-picolibc
-	echo ; sudo apt install -y --install-recommends doxygen doxygen-doc doxygen-latex
-	echo ; sudo apt install -y --install-recommends graphviz graphviz-doc
-	echo ; sudo apt install -y --install-recommends ghostscript
-	echo ; sudo apt install -y --install-recommends ruby ri ruby-roo bundler ruby-dev
-	echo ; sudo apt install -y --install-recommends asciidoctor asciidoctor-doc
-	echo ; sudo apt install -y --install-recommends gnuplot
-	echo ; sudo apt install -y --install-recommends wxmaxima
-	echo ; sudo apt install -y --install-recommends xmlcopyeditor
-
-	echo ; sudo apt install -y --install-recommends default-jre
-	echo ; sudo apt install -y --install-recommends libreadline-dev libpcre3-dev
-	echo ; sudo apt install -y --install-recommends yt-dlp rtmpdump ffmpeg ffmpegthumbs aria2
-	echo ; sudo apt install -y --install-recommends golang-go
-	echo ; sudo apt install -y --install-recommends diff-so-fancy
-#	echo ; sudo apt install -y --install-recommends rustc cargo
-
-#	echo ; sudo apt install -y --install-recommends freecad
-#	echo ; sudo apt install -y --install-recommends ngspice
-#	echo ; sudo apt install -y --install-recommends kicad
-	echo ; sudo apt install -y --install-recommends brasero
-	echo ; sudo apt install -y --install-recommends xtrkcad
-	echo ; sudo apt install -y --install-recommends sweep
-	echo ; sudo apt install -y --install-recommends gpick
-	echo ; sudo apt install -y --install-recommends shotwell
-	echo ; sudo apt install -y --install-recommends darktable
-	echo ; sudo apt install -y --install-recommends evolution
-	echo ; sudo apt install -y --install-recommends gparted
-	echo ; sudo apt install -y --install-recommends libreoffice-script-provider-python
-	echo ; sudo apt install -y --install-recommends nextcloud-desktop
-	echo ; sudo apt install -y --install-recommends nemo-seahorse
-	echo ; sudo apt install -y --install-recommends nemo-gtkhash
-	echo ; sudo apt install -y --install-recommends nemo-terminal
-	echo ; sudo apt install -y --install-recommends nemo-image-converter
-	echo ; sudo apt install -y --install-recommends nemo-compare
-	echo ; sudo apt install -y --install-recommends nemo-filename-repairer
-	echo ; sudo apt install -y --install-recommends nemo-audio-tab
-	echo ; sudo apt install -y --install-recommends nemo-nextcloud
-	echo ; sudo apt install -y --install-recommends pan
-	echo ; sudo apt install -y --install-recommends gnupg2
-	echo ; sudo apt install -y --install-recommends fraqtive
-	echo ; sudo apt install -y --install-recommends unison
-	echo ; sudo apt install -y --install-recommends unison-gtk
-	echo ; sudo apt install -y --install-recommends solaar-gnome3
-	echo ; sudo apt install -y --install-recommends kdeconnect
-	echo ; sudo apt install -y --install-recommends kdeconnect-cli
-	echo ; sudo apt install -y --install-recommends searchmonkey
-	echo ; sudo apt install -y --install-recommends grsync
-	echo ; sudo apt install -y --install-recommends guake
-
-	echo ; sudo apt install -y --install-recommends widelands
-
-	echo ; sudo apt install -y --install-recommends wine
-	echo ; sudo apt install -y --install-recommends virtualbox
-	echo ; sudo apt install -y --install-recommends firefox-locale-de
-
-	echo ; sudo apt install -y --install-recommends pcscd
-	echo ; sudo apt install -y --install-recommends libccid
-	echo ; sudo apt install -y --install-recommends ausweisapp2
-
-	echo
-	echo "aktuelles Rust und zusätzliche (Cargo) Pakete"
+	#===================================================================================================================
+	echo ; echo "Current Rust and additional (cargo) packages"
 	curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 	sed -i '/^\. "\$HOME\/.cargo\/env"/d' $HOME/Mint/.bashrc
 	sed -i '/^\. "\$HOME\/.cargo\/env"/d' $HOME/Mint/.profile
@@ -272,161 +147,50 @@ then
 	cargo install git-graph
 
 
-	echo
-	echo "zusätzliche Ruby Pakete"
+	#===================================================================================================================
+	echo ; echo "Additional Ruby packages"
 	echo ; sudo gem install asciidoctor-diagram
 	echo ; sudo gem install roo
 
-	echo
-	echo "Python und zusätzliche Pakete"
-	echo ; sudo apt install -y --install-recommends python3
-	echo ; sudo apt install -y --install-recommends python3-pip
-	echo ; sudo apt install -y --install-recommends python3-gpg
-	echo ; sudo apt install -y --install-recommends python3-venv
-	echo ; sudo apt install -y --install-recommends python3-brotli
-	echo ; sudo apt install -y --install-recommends python3-urllib3
-	echo ; sudo apt install -y --install-recommends libgtk-3-dev
-	echo ; sudo apt install -y --install-recommends libgstreamer-gl1.0-0
-	echo ; sudo apt install -y --install-recommends freeglut3
-	echo ; sudo apt install -y --install-recommends freeglut3-dev
-	echo ; sudo apt install -y --install-recommends python3-gst-1.0
-	echo ; sudo apt install -y --install-recommends libglib2.0-dev
-	echo ; sudo apt install -y --install-recommends ubuntu-restricted-extras
-	echo ; sudo apt install -y --install-recommends libgstreamer-plugins-base1.0-dev
-	echo ; sudo apt install -y --install-recommends wxglade
-	echo ; sudo apt install -y --install-recommends python3-tk
-	echo ; sudo apt install -y --install-recommends python3-setuptools
-	echo ; sudo apt install -y --install-recommends python3-dev
 
-	echo
-	echo "Flatpaks installieren/deinstallieren"
+	#===================================================================================================================
+	echo ; echo "Install and remove Flatpaks"
+
 	echo ; sudo flatpak update -y --noninteractive
 
-	echo ; sudo flatpak install -y --noninteractive com.github.tchx84.Flatseal
-	echo ; sudo flatpak install -y --noninteractive io.github.flattool.Warehouse
-	echo ; sudo flatpak install -y --noninteractive io.github.giantpinkrobots.flatsweep
-	echo ; sudo flatpak install -y --noninteractive net.displaycal.DisplayCAL
-	echo ; sudo flatpak uninstall -y --noninteractive org.winehq.Wine
-	echo ; sudo flatpak install -y --noninteractive ca.desrt.dconf-editor
+	if [ -e "$HOME/Mint/flatpak-remove.conf" ]
+	then
+		cat "$HOME/Mint/flatpak-remove.conf" | grep -v '^#' | grep -v '^$' | \
+		while read LINE
+		do
+			if [ 0 -ne $(flatpak list | grep $LINE | wc --lines) ]
+			then
+				echo "Remove Flatpak $LINE"
+				sudo flatpak uninstall -y --noninteractive $LINE
+			else
+				echo "Flatpak $LINE already removed"
+			fi
+		done
+	fi
 
-	echo ; sudo flatpak install -y --noninteractive org.stellarium.Stellarium
-	echo ; sudo flatpak install -y --noninteractive org.gnome.Maps
-
-	echo ; sudo flatpak install -y --noninteractive com.bitwarden.desktop
-	echo ; sudo flatpak install -y --noninteractive net.cozic.joplin_desktop
-	echo ; sudo flatpak uninstall -y --noninteractive com.nextcloud.desktopclient.nextcloud
-	echo ; sudo flatpak install -y --noninteractive com.synology.SynologyDrive
-	echo ; sudo flatpak install -y --noninteractive org.signal.Signal
-	echo ; sudo flatpak install -y --noninteractive us.zoom.Zoom
-	echo ; sudo flatpak install -y --noninteractive com.skype.Client
-
-	echo ; sudo flatpak uninstall -y --noninteractive com.visualstudio.code
-	echo ; sudo flatpak install -y --noninteractive com.jetbrains.PyCharm-Community
-	echo ; sudo flatpak uninstall -y --noninteractive com.jgraph.drawio.desktop
-	echo ; sudo flatpak install -y --noninteractive org.scilab.Scilab
-	echo ; sudo flatpak install -y --noninteractive org.octave.Octave
-	echo ; sudo flatpak install -y --noninteractive org.gaphor.Gaphor
-	echo ; sudo flatpak install -y --noninteractive org.wireshark.Wireshark
-	echo ; sudo flatpak uninstall -y --noninteractive com.github.marktext.marktext
-	echo ; sudo flatpak install -y --noninteractive me.mitya57.ReText
-	echo ; sudo flatpak install -y --noninteractive com.github.afrantzis.Bless
-	echo ; sudo flatpak install -y --noninteractive org.wxhexeditor.wxHexEditor
-	echo ; sudo flatpak install -y --noninteractive org.sqlitebrowser.sqlitebrowser
-	echo ; sudo flatpak install -y --noninteractive org.gnome.meld
-	echo ; sudo flatpak install -y --noninteractive cc.arduino.arduinoide
-	echo ; sudo flatpak uninstall -y --noninteractive com.github.fabiocolacio.marker
-	echo ; sudo flatpak install -y --noninteractive org.kde.labplot2
-	echo ; sudo flatpak install -y --noninteractive org.kicad.KiCad
-	echo ; sudo flatpak install -y --noninteractive pl.youkai.nscan
-	echo ; sudo flatpak install -y --noninteractive io.github.peazip.PeaZip
-
-	echo ; sudo flatpak install -y --noninteractive com.prusa3d.PrusaSlicer
-	echo ; sudo flatpak install -y --noninteractive org.freecadweb.FreeCAD
-
-	echo ; sudo flatpak install -y --noninteractive org.freefilesync.FreeFileSync
-	echo ; sudo flatpak install -y --noninteractive com.github.qarmin.czkawka
-	echo ; sudo flatpak uninstall -y --noninteractive com.hamrick.VueScan
-	echo ; sudo flatpak uninstall -y --noninteractive org.mozilla.Thunderbird
-	echo ; sudo flatpak uninstall -y --noninteractive eu.betterbird.Betterbird
-	echo ; sudo flatpak uninstall -y --noninteractive com.ulduzsoft.Birdtray
-	echo ; sudo flatpak uninstall -y --noninteractive org.gnome.Evolution
-	echo ; sudo flatpak install -y --noninteractive org.gnome.Contacts
-	echo ; sudo flatpak install -y --noninteractive org.gnucash.GnuCash
-	echo ; sudo flatpak install -y --noninteractive com.calibre_ebook.calibre
-	echo ; sudo flatpak install -y --noninteractive com.github.jeromerobert.pdfarranger
-	echo ; sudo flatpak install -y --noninteractive com.github.junrrein.PDFSlicer
-	echo ; sudo flatpak install -y --noninteractive org.gramps_project.Gramps
-	echo ; sudo flatpak install -y --noninteractive net.scribus.Scribus
-	echo ; sudo flatpak install -y --noninteractive org.filezillaproject.Filezilla
-	echo ; sudo flatpak install -y --noninteractive org.gnome.moserial
-	echo ; sudo flatpak install -y --noninteractive io.dbeaver.DBeaverCommunity
-	echo ; sudo flatpak install -y --noninteractive org.raspberrypi.rpi-imager
-	echo ; sudo flatpak install -y --noninteractive io.gitlab.adhami3310.Impression
-	echo ; sudo flatpak uninstall -y --noninteractive de.bund.ausweisapp.ausweisapp2
-	echo ; sudo flatpak install -y --noninteractive org.flameshot.Flameshot
-	echo ; sudo flatpak install -y --noninteractive info.portfolio_performance.PortfolioPerformance
-	echo ; sudo flatpak install -y --noninteractive uk.org.zint.zint-qt
-	echo ; sudo flatpak install -y --noninteractive org.gnome.gitlab.somas.Apostrophe
-	echo ; sudo flatpak install -y --noninteractive com.github.qarmin.szyszka
-
-	echo ; sudo flatpak install -y --noninteractive org.gimp.GIMP
-	echo ; sudo flatpak install -y --noninteractive net.sourceforge.Hugin
-	echo ; sudo flatpak install -y --noninteractive org.inkscape.Inkscape
-	echo ; sudo flatpak install -y --noninteractive com.rawtherapee.RawTherapee
-	echo ; sudo flatpak install -y --noninteractive org.darktable.Darktable
-	echo ; sudo flatpak install -y --noninteractive org.blender.Blender
-	echo ; sudo flatpak install -y --noninteractive org.blender.Blender.Codecs
-	echo ; sudo flatpak install -y --noninteractive org.gnome.eog
-	echo ; sudo flatpak install -y --noninteractive com.interversehq.qView
-	echo ; sudo flatpak install -y --noninteractive com.github.buddhi1980.mandelbulber2
-	echo ; sudo flatpak install -y --noninteractive com.github.tenderowl.frog
-	echo ; sudo flatpak install -y --noninteractive io.github.ktgw0316.LightZone
-	echo ; sudo flatpak install -y --noninteractive io.github.maurycyliebner.enve
-	echo ; sudo flatpak install -y --noninteractive fr.romainvigier.MetadataCleaner
-	echo ; sudo flatpak install -y --noninteractive io.github.najepaliya.kleaner
-
-	echo ; sudo flatpak install -y --noninteractive com.makemkv.MakeMKV
-	echo ; sudo flatpak install -y --noninteractive com.obsproject.Studio
-	echo ; sudo flatpak install -y --noninteractive fr.handbrake.ghb
-	echo ; sudo flatpak install -y --noninteractive org.shotcut.Shotcut
-	echo ; sudo flatpak install -y --noninteractive tv.plex.PlexDesktop
-	echo ; sudo flatpak install -y --noninteractive io.mpv.Mpv
-	echo ; sudo flatpak install -y --noninteractive org.gnome.Totem
-	echo ; sudo flatpak install -y --noninteractive org.videolan.VLC
-	echo ; sudo flatpak install -y --noninteractive org.gnome.Cheese
-	echo ; sudo flatpak install -y --noninteractive com.ozmartians.VidCutter
-	echo ; sudo flatpak install -y --noninteractive net.mediaarea.MediaInfo
-	echo ; sudo flatpak install -y --noninteractive io.freetubeapp.FreeTube
-	echo ; sudo flatpak install -y --noninteractive org.gnome.World.PikaBackup
-	echo ; sudo flatpak install -y --noninteractive io.gitlab.adhami3310.Footage
-	echo ; sudo flatpak install -y --noninteractive tv.kodi.Kodi
-	echo ; sudo flatpak install -y --noninteractive no.mifi.losslesscut
-
-	echo ; sudo flatpak install -y --noninteractive com.spotify.Client
-	echo ; sudo flatpak install -y --noninteractive de.haeckerfelix.Shortwave
-	echo ; sudo flatpak install -y --noninteractive org.audacityteam.Audacity
-	echo ; sudo flatpak install -y --noninteractive org.audacityteam.Audacity.Codecs
-	echo ; sudo flatpak install -y --noninteractive org.clementine_player.Clementine
-	echo ; sudo flatpak install -y --noninteractive org.gnome.Rhythmbox3
-	echo ; sudo flatpak install -y --noninteractive org.gnome.SoundJuicer
-	echo ; sudo flatpak install -y --noninteractive org.gnome.EasyTAG
-	echo ; sudo flatpak install -y --noninteractive org.ardour.Ardour
-
-	echo ; sudo flatpak install -y --noninteractive org.gnome.Mahjongg
-	echo ; sudo flatpak install -y --noninteractive net.sourceforge.lgames.LBreakoutHD
-	echo ; sudo flatpak install -y --noninteractive org.frozen_bubble.frozen-bubble
-	echo ; sudo flatpak install -y --noninteractive org.gnome.Aisleriot
-	echo ; sudo flatpak install -y --noninteractive org.gnome.Klotski
-	echo ; sudo flatpak install -y --noninteractive org.gnome.Mahjongg
-	echo ; sudo flatpak install -y --noninteractive org.gnome.Mines
-	echo ; sudo flatpak install -y --noninteractive org.sauerbraten.Sauerbraten
-	echo ; sudo flatpak install -y --noninteractive org.seul.pingus
-	echo ; sudo flatpak install -y --noninteractive org.hedgewars.Hedgewars
-	echo ; sudo flatpak install -y --noninteractive org.gnome.Sudoku
+	if [ -e "$HOME/Mint/flatpak-install.conf" ]
+	then
+		cat "$HOME/Mint/flatpak-install.conf" | grep -v '^#' | grep -v '^$' | \
+		while read LINE
+		do
+			if [ 0 -eq $(flatpak list | grep $LINE | wc --lines) ]
+			then
+				echo "Install Flatpak $LINE"
+				sudo flatpak install -y --noninteractive $LINE
+			else
+				echo "Flatpak $LINE already installed"
+			fi
+		done
+	fi
 
 
-	echo
-	echo "Install Nerd Fonts"
+	#===================================================================================================================
+	echo ; echo "Install Nerd Fonts"
 	if [ ! -d "$HOME/.local/share/fonts/NerdFonts" ]
 	then
 		git clone https://github.com/ryanoasis/nerd-fonts.git
@@ -434,11 +198,13 @@ then
 		./install.sh
 		cd ..
 		sudo rm -R --force nerd-fonts
+	else
+		echo "Nerd Fonts already installed"
 	fi
 
 
-	echo
-	echo "Install micro"
+	#===================================================================================================================
+	echo ; echo "Install micro"
 	git clone https://github.com/zyedidia/micro
 	cd micro
 	make build
@@ -447,8 +213,8 @@ then
 	sudo rm -R --force micro
 
 
-	echo
-	echo "Install LazyGit"
+	#===================================================================================================================
+	echo ; echo "Install LazyGit"
 	LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": "v\K[^"]*')
 	curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
 	tar xf lazygit.tar.gz lazygit
@@ -457,15 +223,8 @@ then
 	sudo rm -f lazygit
 
 
-#	echo
-#	echo "xplr Dateimanager"
-#	git clone https://github.com/sayanarijit/xplr.git
-#	cd xplr
-#	cargo build --locked --release --bin xplr
-#	sudo cp target/release/xplr /usr/local/bin/
-#	cd ..
-#	sudo rm -Rf xplr
-
+	#===================================================================================================================
+	echo ; echo "Install xplr"
 	PLATFORM="linux"  # or "macos" / "linux-musl"
 	wget https://github.com/sayanarijit/xplr/releases/latest/download/xplr-${PLATFORM}.tar.gz
 	tar xzvf xplr-${PLATFORM}.tar.gz
@@ -473,8 +232,8 @@ then
 	rm --force xplr-${PLATFORM}.tar.gz
 
 
-	echo
-	echo "CppCheck aktualisieren"
+	#===================================================================================================================
+	echo ; echo "Update CppCheck"
 	sudo apt-get install -y libpcre3-dev
 	git clone https://github.com/danmar/cppcheck.git
 	cd cppcheck
@@ -504,13 +263,13 @@ then
 	echo "CppCeck Version: $(cppcheck --version)"
 
 
-	echo
-	echo "zusätzliche Pakete für TI Code Composer Studio 12"
+	#===================================================================================================================
+	echo ; echo "Additional packages for TI Code Composer Studio 12"
 	sudo apt install -y --install-recommends libc6-i386 libusb-0.1-4 libgconf-2-4 libncurses5 libpython2.7 libtinfo5
 
 
-	echo
-	echo "Visual Studio Code"
+	#===================================================================================================================
+	echo ; echo "Visual Studio Code"
 	sudo apt install -y --install-recommends dirmngr software-properties-common apt-transport-https curl
 	if [ ! -e "/usr/share/keyrings/vscode.gpg" ]
 	then
@@ -527,8 +286,8 @@ then
 	sudo apt install -y --install-recommends code
 
 
-	echo
-	echo "sysWORXX USB-CANmodul1"
+	#===================================================================================================================
+	echo ; echo "sysWORXX USB-CANmodul1"
 	SYSTEC_URL1="https://www.systec-electronic.com/produkte/interfaces-gateways-steuerungen/sysworxx-usb-canmodul1"
 	SYSTEC_URL2="https://www.systec-electronic.com/media/default/Redakteur/Unternehmen/Support/Downloadbereich/Treiber"
 	SYSTEC_NAME=$(curl -s $SYSTEC_URL1 | grep -oe 'systec_can.*\.tar\.bz2')
@@ -543,8 +302,8 @@ then
 	rm --force -R systec_can*
 
 
-	echo
-	echo "Easy Diffusion installieren"
+	#===================================================================================================================
+	echo ; echo "Install Easy Diffusion"
 	if [ ! -d "$HOME/easy-diffusion" ]
 	then
 		wget "https://github.com/cmdr2/stable-diffusion-ui/releases/latest/download/Easy-Diffusion-Linux.zip"
@@ -553,8 +312,8 @@ then
 	fi
 
 
-	#echo
-	#echo "Install Automatic 1111"
+	#===================================================================================================================
+	#echo ; echo "Install Automatic 1111"
 	#sudo apt install -y --install-recommends libgl1 libglib2.0-0
 	#wget -q https://raw.githubusercontent.com/AUTOMATIC1111/stable-diffusion-webui/master/webui.sh
 	#chmod +x webui.sh
@@ -562,8 +321,8 @@ then
 	#rm -fv webui.sh
 
 
-	echo
-	echo "DrawIO installieren"
+	#===================================================================================================================
+	echo ; echo "Install DrawIO"
 	curl -s https://api.github.com/repos/jgraph/drawio-desktop/releases/latest | \
 		grep browser_download_url | \
 		grep '\.deb' | \
@@ -573,8 +332,8 @@ then
 	rm -fv ./drawio*.deb
 
 
-	echo
-	echo "Frontplattendesigner installieren"
+	#===================================================================================================================
+	echo ; echo "Install Frontplattendesigner"
 	curl -s https://www.schaeffer-ag.de/frontplatten-designer#download | \
 		grep -E -o 'https[^[:blank:]]*-amd64\.deb' | \
 		sort -V | \
@@ -584,13 +343,13 @@ then
 	rm -fv ./FrontDesign*amd64.deb
 
 
-	echo
-	echo "nicht mehr benötigte Pakete entfernen"
+	#===================================================================================================================
+	echo ; echo "Remove packages that are no longer required"
 	sudo apt autoremove -y
 
 
-	echo
-	echo "User Guest einrichten"
+	#===================================================================================================================
+	echo ; echo "Set up User Guest"
 	egrep -i guest /etc/passwd >/dev/null
 	if [ $? -ne 0 ]
 	then
@@ -599,15 +358,15 @@ then
 		sudo passwd -d guest
 	fi
 
-	echo
-	echo "User zur Gruppe users hinzufügen"
+	echo ; echo "Add users to the users group"
 	sudo adduser $USER users
 
-	echo
-	echo "Gemeinsamen Ordner für alle Nutzer zum Teilen von Dateien konfigurieren"
+
+	#===================================================================================================================
+	echo ; echo "Configure shared folder for all users to share files"
 	if [ -d /home/Share ]
 	then
-		echo "Ordner Share existiert bereits"
+		echo "Share folder already exists"
 	else
 		sudo mkdir /home/Share
 		sudo chown root:users /home/Share
@@ -619,10 +378,10 @@ then
 	sudo cp $HOME/Mint/bin/mint /home/Share/
 
 	echo
-	echo "Öffentlichen (RO) Ordner für alle Nutzer konfigurieren"
+	echo "Configure public (RO) folder for all users"
 	if [ -d /home/Public ]
 	then
-		echo "Ordner Public existiert bereits"
+		echo "Public folder already exists"
 	else
 		sudo mkdir /home/Public
 		sudo chown $USER:users /home/Public
@@ -631,8 +390,10 @@ then
 		sudo chmod ug+s /home/Public
 	fi
 
+
+	#===================================================================================================================
 	echo
-	echo "Limit für Filesystem-Watches (inotify) erhöhen"
+	echo "Increase limit for file system watches (inotify)"
 	if [ ! -e /etc/sysctl.d/90-inotify.conf ]
 	then
 		sudo cp $HOME/Mint/Sytem/etc/sysctl.d/90-inotify.conf /etc/sysctl.d/
@@ -643,29 +404,21 @@ then
 fi # if $USER != guest
 
 
-echo
-echo "zusätzliche Python Bibliotheken"
-pip install GitPython
-pip install pypubsub
-pip install pyinstaller
-pip install pypubsub
-pip install subpub
-pip install sqlalchemy
-pip install ObjectListView
-pip install lxml
-pip install python-can
-pip install canopen
-pip install python-pptx
-pip install crcmod
-pip install pandas
-pip install Jinja2
-pip install odfpy
-pip install -U -f https://extras.wxpython.org/wxPython4/extras/linux/gtk3/ubuntu-22.04 wxPython
-#pip3 install -v --user wxPython
+#=======================================================================================================================
+echo ; echo "Additional Python libraries"
+if [ -e "$HOME/Mint/python-packages.conf" ]
+then
+	cat "$HOME/Mint/python-packages.conf" | grep -v '^#' | grep -v '^$' | \
+	while read LINE
+	do
+		pip install $LINE
+		echo
+	done
+fi
 
 
-echo
-echo "lokale Konfigurationen einrichten"
+#=======================================================================================================================
+echo ; echo "Set up local configurations"
 if [ -d "Mint" ]
 then
 	cd Mint
@@ -687,8 +440,8 @@ else
 fi
 
 
-echo
-echo "Frameworks auschecken oder aktualisieren"
+#=======================================================================================================================
+echo ; echo "Check out or update frameworks"
 
 if [ -d "$HOME/Frameworks/KiCAD" ]
 then
@@ -703,36 +456,38 @@ else
 fi
 
 
-echo
-echo "FireFox Download Helper App"
+#=======================================================================================================================
+echo ; echo "FireFox Download Helper App"
 if [ -f "$HOME/Nextcloud/Apps/Mint/DownloadHelper/vdhcoapp-2.0.10-linux-x86_64.deb" ]
 then
 	sudo apt install -y $HOME/Nextcloud/Apps/Mint/DownloadHelper/vdhcoapp-2.0.10-linux-x86_64.deb
 	/opt/vdhcoapp/vdhcoapp install
 fi
 
-echo "VueScan"
+#=======================================================================================================================
+echo ; echo "VueScan"
 if [ -f "$HOME/Nextcloud/Apps/Mint/VueScan/vue*.deb" ]
 then
 	sudo apt install -y $HOME/Nextcloud/Apps/Mint/VueScan/vue*.deb
 fi
 
-echo
-echo "Segger j-link"
+
+#=======================================================================================================================
+echo ; echo "Segger j-link"
 if [ -f "$HOME/Nextcloud/Apps/Mint/Segger/JLink_Linux_V794f_x86_64.deb" ]
 then
 	sudo apt purge -y jlink
 	sudo apt install -y $HOME/Nextcloud/Apps/Mint/Segger/JLink_Linux_V794f_x86_64.deb
 fi
 
-echo
-echo "Segger Ozone Debugger"
+echo ; echo "Segger Ozone Debugger"
 if [ -f "$HOME/Nextcloud/Apps/Mint/Segger/Ozone_Linux_V330d_x86_64.deb" ]
 then
 	sudo apt install -y $HOME/Nextcloud/Apps/Mint/Segger/Ozone_Linux_V330d_x86_64.deb
 fi
 
 
+#=======================================================================================================================
 Link "$HOME/Mint/.bashrc"									"$HOME/.bashrc"
 Link "$HOME/Mint/.bash_logout"								"$HOME/.bash_logout"
 Link "$HOME/Mint/.bash_aliases"								"$HOME/.bash_aliases"
@@ -776,162 +531,65 @@ Link "$HOME/SynologyDrive/Calibre-Bibliothek"				"$HOME/Calibre-Bibliothek"
 Link "$HOME/SynologyDrive/Musik"							"$HOME/Musik"
 
 
-echo
-echo "zusätzliche Mint Applets installieren:"
+#=======================================================================================================================
+echo ; echo "Install additional Mint applets"
 pushd "$HOME/.local/share/cinnamon/applets/"
-if [ ! -d "weather@mockturtl" ]
+
+if [ -e "$HOME/Mint/mint-actions-download.conf" ]
 then
-	echo "weather@mockturtl"
-	wget https://cinnamon-spices.linuxmint.com/files/applets/weather@mockturtl.zip && \
-	unzip weather@mockturtl.zip
-	rm -f weather@mockturtl.zip
-else
-	echo "weather@mockturtl already exists"
+	cat "$HOME/Mint/mint-actions-download.conf" | grep -v '^#' | grep -v '^$' | \
+	while read LINE
+	do
+		if [ ! -d "$LINE" ]
+		then
+			echo "$LINE"
+			wget https://cinnamon-spices.linuxmint.com/files/applets/${LINE}.zip && \
+			unzip ${LINE}.zip
+			rm -f ${LINE}.zip
+		else
+			echo "$LINE already exists"
+		fi
+	done
 fi
 
-if [ ! -d "cinnamon-timer@jake1164" ]
-then
-	echo "cinnamon-timer@jake1164"
-	wget https://cinnamon-spices.linuxmint.com/files/applets/cinnamon-timer@jake1164.zip && \
-	unzip cinnamon-timer@jake1164.zip
-	rm -f cinnamon-timer@jake1164.zip
-else
-	echo "cinnamon-timer@jake1164 already exists"
-fi
-
-if [ ! -d "turn-off-monitor@zablotski" ]
-then
-	echo "turn-off-monitor@zablotski"
-	wget https://cinnamon-spices.linuxmint.com/files/applets/turn-off-monitor@zablotski.zip && \
-	unzip turn-off-monitor@zablotski.zip
-	rm -f turn-off-monitor@zablotski.zip
-else
-	echo "turn-off-monitor@zablotski already exists"
-fi
 popd
 
 
-echo "Zusätzliche Nemo Actions installieren"
+#=======================================================================================================================
+echo ; echo "Zusätzliche Nemo Actions installieren"
 pushd "$HOME/.local/share/nemo/actions/"
+
 if [ ! -e ".gitignore" ]
 then
 	touch ".gitignore"
 fi
 
-if [ ! -d "send-as-attachment@rcalixte" ]
+if [ -e "$HOME/Mint/nemo-actions-download.conf" ]
 then
-	echo "send-as-attachment@rcalixte"
-	wget https://cinnamon-spices.linuxmint.com/files/actions/send-as-attachment@rcalixte.zip && \
-	unzip send-as-attachment@rcalixte.zip
-	rm -f send-as-attachment@rcalixte.zip
-else
-	echo "send-as-attachment@rcalixte already exists"
-fi
-if [ "0" -eq $(cat .gitignore | grep -c "send-as-attachment@rcalixte") ]
-then
-	echo 'send-as-attachment@rcalixte*' >> .gitignore
+	cat "$HOME/Mint/nemo-actions-download.conf" | grep -v '^#' | grep -v '^$' | \
+	while read LINE
+	do
+		if [ ! -d "$LINE" ]
+		then
+			echo "$LINE"
+			wget https://cinnamon-spices.linuxmint.com/files/actions/${LINE}.zip && \
+			unzip ${LINE}.zip
+			rm -f ${LINE}.zip
+		else
+			echo "$LINE already exists"
+		fi
+
+		if [ "0" -eq $(cat .gitignore | grep -c "$LINE") ]
+		then
+			echo "${LINE}*" >> .gitignore
+		fi
+	done
 fi
 
-if [ ! -d "image-compressor@schorschii" ]
-then
-	echo "image-compressor@schorschii"
-	wget https://cinnamon-spices.linuxmint.com/files/actions/image-compressor@schorschii.zip && \
-	unzip image-compressor@schorschii.zip
-	rm -f image-compressor@schorschii.zip
-else
-	echo "image-compressor@schorschii already exists"
-fi
-if [ "0" -eq $(cat .gitignore | grep -c "image-compressor@schorschii") ]
-then
-	echo 'image-compressor@schorschii*' >> .gitignore
-fi
-
-if [ ! -d "clone-git-repo@anaximeno" ]
-then
-	echo "clone-git-repo@anaximeno"
-	wget https://cinnamon-spices.linuxmint.com/files/actions/clone-git-repo@anaximeno.zip && \
-	unzip clone-git-repo@anaximeno.zip
-	rm -f clone-git-repo@anaximeno.zip
-else
-	echo "clone-git-repo@anaximeno already exists"
-fi
-if [ "0" -eq $(cat .gitignore | grep -c "clone-git-repo@anaximeno") ]
-then
-	echo 'clone-git-repo@anaximeno*' >> .gitignore
-fi
-
-if [ ! -d "file-shredder@czmisacz" ]
-then
-	echo "file-shredder@czmisacz"
-	wget https://cinnamon-spices.linuxmint.com/files/actions/file-shredder@czmisacz.zip && \
-	unzip file-shredder@czmisacz.zip
-	rm -f file-shredder@czmisacz.zip
-else
-	echo "file-shredder@czmisacz already exists"
-fi
-if [ "0" -eq $(cat .gitignore | grep -c "file-shredder@czmisacz") ]
-then
-	echo 'file-shredder@czmisacz*' >> .gitignore
-fi
-
-if [ ! -d "send-with-kdeconnect@rcalixte" ]
-then
-	echo "send-with-kdeconnect@rcalixte"
-	wget https://cinnamon-spices.linuxmint.com/files/actions/send-with-kdeconnect@rcalixte.zip && \
-	unzip send-with-kdeconnect@rcalixte.zip
-	rm -f send-with-kdeconnect@rcalixte.zip
-else
-	echo "send-with-kdeconnect@rcalixte already exists"
-fi
-if [ "0" -eq $(cat .gitignore | grep -c "send-with-kdeconnect@rcalixte") ]
-then
-	echo 'send-with-kdeconnect@rcalixte*' >> .gitignore
-fi
-
-if [ ! -d "open-in-remote-terminal@mamolinux" ]
-then
-	echo "open-in-remote-terminal@mamolinux"
-	wget https://cinnamon-spices.linuxmint.com/files/actions/open-in-remote-terminal@mamolinux.zip && \
-	unzip open-in-remote-terminal@mamolinux.zip
-	rm -f open-in-remote-terminal@mamolinux.zip
-else
-	echo "open-in-remote-terminal@mamolinux already exists"
-fi
-if [ "0" -eq $(cat .gitignore | grep -c "open-in-remote-terminal@mamolinux") ]
-then
-	echo 'open-in-remote-terminal@mamolinux*' >> .gitignore
-fi
-
-if [ ! -d "pdf-compressor@schorschii" ]
-then
-	echo "pdf-compressor@schorschii"
-	wget https://cinnamon-spices.linuxmint.com/files/actions/pdf-compressor@schorschii.zip && \
-	unzip pdf-compressor@schorschii.zip
-	rm -f pdf-compressor@schorschii.zip
-else
-	echo "pdf-compressor@schorschii already exists"
-fi
-if [ "0" -eq $(cat .gitignore | grep -c "pdf-compressor@schorschii") ]
-then
-	echo 'pdf-compressor@schorschii*' >> .gitignore
-fi
-
-if [ ! -d "pdf-ocr@schorschii" ]
-then
-	echo "pdf-ocr@schorschii"
-	wget https://cinnamon-spices.linuxmint.com/files/actions/pdf-ocr@schorschii.zip && \
-	unzip pdf-ocr@schorschii.zip
-	rm -f pdf-ocr@schorschii.zip
-else
-	echo "pdf-ocr@schorschii already exists"
-fi
-if [ "0" -eq $(cat .gitignore | grep -c "pdf-ocr@schorschii") ]
-then
-	echo 'pdf-ocr@schorschii*' >> .gitignore
-fi
 popd
 
 
+#=======================================================================================================================
 # Apps und Desktop konfigurieren
 # gibt es eine abweichende Font-Skalierung?
 if [ -f $HOME/.text-scaling-factor ]
@@ -953,14 +611,14 @@ dconf load /org/gnome/terminal/				< $HOME/Mint/org.gnome.terminal.dconf
 dconf load /org/gnome/desktop/interface/	< $HOME/Mint/org.gnome.desktop.interface.dconf
 
 echo
-echo "broot installieren"
+echo "Install broot"
 curl -o broot -L https://dystroy.org/broot/download/x86_64-linux/broot
 sudo mv -f broot /usr/local/bin
 sudo chmod +x /usr/local/bin/broot
 
 
 echo
-echo "kopiere Mozilla Einstellungen:"
+echo "Copy Mozilla settings"
 if [ ! -d "$HOME/.mozilla" ]
 then
 	if [ -d "$HOME/SynologyDrive/Mint/.mozilla" ]

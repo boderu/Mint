@@ -1,0 +1,1 @@
+/home/boderu/Mint/bin/mint
