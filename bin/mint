@@ -458,11 +458,12 @@ fi
 
 #=======================================================================================================================
 echo ; echo "FireFox Download Helper App"
-if [ -f "$HOME/Nextcloud/Apps/Mint/DownloadHelper/vdhcoapp-2.0.10-linux-x86_64.deb" ]
-then
-	sudo apt install -y $HOME/Nextcloud/Apps/Mint/DownloadHelper/vdhcoapp-2.0.10-linux-x86_64.deb
-	/opt/vdhcoapp/vdhcoapp install
-fi
+curl -sSLf https://github.com/aclap-dev/vdhcoapp/releases/latest/download/install.sh | bash
+#if [ -f "$HOME/Nextcloud/Apps/Mint/DownloadHelper/vdhcoapp-2.0.10-linux-x86_64.deb" ]
+#then
+#	sudo apt install -y $HOME/Nextcloud/Apps/Mint/DownloadHelper/vdhcoapp-2.0.10-linux-x86_64.deb
+#	/opt/vdhcoapp/vdhcoapp install
+#fi
 
 #=======================================================================================================================
 echo ; echo "VueScan"
