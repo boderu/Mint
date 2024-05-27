@@ -4,5 +4,3 @@ bin/*.AppImage
 .config/darktable/library.db*
 .config/darktable/data.db*
 .config/micro/backups
-.local/share/nemo/actions/*@*
-.local/share/nemo/actions/*@*/

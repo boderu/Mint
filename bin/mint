@@ -509,7 +509,6 @@ Link "$HOME/Mint/.config/kicad"								"$HOME/.config/kicad"
 Link "$HOME/Mint/.config/lazygit"							"$HOME/.config/lazygit"
 Link "$HOME/Mint/.config/micro"								"$HOME/.config/micro"
 Link "$HOME/Mint/.config/vlc"								"$HOME/.config/vlc"
-Link "$HOME/Mint/.local/share/nemo"							"$HOME/.local/share/nemo"
 Link "$HOME/Mint/.local/share/broot"						"$HOME/.local/share/broot"
 Link "$HOME/Mint/.vuescan"									"$HOME/.vuescan"
 Link "$HOME/Mint/Templates"									"$HOME/Vorlagen"
@@ -561,34 +560,48 @@ popd
 
 #=======================================================================================================================
 echo ; echo "Install additional Nemo actions"
-pushd "$HOME/.local/share/nemo/actions/"
-
-if [ ! -e ".gitignore" ]
+# Test, ob das Verzeichnis noch ein Link ist
+if [ -L "$HOME/.local/share/nemo" ]
 then
-	touch ".gitignore"
+	echo "$HOME/.local/share/nemo is still a link --> remove"
+	rm -Rv "$HOME/.local/share/nemo"
+	mkdir -p "$HOME/.local/share/nemo/actions"
+	mkdir -p "$HOME/.local/share/nemo/scripts"
+	mkdir -p "$HOME/.local/share/nemo/search-helpers"
 fi
+
+pushd "$HOME/.local/share/nemo/actions/"
 
 if [ -e "$HOME/Mint/nemo-actions-download.conf" ]
 then
 	cat "$HOME/Mint/nemo-actions-download.conf" | grep -v '^#' | grep -v '^$' | \
 	while read LINE
 	do
-		if [ ! -d "$LINE" ]
-		then
-			echo "$LINE"
-			wget https://cinnamon-spices.linuxmint.com/files/actions/${LINE}.zip && \
-			unzip ${LINE}.zip
-			rm -f ${LINE}.zip
-		else
-			echo "$LINE already exists"
-		fi
-
-		if [ "0" -eq $(cat .gitignore | grep -c "$LINE") ]
-		then
-			echo "${LINE}*" >> .gitignore
-		fi
+		echo "$LINE"
+		wget https://cinnamon-spices.linuxmint.com/files/actions/${LINE}.zip && \
+		unzip -o ${LINE}.zip
+		rm -f ${LINE}.zip
 	done
 fi
+
+# eigene Nemo Actions verlinken - vorher defekte Links löschen
+find -L "$HOME/.local/share/nemo/actions/" -type l -exec rm -f {} \;
+
+ls "$HOME/Mint/NemoActions" |
+while read FILE
+do
+	echo $FILE
+	# sollte bereits ein Link oder eine Datei existieren -> löschen
+	if [ -e "$HOME/.local/share/nemo/actions/${FILE}" ]
+	then
+		rm -fv "$HOME/.local/share/nemo/actions/${FILE}"
+	fi
+
+	# Link (neu) erstellen
+	echo "Link $FILE"
+	ln -s "$HOME/Mint/NemoActions/${FILE}" "$HOME/.local/share/nemo/actions/${FILE}"
+	echo
+done
 
 popd
 
