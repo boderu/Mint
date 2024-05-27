@@ -322,7 +322,7 @@ then
 
 
 	#===================================================================================================================
-	echo ; echo "Install DrawIO"
+	echo ; echo "DrawIO"
 	curl -s https://api.github.com/repos/jgraph/drawio-desktop/releases/latest | \
 		grep browser_download_url | \
 		grep '\.deb' | \
@@ -333,7 +333,7 @@ then
 
 
 	#===================================================================================================================
-	echo ; echo "Install Frontplattendesigner"
+	echo ; echo "Frontplattendesigner"
 	curl -s https://www.schaeffer-ag.de/frontplatten-designer#download | \
 		grep -E -o 'https[^[:blank:]]*-amd64\.deb' | \
 		sort -V | \
@@ -341,6 +341,36 @@ then
 		wget -i -
 	sudo apt -f install ./FrontDesign*amd64.deb
 	rm -fv ./FrontDesign*amd64.deb
+
+
+	#===================================================================================================================
+	echo ; echo "VueScan"
+	FILE_VUESCAN=$( \
+					curl -s https://www.hamrick.com/alternate-versions.html | \
+					grep -o '"files/vuex64.*\.deb' | \
+					sed 's/"files\///g' \
+				)
+	wget https://www.hamrick.com/files/${FILE_VUESCAN}
+	if [ -f "$FILE_VUESCAN" ]
+	then
+		sudo apt install -y "./$FILE_VUESCAN"
+		rm -f "$FILE_VUESCAN"
+	fi
+
+
+	#===================================================================================================================
+	echo ; echo "Segger j-link"
+	if [ -f "$HOME/Nextcloud/Apps/Mint/Segger/JLink_Linux_V794f_x86_64.deb" ]
+	then
+		sudo apt purge -y jlink
+		sudo apt install -y $HOME/Nextcloud/Apps/Mint/Segger/JLink_Linux_V794f_x86_64.deb
+	fi
+
+	echo ; echo "Segger Ozone Debugger"
+	if [ -f "$HOME/Nextcloud/Apps/Mint/Segger/Ozone_Linux_V330d_x86_64.deb" ]
+	then
+		sudo apt install -y $HOME/Nextcloud/Apps/Mint/Segger/Ozone_Linux_V330d_x86_64.deb
+	fi
 
 
 	#===================================================================================================================
@@ -459,33 +489,6 @@ fi
 #=======================================================================================================================
 echo ; echo "FireFox Download Helper App"
 curl -sSLf https://github.com/aclap-dev/vdhcoapp/releases/latest/download/install.sh | bash
-#if [ -f "$HOME/Nextcloud/Apps/Mint/DownloadHelper/vdhcoapp-2.0.10-linux-x86_64.deb" ]
-#then
-#	sudo apt install -y $HOME/Nextcloud/Apps/Mint/DownloadHelper/vdhcoapp-2.0.10-linux-x86_64.deb
-#	/opt/vdhcoapp/vdhcoapp install
-#fi
-
-#=======================================================================================================================
-echo ; echo "VueScan"
-if [ -f "$HOME/Nextcloud/Apps/Mint/VueScan/vue*.deb" ]
-then
-	sudo apt install -y $HOME/Nextcloud/Apps/Mint/VueScan/vue*.deb
-fi
-
-
-#=======================================================================================================================
-echo ; echo "Segger j-link"
-if [ -f "$HOME/Nextcloud/Apps/Mint/Segger/JLink_Linux_V794f_x86_64.deb" ]
-then
-	sudo apt purge -y jlink
-	sudo apt install -y $HOME/Nextcloud/Apps/Mint/Segger/JLink_Linux_V794f_x86_64.deb
-fi
-
-echo ; echo "Segger Ozone Debugger"
-if [ -f "$HOME/Nextcloud/Apps/Mint/Segger/Ozone_Linux_V330d_x86_64.deb" ]
-then
-	sudo apt install -y $HOME/Nextcloud/Apps/Mint/Segger/Ozone_Linux_V330d_x86_64.deb
-fi
 
 
 #=======================================================================================================================
@@ -557,7 +560,7 @@ popd
 
 
 #=======================================================================================================================
-echo ; echo "Zusätzliche Nemo Actions installieren"
+echo ; echo "Install additional Nemo actions"
 pushd "$HOME/.local/share/nemo/actions/"
 
 if [ ! -e ".gitignore" ]
