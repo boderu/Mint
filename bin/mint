@@ -89,6 +89,7 @@ mkdir -pv "$HOME/WsKiCAD"
 mkdir -pv "$HOME/WsXilinx"
 mkdir -pv "$HOME/WsXilinxSDK"
 
+touch "$HOME/.sudo_as_admin_successful"
 
 if [[ "$USER" != "guest" ]]
 then
@@ -97,17 +98,17 @@ then
 	echo ; sudo apt-get install -y --install-recommends ppa-purge 
 	echo ; sudo add-apt-repository --yes ppa:libreoffice/ppa
 	echo ; sudo add-apt-repository --yes ppa:mozillateam/thunderbird-next
-	echo ; sudo add-apt-repository --yes ppa:ubuntuhandbook1/shotwell
-	echo ; sudo add-apt-repository --yes ppa:ubuntuhandbook1/darktable
-	echo ; sudo add-apt-repository --yes ppa:freecad-maintainers/freecad-stable
-	echo ; sudo add-apt-repository --yes ppa:tomtomtom/yt-dlp
-	echo ; sudo add-apt-repository --yes ppa:longsleep/golang-backports
-	echo ; sudo add-apt-repository --yes ppa:misery/ppa
+#	echo ; sudo add-apt-repository --yes ppa:ubuntuhandbook1/shotwell
+#	echo ; sudo add-apt-repository --yes ppa:ubuntuhandbook1/darktable
+#	echo ; sudo add-apt-repository --yes ppa:freecad-maintainers/freecad-stable
+#	echo ; sudo add-apt-repository --yes ppa:tomtomtom/yt-dlp
+#	echo ; sudo add-apt-repository --yes ppa:longsleep/golang-backports
+	echo ; sudo add-apt-repository --yes ppa:misery/ppa                             # Ausweis App
 	echo ; sudo add-apt-repository --yes ppa:aos1/diff-so-fancy
-	echo ; sudo add-apt-repository --yes ppa:widelands-dev/widelands
-	echo ; sudo add-apt-repository --yes ppa:nextcloud-devs/client
-	echo ; sudo ppa-purge -y ppa:kicad/kicad-7.0-releases
-	echo ; sudo ppa-purge -y ppa:kicad/kicad-8.0-releases
+#	echo ; sudo add-apt-repository --yes ppa:widelands-dev/widelands
+#	echo ; sudo add-apt-repository --yes ppa:nextcloud-devs/client
+#	echo ; sudo ppa-purge -y ppa:kicad/kicad-7.0-releases
+#	echo ; sudo ppa-purge -y ppa:kicad/kicad-8.0-releases
 
 
 	echo ; echo "Update existing Debian packages"
@@ -522,6 +523,7 @@ Link "$HOME/SynologyDrive/Mint/.local/share/rhythmbox"		"$HOME/.local/share/rhyt
 Link "$HOME/SynologyDrive/Mint/.local/share/strawberry"		"$HOME/.local/share/strawberry"
 Link "$HOME/SynologyDrive/Mint/.local/share/gnome-mines"	"$HOME/.local/share/gnome-mines"
 Link "$HOME/SynologyDrive/Mint/.local/share/widelands"		"$HOME/.local/share/widelands"
+Link "$HOME/SynologyDrive/Mint/.local/share/widelands"		"$HOME/.var/app/org.widelands.Widelands/.widelands"
 
 Link 	"$HOME/SynologyDrive/Mint/.local/bin/avr8-gnu-toolchain-linux_x86_64"	\
 		"$HOME/.local/bin/avr8-gnu-toolchain-linux_x86_64"
