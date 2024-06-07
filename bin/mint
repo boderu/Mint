@@ -270,6 +270,17 @@ then
 
 
 	#===================================================================================================================
+	echo ; echo "arm-none-eabi-gdb"
+	if [ ! -e "/usr/bin/arm-none-eabi-gdb" ]
+	then
+		if [ -e "/usr/bin/gdb-multiarch" ]
+		then
+			sudo ln --verbose -s /usr/bin/gdb-multiarch /usr/bin/arm-none-eabi-gdb
+		fi
+	fi
+
+
+	#===================================================================================================================
 	echo ; echo "Visual Studio Code"
 	sudo apt install -y --install-recommends dirmngr software-properties-common apt-transport-https curl
 	if [ ! -e "/usr/share/keyrings/vscode.gpg" ]
