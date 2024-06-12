@@ -145,6 +145,7 @@ then
 	sed -i '/^\. "\$HOME\/.cargo\/env"/d' $HOME/Mint/.profile
 	cargo install du-dust
 	cargo install exa
+	cargo install eza
 	cargo install git-graph
 
 
