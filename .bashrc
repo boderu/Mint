@@ -209,25 +209,30 @@ function parse_git_dirty
 		printf ""
 	fi
 
-	printf "\e[33m]"
+	printf "\e[33m]\e[0m"
 }
 
 parse_git_branch()
 {
-	# Long form
-	# git rev-parse --abbrev-ref HEAD 2> /dev/null
-	# Short form
-	# git rev-parse --abbrev-ref HEAD 2> /dev/null | sed -e 's/.*\/\(.*\)/\1/'
-
-	# my form
 	LANGUAGE='en_US.UTF-8'
-	git status --porcelain=v1 --branch 2> /dev/null | grep '##' | sed 's/^## //g' | sed 's/\.\.\./  /g'
+	printf "\e[33m"
+	git status --porcelain=v1 --branch 2> /dev/null | grep '##' | sed 's/^## //g' | sed 's/\.\.\./ \\e[0m\\e[33m /g'
+#	printf "\e[0m"
+}
+
+cmdline_git()
+{
+	git status &> /dev/null
+	if [ $? -eq 0 ]
+	then
+		echo -e "\n├  $(parse_git_branch) $(parse_git_dirty) \e[0m"
+	fi
 }
 
 parent_process()
 {
-	echo -ne ' '
-	ps -o comm= $PPID
+	echo -ne "\e[0m "
+	echo -ne "\e[1m\e[34m$(ps -o comm= $PPID)\e[0m"
 }
 
 prompt()
@@ -235,8 +240,8 @@ prompt()
 export PS1=\
 "\n\
 ╭─󰈆 \$(EXCODE="\$?" ; [ \$EXCODE == 0 ] && echo "\\e[1m\\e[32m\$EXCODE\\e[0m" || echo "\\e[1m\\e[31m\$EXCODE\\e[0m") \
-\[\033[1;34m\]\$(parent_process)\[\033[0m\] \
-\[\033[0;32m\]   \w\[\033[0m\] \033[33m\]  \$(parse_git_branch)\[\033[0;33m\]\$(parse_git_dirty)\[\033[00m\] \n\
+\$(parent_process) \[\033[0m\]  \[\033[0;32m\]\w\[\033[0m\] \
+\$(cmdline_git)
 ╰─ \[\033[0;36m\]\u\[\033[00m\]  󰒍 \[\033[0;35m\]\h\[\033[00m\]  \
 "
 }

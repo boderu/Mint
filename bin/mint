@@ -103,7 +103,7 @@ then
 #	echo ; sudo add-apt-repository --yes ppa:freecad-maintainers/freecad-stable
 #	echo ; sudo add-apt-repository --yes ppa:tomtomtom/yt-dlp
 #	echo ; sudo add-apt-repository --yes ppa:longsleep/golang-backports
-	echo ; sudo add-apt-repository --yes ppa:misery/ppa                             # Ausweis App
+	echo ; sudo add-apt-repository --yes ppa:misery/ppa								# Ausweis App
 	echo ; sudo add-apt-repository --yes ppa:aos1/diff-so-fancy
 #	echo ; sudo add-apt-repository --yes ppa:widelands-dev/widelands
 #	echo ; sudo add-apt-repository --yes ppa:nextcloud-devs/client
@@ -543,6 +543,7 @@ Link 	"$HOME/SynologyDrive/Mint/.local/bin/avr8-gnu-toolchain-linux_x86_64"	\
 
 Link "$HOME/SynologyDrive/Bilder"							"$HOME/Bilder"
 Link "$HOME/SynologyDrive/Dokumente"						"$HOME/Dokumente"
+Link "$HOME/SynologyDrive/Dokumente"						"$HOME/Documents"
 Link "$HOME/SynologyDrive/Downloads"						"$HOME/Downloads"
 Link "$HOME/SynologyDrive/Calibre-Bibliothek"				"$HOME/Calibre-Bibliothek"
 Link "$HOME/SynologyDrive/Musik"							"$HOME/Musik"
