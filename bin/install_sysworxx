@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+
+echo ; echo "sysWORXX USB-CANmodul1"
+
+SYSTEC_URL1="https://www.systec-electronic.com/unternehmen/support/treiber"
+SYSTEC_URL2="https://www.systec-electronic.com/media/default/Redakteur/produkte/Interfaces_Gateways/sysWORXX_USB_CANmodul_Series/Downloads"
+SYSTEC_NAME=$(curl -s $SYSTEC_URL1 | grep -oe 'SO.*systec_can.*\.tar\.bz2')
+
+echo "File: $SYSTEC_NAME"
+
+rm --force -R systec_can*
+
+#curl -O "$SYSTEC_URL2/$SYSTEC_NAME"
+wget "$SYSTEC_URL2/$SYSTEC_NAME"
+
+tar xfvj $SYSTEC_NAME
+#cd $(basename -s .tar.bz2 $SYSTEC_NAME)
+cd systec_can*
+
+make
+sudo make modules_install
+sudo make firmware_install
+
+cd ..
+rm --force -R systec_can*
+
+# EOF

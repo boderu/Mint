@@ -2,13 +2,6 @@
 # Skript um Linux Mint einzurichten. Verlinke und starte dieses Skript in und aus dem Homeverzeichnis!
 # Das System sollte bereits die ersten Updates haben und die Verbindung zum Internet muss funktionieren.
 
-function CppCheckInstall
-{
-	sudo make install MATCHCOMPILER=yes FILESDIR=/usr/share/cppcheck HAVE_RULES=yes \
-	CXXFLAGS="-O2 -DNDEBUG -Wall -Wno-sign-compare -Wno-unused-function"
-}
-
-
 # Funktion: erzeuge symbolische Links mit erweiterter Prüfung
 # $1 Quelle:	Datei oder Verzeichnis welches verlinkt werden soll
 # $2 Ziel:		der zu erzeugende symbolische Link
@@ -93,6 +86,9 @@ touch "$HOME/.sudo_as_admin_successful"
 
 if [[ "$USER" != "guest" ]]
 then
+	sudo chown -Rv _apt:root /var/cache/apt/archives/partial/
+	sudo chmod -Rv 700 /var/cache/apt/archives/partial/
+
 	#===================================================================================================================
 	echo "Add or delete additional PPAs"
 	echo ; sudo apt-get install -y --install-recommends ppa-purge 
@@ -126,6 +122,10 @@ then
 		done
 	fi
 
+	echo ; echo "Remove packages that are no longer required"
+	sudo apt autoremove -y
+
+
 	echo ; echo "Install Debian packages"
 	if [ -e "$HOME/Mint/deb-install.conf" ]
 	then
@@ -136,6 +136,11 @@ then
 			echo
 		done
 	fi
+
+
+	#===================================================================================================================
+	echo ; echo "Additional packages for TI Code Composer Studio 12"
+	sudo apt install -y --install-recommends libc6-i386 libusb-0.1-4 libgconf-2-4 libncurses5 libpython2.7 libtinfo5
 
 
 	#===================================================================================================================
@@ -192,82 +197,18 @@ then
 
 
 	#===================================================================================================================
-	echo ; echo "Install Nerd Fonts"
-	if [ ! -d "$HOME/.local/share/fonts/NerdFonts" ]
-	then
-		git clone https://github.com/ryanoasis/nerd-fonts.git
-		cd nerd-fonts
-		./install.sh
-		cd ..
-		sudo rm -R --force nerd-fonts
-	else
-		echo "Nerd Fonts already installed"
-	fi
-
-
-	#===================================================================================================================
-	echo ; echo "Install micro"
-	git clone https://github.com/zyedidia/micro
-	cd micro
-	make build
-	sudo mv micro /usr/bin/
-	cd ..
-	sudo rm -R --force micro
-
-
-	#===================================================================================================================
-	echo ; echo "Install LazyGit"
-	LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": "v\K[^"]*')
-	curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
-	tar xf lazygit.tar.gz lazygit
-	sudo install lazygit /usr/local/bin
-	sudo rm -f lazygit.tar.gz
-	sudo rm -f lazygit
-
-
-	#===================================================================================================================
-	echo ; echo "Install xplr"
-	PLATFORM="linux"  # or "macos" / "linux-musl"
-	wget https://github.com/sayanarijit/xplr/releases/latest/download/xplr-${PLATFORM}.tar.gz
-	tar xzvf xplr-${PLATFORM}.tar.gz
-	sudo mv --force xplr /usr/local/bin/
-	rm --force xplr-${PLATFORM}.tar.gz
-
-
-	#===================================================================================================================
-	echo ; echo "Update CppCheck"
-	sudo apt-get install -y libpcre3-dev
-	git clone https://github.com/danmar/cppcheck.git
-	cd cppcheck
-
-	# gibt es eine Versionsinformation von einer vorhergehenden Installation?
-	if [ -f "$HOME/.cppcheck_version" ]
-	then
-		# ja, CppCheck wurde schon einmal installiert
-		# hat sich die Version des Repository geändert?
-		if [[ $(cat "$HOME/.cppcheck_version") != $(git log --pretty="%H" -n 1) ]]
-		then
-			# ja, die Versionen sind unterschiedlich --> aktuelle Version merken und CppCheck installieren
-			echo "neue CppCheck-Version vorhanden --> Update"
-			git log --pretty="%H" -n 1 > "$HOME/.cppcheck_version"
-			CppCheckInstall
-		else
-			echo "CppCheck-Versionen identisch --> keine Installation"
-		fi
-	else
-		# nein, CppCheck wurde noch nicht installiert
-		echo "installierte CppCheck-Version nicht vorhanden --> neue Installation"
-		git log --pretty="%H" -n 1 > "$HOME/.cppcheck_version"
-		CppCheckInstall
-	fi
-	cd ..
-	sudo rm -Rf cppcheck
-	echo "CppCeck Version: $(cppcheck --version)"
-
-
-	#===================================================================================================================
-	echo ; echo "Additional packages for TI Code Composer Studio 12"
-	sudo apt install -y --install-recommends libc6-i386 libusb-0.1-4 libgconf-2-4 libncurses5 libpython2.7 libtinfo5
+	install_nerd
+	install_micro
+	install_lazygit
+	install_xplr
+	install_cppcheck
+	install_drawio
+	install_frontdesign
+	install_vuescan
+	install_segger
+	install_vscode
+	install_sysworxx
+	install_diffusion
 
 
 	#===================================================================================================================
@@ -278,111 +219,6 @@ then
 		then
 			sudo ln --verbose -s /usr/bin/gdb-multiarch /usr/bin/arm-none-eabi-gdb
 		fi
-	fi
-
-
-	#===================================================================================================================
-	echo ; echo "Visual Studio Code"
-	sudo apt install -y --install-recommends dirmngr software-properties-common apt-transport-https curl
-	if [ ! -e "/usr/share/keyrings/vscode.gpg" ]
-	then
-		curl -fSsL https://packages.microsoft.com/keys/microsoft.asc | \
-			sudo gpg --dearmor | sudo tee /usr/share/keyrings/vscode.gpg > /dev/null
-	fi
-	if [ ! -e "/etc/apt/sources.list.d/vscode.list" ]
-	then
-		echo deb [arch=amd64 signed-by=/usr/share/keyrings/vscode.gpg] \
-			https://packages.microsoft.com/repos/vscode stable main | \
-			sudo tee /etc/apt/sources.list.d/vscode.list
-		sudo apt update
-	fi
-	sudo apt install -y --install-recommends code
-
-
-	#===================================================================================================================
-	echo ; echo "sysWORXX USB-CANmodul1"
-	SYSTEC_URL1="https://www.systec-electronic.com/produkte/interfaces-gateways-steuerungen/sysworxx-usb-canmodul1"
-	SYSTEC_URL2="https://www.systec-electronic.com/media/default/Redakteur/Unternehmen/Support/Downloadbereich/Treiber"
-	SYSTEC_NAME=$(curl -s $SYSTEC_URL1 | grep -oe 'systec_can.*\.tar\.bz2')
-	rm --force -R systec_can*
-	curl -O "$SYSTEC_URL2/$SYSTEC_NAME"
-	tar xfvj $SYSTEC_NAME
-	cd $(basename -s .tar.bz2 $SYSTEC_NAME)
-	make
-	sudo make modules_install
-	sudo make firmware_install
-	cd ..
-	rm --force -R systec_can*
-
-
-	#===================================================================================================================
-	echo ; echo "Install Easy Diffusion"
-	if [ ! -d "$HOME/easy-diffusion" ]
-	then
-		wget "https://github.com/cmdr2/stable-diffusion-ui/releases/latest/download/Easy-Diffusion-Linux.zip"
-		unzip Easy-Diffusion-Linux.zip
-		rm -f Easy-Diffusion-Linux.zip
-	fi
-
-
-	#===================================================================================================================
-	#echo ; echo "Install Automatic 1111"
-	#sudo apt install -y --install-recommends libgl1 libglib2.0-0
-	#wget -q https://raw.githubusercontent.com/AUTOMATIC1111/stable-diffusion-webui/master/webui.sh
-	#chmod +x webui.sh
-	#./webui.sh
-	#rm -fv webui.sh
-
-
-	#===================================================================================================================
-	echo ; echo "DrawIO"
-	curl -s https://api.github.com/repos/jgraph/drawio-desktop/releases/latest | \
-		grep browser_download_url | \
-		grep '\.deb' | \
-		cut -d '"' -f 4 | \
-		wget -i -
-	sudo apt -f install ./drawio-amd64*.deb
-	rm -fv ./drawio*.deb
-
-
-	#===================================================================================================================
-	echo ; echo "Frontplattendesigner"
-	curl -s https://www.schaeffer-ag.de/frontplatten-designer#download | \
-		grep -E -o 'https[^[:blank:]]*-amd64\.deb' | \
-		sort -V | \
-		tail --lines=1 | \
-		wget -i -
-	sudo apt -f install ./FrontDesign*amd64.deb
-	rm -fv ./FrontDesign*amd64.deb
-
-
-	#===================================================================================================================
-	echo ; echo "VueScan"
-	FILE_VUESCAN=$( \
-					curl -s https://www.hamrick.com/alternate-versions.html | \
-					grep -o '"files/vuex64.*\.deb' | \
-					sed 's/"files\///g' \
-				)
-	wget https://www.hamrick.com/files/${FILE_VUESCAN}
-	if [ -f "$FILE_VUESCAN" ]
-	then
-		sudo apt install -y "./$FILE_VUESCAN"
-		rm -f "$FILE_VUESCAN"
-	fi
-
-
-	#===================================================================================================================
-	echo ; echo "Segger j-link"
-	if [ -f "$HOME/Nextcloud/Apps/Mint/Segger/JLink_Linux_V794f_x86_64.deb" ]
-	then
-		sudo apt purge -y jlink
-		sudo apt install -y $HOME/Nextcloud/Apps/Mint/Segger/JLink_Linux_V794f_x86_64.deb
-	fi
-
-	echo ; echo "Segger Ozone Debugger"
-	if [ -f "$HOME/Nextcloud/Apps/Mint/Segger/Ozone_Linux_V330d_x86_64.deb" ]
-	then
-		sudo apt install -y $HOME/Nextcloud/Apps/Mint/Segger/Ozone_Linux_V330d_x86_64.deb
 	fi
 
 
