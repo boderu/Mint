@@ -93,7 +93,7 @@ then
 	echo "Add or delete additional PPAs"
 	echo ; sudo apt-get install -y --install-recommends ppa-purge 
 	echo ; sudo add-apt-repository --yes ppa:libreoffice/ppa
-	echo ; sudo add-apt-repository --yes ppa:mozillateam/thunderbird-next
+#	echo ; sudo add-apt-repository --yes ppa:mozillateam/thunderbird-next
 #	echo ; sudo add-apt-repository --yes ppa:ubuntuhandbook1/shotwell
 #	echo ; sudo add-apt-repository --yes ppa:ubuntuhandbook1/darktable
 #	echo ; sudo add-apt-repository --yes ppa:freecad-maintainers/freecad-stable

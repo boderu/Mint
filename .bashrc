@@ -263,6 +263,6 @@ then
 	. ~/.cargo/env
 fi
 
-eval "$(thefuck --alias)"
+#eval "$(thefuck --alias)"
 
 # EOF
