@@ -1,0 +1,224 @@
+{
+  "toplevel": [
+    {
+      "uuid": "add-desklets.nemo_action",
+      "type": "action",
+      "user-label": null,
+      "user-icon": null
+    },
+    {
+      "uuid": "Pictures",
+      "type": "submenu",
+      "user-label": "Pictures",
+      "user-icon": null,
+      "children": [
+        {
+          "uuid": "image-compressor@schorschii.nemo_action",
+          "type": "action",
+          "user-label": null,
+          "user-icon": null
+        }
+      ]
+    },
+    {
+      "uuid": "PDF",
+      "type": "submenu",
+      "user-label": "PDF",
+      "user-icon": null,
+      "children": [
+        {
+          "uuid": "pdf-compressor@schorschii.nemo_action",
+          "type": "action",
+          "user-label": null,
+          "user-icon": null
+        },
+        {
+          "uuid": "pdf-ocr@schorschii.nemo_action",
+          "type": "action",
+          "user-label": null,
+          "user-icon": null
+        }
+      ]
+    },
+    {
+      "uuid": "Send",
+      "type": "submenu",
+      "user-label": "Send",
+      "user-icon": null,
+      "children": [
+        {
+          "uuid": "send-as-attachment@rcalixte.nemo_action",
+          "type": "action",
+          "user-label": null,
+          "user-icon": null
+        },
+        {
+          "uuid": "warpinator-send.nemo_action",
+          "type": "action",
+          "user-label": null,
+          "user-icon": null
+        }
+      ]
+    },
+    {
+      "uuid": "Archives",
+      "type": "submenu",
+      "user-label": "Archives",
+      "user-icon": null,
+      "children": [
+        {
+          "uuid": "unpack-lazy.nemo_action",
+          "type": "action",
+          "user-label": null,
+          "user-icon": null
+        },
+        {
+          "uuid": "mount-archive.nemo_action",
+          "type": "action",
+          "user-label": null,
+          "user-icon": null
+        }
+      ]
+    },
+    {
+      "uuid": "separator",
+      "type": "separator",
+      "user-label": null,
+      "user-icon": null
+    },
+    {
+      "uuid": "Files",
+      "type": "submenu",
+      "user-label": "Files",
+      "user-icon": null,
+      "children": [
+        {
+          "uuid": "clamscan.nemo_action",
+          "type": "action",
+          "user-label": null,
+          "user-icon": null
+        },
+        {
+          "uuid": "file-shredder@czmisacz.nemo_action",
+          "type": "action",
+          "user-label": null,
+          "user-icon": null
+        },
+        {
+          "uuid": "remove-empty-folders.nemo_action",
+          "type": "action",
+          "user-label": null,
+          "user-icon": null
+        }
+      ]
+    },
+    {
+      "uuid": "move-into-a-new-folder@anaximeno.nemo_action",
+      "type": "action",
+      "user-label": null,
+      "user-icon": null
+    },
+    {
+      "uuid": "separator0",
+      "type": "separator",
+      "user-label": null,
+      "user-icon": null
+    },
+    {
+      "uuid": "90_new-workspace.nemo_action",
+      "type": "action",
+      "user-label": null,
+      "user-icon": null
+    },
+    {
+      "uuid": "mintstick.nemo_action",
+      "type": "action",
+      "user-label": null,
+      "user-icon": null
+    },
+    {
+      "uuid": "mintstick-format.nemo_action",
+      "type": "action",
+      "user-label": null,
+      "user-icon": null
+    },
+    {
+      "uuid": "set-resolution.nemo_action",
+      "type": "action",
+      "user-label": null,
+      "user-icon": null
+    },
+    {
+      "uuid": "92_show-expo.nemo_action",
+      "type": "action",
+      "user-label": null,
+      "user-icon": null
+    },
+    {
+      "uuid": "91_delete-workspace.nemo_action",
+      "type": "action",
+      "user-label": null,
+      "user-icon": null
+    },
+    {
+      "uuid": "mintstick-verify.nemo_action",
+      "type": "action",
+      "user-label": null,
+      "user-icon": null
+    },
+    {
+      "uuid": "sample.nemo_action",
+      "type": "action",
+      "user-label": null,
+      "user-icon": null
+    },
+    {
+      "uuid": "set-as-background.nemo_action",
+      "type": "action",
+      "user-label": null,
+      "user-icon": null
+    },
+    {
+      "uuid": "90_new-launcher.nemo_action",
+      "type": "action",
+      "user-label": null,
+      "user-icon": null
+    },
+    {
+      "uuid": "change-background.nemo_action",
+      "type": "action",
+      "user-label": null,
+      "user-icon": null
+    },
+    {
+      "uuid": "restart-cinnamon@claudiux.nemo_action",
+      "type": "action",
+      "user-label": null,
+      "user-icon": null
+    },
+    {
+      "uuid": "par2-create.nemo_action",
+      "type": "action",
+      "user-label": null,
+      "user-icon": null
+    },
+    {
+      "uuid": "clone-git-repo@anaximeno.nemo_action",
+      "type": "action",
+      "user-label": null,
+      "user-icon": null
+    },
+    {
+      "uuid": "open-in-remote-terminal@mamolinux.nemo_action",
+      "type": "action",
+      "user-label": null,
+      "user-icon": null
+    },
+    {
+      "uuid": "fetch-25-youtube-videos.nemo_action",
+      "type": "action",
+      "user-label": null,
+      "user-icon": null
+    }
+  ]
+}
