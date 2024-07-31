@@ -1,0 +1,5 @@
+#!/bin/env bash
+
+sudo ip link set can0 down
+
+# EOF

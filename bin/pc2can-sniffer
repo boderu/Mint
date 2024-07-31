@@ -1,0 +1,5 @@
+#!/bin/env bash
+
+cansniffer -c -t 0 can0
+
+# EOF
