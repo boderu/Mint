@@ -140,7 +140,14 @@ then
 
 	#===================================================================================================================
 	echo ; echo "Additional packages for TI Code Composer Studio 12"
-	sudo apt install -y --install-recommends libc6-i386 libusb-0.1-4 libgconf-2-4 libncurses5 libpython2.7 libtinfo5
+	if [ 0 -eq $(cat /etc/apt/sources.list | grep -c 'deb http://cz.archive.ubuntu.com/ubuntu lunar main universe') ]
+	then
+		sudo chmod ugo+w /etc/apt/sources.list
+		sudo echo 'deb http://cz.archive.ubuntu.com/ubuntu lunar main universe' >> /etc/apt/sources.list
+		sudo chmod ugo-w /etc/apt/sources.list
+		sudo apt update
+	fi
+	sudo apt install -y --install-recommends libc6-i386 libusb-0.1-4 libtinfo5
 
 
 	#===================================================================================================================
@@ -284,17 +291,7 @@ fi # if $USER != guest
 
 
 #=======================================================================================================================
-echo ; echo "Additional Python libraries"
-if [ -e "$HOME/Mint/python-packages.conf" ]
-then
-	cat "$HOME/Mint/python-packages.conf" | grep -v '^#' | grep -v '^$' | \
-	while read LINE
-	do
-		pip install $LINE
-		echo
-	done
-fi
-
+install_python
 
 #=======================================================================================================================
 echo ; echo "Set up local configurations"
