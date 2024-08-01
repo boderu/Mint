@@ -69,6 +69,7 @@ cd $HOME
 
 echo "Create some directories"
 mkdir -pv "$HOME/.config"
+mkdir -pv "$HOME/.config/nemo"
 mkdir -pv "$HOME/.local/share/fonts"
 mkdir -pv "$HOME/.local/bin"
 mkdir -pv "$HOME/Media/Stable Diffusion"
@@ -93,7 +94,7 @@ then
 	echo "Add or delete additional PPAs"
 	echo ; sudo apt-get install -y --install-recommends ppa-purge 
 	echo ; sudo add-apt-repository --yes ppa:libreoffice/ppa
-	echo ; sudo add-apt-repository --yes ppa:mozillateam/thunderbird-next
+#	echo ; sudo add-apt-repository --yes ppa:mozillateam/thunderbird-next
 #	echo ; sudo add-apt-repository --yes ppa:ubuntuhandbook1/shotwell
 #	echo ; sudo add-apt-repository --yes ppa:ubuntuhandbook1/darktable
 #	echo ; sudo add-apt-repository --yes ppa:freecad-maintainers/freecad-stable
@@ -136,11 +137,6 @@ then
 			echo
 		done
 	fi
-
-
-	#===================================================================================================================
-	echo ; echo "Additional packages for TI Code Composer Studio 12"
-	sudo apt install -y --install-recommends libc6-i386 libusb-0.1-4 libgconf-2-4 libncurses5 libpython2.7 libtinfo5
 
 
 	#===================================================================================================================
@@ -209,6 +205,7 @@ then
 	install_vscode
 	install_sysworxx
 	install_diffusion
+	install_ccs
 
 
 	#===================================================================================================================
@@ -284,17 +281,7 @@ fi # if $USER != guest
 
 
 #=======================================================================================================================
-echo ; echo "Additional Python libraries"
-if [ -e "$HOME/Mint/python-packages.conf" ]
-then
-	cat "$HOME/Mint/python-packages.conf" | grep -v '^#' | grep -v '^$' | \
-	while read LINE
-	do
-		pip install $LINE
-		echo
-	done
-fi
-
+install_python
 
 #=======================================================================================================================
 echo ; echo "Set up local configurations"
@@ -349,6 +336,7 @@ Link "$HOME/Mint/.zshrc"									"$HOME/.zshrc"
 Link "$HOME/Mint/.selected_editor"							"$HOME/.selected_editor"
 Link "$HOME/Mint/bin"										"$HOME/bin"
 Link "$HOME/Mint/.ne"										"$HOME/.ne"
+Link "$HOME/Mint/.config/nemo/actions-tree.json"			"$HOME/.config/nemo/actions-tree.json"
 Link "$HOME/Mint/.config/broot"								"$HOME/.config/broot"
 Link "$HOME/Mint/.config/btop"								"$HOME/.config/btop"
 Link "$HOME/Mint/.config/darktable"							"$HOME/.config/darktable"
