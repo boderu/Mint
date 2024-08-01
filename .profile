@@ -94,9 +94,9 @@ then
 fi
 
 # activate virtual python environment
-if [ -d "$HOME/pyvenv" ]
+if [ -d "$HOME/.pyvenv" ]
 then
-	source pyvenv/bin/activate
+	source $HOME/.pyvenv/bin/activate
 fi
 
 # EOF
