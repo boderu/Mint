@@ -1,4 +1,5 @@
 [desktop]
+font='Ubuntu Medium 10'
 volumes-visible=true
 
 [extensions/nemo-terminal]
@@ -19,7 +20,7 @@ date-format='iso'
 show-advanced-permissions=true
 show-computer-icon-toolbar=true
 show-full-path-titles=true
-show-hidden-files=false
+show-hidden-files=true
 show-image-thumbnails='always'
 show-new-folder-icon-toolbar=true
 show-open-in-terminal-toolbar=true
@@ -40,7 +41,7 @@ search-sort-column='name'
 search-visible-columns=['name', 'where', 'date_modified', 'size']
 
 [window-state]
-geometry='1135x831+392+110'
+geometry='1135x923+392+64'
 maximized=false
 sidebar-bookmark-breakpoint=5
 sidebar-width=242
