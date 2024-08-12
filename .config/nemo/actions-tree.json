@@ -119,6 +119,12 @@
       "user-icon": null
     },
     {
+      "uuid": "move2subfolder.nemo_action",
+      "type": "action",
+      "user-label": null,
+      "user-icon": null
+    },
+    {
       "uuid": "separator0",
       "type": "separator",
       "user-label": null,
