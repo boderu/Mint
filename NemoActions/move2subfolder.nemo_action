@@ -35,7 +35,7 @@ Comment=Move files into subfolder(s)
 
 # What to run.  Enclose in < > to run an executable that resides in the actions folder.
 # **** REQUIRED ****
-Exec=move2subfolder.py %F
+Exec=bash -c "cd %P; move2subfolder.py %F"
 #Exec=<myaction.py -r -g %P %F %U>
 
 # Icon name to use in the menu - must be a theme icon name
