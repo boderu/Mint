@@ -2,6 +2,8 @@
 
 echo ; echo "Install Nerd Fonts"
 
+pushd $HOME
+
 if [ ! -d "$HOME/.local/share/fonts/NerdFonts" ]
 then
 	git clone https://github.com/ryanoasis/nerd-fonts.git
@@ -12,5 +14,7 @@ then
 else
 	echo "Nerd Fonts already installed"
 fi
+
+popd
 
 # EOF

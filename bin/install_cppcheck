@@ -9,6 +9,8 @@ function CppCheckInstall
 
 echo ; echo "Update CppCheck"
 
+pushd $HOME
+
 sudo apt-get install -y libpcre3-dev
 git clone https://github.com/danmar/cppcheck.git
 cd cppcheck
@@ -36,5 +38,7 @@ fi
 cd ..
 sudo rm -Rf cppcheck
 echo "CppCeck Version: $(cppcheck --version)"
+
+popd
 
 # EOF

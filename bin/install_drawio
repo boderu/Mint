@@ -2,6 +2,8 @@
 
 echo ; echo "DrawIO"
 
+pushd $HOME
+
 curl -s https://api.github.com/repos/jgraph/drawio-desktop/releases/latest | \
 	grep browser_download_url | \
 	grep '\.deb' | \
@@ -9,5 +11,7 @@ curl -s https://api.github.com/repos/jgraph/drawio-desktop/releases/latest | \
 	wget -i -
 sudo apt -f install ./drawio-amd64*.deb
 rm -fv ./drawio*.deb
+
+popd
 
 # EOF

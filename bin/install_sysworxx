@@ -2,6 +2,8 @@
 
 echo ; echo "sysWORXX USB-CANmodul1"
 
+pushd $HOME
+
 SYSTEC_URL1="https://www.systec-electronic.com/unternehmen/support/treiber"
 SYSTEC_URL2="https://www.systec-electronic.com/media/default/Redakteur/produkte/Interfaces_Gateways/sysWORXX_USB_CANmodul_Series/Downloads"
 SYSTEC_NAME=$(curl -s $SYSTEC_URL1 | grep -oe 'SO.*systec_can.*\.tar\.bz2')
@@ -23,5 +25,7 @@ sudo make firmware_install
 
 cd ..
 rm --force -R systec_can*
+
+popd
 
 # EOF

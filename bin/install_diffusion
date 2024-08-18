@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+pushd $HOME
+
 echo ; echo "Install Easy Diffusion"
 if [ ! -d "$HOME/easy-diffusion" ]
 then
@@ -15,5 +17,7 @@ fi
 #chmod +x webui.sh
 #./webui.sh
 #rm -fv webui.sh
+
+popd
 
 # EOF

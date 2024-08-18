@@ -140,17 +140,6 @@ then
 
 
 	#===================================================================================================================
-	echo ; echo "Current Rust and additional (cargo) packages"
-	curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
-	sed -i '/^\. "\$HOME\/.cargo\/env"/d' $HOME/Mint/.bashrc
-	sed -i '/^\. "\$HOME\/.cargo\/env"/d' $HOME/Mint/.profile
-	cargo install du-dust
-	cargo install exa
-	cargo install eza
-	cargo install git-graph
-
-
-	#===================================================================================================================
 	echo ; echo "Additional Ruby packages"
 	echo ; sudo gem install asciidoctor-diagram
 	echo ; sudo gem install roo
@@ -282,6 +271,7 @@ fi # if $USER != guest
 
 #=======================================================================================================================
 install_python
+install_rust
 
 #=======================================================================================================================
 echo ; echo "Set up local configurations"

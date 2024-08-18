@@ -2,6 +2,8 @@
 
 echo ; echo "Additional Python libraries"
 
+pushd $HOME
+
 python3 -m venv '.pyvenv'
 source $HOME/.pyvenv/bin/activate
 
@@ -14,5 +16,7 @@ then
 		echo
 	done
 fi
+
+popd
 
 # EOF

@@ -2,6 +2,8 @@
 
 echo ; echo "VueScan"
 
+pushd $HOME
+
 FILE_VUESCAN=$( \
 				curl -s https://www.hamrick.com/alternate-versions.html | \
 				grep -o '"files/vuex64.*\.deb' | \
@@ -13,5 +15,7 @@ then
 	sudo apt install -y "./$FILE_VUESCAN"
 	rm -f "$FILE_VUESCAN"
 fi
+
+popd
 
 # EOF
