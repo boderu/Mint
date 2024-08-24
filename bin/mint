@@ -182,19 +182,19 @@ then
 
 
 	#===================================================================================================================
-	install_nerd
-	install_micro
-	install_lazygit
-	install_xplr
-	install_cppcheck
-	install_drawio
-	install_frontdesign
-	install_vuescan
-	install_segger
-	install_vscode
-	install_sysworxx
-	install_diffusion
-	install_ccs
+	$HOME/Mint/bin/install_nerd
+	$HOME/Mint/bin/install_micro
+	$HOME/Mint/bin/install_lazygit
+	$HOME/Mint/bin/install_xplr
+	$HOME/Mint/bin/install_cppcheck
+	$HOME/Mint/bin/install_drawio
+	$HOME/Mint/bin/install_frontdesign
+	$HOME/Mint/bin/install_vuescan
+	$HOME/Mint/bin/install_segger
+	$HOME/Mint/bin/install_vscode
+	$HOME/Mint/bin/install_sysworxx
+	$HOME/Mint/bin/install_diffusion
+	$HOME/Mint/bin/install_ccs
 
 
 	#===================================================================================================================
@@ -270,8 +270,8 @@ fi # if $USER != guest
 
 
 #=======================================================================================================================
-install_python
-install_rust
+$HOME/Mint/bin/install_python
+$HOME/Mint/bin/install_rust
 
 #=======================================================================================================================
 echo ; echo "Set up local configurations"
