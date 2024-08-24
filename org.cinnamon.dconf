@@ -1,12 +1,12 @@
 [/]
 alttab-switcher-delay=100
 desklet-snap-interval=25
-enabled-applets=['panel1:left:0:menu@cinnamon.org:0', 'panel1:left:1:separator@cinnamon.org:1', 'panel1:left:3:grouped-window-list@cinnamon.org:2', 'panel1:right:2:systray@cinnamon.org:3', 'panel1:right:3:xapp-status@cinnamon.org:4', 'panel1:right:4:notifications@cinnamon.org:5', 'panel1:right:5:printers@cinnamon.org:6', 'panel1:right:6:removable-drives@cinnamon.org:7', 'panel1:right:7:keyboard@cinnamon.org:8', 'panel1:right:8:favorites@cinnamon.org:9', 'panel1:right:9:network@cinnamon.org:10', 'panel1:right:10:sound@cinnamon.org:11', 'panel1:right:11:power@cinnamon.org:12', 'panel1:right:14:calendar@cinnamon.org:13', 'panel1:right:17:cornerbar@cinnamon.org:14', 'panel1:left:2:workspace-switcher@cinnamon.org:15', 'panel1:right:15:turn-off-monitor@zablotski:16', 'panel1:right:1:weather@mockturtl:17', 'panel1:right:16:user@cinnamon.org:18', 'panel1:right:13:cinnamon-timer@jake1164:19']
+enabled-applets=['panel1:left:0:menu@cinnamon.org:0', 'panel1:left:1:separator@cinnamon.org:1', 'panel1:left:3:grouped-window-list@cinnamon.org:2', 'panel1:right:3:systray@cinnamon.org:3', 'panel1:right:4:xapp-status@cinnamon.org:4', 'panel1:right:5:notifications@cinnamon.org:5', 'panel1:right:6:printers@cinnamon.org:6', 'panel1:right:7:removable-drives@cinnamon.org:7', 'panel1:right:8:keyboard@cinnamon.org:8', 'panel1:right:9:favorites@cinnamon.org:9', 'panel1:right:10:network@cinnamon.org:10', 'panel1:right:11:sound@cinnamon.org:11', 'panel1:right:12:power@cinnamon.org:12', 'panel1:right:15:calendar@cinnamon.org:13', 'panel1:right:18:cornerbar@cinnamon.org:14', 'panel1:left:2:workspace-switcher@cinnamon.org:15', 'panel1:right:16:turn-off-monitor@zablotski:16', 'panel1:right:2:weather@mockturtl:17', 'panel1:right:17:user@cinnamon.org:18', 'panel1:right:14:cinnamon-timer@jake1164:19', 'panel1:right:0:on-screen-keyboard@cinnamon.org:22']
 enabled-desklets=@as []
 enabled-extensions=@as []
 favorite-apps=['firefox.desktop', 'thunderbird.desktop', 'org.gnome.Evolution.desktop', 'mintinstall.desktop', 'cinnamon-settings.desktop', 'gnome-system-monitor.desktop', 'org.gnome.Calculator.desktop', 'com.bitwarden.desktop.desktop:flatpak']
 hotcorner-layout=['expo:false:0', 'scale:false:0', 'scale:false:0', 'desktop:false:0']
-next-applet-id=22
+next-applet-id=23
 next-desklet-id=2
 panel-edit-mode=false
 panel-zone-symbolic-icon-sizes='[{"panelId": 1, "left": 28, "center": 28, "right": 24}]'
@@ -19,6 +19,14 @@ quit-time-delay=60
 [desktop/a11y/applications]
 screen-keyboard-enabled=false
 screen-reader-enabled=false
+
+[desktop/a11y/keyboard]
+bouncekeys-delay=300
+mousekeys-accel-time=300
+mousekeys-init-delay=300
+mousekeys-max-speed=10
+slowkeys-delay=300
+togglekeys-enable-osd=true
 
 [desktop/a11y/mouse]
 dwell-click-enabled=false
@@ -73,6 +81,16 @@ double-click=400
 drag-threshold=8
 speed=0.0
 
+[desktop/peripherals/stylus/b093d6a9]
+button-action='right'
+pressure-curve=[25, 0, 100, 75]
+secondary-button-action='default'
+tertiary-button-action='default'
+
+[desktop/peripherals/tablets/056a:51b2]
+mapping='absolute'
+output=['CMN', '0x1387', '0x00000000']
+
 [desktop/peripherals/touchpad]
 click-method='fingers'
 speed=0.0
@@ -109,16 +127,24 @@ swipe-up-3='TOGGLE_EXPO::end'
 swipe-up-4='VOLUME_UP::end'
 tap-3=''
 
+[keyboard]
+keyboard-position='bottom'
+keyboard-size=4
+
 [launcher]
 check-frequency=300
 memory-limit=2048
 
 [muffin]
 draggable-border-width=10
+experimental-features=['scale-monitor-framebuffer', 'x11-randr-fractional-scaling']
 placement-mode='center'
 
 [settings-daemon/peripherals/keyboard]
 numlock-state='on'
+
+[settings-daemon/peripherals/touchscreen]
+orientation-lock=false
 
 [settings-daemon/plugins/power]
 critical-battery-action='shutdown'
