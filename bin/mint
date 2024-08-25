@@ -195,6 +195,7 @@ then
 	$HOME/Mint/bin/install_sysworxx
 	$HOME/Mint/bin/install_diffusion
 	$HOME/Mint/bin/install_ccs
+	$HOME/Mint/bin/install_ollama
 
 
 	#===================================================================================================================

@@ -16,3 +16,5 @@ alias gitlog='git log --pretty=format:"%h %s" --graph'
 alias lg='lazygit'
 alias easy="cd $HOME/easy-diffusion && ./start.sh"
 alias x='exit'
+alias o8='ollama run llama3.1:8b'
+alias o70='ollama run llama3.1:70b'
