@@ -17,7 +17,7 @@ window-effect-speed=1
 quit-time-delay=60
 
 [desktop/a11y/applications]
-screen-keyboard-enabled=false
+screen-keyboard-enabled=true
 screen-reader-enabled=false
 
 [desktop/a11y/keyboard]
@@ -58,7 +58,7 @@ font-name='Ubuntu Medium 10'
 gtk-theme='Mint-L-Darker-Grey'
 icon-theme='Mint-Y-Grey'
 text-scaling-factor=1.3
-toolkit-accessibility=false
+toolkit-accessibility=true
 
 [desktop/media-handling]
 autorun-never=false
@@ -148,7 +148,7 @@ orientation-lock=false
 
 [settings-daemon/plugins/power]
 critical-battery-action='shutdown'
-idle-brightness=30
+idle-brightness=10
 lid-close-ac-action='suspend'
 lid-close-battery-action='suspend'
 lock-on-suspend=false
