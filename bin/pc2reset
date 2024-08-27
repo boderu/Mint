@@ -1,5 +1,5 @@
 #!/bin/env bash
 
-cansend can0 40a#f000
+cansend can0 40a#e000
 
 # EOF
