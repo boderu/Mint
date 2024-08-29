@@ -1,0 +1,6 @@
+#!/bin/env bash
+# Request DCDC bootloader application
+
+cansend can0 40a#ffe0
+
+# EOF

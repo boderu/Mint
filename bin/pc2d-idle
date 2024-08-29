@@ -1,0 +1,6 @@
+#!/bin/env bash
+# requests DCDC Idle state
+
+cansend can0 40a#ff00
+
+# EOF

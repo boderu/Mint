@@ -1,0 +1,6 @@
+#!/bin/env bash
+# request DCDC reset
+
+cansend can0 40a#ffe0
+
+# EOF
