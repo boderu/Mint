@@ -1,0 +1,6 @@
+#!/bin/env bash
+# Request AFE bootloader application
+
+cansend can0 40a#e0ff
+
+# EOF

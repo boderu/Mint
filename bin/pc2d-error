@@ -1,0 +1,8 @@
+#!/bin/env bash
+# request DCDC ErrorClear state and after 1 sec the DCDC Idle state
+
+cansend can0 40a#ff0d
+sleep 1
+cansend can0 40a#ff00
+
+# EOF

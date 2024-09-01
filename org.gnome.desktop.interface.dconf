@@ -30,4 +30,4 @@ text-scaling-factor=1.3
 toolbar-detachable=false
 toolbar-icons-size='large'
 toolbar-style='both-horiz'
-toolkit-accessibility=false
+toolkit-accessibility=true

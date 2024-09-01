@@ -1,0 +1,8 @@
+#!/bin/env bash
+# request AFE ErrorClear state and after 1 sec the AFE Idle state
+
+cansend can0 40a#0dff
+sleep 1
+cansend can0 40a#00ff
+
+# EOF

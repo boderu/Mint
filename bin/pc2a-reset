@@ -1,0 +1,6 @@
+#!/bin/env bash
+# request AFE reset
+
+cansend can0 40a#e0ff
+
+# EOF
