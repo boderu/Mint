@@ -13,110 +13,129 @@ import argparse
 import pathlib
 import shutil
 
-import tkinter
-import tkinter.ttk
+import tkinter as tk
+import tkinter.ttk as ttk
 # from ttkthemes import ThemedTk
 # from tkinter.messagebox import showinfo
 
-iExitValue:	int					= 0
 VERSION:	typing.Final[str]	= '0.1.0'
 
 # parsing arguments ---------------------------------------------------------------------------------------------------
 argParser = argparse.ArgumentParser(description="Program description")
 argParser.add_argument('lstpathFiles', type=pathlib.Path, nargs='*', help='Path of files')
 cmdlineargs = argParser.parse_args()
-lstpathFilesMarkedForDeletion: list = cmdlineargs.lstpathFiles
-
-# looking for sub-folders ---------------------------------------------------------------------------------------------
-lststrDirectoriesSelected:	list	= ['New Folder']
-lststrDirectories:			list	= ['New Folder']
-for anyItem in os.listdir():
-	if os.path.isdir(anyItem):
-		lststrDirectories.append(str(anyItem))
-lststrDirectories.sort()
 
 # GUI and event functions ---------------------------------------------------------------------------------------------
-tkwinMain = tkinter.Tk()
-# winMain = ThemedTk(theme="yaru")
-tkwinMain.title('Move files to a subdirectory')
-tkwinMain.resizable(width=False, height=False)
+class clssTkApp(tk.Tk):
+	''' application class '''
+	def __init__(self, lstpathFilesMarked: list) -> None:
+		super().__init__()
 
-tklblTitle = tkinter.ttk.Label(master=tkwinMain, text='Select subdirectories!', anchor='center')
-tklblTitle.pack(fill='x')
+		self.iCntLoop:	int = 10000
+		self.iCnt:		int = 0
 
-tkframeTreeView = tkinter.ttk.Frame(master=tkwinMain)
-tkframeTreeView.pack(fill='x')
+		self.iExitValue:					int		= 0
+		self.lstpathFilesMarkedForDeletion:	list	= lstpathFilesMarked
+		self.lstpathFilesMarked:			list	= lstpathFilesMarked
+		self.lststrDirectoriesSelected:		list	= []
+		self.lststrDirectories:				list	= ['New Folder']
 
-iHeightTree = len(lststrDirectories) if len(lststrDirectories) <= 8 else 8
-tktreeviewDirectories = tkinter.ttk.Treeview	(	master=tkframeTreeView,
-											  		height=iHeightTree,
-													show='tree',
-												)
-for strDir in lststrDirectories:
-	tktreeviewDirectories.insert('', tkinter.END, text=strDir)
-tktreeviewDirectories.pack(side='left', fill='x')
+		# looking for sub-folders
+		for anyItem in os.listdir():
+			if os.path.isdir(anyItem):
+				self.lststrDirectories.append(str(anyItem))
+		self.lststrDirectories.sort()
 
-def selectedTreeItem(event) -> None:
-	''' get selected items from tree view '''
-	print('Directories selected:')
-	lststrDirectoriesSelected.clear()
-	# transfer all selected items into lststrDirectoriesSelected
-	for strSelectedItem in tktreeviewDirectories.selection():
-		dicItem = tktreeviewDirectories.item(strSelectedItem)
-		strRecord = dicItem['text']
-		lststrDirectoriesSelected.append(strRecord)
-	for item in lststrDirectoriesSelected:
-		print(item)
+		self.title('Move files to a subdirectory')
+		self.resizable(width=False, height=False)
 
-tktreeviewDirectories.bind('<<TreeviewSelect>>', selectedTreeItem)
+		self.lblTitle = ttk.Label(master=self, text='Select subdirectories!', anchor='center')
+		self.lblTitle.pack(fill='x')
 
-# a scrollbar for the tree view
-tkscrollbarTreeDirectories = tkinter.ttk.Scrollbar	(	master=tkframeTreeView,
-												  		orient='vertical',
-														command=tktreeviewDirectories.yview
-													)
-tktreeviewDirectories.configure(yscroll=tkscrollbarTreeDirectories.set)
-tkscrollbarTreeDirectories.pack(side='right', fill='y')
+		self.frameTreeView = ttk.Frame(master=self)
+		self.frameTreeView.pack(fill='x')
 
-tkframeButtons = tkinter.ttk.Frame(master=tkwinMain)
-tkframeButtons.pack()
+		self.frameButtons = ttk.Frame(master=self)
+		self.frameButtons.pack()
 
+		self.iHeightTree: int = len(self.lststrDirectories) if len(self.lststrDirectories) <= 8 else 8
+		self.treeviewDirectories = ttk.Treeview(master=self.frameTreeView, height=self.iHeightTree, show='tree')
 
-def clickOk() -> None:
-	''' button: move files to the selected subdirectory '''
-	print('Ok clicked')
-	global iExitValue
-	global lstpathFilesMarkedForDeletion
-	if len(lststrDirectoriesSelected) != 0 and len(cmdlineargs.lstpathFiles) != 0:
-		for strDir in lststrDirectoriesSelected:
-			for pathFile in cmdlineargs.lstpathFiles:
-				print(f'copy {pathFile} to {strDir}')
-				try:
-					shutil.copy2(pathFile, strDir)
-				except:
-					lstpathFilesMarkedForDeletion.remove(pathFile)
-		for pathFile in lstpathFilesMarkedForDeletion:
-			print(f'delete {pathFile}')
-	else:
-		iExitValue = 1
-	tkwinMain.destroy()
+		for strDir in self.lststrDirectories:
+			self.treeviewDirectories.insert('', tk.END, text=strDir)
+		self.treeviewDirectories.pack(side='left', fill='x')
 
-tkbttnOk = tkinter.ttk.Button(master=tkframeButtons, text='Ok', command=clickOk)
-tkbttnOk.pack(side='left', padx=5, pady=5)
+		self.treeviewDirectories.bind('<<TreeviewSelect>>', self.TreeViewItemSelected)
 
-def clickCancel() -> None:
-	''' button: cancel action and quit program '''
-	print('Cancel clicked')
-	global iExitValue
-	iExitValue = 2
-	tkwinMain.destroy()
+		# a scrollbar for the tree view
+		self.scrollbarTreeDirectories = ttk.Scrollbar	(	master=self.frameTreeView,
+															orient='vertical',
+															command=self.treeviewDirectories.yview
+														)
+		self.treeviewDirectories.configure(yscroll=self.scrollbarTreeDirectories.set)
+		self.scrollbarTreeDirectories.pack(side='right', fill='y')
 
-tkbttnCancel = tkinter.ttk.Button(master=tkframeButtons, text='Cancel', command=clickCancel)
-tkbttnCancel.pack(side='right', padx=5, pady=5)
+		self.bttnOk = ttk.Button(master=self.frameButtons, text='Ok', command=self.ButtonOkClicked)
+		self.bttnOk.pack(side='left', padx=5, pady=5)
+
+		self.bttnCancel = ttk.Button(master=self.frameButtons, text='Cancel', command=self.ButtonCancelClicked)
+		self.bttnCancel.pack(side='right', padx=5, pady=5)
+
+		self.after(500, self.TkIdle)	# start Idle method afer the GUI has been created
+
+	def TkIdle(self) -> None:
+		''' part of the event loop '''
+		if self.iCntLoop == 0:
+			print(f'Tk Idle {self.iCnt}')
+			self.iCnt += 1
+			self.iCntLoop = 10000
+		else:
+			self.iCntLoop -= 1
+		self.after_idle(self.TkIdle)	# retrigger method
+
+	def TreeViewItemSelected(self, event) -> None:
+		''' get selected items from tree view '''
+		print('Directories selected:')
+		self.lststrDirectoriesSelected.clear()
+		# transfer all selected items into lststrDirectoriesSelected
+		for strSelectedItem in self.treeviewDirectories.selection():
+			dicItem = self.treeviewDirectories.item(strSelectedItem)
+			strRecord = dicItem['text']
+			self.lststrDirectoriesSelected.append(strRecord)
+		for item in self.lststrDirectoriesSelected:
+			print(item)
+
+	def ButtonOkClicked(self) -> None:
+		''' button: move files to the selected subdirectory '''
+		print('Ok clicked')
+		if len(self.lststrDirectoriesSelected) != 0 and len(self.lstpathFilesMarked) != 0:
+			for strDir in self.lststrDirectoriesSelected:
+				for pathFile in cmdlineargs.lstpathFiles:
+					print(f'copy {pathFile} to {strDir}')
+					try:
+						shutil.copy2(pathFile, strDir)
+					except:
+						self.lstpathFilesMarkedForDeletion.remove(pathFile)
+			for pathFile in self.lstpathFilesMarkedForDeletion:
+				print(f'delete {pathFile}')
+		else:
+			self.iExitValue = 1
+		self.destroy()
+
+	def ButtonCancelClicked(self) -> None:
+		''' button: cancel action and quit program '''
+		print('Cancel clicked')
+		self.iExitValue = 2
+		self.destroy()
+
+	def ExitValue(self) -> int:
+		return self.iExitValue
+
 
 # program start -------------------------------------------------------------------------------------------------------
 if __name__ == '__main__':
-	tkwinMain.mainloop()
-	sys.exit(iExitValue)
+	app = clssTkApp(cmdlineargs.lstpathFiles)
+	app.mainloop()
+	sys.exit(app.ExitValue())
 
 # EOF
