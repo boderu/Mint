@@ -2,186 +2,14 @@
 # Skript um Linux Mint einzurichten. Verlinke und starte dieses Skript in und aus dem Homeverzeichnis!
 # Das System sollte bereits die ersten Updates haben und die Verbindung zum Internet muss funktionieren.
 
-# Funktion: erzeuge symbolische Links mit erweiterter Prüfung
-# $1 Quelle:	Datei oder Verzeichnis welches verlinkt werden soll
-# $2 Ziel:		der zu erzeugende symbolische Link
-function Link
-{
-	echo
-	# Exisitiert das Ziel?
-	if [ -e "$2" ]
-	then
-		# ja, das Ziel existiert
-		# ist das Ziel bereits ein symbolischer Link?
-		if [ -L "$2" ]
-		then
-			# ja, das Ziel ist bereits ein symbolischer Link
-			echo "$2 ist bereits ein symbolischer Link"
-
-			# zeigt der symbolische Link nicht auf die Quelle?
-			if [[ $(readlink "$2") != "$1" ]]
-			then
-				# ja, der symbolische Link zeigt nicht auf die Quelle
-				echo "symbolischer Link $2 zeigt nicht auf die Quelle --> überschreiben"
-				# existiert die Quelle?
-				if [ -e "$1" ]
-				then
-					# ja, die Quelle existiert
-					rm "$2"					# existierenden Link löschen
-					ln -sv "$1" "$2"		# symbolischen Link erzeugen
-				else
-					# nein, die Quelle existiert nicht
-					echo "Die Quelle existiert nicht!"
-				fi
-			fi
-		else
-			# nein, das Ziel ist kein symbolischer Link
-			# existiert die Quelle?
-			if [ -e "$1" ]
-			then
-				# ja, die Quelle existiert
-				echo "$2 ist kein symbolischer Link --> existierende Datei oder Verzeichnis sichern"
-				mv -fv "$2" "$2.saved"	# eine existierende Sicherung wird überschrieben
-				rm -fRv "$2"			# vorhandene Datei oder Verzeichnis löschen
-				ln -sv "$1" "$2"		# symbolischen Link erzeugen
-			else
-				# nein, die Quelle existiert nicht
-				echo "Die Quelle existiert nicht!"
-			fi
-		fi
-	else
-		# nein, das Ziel existiert nicht
-			# existiert die Quelle?
-			if [ -e "$1" ]
-			then
-				# ja, die Quelle existiert
-				rm -fRv "$2"			# vorhandenes Ziel löschen (evtl. fehlerhafter Link)
-				ln -sv "$1" "$2"		# symbolischen Link erzeugen
-			else
-				# nein, die Quelle existiert nicht
-				echo "Die Quelle $1 existiert nicht!"
-			fi
-	fi
-} # Link()
-
-
 cd $HOME
 
-echo "Create some directories"
-mkdir -pv "$HOME/.config"
-mkdir -pv "$HOME/.config/nemo"
-mkdir -pv "$HOME/.local/share/fonts"
-mkdir -pv "$HOME/.local/bin"
-mkdir -pv "$HOME/Media/Stable Diffusion"
-mkdir -pv "$HOME/Warpinator"
-mkdir -pv "$HOME/Frameworks"
-mkdir -pv "$HOME/dwhelper"
-mkdir -pv "$HOME/WsCCS"
-mkdir -pv "$HOME/WsEclipse"
-mkdir -pv "$HOME/WsFreeCAD"
-mkdir -pv "$HOME/WsKiCAD"
-mkdir -pv "$HOME/WsXilinx"
-mkdir -pv "$HOME/WsXilinxSDK"
-
-touch "$HOME/.sudo_as_admin_successful"
+$HOME/Mint/bin/install_directories
 
 if [[ "$USER" != "guest" ]]
 then
-	sudo chown -Rv _apt:root /var/cache/apt/archives/partial/
-	sudo chmod -Rv 700 /var/cache/apt/archives/partial/
-
-	#===================================================================================================================
-	echo "Add or delete additional PPAs"
-	echo ; sudo apt-get install -y --install-recommends ppa-purge 
-	echo ; sudo add-apt-repository --yes ppa:libreoffice/ppa
-	echo ; sudo ppa-purge -y ppa:mozillateam/thunderbird-next
-	echo ; sudo ppa-purge -y ppa:ubuntuhandbook1/shotwell
-	echo ; sudo ppa-purge -y ppa:ubuntuhandbook1/darktable
-	echo ; sudo ppa-purge -y ppa:freecad-maintainers/freecad-stable
-	echo ; sudo ppa-purge -y ppa:tomtomtom/yt-dlp
-	echo ; sudo ppa-purge -y ppa:longsleep/golang-backports
-	echo ; sudo add-apt-repository --yes ppa:misery/ppa								# Ausweis App
-	echo ; sudo add-apt-repository --yes ppa:aos1/diff-so-fancy
-	echo ; sudo ppa-purge -y ppa:widelands-dev/widelands
-	echo ; sudo ppa-purge -y ppa:nextcloud-devs/client
-	echo ; sudo ppa-purge -y ppa:kicad/kicad-7.0-releases
-	echo ; sudo ppa-purge -y ppa:kicad/kicad-8.0-releases
-
-
-	echo ; echo "Update existing Debian packages"
-	sudo apt update
-	sudo apt upgrade -y
-
-	echo ; echo "Remove Debian packages"
-	if [ -e "$HOME/Mint/deb-remove.conf" ]
-	then
-		cat "$HOME/Mint/deb-remove.conf" | grep -v '^#' | grep -v '^$' | \
-		while read LINE
-		do
-			sudo apt remove -y $LINE
-			echo
-		done
-	fi
-
-	echo ; echo "Remove packages that are no longer required"
-	sudo apt autoremove -y
-
-
-	echo ; echo "Install Debian packages"
-	if [ -e "$HOME/Mint/deb-install.conf" ]
-	then
-		cat "$HOME/Mint/deb-install.conf" | grep -v '^#' | grep -v '^$' | \
-		while read LINE
-		do
-			sudo apt install -y --install-recommends $LINE
-			echo
-		done
-	fi
-
-
-	#===================================================================================================================
-	echo ; echo "Additional Ruby packages"
-	echo ; sudo gem install asciidoctor-diagram
-	echo ; sudo gem install roo
-
-
-	#===================================================================================================================
-	echo ; echo "Install and remove Flatpaks"
-
-	echo ; sudo flatpak update -y --noninteractive
-
-	if [ -e "$HOME/Mint/flatpak-remove.conf" ]
-	then
-		cat "$HOME/Mint/flatpak-remove.conf" | grep -v '^#' | grep -v '^$' | \
-		while read LINE
-		do
-			if [ 0 -ne $(flatpak list | grep $LINE | wc --lines) ]
-			then
-				echo "Remove Flatpak $LINE"
-				sudo flatpak uninstall -y --noninteractive $LINE
-			else
-				echo "Flatpak $LINE already removed"
-			fi
-		done
-	fi
-
-	if [ -e "$HOME/Mint/flatpak-install.conf" ]
-	then
-		cat "$HOME/Mint/flatpak-install.conf" | grep -v '^#' | grep -v '^$' | \
-		while read LINE
-		do
-			if [ 0 -eq $(flatpak list | grep $LINE | wc --lines) ]
-			then
-				echo "Install Flatpak $LINE"
-				sudo flatpak install -y --noninteractive $LINE
-			else
-				echo "Flatpak $LINE already installed"
-			fi
-		done
-	fi
-
-
-	#===================================================================================================================
+    $HOME/Mint/bin/install_deb
+    $HOME/Mint/bin/install_flatpak
 	$HOME/Mint/bin/install_nerd
 	$HOME/Mint/bin/install_micro
 	$HOME/Mint/bin/install_lazygit
@@ -196,9 +24,9 @@ then
 	$HOME/Mint/bin/install_diffusion
 	$HOME/Mint/bin/install_ccs
 	$HOME/Mint/bin/install_ollama
+    $HOME/Mint/bin/install_ruby
 
-
-	#===================================================================================================================
+#===================================================================================================================
 	echo ; echo "arm-none-eabi-gdb"
 	if [ ! -e "/usr/bin/arm-none-eabi-gdb" ]
 	then
@@ -207,13 +35,9 @@ then
 			sudo ln --verbose -s /usr/bin/gdb-multiarch /usr/bin/arm-none-eabi-gdb
 		fi
 	fi
-
-
 	#===================================================================================================================
 	echo ; echo "Remove packages that are no longer required"
 	sudo apt autoremove -y
-
-
 	#===================================================================================================================
 	echo ; echo "Set up User Guest"
 	egrep -i guest /etc/passwd >/dev/null
@@ -226,8 +50,6 @@ then
 
 	echo ; echo "Add users to the users group"
 	sudo adduser $USER users
-
-
 	#===================================================================================================================
 	echo ; echo "Configure shared folder for all users to share files"
 	if [ -d /home/Share ]
@@ -255,8 +77,6 @@ then
 		sudo chmod u+w /home/Public
 		sudo chmod ug+s /home/Public
 	fi
-
-
 	#===================================================================================================================
 	echo
 	echo "Increase limit for file system watches (inotify)"
@@ -268,7 +88,6 @@ then
 	fi
 
 fi # if $USER != guest
-
 
 #=======================================================================================================================
 $HOME/Mint/bin/install_python
@@ -319,49 +138,7 @@ curl -sSLf https://github.com/aclap-dev/vdhcoapp/releases/latest/download/instal
 
 
 #=======================================================================================================================
-Link "$HOME/Mint/.bashrc"									"$HOME/.bashrc"
-Link "$HOME/Mint/.bash_logout"								"$HOME/.bash_logout"
-Link "$HOME/Mint/.bash_aliases"								"$HOME/.bash_aliases"
-Link "$HOME/Mint/.profile"									"$HOME/.profile"
-Link "$HOME/Mint/.zshrc"									"$HOME/.zshrc"
-Link "$HOME/Mint/.selected_editor"							"$HOME/.selected_editor"
-Link "$HOME/Mint/bin"										"$HOME/bin"
-Link "$HOME/Mint/.ne"										"$HOME/.ne"
-Link "$HOME/Mint/.config/nemo/actions-tree.json"			"$HOME/.config/nemo/actions-tree.json"
-Link "$HOME/Mint/.config/broot"								"$HOME/.config/broot"
-Link "$HOME/Mint/.config/btop"								"$HOME/.config/btop"
-Link "$HOME/Mint/.config/darktable"							"$HOME/.config/darktable"
-Link "$HOME/Mint/.config/git-graph"							"$HOME/.config/git-graph"
-Link "$HOME/Mint/.config/htop"								"$HOME/.config/htop"
-Link "$HOME/Mint/.config/kicad"								"$HOME/.config/kicad"
-Link "$HOME/Mint/.config/lazygit"							"$HOME/.config/lazygit"
-Link "$HOME/Mint/.config/micro"								"$HOME/.config/micro"
-Link "$HOME/Mint/.config/vlc"								"$HOME/.config/vlc"
-Link "$HOME/Mint/.local/share/broot"						"$HOME/.local/share/broot"
-Link "$HOME/Mint/.vuescan"									"$HOME/.vuescan"
-Link "$HOME/Mint/Templates"									"$HOME/Vorlagen"
-
-Link "$HOME/SynologyDrive/Mint/.vuescanrc"					"$HOME/.vuescanrc"
-Link "$HOME/SynologyDrive/Mint/.ssh"						"$HOME/.ssh"
-Link "$HOME/SynologyDrive/Mint/.gitconfig"					"$HOME/.gitconfig"
-Link "$HOME/SynologyDrive/Mint/.git-credentials"			"$HOME/.git-credentials"
-Link "$HOME/SynologyDrive/Mint/.local/share/kicad"			"$HOME/.local/share/kicad"
-Link "$HOME/SynologyDrive/Mint/.local/share/rhythmbox"		"$HOME/.local/share/rhythmbox"
-Link "$HOME/SynologyDrive/Mint/.local/share/strawberry"		"$HOME/.local/share/strawberry"
-Link "$HOME/SynologyDrive/Mint/.local/share/gnome-mines"	"$HOME/.local/share/gnome-mines"
-Link "$HOME/SynologyDrive/Mint/.local/share/widelands"		"$HOME/.local/share/widelands"
-Link "$HOME/SynologyDrive/Mint/.local/share/widelands"		"$HOME/.var/app/org.widelands.Widelands/.widelands"
-
-Link 	"$HOME/SynologyDrive/Mint/.local/bin/avr8-gnu-toolchain-linux_x86_64"	\
-		"$HOME/.local/bin/avr8-gnu-toolchain-linux_x86_64"
-#Link "$HOME/SynologyDrive/Mint/.config/darktable"			"$HOME/.config/darktable"
-
-Link "$HOME/SynologyDrive/Bilder"							"$HOME/Bilder"
-Link "$HOME/SynologyDrive/Dokumente"						"$HOME/Dokumente"
-Link "$HOME/SynologyDrive/Dokumente"						"$HOME/Documents"
-Link "$HOME/SynologyDrive/Downloads"						"$HOME/Downloads"
-Link "$HOME/SynologyDrive/Calibre-Bibliothek"				"$HOME/Calibre-Bibliothek"
-Link "$HOME/SynologyDrive/Musik"							"$HOME/Musik"
+$HOME/Mint/bin/install_links
 
 
 #=======================================================================================================================

@@ -1,0 +1,114 @@
+#!/usr/bin/env bash
+
+# Funktion: erzeuge symbolische Links mit erweiterter Prüfung
+# $1 Quelle:	Datei oder Verzeichnis welches verlinkt werden soll
+# $2 Ziel:		der zu erzeugende symbolische Link
+function Link
+{
+	echo
+	# Exisitiert das Ziel?
+	if [ -e "$2" ]
+	then
+		# ja, das Ziel existiert
+		# ist das Ziel bereits ein symbolischer Link?
+		if [ -L "$2" ]
+		then
+			# ja, das Ziel ist bereits ein symbolischer Link
+			echo "$2 ist bereits ein symbolischer Link"
+
+			# zeigt der symbolische Link nicht auf die Quelle?
+			if [[ $(readlink "$2") != "$1" ]]
+			then
+				# ja, der symbolische Link zeigt nicht auf die Quelle
+				echo "symbolischer Link $2 zeigt nicht auf die Quelle --> überschreiben"
+				# existiert die Quelle?
+				if [ -e "$1" ]
+				then
+					# ja, die Quelle existiert
+					rm "$2"					# existierenden Link löschen
+					ln -sv "$1" "$2"		# symbolischen Link erzeugen
+				else
+					# nein, die Quelle existiert nicht
+					echo "Die Quelle existiert nicht!"
+				fi
+			fi
+		else
+			# nein, das Ziel ist kein symbolischer Link
+			# existiert die Quelle?
+			if [ -e "$1" ]
+			then
+				# ja, die Quelle existiert
+				echo "$2 ist kein symbolischer Link --> existierende Datei oder Verzeichnis sichern"
+				mv -fv "$2" "$2.saved"	# eine existierende Sicherung wird überschrieben
+				rm -fRv "$2"			# vorhandene Datei oder Verzeichnis löschen
+				ln -sv "$1" "$2"		# symbolischen Link erzeugen
+			else
+				# nein, die Quelle existiert nicht
+				echo "Die Quelle existiert nicht!"
+			fi
+		fi
+	else
+		# nein, das Ziel existiert nicht
+			# existiert die Quelle?
+			if [ -e "$1" ]
+			then
+				# ja, die Quelle existiert
+				rm -fRv "$2"			# vorhandenes Ziel löschen (evtl. fehlerhafter Link)
+				ln -sv "$1" "$2"		# symbolischen Link erzeugen
+			else
+				# nein, die Quelle existiert nicht
+				echo "Die Quelle $1 existiert nicht!"
+			fi
+	fi
+} # Link()
+
+
+pushd $HOME
+
+Link "$HOME/Mint/.bashrc"									"$HOME/.bashrc"
+Link "$HOME/Mint/.bash_logout"								"$HOME/.bash_logout"
+Link "$HOME/Mint/.bash_aliases"								"$HOME/.bash_aliases"
+Link "$HOME/Mint/.profile"									"$HOME/.profile"
+Link "$HOME/Mint/.zshrc"									"$HOME/.zshrc"
+Link "$HOME/Mint/.selected_editor"							"$HOME/.selected_editor"
+Link "$HOME/Mint/bin"										"$HOME/bin"
+Link "$HOME/Mint/.ne"										"$HOME/.ne"
+Link "$HOME/Mint/.config/nemo/actions-tree.json"			"$HOME/.config/nemo/actions-tree.json"
+Link "$HOME/Mint/.config/broot"								"$HOME/.config/broot"
+Link "$HOME/Mint/.config/btop"								"$HOME/.config/btop"
+Link "$HOME/Mint/.config/darktable"							"$HOME/.config/darktable"
+Link "$HOME/Mint/.config/git-graph"							"$HOME/.config/git-graph"
+Link "$HOME/Mint/.config/htop"								"$HOME/.config/htop"
+Link "$HOME/Mint/.config/kicad"								"$HOME/.config/kicad"
+Link "$HOME/Mint/.config/lazygit"							"$HOME/.config/lazygit"
+Link "$HOME/Mint/.config/micro"								"$HOME/.config/micro"
+Link "$HOME/Mint/.config/vlc"								"$HOME/.config/vlc"
+Link "$HOME/Mint/.local/share/broot"						"$HOME/.local/share/broot"
+Link "$HOME/Mint/.vuescan"									"$HOME/.vuescan"
+Link "$HOME/Mint/Templates"									"$HOME/Vorlagen"
+
+Link "$HOME/SynologyDrive/Mint/.vuescanrc"					"$HOME/.vuescanrc"
+Link "$HOME/SynologyDrive/Mint/.ssh"						"$HOME/.ssh"
+Link "$HOME/SynologyDrive/Mint/.gitconfig"					"$HOME/.gitconfig"
+Link "$HOME/SynologyDrive/Mint/.git-credentials"			"$HOME/.git-credentials"
+Link "$HOME/SynologyDrive/Mint/.local/share/kicad"			"$HOME/.local/share/kicad"
+Link "$HOME/SynologyDrive/Mint/.local/share/rhythmbox"		"$HOME/.local/share/rhythmbox"
+Link "$HOME/SynologyDrive/Mint/.local/share/strawberry"		"$HOME/.local/share/strawberry"
+Link "$HOME/SynologyDrive/Mint/.local/share/gnome-mines"	"$HOME/.local/share/gnome-mines"
+Link "$HOME/SynologyDrive/Mint/.local/share/widelands"		"$HOME/.local/share/widelands"
+Link "$HOME/SynologyDrive/Mint/.local/share/widelands"		"$HOME/.var/app/org.widelands.Widelands/.widelands"
+
+Link 	"$HOME/SynologyDrive/Mint/.local/bin/avr8-gnu-toolchain-linux_x86_64"	\
+		"$HOME/.local/bin/avr8-gnu-toolchain-linux_x86_64"
+#Link "$HOME/SynologyDrive/Mint/.config/darktable"			"$HOME/.config/darktable"
+
+Link "$HOME/SynologyDrive/Bilder"							"$HOME/Bilder"
+Link "$HOME/SynologyDrive/Dokumente"						"$HOME/Dokumente"
+Link "$HOME/SynologyDrive/Dokumente"						"$HOME/Documents"
+Link "$HOME/SynologyDrive/Downloads"						"$HOME/Downloads"
+Link "$HOME/SynologyDrive/Calibre-Bibliothek"				"$HOME/Calibre-Bibliothek"
+Link "$HOME/SynologyDrive/Musik"							"$HOME/Musik"
+
+popd
+
+# EOF
