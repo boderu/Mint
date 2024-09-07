@@ -24,7 +24,7 @@ sudo make modules_install
 sudo make firmware_install
 
 cd ..
-rm --force -R systec_can*
+rm --force -Rv ./*systec_can*
 
 popd
 
