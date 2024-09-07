@@ -13,6 +13,18 @@
       "user-icon": null,
       "children": [
         {
+          "uuid": "convert-image-format@el-amine-404.nemo_action",
+          "type": "action",
+          "user-label": null,
+          "user-icon": null
+        },
+        {
+          "uuid": "webp-to-png@tomunek.nemo_action",
+          "type": "action",
+          "user-label": null,
+          "user-icon": null
+        },
+        {
           "uuid": "image-compressor@schorschii.nemo_action",
           "type": "action",
           "user-label": null,
@@ -46,6 +58,12 @@
       "user-label": "Send",
       "user-icon": null,
       "children": [
+        {
+          "uuid": "send-via-bluetooth@asgharalitaj.nemo_action",
+          "type": "action",
+          "user-label": null,
+          "user-icon": null
+        },
         {
           "uuid": "send-as-attachment@rcalixte.nemo_action",
           "type": "action",
@@ -93,6 +111,30 @@
       "user-icon": null,
       "children": [
         {
+          "uuid": "run-in-terminal@alextpedro.nemo_action",
+          "type": "action",
+          "user-label": null,
+          "user-icon": null
+        },
+        {
+          "uuid": "move2subfolder.nemo_action",
+          "type": "action",
+          "user-label": null,
+          "user-icon": null
+        },
+        {
+          "uuid": "move-into-a-new-folder@anaximeno.nemo_action",
+          "type": "action",
+          "user-label": null,
+          "user-icon": null
+        },
+        {
+          "uuid": "copy-path-to-clipboard@claudiux.nemo_action",
+          "type": "action",
+          "user-label": null,
+          "user-icon": null
+        },
+        {
           "uuid": "clamscan.nemo_action",
           "type": "action",
           "user-label": null,
@@ -113,16 +155,30 @@
       ]
     },
     {
-      "uuid": "move-into-a-new-folder@anaximeno.nemo_action",
-      "type": "action",
-      "user-label": null,
-      "user-icon": null
-    },
-    {
-      "uuid": "move2subfolder.nemo_action",
-      "type": "action",
-      "user-label": null,
-      "user-icon": null
+      "uuid": "Folder",
+      "type": "submenu",
+      "user-label": "Folder",
+      "user-icon": null,
+      "children": [
+        {
+          "uuid": "fetch-25-youtube-videos.nemo_action",
+          "type": "action",
+          "user-label": null,
+          "user-icon": null
+        },
+        {
+          "uuid": "open-in-remote-terminal@mamolinux.nemo_action",
+          "type": "action",
+          "user-label": null,
+          "user-icon": null
+        },
+        {
+          "uuid": "vscode-launcher@vajdao.nemo_action",
+          "type": "action",
+          "user-label": null,
+          "user-icon": null
+        }
+      ]
     },
     {
       "uuid": "separator0",
@@ -210,18 +266,6 @@
     },
     {
       "uuid": "clone-git-repo@anaximeno.nemo_action",
-      "type": "action",
-      "user-label": null,
-      "user-icon": null
-    },
-    {
-      "uuid": "open-in-remote-terminal@mamolinux.nemo_action",
-      "type": "action",
-      "user-label": null,
-      "user-icon": null
-    },
-    {
-      "uuid": "fetch-25-youtube-videos.nemo_action",
       "type": "action",
       "user-label": null,
       "user-icon": null
