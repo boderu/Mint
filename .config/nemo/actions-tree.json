@@ -111,12 +111,6 @@
       "user-icon": null,
       "children": [
         {
-          "uuid": "run-in-terminal@alextpedro.nemo_action",
-          "type": "action",
-          "user-label": null,
-          "user-icon": null
-        },
-        {
           "uuid": "move2subfolder.nemo_action",
           "type": "action",
           "user-label": null,
@@ -135,6 +129,24 @@
           "user-icon": null
         },
         {
+          "uuid": "backup-this-file@h3nr1ke.nemo_action",
+          "type": "action",
+          "user-label": null,
+          "user-icon": null
+        },
+        {
+          "uuid": "convert-file@thigschuch.nemo_action",
+          "type": "action",
+          "user-label": null,
+          "user-icon": null
+        },
+        {
+          "uuid": "run-in-terminal@alextpedro.nemo_action",
+          "type": "action",
+          "user-label": null,
+          "user-icon": null
+        },
+        {
           "uuid": "clamscan.nemo_action",
           "type": "action",
           "user-label": null,
@@ -142,12 +154,6 @@
         },
         {
           "uuid": "file-shredder@czmisacz.nemo_action",
-          "type": "action",
-          "user-label": null,
-          "user-icon": null
-        },
-        {
-          "uuid": "remove-empty-folders.nemo_action",
           "type": "action",
           "user-label": null,
           "user-icon": null
@@ -160,6 +166,12 @@
       "user-label": "Folder",
       "user-icon": null,
       "children": [
+        {
+          "uuid": "remove-empty-folders.nemo_action",
+          "type": "action",
+          "user-label": null,
+          "user-icon": null
+        },
         {
           "uuid": "fetch-25-youtube-videos.nemo_action",
           "type": "action",

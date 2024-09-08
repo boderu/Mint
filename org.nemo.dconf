@@ -8,15 +8,18 @@ default-visible=false
 terminal-position='bottom'
 
 [icon-view]
+captions=['size', 'none', 'none']
 default-zoom-level='larger'
 
 [plugins]
 disabled-actions=@as []
-disabled-extensions=['NemoTerminalProvider+NemoPython']
+disabled-extensions=@as []
 
 [preferences]
+close-device-view-on-device-eject=true
 date-font-choice='no-mono'
 date-format='iso'
+executable-text-activation='display'
 show-advanced-permissions=true
 show-computer-icon-toolbar=true
 show-full-path-titles=true
