@@ -59,6 +59,12 @@
       "user-icon": null,
       "children": [
         {
+          "uuid": "send-with-kdeconnect@rcalixte.nemo_action",
+          "type": "action",
+          "user-label": null,
+          "user-icon": null
+        },
+        {
           "uuid": "send-via-bluetooth@asgharalitaj.nemo_action",
           "type": "action",
           "user-label": null,
@@ -124,18 +130,6 @@
         },
         {
           "uuid": "copy-path-to-clipboard@claudiux.nemo_action",
-          "type": "action",
-          "user-label": null,
-          "user-icon": null
-        },
-        {
-          "uuid": "backup-this-file@h3nr1ke.nemo_action",
-          "type": "action",
-          "user-label": null,
-          "user-icon": null
-        },
-        {
-          "uuid": "convert-file@thigschuch.nemo_action",
           "type": "action",
           "user-label": null,
           "user-icon": null
