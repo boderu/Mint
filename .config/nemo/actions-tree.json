@@ -141,6 +141,18 @@
           "user-icon": null
         },
         {
+          "uuid": "convert-file@thigschuch.nemo_action",
+          "type": "action",
+          "user-label": null,
+          "user-icon": null
+        },
+        {
+          "uuid": "backup-this-file@h3nr1ke.nemo_action",
+          "type": "action",
+          "user-label": null,
+          "user-icon": null
+        },
+        {
           "uuid": "clamscan.nemo_action",
           "type": "action",
           "user-label": null,
