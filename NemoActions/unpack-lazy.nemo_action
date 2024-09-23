@@ -59,7 +59,8 @@ Selection=any
 # Individual specific extensions can be a semicolon-terminated list
 # Extensions are NOT case sensitive.  jpg will match JPG, jPg, jpg, etc..
 # **** EITHER EXTENSIONS OR MIMETYPES IS REQUIRED *****
-Extensions=zip;7z;tar;tar.gz;tar.bz2;rar;
+Extensions=zip;7z;
+#Extensions=zip;7z;tar;tar.gz;tar.bz2;rar;
 
 # What mime-types to display on - this is an array, end with a semicolon
 # **** EITHER EXTENSIONS OR MIMETYPES IS REQUIRED *****
