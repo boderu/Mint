@@ -39,61 +39,89 @@ EXITVALUE=0
 #			--log-expanded \
 #			--auto-close
 
-PASSWORDLIST="/home/boderu/UE/pwp.txt"
+PLST="$HOME/.plst"
 
-if [ -e "${PASSWORDLIST}.bckp" ]
-then
-	rm --force "${PASSWORDLIST}.bckp"
-fi
-
-if [ -e "${PASSWORDLIST}.work" ]
-then
-	rm --force "${PASSWORDLIST}.work"
-fi
-
-cp "$PASSWORDLIST" "${PASSWORDLIST}.bckp"
 
 rm --force "$HOME/trash.list"
+cat "$PLST" > "${PLST}.bckp"
 
+# remove double lines
+sort -u "$PLST" > "${PLST}.work"
+if [ $(cat "$PLST" | wc --lines) -ne $(cat "${PLST}.work" | wc --lines) ]
+then
+	cat "${PLST}.work" > "$PLST"
+fi
+
+# process all archives
 for ARG in "$@"
 do
-	OUTDIR=$(dirname "$ARG")
+	DIRARG=$(dirname "$ARG")
 
-	echo "Archive: $ARG"
-	echo "Outdir: $OUTDIR"
+	echo "Archive:   $ARG"
+	echo "Directory: $DIRARG"
 
-	PWLSTLINE=1
-	cat "$PASSWORDLIST" | tr -d '\r' | \
-	while IFS= read -r PW
-	do 
-		if [[ $(7z l -p"$PW" "$1" 2>&1 | grep --count "ERROR") == 0 ]]
+	# try to extract without password
+	if [[ $(7z l -p"" "$ARG" 2>&1 | grep --count "ERROR") == 0 ]]
+	then
+		# yes, this archive does not reqire a password
+		echo -e "\tSuccess (no password)"
+
+		# extract archive
+		if 7z x -o"$DIRARG" -y "$ARG"
 		then
-			echo -e "\tSuccess ($PWLSTLINE): $PW"
-#			echo "7z x -p\"$PW\" -o\"$OUTDIR\" -y \"$1\""
-			if 7z x -p"$PW" -o"$OUTDIR" -y "$ARG"
+			echo "$ARG" >> "$HOME/trash.list"
+		fi
+	else
+		# no, this archive reqires a password
+		LINEPLST=1
+		cat "$PLST" | tr -d '\r' | \
+		while IFS= read -r PW
+		do
+			# does the password match?
+			if [[ $(7z l -p"$PW" "$ARG" 2>&1 | grep --count "ERROR") == 0 ]]
 			then
-				echo "$ARG" >> "$HOME/trash.list"
+				# yes, the password has been found
+				echo -e "\tSuccess ($LINEPLST): $PW"
+	#			echo "7z x -p\"$PW\" -o\"$OUTDIR\" -y \"$1\""
+
+				# extract archive
+				if 7z x -p"$PW" -o"$DIRARG" -y "$ARG"
+				then
+					echo "$ARG" >> "$HOME/trash.list"
+				fi
+
+				# set the found password on top of the password list
+				echo "$PW" > "${PLST}.work"
+				sed "${LINEPLST}d" "$PLST" >> "${PLST}.work"
+				cat "${PLST}.work" > "$PLST"
+
+				break
+			else
+				# no, thw password does not match
+				echo -e "\tFailed ($LINEPLST): $PW"
 			fi
 
-			echo "$PW" > "${PASSWORDLIST}.work"
-			sed "${PWLSTLINE}d" "$PASSWORDLIST" >> "${PASSWORDLIST}.work"
-			rm --force "$PASSWORDLIST"
-			cp "${PASSWORDLIST}.work" "$PASSWORDLIST"
+			let LINEPLST=LINEPLST+1
 
-			break
-		else
-			echo -e "\tFailed ($PWLSTLINE):  $PW"
-		fi
-		let PWLSTLINE=PWLSTLINE+1
-	done
+		done # while passwords
+	fi # if test without password
 
 	echo ; echo
-done
 
-while IFS= read -r FILE2TRASH
-do
-	trash -v -- "$FILE2TRASH"
-done < "$HOME/trash.list"
+done # all archives
+
+# put all processed archives into trash
+if [ -e "$HOME/trash.list" ]
+then
+	while IFS= read -r FILE2TRASH
+	do
+		trash -v -- "$FILE2TRASH"
+	done < "$HOME/trash.list"
+fi
+
+# remove all temporary files
+rm -v --force "$HOME/trash.list"
+rm -v --force "${PLST}.work"
 
 read -p "press Enter ..."
 
