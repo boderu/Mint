@@ -89,6 +89,7 @@ Link "$HOME/Mint/Templates"									"$HOME/Vorlagen"
 
 Link "$HOME/SynologyDrive/Mint/.vuescanrc"					"$HOME/.vuescanrc"
 Link "$HOME/SynologyDrive/Mint/.ssh"						"$HOME/.ssh"
+Link "$HOME/SynologyDrive/Mint/.plst"						"$HOME/.plst"
 Link "$HOME/SynologyDrive/Mint/.gitconfig"					"$HOME/.gitconfig"
 Link "$HOME/SynologyDrive/Mint/.git-credentials"			"$HOME/.git-credentials"
 Link "$HOME/SynologyDrive/Mint/.local/share/kicad"			"$HOME/.local/share/kicad"
