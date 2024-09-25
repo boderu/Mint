@@ -15,47 +15,28 @@
 
 EXITVALUE=0
 
-#CNT=1	# Zähler zur Berechnung des Fortschritts
-#
-#for ARG in "$@"
-#do
-#	let PROGRESS=$CNT*100/$#
-#
-#	ARG_EXTENSION=${ARG##*.}
-#
-#	echo $PROGRESS
-#	echo "$(7z t $ARG -y)"
-#	echo -n "# $(basename $ARG)"
-#	echo " $ARG_EXTENSION"
-#
-#	let CNT=CNT+1
-#	sleep 2
-#done | yad	--progress \
-#			--enable-log="Log" \
-#			--text="Extract archives" \
-#			--width=600 \
-#			--log-height=100 \
-#			--button=gtk-cancel \
-#			--log-expanded \
-#			--auto-close
-
 PLST="$HOME/.plst"
-
 
 rm --force "$HOME/trash.list"
 cat "$PLST" > "${PLST}.bckp"
 
-# remove double lines
+# remove double passwords
 sort -u "$PLST" > "${PLST}.work"
 if [ $(cat "$PLST" | wc --lines) -ne $(cat "${PLST}.work" | wc --lines) ]
 then
 	cat "${PLST}.work" > "$PLST"
 fi
 
+CNTARCHIVES=0
+CNTSUCCESS=0
+CNTFAILED=0
+
 # process all archives
 for ARG in "$@"
 do
 	DIRARG=$(dirname "$ARG")
+	let CNTARCHIVES=CNTARCHIVES+1
+	SUCCESS=0
 
 	echo "Archive:   $ARG"
 	echo "Directory: $DIRARG"
@@ -63,7 +44,7 @@ do
 	# try to extract without password
 	if [[ $(7z l -p"" "$ARG" 2>&1 | grep --count "ERROR") == 0 ]]
 	then
-		# yes, this archive does not reqire a password
+		# yes, this archive does not require a password
 		echo -e "\tSuccess (no password)"
 
 		# extract archive
@@ -71,10 +52,12 @@ do
 		then
 			echo "$ARG" >> "$HOME/trash.list"
 		fi
+
+		let CNTSUCCESS=CNTSUCCESS+1
+		SUCCESS=1
 	else
 		# no, this archive reqires a password
 		LINEPLST=1
-		cat "$PLST" | tr -d '\r' | \
 		while IFS= read -r PW
 		do
 			# does the password match?
@@ -82,7 +65,6 @@ do
 			then
 				# yes, the password has been found
 				echo -e "\tSuccess ($LINEPLST): $PW"
-	#			echo "7z x -p\"$PW\" -o\"$OUTDIR\" -y \"$1\""
 
 				# extract archive
 				if 7z x -p"$PW" -o"$DIRARG" -y "$ARG"
@@ -95,6 +77,8 @@ do
 				sed "${LINEPLST}d" "$PLST" >> "${PLST}.work"
 				cat "${PLST}.work" > "$PLST"
 
+				let CNTSUCCESS=CNTSUCCESS+1
+				SUCCESS=1
 				break
 			else
 				# no, thw password does not match
@@ -103,8 +87,14 @@ do
 
 			let LINEPLST=LINEPLST+1
 
-		done # while passwords
+		done < <(cat "$PLST" | tr -d '\r')
 	fi # if test without password
+
+	if [[ $SUCCESS == 0 ]]
+	then
+		let CNTFAILED=CNTFAILED+1
+		EXITVALUE=1
+	fi
 
 	echo ; echo
 
@@ -122,6 +112,12 @@ fi
 # remove all temporary files
 rm -v --force "$HOME/trash.list"
 rm -v --force "${PLST}.work"
+
+echo ; echo
+echo "Summary:"
+echo -e "\tArchives: $CNTARCHIVES"
+echo -e "\tSuccess:  $CNTSUCCESS"
+echo -e "\tFailed:   $CNTFAILED"
 
 read -p "press Enter ..."
 
