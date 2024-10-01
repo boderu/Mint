@@ -98,6 +98,7 @@ Link "$HOME/SynologyDrive/Mint/.local/share/strawberry"		"$HOME/.local/share/str
 Link "$HOME/SynologyDrive/Mint/.local/share/gnome-mines"	"$HOME/.local/share/gnome-mines"
 Link "$HOME/SynologyDrive/Mint/.local/share/widelands"		"$HOME/.local/share/widelands"
 Link "$HOME/SynologyDrive/Mint/.local/share/widelands"		"$HOME/.var/app/org.widelands.Widelands/.widelands"
+Link "$HOME/SynologyDrive/Mint/.local/share/widelands"		"$HOME/.var/app/org.widelands.Widelands/data/widelands"
 
 Link 	"$HOME/SynologyDrive/Mint/.local/bin/avr8-gnu-toolchain-linux_x86_64"	\
 		"$HOME/.local/bin/avr8-gnu-toolchain-linux_x86_64"
