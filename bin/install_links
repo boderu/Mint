@@ -77,6 +77,7 @@ Link "$HOME/Mint/.config/nemo/actions-tree.json"			"$HOME/.config/nemo/actions-t
 Link "$HOME/Mint/.config/broot"								"$HOME/.config/broot"
 Link "$HOME/Mint/.config/btop"								"$HOME/.config/btop"
 Link "$HOME/Mint/.config/darktable"							"$HOME/.config/darktable"
+Link "$HOME/Mint/.config/darktable"							"$HOME/.var/app/org.darktable.Darktable/config/darktable"
 Link "$HOME/Mint/.config/git-graph"							"$HOME/.config/git-graph"
 Link "$HOME/Mint/.config/htop"								"$HOME/.config/htop"
 Link "$HOME/Mint/.config/kicad"								"$HOME/.config/kicad"
