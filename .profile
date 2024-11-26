@@ -99,4 +99,10 @@ fi
 #	source $HOME/.pyvenv/bin/activate
 #fi
 
+# activate local settings if exists
+if [ -f "$HOME/.profile.local" ]
+then
+	source $HOME/.profile.local
+fi
+
 # EOF
