@@ -31,8 +31,9 @@ class clssTkApp(tk.Tk):
 	def __init__(self, lstpathFilesMarked: list) -> None:
 		super().__init__()
 
-		self.iCntLoop:	int = 10000
-		self.iCnt:		int = 0
+		self.iCntLoop:	int 	= 10000
+		self.iCnt:		int 	= 0
+		self.bQuit:		bool	= False
 
 		self.iExitValue:					int		= 0
 		self.lstpathFilesMarkedForDeletion:	list	= lstpathFilesMarked
@@ -86,12 +87,16 @@ class clssTkApp(tk.Tk):
 	def TkIdle(self) -> None:
 		''' part of the event loop '''
 		if self.iCntLoop == 0:
-			print(f'Tk Idle {self.iCnt}')
+			#print(f'Tk Idle {self.iCnt}')
 			self.iCnt += 1
 			self.iCntLoop = 10000
 		else:
 			self.iCntLoop -= 1
-		self.after_idle(self.TkIdle)	# retrigger method
+
+		if self.bQuit == True:
+			self.destroy()
+		else:
+			self.after_idle(self.TkIdle)	# retrigger method
 
 	def TreeViewItemSelected(self, event) -> None:
 		''' get selected items from tree view '''
@@ -116,17 +121,26 @@ class clssTkApp(tk.Tk):
 						shutil.copy2(pathFile, strDir)
 					except:
 						self.lstpathFilesMarkedForDeletion.remove(pathFile)
+						print('Fily copy failed!')
 			for pathFile in self.lstpathFilesMarkedForDeletion:
 				print(f'delete {pathFile}')
+				try:
+					os.remove(pathFile)
+				except FileNotFoundError:
+					print(f"File {pathFile} does not exist.")
+				except PermissionError:
+					print(f"No authorization to delete the {pathFile} file.")
+				except Exception as e:
+					print(f"Error when deleting the file: {e}")
 		else:
 			self.iExitValue = 1
-		self.destroy()
+		self.bQuit = True
 
 	def ButtonCancelClicked(self) -> None:
 		''' button: cancel action and quit program '''
 		print('Cancel clicked')
 		self.iExitValue = 2
-		self.destroy()
+		self.bQuit = True
 
 	def ExitValue(self) -> int:
 		return self.iExitValue
