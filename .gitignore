@@ -4,3 +4,4 @@ bin/*.AppImage
 .config/darktable/library.db*
 .config/darktable/data.db*
 .config/micro/backups
+.config/darktable/shortcutsrc.defaults
