@@ -266,3 +266,5 @@ fi
 #eval "$(thefuck --alias)"
 
 # EOF
+
+source /home/doozer/.config/broot/launcher/bash/br

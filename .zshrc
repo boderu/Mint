@@ -145,3 +145,5 @@ source "$HOME/.bash_aliases"
 source "$HOME/.config/broot/launcher/bash/br"
 
 # EOF
+
+source /home/doozer/.config/broot/launcher/bash/br
