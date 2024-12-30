@@ -6,6 +6,21 @@ cd $HOME
 
 $HOME/Mint/bin/install_directories
 
+# command-line fuzzy finder (fzf)
+if [ ! -d "$HOME/.fzf" ]
+then
+	echo "Install command-line fuzzy finder:"
+	sudo apt install -y --install-recommends git
+	git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+	~/.fzf/install --all
+else
+	echo "Update command-line fuzzy finder:"
+	pushd "$HOME/.fzf"
+	git pull && ./install --all
+	popd
+fi
+echo
+
 if [[ "$USER" != "guest" ]]
 then
     $HOME/Mint/bin/install_deb
@@ -24,7 +39,7 @@ then
 	$HOME/Mint/bin/install_diffusion
 	$HOME/Mint/bin/install_ccs
 	$HOME/Mint/bin/install_ollama
-    $HOME/Mint/bin/install_ruby
+	$HOME/Mint/bin/install_ruby
 
 #===================================================================================================================
 	echo ; echo "arm-none-eabi-gdb"
@@ -48,8 +63,10 @@ then
 		sudo passwd -d guest
 	fi
 
-	echo ; echo "Add users to the users group"
+	echo ; echo "Add users to the users and dialout groups"
 	sudo adduser $USER users
+	sudo adduser $USER dialout
+
 	#===================================================================================================================
 	echo ; echo "Configure shared folder for all users to share files"
 	if [ -d /home/Share ]

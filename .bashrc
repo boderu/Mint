@@ -265,6 +265,8 @@ fi
 
 #eval "$(thefuck --alias)"
 
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
 # EOF
 
 source /home/doozer/.config/broot/launcher/bash/br

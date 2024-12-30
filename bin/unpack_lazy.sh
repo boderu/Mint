@@ -105,7 +105,11 @@ if [ -e "$HOME/trash.list" ]
 then
 	while IFS= read -r FILE2TRASH
 	do
-		trash -v -- "$FILE2TRASH"
+		if ! trash -v -- "$FILE2TRASH"
+		then
+			echo "Move $FILE2TRASH to trash failed. Remove file."
+			rm --force -v "$FILE2TRASH"
+		fi
 	done < "$HOME/trash.list"
 fi
 

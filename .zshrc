@@ -144,6 +144,8 @@ source "$HOME/.bash_aliases"
 # fast navigation whithin the filesystem with broot
 source "$HOME/.config/broot/launcher/bash/br"
 
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
 # EOF
 
 source /home/doozer/.config/broot/launcher/bash/br

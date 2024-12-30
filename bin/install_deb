@@ -32,6 +32,7 @@ then
 	cat "$HOME/Mint/deb-remove.conf" | grep -v '^#' | grep -v '^$' | \
 	while read LINE
 	do
+		echo "Remove $LINE:"
 		sudo apt remove -y $LINE
 		echo
 	done
@@ -47,6 +48,7 @@ then
 	cat "$HOME/Mint/deb-install.conf" | grep -v '^#' | grep -v '^$' | \
 	while read LINE
 	do
+		echo "Install $LINE:"
 		sudo apt install -y --install-recommends $LINE
 		echo
 	done
