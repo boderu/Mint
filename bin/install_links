@@ -106,7 +106,6 @@ Link "$HOME/SynologyDrive/Mint/.local/share/widelands"		"$HOME/.var/app/org.wide
 
 Link 	"$HOME/SynologyDrive/Mint/.local/bin/avr8-gnu-toolchain-linux_x86_64"	\
 		"$HOME/.local/bin/avr8-gnu-toolchain-linux_x86_64"
-#Link "$HOME/SynologyDrive/Mint/.config/darktable"			"$HOME/.config/darktable"
 
 Link "$HOME/SynologyDrive/Bilder"							"$HOME/Bilder"
 Link "$HOME/SynologyDrive/Dokumente"						"$HOME/Dokumente"
