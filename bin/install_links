@@ -111,8 +111,9 @@ Link "$HOME/SynologyDrive/Dokumente"						"$HOME/Documents"
 Link "$HOME/SynologyDrive/Downloads"						"$HOME/Downloads"
 Link "$HOME/SynologyDrive/Calibre-Bibliothek"				"$HOME/Calibre-Bibliothek"
 Link "$HOME/SynologyDrive/Musik"							"$HOME/Musik"
-Link "$HOME/SynologyDrive/Scans"							"$HOME/Scans"
+#Link "$HOME/SynologyDrive/Scans"							"$HOME/Scans"
 
+Link "/home/boderu/Nextcloud/Photos"						"$HOME/Photos"
 popd
 
 # EOF
