@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<style-scheme id="illyria-dark" _name="Illyria Dark" version="1.0">
+
+  <author>Projekt Root</author>
+  <_description>Dark color scheme using Manjaro Illyria color palette.</_description>
+
+  <!-- Color Palette -->
+  <color name="butter1"                     value="#ffbe33"/>
+  <color name="butter2"                     value="#ffb000"/>
+  <color name="butter3"                     value="#e69d00"/>
+  <color name="chameleon1"                  value="#19ac90"/>
+  <color name="chameleon2"                  value="#138972"/>
+  <color name="chameleon3"                  value="#127561"/>
+  <color name="orange1"                     value="#fc8536"/>
+  <color name="orange2"                     value="#fc761d"/>
+  <color name="orange3"                     value="#fb6704"/>
+  <color name="skyblue1"                    value="#00cbe6"/>
+  <color name="skyblue2"                    value="#00b3ca"/>
+  <color name="skyblue3"                    value="#009eb3"/>
+  <color name="plum1"                       value="#9774a4"/>
+  <color name="plum2"                       value="#906b9f"/>
+  <color name="plum3"                       value="#7d5b8b"/>
+  <color name="chocolate1"                  value="#e8a864"/>
+  <color name="chocolate2"                  value="#e49747"/>
+  <color name="chocolate3"                  value="#de8321"/>
+  <color name="scarletred1"                 value="#ff4b33"/>
+  <color name="scarletred2"                 value="#ff1e00"/>
+  <color name="scarletred3"                 value="#e61b00"/>
+  <color name="aluminium1"                  value="#e1e7ea"/>
+  <color name="aluminium2"                  value="#96acb6"/>
+  <color name="aluminium3"                  value="#5f7c89"/>
+  <color name="aluminium4"                  value="#384b53"/>
+  <color name="aluminium5"                  value="#2f4048"/>
+  <color name="aluminium6"                  value="#222d31"/>
+  <color name="white"                       value="#f8f8f8"/>
+
+  <color name="aluminium4-3-blend"          value="#a1a49e"/>
+  <color name="aluminium6-5-blend"          value="#34393A"/>
+
+  <!-- Global Settings -->
+  <style name="text"                        foreground="aluminium1" background="aluminium6"/>
+  <style name="selection"                   foreground="aluminium1" background="aluminium4"/>
+  <style name="cursor"                      foreground="aluminium1"/>
+  <style name="secondary-cursor"            foreground="chameleon1"/>
+  <style name="current-line"                background="aluminium5"/>
+  <style name="line-numbers"                foreground="aluminium1" background="aluminium5"/>
+  <style name="draw-spaces"                 foreground="aluminium4"/>
+  <style name="background-pattern"          background="aluminium6-5-blend"/>
+
+  <!-- Bracket Matching -->
+  <style name="bracket-match"               foreground="chocolate2"/>
+  <style name="bracket-mismatch"            foreground="aluminium1" background="scarletred2"/>
+
+  <!-- Right Margin -->
+  <style name="right-margin"                foreground="aluminium1" background="aluminium3"/>
+
+  <!-- Search Matching -->
+  <style name="search-match"                foreground="aluminium1" background="chameleon3"/>
+
+  <!-- Comments -->
+  <style name="def:comment"                 foreground="aluminium2"/>
+  <style name="def:shebang"                 foreground="aluminium2" bold="true"/>
+  <style name="def:doc-comment-element"     italic="true"/>
+
+  <!-- Constants -->
+  <style name="def:constant"                foreground="butter2"/>
+  <style name="def:string"                  foreground="butter2"/>
+  <style name="def:special-char"            foreground="orange3"/>
+  <style name="def:special-constant"        foreground="orange3"/>
+  <style name="def:floating-point"          foreground="orange3"/>
+
+  <!-- Identifiers -->
+  <style name="def:identifier"              foreground="skyblue1"/>
+
+  <!-- Statements -->
+  <style name="def:statement"               foreground="white" bold="true"/>
+
+  <!-- Types -->
+  <style name="def:type"                    foreground="chameleon1" bold="true"/>
+
+  <!-- Others -->
+  <style name="def:preprocessor"            foreground="plum1"/>
+  <style name="def:error"                   foreground="aluminium1" background="scarletred2" bold="true"/>
+  <style name="def:warning"                 foreground="aluminium1" background="plum1"/>
+  <style name="def:note"                    background="butter1" foreground="aluminium4" bold="true"/>
+  <style name="def:underlined"              italic="true" underline="single"/>
+
+  <!-- Heading styles, uncomment to enable -->
+  <!--
+  <style name="def:heading0"                scale="5.0"/>
+  <style name="def:heading1"                scale="2.5"/>
+  <style name="def:heading2"                scale="2.0"/>
+  <style name="def:heading3"                scale="1.7"/>
+  <style name="def:heading4"                scale="1.5"/>
+  <style name="def:heading5"                scale="1.3"/>
+  <style name="def:heading6"                scale="1.2"/>
+  -->
+
+  <!-- Language specific -->
+  <style name="diff:added-line"             foreground="butter2"/>
+  <style name="diff:removed-line"           foreground="skyblue1"/>
+  <style name="diff:changed-line"           foreground="plum1"/>
+  <style name="diff:diff-file"              foreground="chameleon1" bold="true"/>
+  <style name="diff:location"               foreground="chameleon1"/>
+  <style name="diff:special-case"           foreground="white" bold="true"/>
+
+  <style name="latex:command"               foreground="chameleon1" bold="true"/>
+  <style name="latex:include"               use-style="def:preprocessor"/>
+
+</style-scheme>

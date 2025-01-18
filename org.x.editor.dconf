@@ -4,7 +4,7 @@ active-plugins=['time', 'textsize', 'spell', 'sort', 'modelines', 'joinlines', '
 [plugins/filebrowser/on-load]
 root='file:///'
 tree-view=true
-virtual-root='file:///home/boderu'
+virtual-root='file:///home/boderu/Mint/bin'
 
 [preferences/editor]
 bracket-matching=true
@@ -17,7 +17,8 @@ draw-whitespace-trailing=true
 ensure-trailing-newline=false
 highlight-current-line=true
 insert-spaces=false
-scheme='kate'
+prefer-dark-theme=true
+scheme='mixed-dark'
 tabs-size=uint32 4
 
 [preferences/ui]
