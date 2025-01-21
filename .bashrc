@@ -269,4 +269,4 @@ fi
 
 # EOF
 
-source /home/doozer/.config/broot/launcher/bash/br
+source $HOME/.config/broot/launcher/bash/br
