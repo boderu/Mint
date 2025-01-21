@@ -50,6 +50,9 @@ header-font-name='sans Bold 12'
 [image-viewer]
 zoom-change='fit-size'
 
+[photo-importer]
+delete-from-device=false
+
 [pixbuf-savers/avif]
 lossless=false
 quality=50
