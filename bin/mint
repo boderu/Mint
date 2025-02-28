@@ -28,6 +28,7 @@ then
 	$HOME/Mint/bin/install_nerd
 	$HOME/Mint/bin/install_micro
 	$HOME/Mint/bin/install_lazygit
+	$HOME/Mint/bin/install_broot
 	$HOME/Mint/bin/install_xplr
 	$HOME/Mint/bin/install_cppcheck
 	$HOME/Mint/bin/install_drawio
@@ -251,11 +252,6 @@ dconf load /org/gnome/calculator/			< $HOME/Mint/org.gnome.calculator.dconf
 dconf load /org/gnome/terminal/				< $HOME/Mint/org.gnome.terminal.dconf
 dconf load /org/gnome/desktop/interface/	< $HOME/Mint/org.gnome.desktop.interface.dconf
 
-echo
-echo "Install broot"
-curl -o broot -L https://dystroy.org/broot/download/x86_64-linux/broot
-sudo mv -f broot /usr/local/bin
-sudo chmod +x /usr/local/bin/broot
 
 
 echo

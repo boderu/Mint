@@ -5,3 +5,4 @@ bin/*.AppImage
 .config/darktable/data.db*
 .config/micro/backups
 .config/darktable/shortcutsrc.defaults
+.config/broot/launcher
