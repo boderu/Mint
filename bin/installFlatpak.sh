@@ -6,9 +6,9 @@ echo ; echo "Install and remove Flatpaks"
 
 echo ; sudo flatpak update -y --noninteractive
 
-if [ -e "$HOME/Mint/flatpak-remove.conf" ]
+if [ -e "$HOME/.flatpak-remove.conf" ]
 then
-	cat "$HOME/Mint/flatpak-remove.conf" | grep -v '^#' | grep -v '^$' | \
+	cat "$HOME/.flatpak-remove.conf" | grep -v '^#' | grep -v '^$' | \
 	while read LINE
 	do
 		if [ 0 -ne $(flatpak list | grep $LINE | wc --lines) ]
@@ -21,9 +21,9 @@ then
 	done
 fi
 
-if [ -e "$HOME/Mint/flatpak-install.conf" ]
+if [ -e "$HOME/.flatpak-install.conf" ]
 then
-	cat "$HOME/Mint/flatpak-install.conf" | grep -v '^#' | grep -v '^$' | \
+	cat "$HOME/.flatpak-install.conf" | grep -v '^#' | grep -v '^$' | \
 	while read LINE
 	do
 		if [ 0 -eq $(flatpak list | grep $LINE | wc --lines) ]

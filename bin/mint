@@ -1,128 +1,169 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # Skript um Linux Mint einzurichten. Verlinke und starte dieses Skript in und aus dem Homeverzeichnis!
 # Das System sollte bereits die ersten Updates haben und die Verbindung zum Internet muss funktionieren.
 
+PARAM_STEP=''
+PARAM_NOGAMES=''
+
+fncHelp()
+{
+	echo
+	echo "Usage: $0 [-?sg]"
+	echo -e "\t-? Show this help"
+	echo -e "\t-s Run this script step by step"
+	echo -e "\t-g Uninstall the games"
+	echo
+	exit 0 # Exit script after printing help
+}
+
+function fncStep
+{
+	if [ "$PARAM_STEP" == "set" ]
+	then
+		read -p "press Enter ..."
+	fi
+}
+
+while getopts "sg" OPT 2>/dev/null
+do
+	case "$OPT" in
+		s ) PARAM_STEP="set" ;;
+		g ) PARAM_NOGAMES="set" ;;
+		? ) fncHelp ;; # Print helpFunction in case parameter is non-existent
+	esac
+done
+
 cd $HOME
 
-$HOME/Mint/bin/install_directories
+$HOME/Mint/bin/installDirectories.sh	; fncStep
 
-# command-line fuzzy finder (fzf)
-if [ ! -d "$HOME/.fzf" ]
+if [ "$PARAM_NOGAMES" == "set" ]
 then
-	echo "Install command-line fuzzy finder:"
-	sudo apt install -y --install-recommends git
-	git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-	~/.fzf/install --all
+	cat "$HOME/Mint/deb-install.conf" > "$HOME/.deb-install.conf"
+	cat "$HOME/Mint/deb-remove.conf" > "$HOME/.deb-remove.conf"
+	cat "$HOME/Mint/deb-games.conf" >> "$HOME/.deb-remove.conf"
+
+	cat "$HOME/Mint/flatpak-install.conf" > "$HOME/.flatpak-install.conf"
+	cat "$HOME/Mint/flatpak-remove.conf" > "$HOME/.flatpak-remove.conf"
+	cat "$HOME/Mint/flatpak-games.conf" >> "$HOME/.flatpak-remove.conf"
 else
-	echo "Update command-line fuzzy finder:"
-	pushd "$HOME/.fzf"
-	git pull && ./install --all
-	popd
+	cat "$HOME/Mint/deb-install.conf" > "$HOME/.deb-install.conf"
+	cat "$HOME/Mint/deb-remove.conf" > "$HOME/.deb-remove.conf"
+	cat "$HOME/Mint/deb-games.conf" >> "$HOME/.deb-install.conf"
+
+	cat "$HOME/Mint/flatpak-install.conf" > "$HOME/.flatpak-install.conf"
+	cat "$HOME/Mint/flatpak-remove.conf" > "$HOME/.flatpak-remove.conf"
+	cat "$HOME/Mint/flatpak-games.conf" >> "$HOME/.flatpak-install.conf"
 fi
-echo
+echo "Installation lists created"		; fncStep
+$HOME/Mint/bin/installDeb.sh			; fncStep
+$HOME/Mint/bin/installFlatpak.sh		; fncStep
+rm --force "$HOME/.deb-install.conf"
+rm --force "$HOME/.deb-remove.conf"
+rm --force "$HOME/.flatpak-install.conf"
+rm --force "$HOME/.flatpak-remove.conf"
 
-if [[ "$USER" != "guest" ]]
-then
-    $HOME/Mint/bin/install_deb
-    $HOME/Mint/bin/install_flatpak
-	$HOME/Mint/bin/install_nerd
-	$HOME/Mint/bin/install_micro
-	$HOME/Mint/bin/install_lazygit
-	$HOME/Mint/bin/install_broot
-	$HOME/Mint/bin/install_xplr
-	$HOME/Mint/bin/install_cppcheck
-	$HOME/Mint/bin/install_drawio
-	$HOME/Mint/bin/install_frontdesign
-	$HOME/Mint/bin/install_vuescan
-	$HOME/Mint/bin/install_segger
-	$HOME/Mint/bin/install_vscode
-	$HOME/Mint/bin/install_sysworxx
-	$HOME/Mint/bin/install_diffusion
-	$HOME/Mint/bin/install_ccs
-	$HOME/Mint/bin/install_ollama
-	$HOME/Mint/bin/install_ruby
-
-#===================================================================================================================
-	echo ; echo "arm-none-eabi-gdb"
-	if [ ! -e "/usr/bin/arm-none-eabi-gdb" ]
-	then
-		if [ -e "/usr/bin/gdb-multiarch" ]
-		then
-			sudo ln --verbose -s /usr/bin/gdb-multiarch /usr/bin/arm-none-eabi-gdb
-		fi
-	fi
-	#===================================================================================================================
-	echo ; echo "Remove packages that are no longer required"
-	sudo apt autoremove -y
-	#===================================================================================================================
-	echo ; echo "Set up User Guest"
-	egrep -i guest /etc/passwd >/dev/null
-	if [ $? -ne 0 ]
-	then
-		sudo adduser --disabled-password --gecos "Guest" guest
-		sudo adduser guest users
-		sudo passwd -d guest
-	fi
-
-	echo ; echo "Add users to the users and dialout groups"
-	sudo adduser $USER users
-	sudo adduser $USER dialout
-
-	#===================================================================================================================
-	echo ; echo "Configure shared folder for all users to share files"
-	if [ -d /home/Share ]
-	then
-		echo "Share folder already exists"
-	else
-		sudo mkdir /home/Share
-		sudo chown root:users /home/Share
-		sudo chmod ugo+rwX /home/Share
-		sudo chmod g+s /home/Share
-	fi
-
-	sudo rm -f /home/Share/mint
-	sudo cp $HOME/Mint/bin/mint /home/Share/
-
-	echo
-	echo "Configure public (RO) folder for all users"
-	if [ -d /home/Public ]
-	then
-		echo "Public folder already exists"
-	else
-		sudo mkdir /home/Public
-		sudo chown $USER:users /home/Public
-		sudo chmod ugo+rX /home/Public
-		sudo chmod u+w /home/Public
-		sudo chmod ug+s /home/Public
-	fi
-	#===================================================================================================================
-	echo
-	echo "Increase limit for file system watches (inotify)"
-	if [ ! -e /etc/sysctl.d/90-inotify.conf ]
-	then
-		sudo cp $HOME/Mint/Sytem/etc/sysctl.d/90-inotify.conf /etc/sysctl.d/
-		sudo chown root:root /etc/sysctl.d/90-inotify.conf
-		sudo sysctl -p --system
-	fi
-
-fi # if $USER != guest
+$HOME/Mint/bin/installNerd.sh			; fncStep
+$HOME/Mint/bin/installFuzzyFinder.sh	; fncStep
+$HOME/Mint/bin/installMicro.sh			; fncStep
+$HOME/Mint/bin/installLazygit.sh		; fncStep
+$HOME/Mint/bin/installBroot.sh			; fncStep
+$HOME/Mint/bin/installXplr.sh			; fncStep
+$HOME/Mint/bin/installCppCheck.sh		; fncStep
+$HOME/Mint/bin/installDrawIO.sh			; fncStep
+$HOME/Mint/bin/installFrontDesign.sh	; fncStep
+$HOME/Mint/bin/installVueScan.sh		; fncStep
+$HOME/Mint/bin/installSegger.sh			; fncStep
+$HOME/Mint/bin/installVSCode.sh			; fncStep
+$HOME/Mint/bin/installSysWorxx.sh		; fncStep
+$HOME/Mint/bin/installDiffusion.sh		; fncStep
+$HOME/Mint/bin/installCCS.sh			; fncStep
+$HOME/Mint/bin/installOllama.sh			; fncStep
+$HOME/Mint/bin/installRuby.sh			; fncStep
+$HOME/Mint/bin/installPython.sh			; fncStep
+$HOME/Mint/bin/installRust.sh			; fncStep
 
 #=======================================================================================================================
-$HOME/Mint/bin/install_python
-$HOME/Mint/bin/install_rust
+echo ; echo "arm-none-eabi-gdb"
+if [ ! -e "/usr/bin/arm-none-eabi-gdb" ]
+then
+	if [ -e "/usr/bin/gdb-multiarch" ]
+	then
+		sudo ln --verbose -s /usr/bin/gdb-multiarch /usr/bin/arm-none-eabi-gdb
+	fi
+fi
+fncStep
+
+#=======================================================================================================================
+echo ; echo "Remove packages that are no longer required"
+sudo apt autoremove -y
+fncStep
+
+#=======================================================================================================================
+echo ; echo "Set up User Guest"
+egrep -i guest /etc/passwd >/dev/null
+if [ $? -ne 0 ]
+then
+	sudo adduser --disabled-password --gecos "Guest" guest
+	sudo adduser guest users
+	sudo passwd -d guest
+fi
+
+echo ; echo "Add users to the users and dialout groups"
+sudo adduser $USER users
+sudo adduser $USER dialout
+fncStep
+
+#=======================================================================================================================
+echo ; echo "Configure shared folder for all users to share files"
+if [ -d /home/Share ]
+then
+	echo "Share folder already exists"
+else
+	sudo mkdir /home/Share
+	sudo chown root:users /home/Share
+	sudo chmod ugo+rwX /home/Share
+	sudo chmod g+s /home/Share
+fi
+
+if [ ! -d "/home/Share/Mint" ]
+then
+	pushd "/home/Share"
+	git clone https://github.com/boderu/Mint.git
+	popd
+fi
+pushd "/home/Share/Mint"
+git pull
+popd
+fncStep
+
+echo
+echo "Configure public (RO) folder for all users"
+if [ -d /home/Public ]
+then
+	echo "Public folder already exists"
+else
+	sudo mkdir /home/Public
+	sudo chown $USER:users /home/Public
+	sudo chmod ugo+rX /home/Public
+	sudo chmod u+w /home/Public
+	sudo chmod ug+s /home/Public
+fi
+fncStep
+
+#=======================================================================================================================
+echo
+echo "Increase limit for file system watches (inotify)"
+if [ ! -e /etc/sysctl.d/90-inotify.conf ]
+then
+	sudo cp $HOME/Mint/Sytem/etc/sysctl.d/90-inotify.conf /etc/sysctl.d/
+	sudo chown root:root /etc/sysctl.d/90-inotify.conf
+	sudo sysctl -p --system
+fi
+fncStep
 
 #=======================================================================================================================
 echo ; echo "Set up local configurations"
-if [ -d "Mint" ]
-then
-	cd Mint
-	git fetch --all
-	git pull
-	cd ..
-else
-	git clone https://github.com/boderu/Mint.git
-fi
-
 if [ -d ".oh-my-zsh" ]
 then
 	cd .oh-my-zsh
@@ -132,128 +173,21 @@ then
 else
 	git clone https://github.com/ohmyzsh/ohmyzsh.git .oh-my-zsh
 fi
-
-
-#=======================================================================================================================
-echo ; echo "Check out or update frameworks"
-
-if [ -d "$HOME/Frameworks/KiCAD" ]
-then
-	pushd "$HOME/Frameworks/KiCAD"
-	git fetch --all
-	git pull
-	popd
-else
-	pushd "$HOME/Frameworks"
-	git clone https://github.com/boderu/Framework.KiCAD.git KiCAD
-	popd
-fi
-
+fncStep
 
 #=======================================================================================================================
 echo ; echo "FireFox Download Helper App"
 curl -sSLf https://github.com/aclap-dev/vdhcoapp/releases/latest/download/install.sh | bash
-
-
-#=======================================================================================================================
-$HOME/Mint/bin/install_links
-
+fncStep
 
 #=======================================================================================================================
-echo ; echo "Install additional Mint applets"
-pushd "$HOME/.local/share/cinnamon/applets/"
-
-if [ -e "$HOME/Mint/mint-actions-download.conf" ]
-then
-	cat "$HOME/Mint/mint-actions-download.conf" | grep -v '^#' | grep -v '^$' | \
-	while read LINE
-	do
-		if [ ! -d "$LINE" ]
-		then
-			echo "$LINE"
-			wget https://cinnamon-spices.linuxmint.com/files/applets/${LINE}.zip && \
-			unzip ${LINE}.zip
-			rm -f ${LINE}.zip
-		else
-			echo "$LINE already exists"
-		fi
-	done
-fi
-
-popd
-
+$HOME/Mint/bin/installFrameworks.sh		; fncStep
+$HOME/Mint/bin/installLinks.sh			; fncStep
+$HOME/Mint/bin/installMintApplets.sh	; fncStep
+$HOME/Mint/bin/installNemoActions.sh	; fncStep
+$HOME/Mint/bin/installDesktop.sh		; fncStep
 
 #=======================================================================================================================
-echo ; echo "Install additional Nemo actions"
-# Test, ob das Verzeichnis noch ein Link ist
-if [ -L "$HOME/.local/share/nemo" ]
-then
-	echo "$HOME/.local/share/nemo is still a link --> remove"
-	rm -Rv "$HOME/.local/share/nemo"
-	mkdir -p "$HOME/.local/share/nemo/actions"
-	mkdir -p "$HOME/.local/share/nemo/scripts"
-	mkdir -p "$HOME/.local/share/nemo/search-helpers"
-fi
-
-pushd "$HOME/.local/share/nemo/actions/"
-
-if [ -e "$HOME/Mint/nemo-actions-download.conf" ]
-then
-	cat "$HOME/Mint/nemo-actions-download.conf" | grep -v '^#' | grep -v '^$' | \
-	while read LINE
-	do
-		echo "$LINE"
-		wget https://cinnamon-spices.linuxmint.com/files/actions/${LINE}.zip && \
-		unzip -o ${LINE}.zip
-		rm -f ${LINE}.zip
-	done
-fi
-
-# eigene Nemo Actions verlinken - vorher defekte Links löschen
-find -L "$HOME/.local/share/nemo/actions/" -type l -exec rm -f {} \;
-
-ls "$HOME/Mint/NemoActions" |
-while read FILE
-do
-	echo $FILE
-	# sollte bereits ein Link oder eine Datei existieren -> löschen
-	if [ -e "$HOME/.local/share/nemo/actions/${FILE}" ]
-	then
-		rm -fv "$HOME/.local/share/nemo/actions/${FILE}"
-	fi
-
-	# Link (neu) erstellen
-	echo "Link $FILE"
-	ln -s "$HOME/Mint/NemoActions/${FILE}" "$HOME/.local/share/nemo/actions/${FILE}"
-	echo
-done
-
-popd
-
-
-#=======================================================================================================================
-# Apps und Desktop konfigurieren
-# gibt es eine abweichende Font-Skalierung?
-if [ -f $HOME/.text-scaling-factor ]
-then
-	echo "eine abweichende Font-Skalierung von $(cat $HOME/.text-scaling-factor) einrichten"
-	cat $HOME/Mint/org.cinnamon.dconf | \
-		sed "s/text-scaling-factor=.*/text-scaling-factor=$(cat $HOME/.text-scaling-factor)/" | \
-		dconf load /org/cinnamon/
-else
-	dconf load /org/cinnamon/ < $HOME/Mint/org.cinnamon.dconf
-fi
-
-dconf load /org/nemo/						< $HOME/Mint/org.nemo.dconf
-dconf load /org/x/editor/					< $HOME/Mint/org.x.editor.dconf
-dconf load /org/x/pix/						< $HOME/Mint/org.x.pix.dconf
-dconf load /org/x/reader/					< $HOME/Mint/org.x.reader.dconf
-dconf load /org/gnome/calculator/			< $HOME/Mint/org.gnome.calculator.dconf
-dconf load /org/gnome/terminal/				< $HOME/Mint/org.gnome.terminal.dconf
-dconf load /org/gnome/desktop/interface/	< $HOME/Mint/org.gnome.desktop.interface.dconf
-
-
-
 echo
 echo "Copy Mozilla settings"
 if [ ! -d "$HOME/.mozilla" ]
@@ -263,6 +197,7 @@ then
 		cp -frv "$HOME/SynologyDrive/Mint/.mozilla" "$HOME/"
 	fi
 fi
+fncStep
 
 echo
 echo "zusätzliche Firefox Einstellungen:"
@@ -273,7 +208,6 @@ echo "4) Ändere die Toolbar, ..."
 echo "5) Ändere die internen Firefox-Einstellungen (about:config)"
 echo "   browser.uidensity --> 1"
 echo "   signon.includeOtherSubdomainsInLookup --> false"
-#read -p "drücke Enter ..."
 
 echo
 echo "Einrichtung beendet."
