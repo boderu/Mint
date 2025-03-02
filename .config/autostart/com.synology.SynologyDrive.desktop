@@ -1,0 +1,17 @@
+[Desktop Entry]
+Name=Synology Drive Client
+Comment=Synology Drive Client
+Exec=/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=synology-drive com.synology.SynologyDrive start
+Icon=com.synology.SynologyDrive
+Terminal=false
+Type=Application
+Categories=Network;FileTransfer;
+StartupWMClass=cloud-drive-ui
+X-Flatpak-Tags=proprietary;
+X-Flatpak=com.synology.SynologyDrive
+X-GNOME-Autostart-enabled=true
+NoDisplay=false
+Hidden=false
+Name[de_DE]=Synology Drive Client
+Comment[de_DE]=Synology Drive Client
+X-GNOME-Autostart-Delay=25

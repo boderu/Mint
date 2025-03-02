@@ -44,7 +44,7 @@ search-sort-column='name'
 search-visible-columns=['name', 'where', 'date_modified', 'size']
 
 [window-state]
-geometry='1135x923+392+64'
+geometry='1135x923+392+62'
 maximized=false
 sidebar-bookmark-breakpoint=5
 sidebar-width=242

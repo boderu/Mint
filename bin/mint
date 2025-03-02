@@ -176,29 +176,14 @@ fi
 fncStep
 
 #=======================================================================================================================
-echo ; echo "FireFox Download Helper App"
-curl -sSLf https://github.com/aclap-dev/vdhcoapp/releases/latest/download/install.sh | bash
-fncStep
+$HOME/Mint/bin/installFrameworks.sh			; fncStep
+$HOME/Mint/bin/installLinks.sh				; fncStep
+$HOME/Mint/bin/installMintApplets.sh		; fncStep
+$HOME/Mint/bin/installNemoActions.sh		; fncStep
+$HOME/Mint/bin/installDesktop.sh			; fncStep
+$HOME/Mint/bin/installMozillaThunderbird.sh	; fncStep
 
 #=======================================================================================================================
-$HOME/Mint/bin/installFrameworks.sh		; fncStep
-$HOME/Mint/bin/installLinks.sh			; fncStep
-$HOME/Mint/bin/installMintApplets.sh	; fncStep
-$HOME/Mint/bin/installNemoActions.sh	; fncStep
-$HOME/Mint/bin/installDesktop.sh		; fncStep
-
-#=======================================================================================================================
-echo
-echo "Copy Mozilla settings"
-if [ ! -d "$HOME/.mozilla" ]
-then
-	if [ -d "$HOME/SynologyDrive/Mint/.mozilla" ]
-	then
-		cp -frv "$HOME/SynologyDrive/Mint/.mozilla" "$HOME/"
-	fi
-fi
-fncStep
-
 echo
 echo "zusätzliche Firefox Einstellungen:"
 echo "1) Erzeuge alle Firefox-Profile (about:profiles)"
