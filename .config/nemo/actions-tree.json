@@ -8,9 +8,9 @@
       "accelerator": null
     },
     {
-      "uuid": "Pictures",
+      "uuid": "Bilder",
       "type": "submenu",
-      "user-label": "Pictures",
+      "user-label": "Bilder",
       "user-icon": null,
       "accelerator": null,
       "children": [
@@ -82,9 +82,9 @@
       ]
     },
     {
-      "uuid": "Send",
+      "uuid": "Senden",
       "type": "submenu",
-      "user-label": "Send",
+      "user-label": "Senden",
       "user-icon": null,
       "accelerator": null,
       "children": [
@@ -119,9 +119,9 @@
       ]
     },
     {
-      "uuid": "Archives",
+      "uuid": "Archive",
       "type": "submenu",
-      "user-label": "Archives",
+      "user-label": "Archive",
       "user-icon": null,
       "accelerator": null,
       "children": [
@@ -149,9 +149,9 @@
       "accelerator": null
     },
     {
-      "uuid": "Files",
+      "uuid": "Dateien",
       "type": "submenu",
-      "user-label": "Files",
+      "user-label": "Dateien",
       "user-icon": null,
       "accelerator": null,
       "children": [
@@ -256,9 +256,9 @@
       ]
     },
     {
-      "uuid": "Folder",
+      "uuid": "Ordner",
       "type": "submenu",
-      "user-label": "Folder",
+      "user-label": "Ordner",
       "user-icon": null,
       "accelerator": null,
       "children": [
