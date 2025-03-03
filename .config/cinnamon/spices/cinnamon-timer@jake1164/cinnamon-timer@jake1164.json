@@ -140,7 +140,7 @@
         "default": true,
         "description": "Display alarm time in panel",
         "tooltip": "Display alarm time in panel",
-        "value": true
+        "value": false
     },
     "alarmtime-format-small": {
         "type": "entry",
@@ -182,14 +182,14 @@
         "default": "",
         "description": "Do not change, the time the alarm is set to expire",
         "tooltip": "Do not change, the time the alarm is set to expire",
-        "value": 1739908632242
+        "value": 1741000228969
     },
     "alarm_start": {
         "type": "generic",
         "default": "",
         "description": "Do not change, the time the alarm is set to expire",
         "tooltip": "Do not change, the time the alarm is set to expire",
-        "value": 1739908332242
+        "value": 1740999628969
     },
     "message": {
         "type": "generic",
