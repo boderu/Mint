@@ -122,7 +122,15 @@ fncLink "/home/boderu/Nextcloud/Photos"						"$HOME/Photos"
 egrep -i boderu /etc/passwd >/dev/null
 if [ $? -eq 0 ]
 then
-	fncLink "$HOME/Mint/.config/autostart"					"$HOME/.config/autostart"
+#	fncLink "$HOME/Mint/.config/autostart"					"$HOME/.config/autostart"
+	if [ -L "$HOME/Mint/.config/autostart" ]
+	then
+		rm -rf "$HOME/Mint/.config/_autostart"
+		cp -r $("readlink -f $HOME/Mint/.config/autostart") "$HOME/Mint/.config/_autostart"
+		rm -rf "$HOME/Mint/.config/autostart"
+		mv "$HOME/Mint/.config/_autostart" "$HOME/Mint/.config/autostart"
+	fi
+
 	fncLink "$HOME/Mint/.config/cinnamon/spices"			"$HOME/.config/cinnamon/spices"
 fi
 
