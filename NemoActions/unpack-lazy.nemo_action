@@ -28,7 +28,8 @@ Active=true
 
 # The name to show in the menu, locale supported with standard desktop spec.
 # **** REQUIRED ****
-Name=Unpack archive(s) automatically
+Name=✨ Unpack archive(s) automatically
+Name[de]=✨ Archive automatisch entpacken
 
 # Tool tip, locale supported (Appears in the status bar)
 Comment=Archives are automatically decompressed and deleted. Action will be applied to %N

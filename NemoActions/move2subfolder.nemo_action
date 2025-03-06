@@ -28,8 +28,8 @@ Active=true
 
 # The name to show in the menu, locale supported with standard desktop spec.
 # **** REQUIRED ****
-Name=Move files into subfolder(s)
-Name[de]=Dateien in Unterordner verschieben
+Name=✨ Move files into subfolder(s)
+Name[de]=✨ Dateien in Unterordner verschieben
 
 # Tool tip, locale supported (Appears in the status bar)
 Comment=Move files into subfolder(s)

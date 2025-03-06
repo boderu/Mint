@@ -28,7 +28,7 @@ Active=true
 
 # The name to show in the menu, locale supported with standard desktop spec.
 # **** REQUIRED ****
-Name=Virus scan
+Name=✨ Virus scan
 
 # Tool tip, locale supported (Appears in the status bar)
 Comment=Scan files and directories for viruses

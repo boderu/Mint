@@ -28,8 +28,8 @@ Active=true
 
 # The name to show in the menu, locale supported with standard desktop spec.
 # **** REQUIRED ****
-Name=Remove empty folders
-Name[de]=Leere Ordner löschen
+Name=✨ Remove empty folders
+Name[de]=✨ Leere Ordner löschen
 
 # Tool tip, locale supported (Appears in the status bar)
 Comment=Remove empty folders recursively. Action will be applied to %N and subfolders
