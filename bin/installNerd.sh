@@ -15,7 +15,7 @@ pushd $HOME
 # 	echo "Nerd Fonts already installed"
 # fi
 
-if [ ! -d "$HOME/.nerd-fonts"]
+if [ ! -d "$HOME/.nerd-fonts" ]
 then
 	git clone --filter=blob:none --sparse https://github.com/ryanoasis/nerd-fonts .nerd-fonts
 fi
