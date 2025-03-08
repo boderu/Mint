@@ -44,9 +44,10 @@ fi
 
 # looking for the TI ARM- and C2000 compilers (directory with the highest version)
 DIRS_SEARCH=
-if [ -d $HOME/ti ] ;	then DIRS_SEARCH="$DIRS_SEARCH $HOME/ti" ;		fi
-if [ -d $HOME/Apps ] ;	then DIRS_SEARCH="$DIRS_SEARCH $HOME/Apps" ;	fi
-if [ -d $HOME/bin ] ;	then DIRS_SEARCH="$DIRS_SEARCH $HOME/bin" ;		fi
+if [ -d $HOME/ti ] ;			then DIRS_SEARCH="$DIRS_SEARCH $HOME/ti" ;			fi
+if [ -d $HOME/Apps ] ;			then DIRS_SEARCH="$DIRS_SEARCH $HOME/Apps" ;		fi
+if [ -d $HOME/bin ] ;			then DIRS_SEARCH="$DIRS_SEARCH $HOME/bin" ;			fi
+if [ -d $HOME/.local/bin ] ;	then DIRS_SEARCH="$DIRS_SEARCH $HOME/.local/bin" ;	fi
 
 TI_ARM_C_DIR=$(find $DIRS_SEARCH -type d -name 'ti-cgt-arm_*' | sort --version-sort | tail --lines=1)
 if [ -d $TI_ARM_C_DIR ]
