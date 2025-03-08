@@ -35,53 +35,53 @@ done
 
 cd $HOME
 
-$HOME/Mint/bin/installDirectories.sh	; fncStep
+$HOME/.mint/bin/installDirectories.sh	; fncStep
 
 if [ "$PARAM_NOGAMES" == "set" ]
 then
-	cat "$HOME/Mint/deb-install.conf" > "$HOME/.deb-install.conf"
-	cat "$HOME/Mint/deb-remove.conf" > "$HOME/.deb-remove.conf"
-	cat "$HOME/Mint/deb-games.conf" >> "$HOME/.deb-remove.conf"
+	cat "$HOME/.mint/deb-install.conf" > "$HOME/.deb-install.conf"
+	cat "$HOME/.mint/deb-remove.conf" > "$HOME/.deb-remove.conf"
+	cat "$HOME/.mint/deb-games.conf" >> "$HOME/.deb-remove.conf"
 
-	cat "$HOME/Mint/flatpak-install.conf" > "$HOME/.flatpak-install.conf"
-	cat "$HOME/Mint/flatpak-remove.conf" > "$HOME/.flatpak-remove.conf"
-	cat "$HOME/Mint/flatpak-games.conf" >> "$HOME/.flatpak-remove.conf"
+	cat "$HOME/.mint/flatpak-install.conf" > "$HOME/.flatpak-install.conf"
+	cat "$HOME/.mint/flatpak-remove.conf" > "$HOME/.flatpak-remove.conf"
+	cat "$HOME/.mint/flatpak-games.conf" >> "$HOME/.flatpak-remove.conf"
 else
-	cat "$HOME/Mint/deb-install.conf" > "$HOME/.deb-install.conf"
-	cat "$HOME/Mint/deb-remove.conf" > "$HOME/.deb-remove.conf"
-	cat "$HOME/Mint/deb-games.conf" >> "$HOME/.deb-install.conf"
+	cat "$HOME/.mint/deb-install.conf" > "$HOME/.deb-install.conf"
+	cat "$HOME/.mint/deb-remove.conf" > "$HOME/.deb-remove.conf"
+	cat "$HOME/.mint/deb-games.conf" >> "$HOME/.deb-install.conf"
 
-	cat "$HOME/Mint/flatpak-install.conf" > "$HOME/.flatpak-install.conf"
-	cat "$HOME/Mint/flatpak-remove.conf" > "$HOME/.flatpak-remove.conf"
-	cat "$HOME/Mint/flatpak-games.conf" >> "$HOME/.flatpak-install.conf"
+	cat "$HOME/.mint/flatpak-install.conf" > "$HOME/.flatpak-install.conf"
+	cat "$HOME/.mint/flatpak-remove.conf" > "$HOME/.flatpak-remove.conf"
+	cat "$HOME/.mint/flatpak-games.conf" >> "$HOME/.flatpak-install.conf"
 fi
 echo "Installation lists created"		; fncStep
-$HOME/Mint/bin/installDeb.sh			; fncStep
-$HOME/Mint/bin/installFlatpak.sh		; fncStep
+$HOME/.mint/bin/installDeb.sh			; fncStep
+$HOME/.mint/bin/installFlatpak.sh		; fncStep
 rm --force "$HOME/.deb-install.conf"
 rm --force "$HOME/.deb-remove.conf"
 rm --force "$HOME/.flatpak-install.conf"
 rm --force "$HOME/.flatpak-remove.conf"
 
-$HOME/Mint/bin/installNerd.sh			; fncStep
-$HOME/Mint/bin/installFuzzyFinder.sh	; fncStep
-$HOME/Mint/bin/installMicro.sh			; fncStep
-$HOME/Mint/bin/installLazygit.sh		; fncStep
-$HOME/Mint/bin/installBroot.sh			; fncStep
-$HOME/Mint/bin/installXplr.sh			; fncStep
-$HOME/Mint/bin/installCppCheck.sh		; fncStep
-$HOME/Mint/bin/installDrawIO.sh			; fncStep
-$HOME/Mint/bin/installFrontDesign.sh	; fncStep
-$HOME/Mint/bin/installVueScan.sh		; fncStep
-$HOME/Mint/bin/installSegger.sh			; fncStep
-$HOME/Mint/bin/installVSCode.sh			; fncStep
-$HOME/Mint/bin/installSysWorxx.sh		; fncStep
-$HOME/Mint/bin/installDiffusion.sh		; fncStep
-$HOME/Mint/bin/installCCS.sh			; fncStep
-$HOME/Mint/bin/installOllama.sh			; fncStep
-$HOME/Mint/bin/installRuby.sh			; fncStep
-$HOME/Mint/bin/installPython.sh			; fncStep
-$HOME/Mint/bin/installRust.sh			; fncStep
+$HOME/.mint/bin/installNerd.sh			; fncStep
+$HOME/.mint/bin/installFuzzyFinder.sh	; fncStep
+$HOME/.mint/bin/installMicro.sh			; fncStep
+$HOME/.mint/bin/installLazygit.sh		; fncStep
+$HOME/.mint/bin/installBroot.sh			; fncStep
+$HOME/.mint/bin/installXplr.sh			; fncStep
+$HOME/.mint/bin/installCppCheck.sh		; fncStep
+$HOME/.mint/bin/installDrawIO.sh		; fncStep
+$HOME/.mint/bin/installFrontDesign.sh	; fncStep
+$HOME/.mint/bin/installVueScan.sh		; fncStep
+$HOME/.mint/bin/installSegger.sh		; fncStep
+$HOME/.mint/bin/installVSCode.sh		; fncStep
+$HOME/.mint/bin/installSysWorxx.sh		; fncStep
+$HOME/.mint/bin/installDiffusion.sh		; fncStep
+$HOME/.mint/bin/installCCS.sh			; fncStep
+$HOME/.mint/bin/installOllama.sh		; fncStep
+$HOME/.mint/bin/installRuby.sh			; fncStep
+$HOME/.mint/bin/installPython.sh		; fncStep
+$HOME/.mint/bin/installRust.sh			; fncStep
 
 #=======================================================================================================================
 echo ; echo "arm-none-eabi-gdb"
@@ -126,13 +126,13 @@ else
 	sudo chmod g+s /home/Share
 fi
 
-if [ ! -d "/home/Share/Mint" ]
+if [ ! -d "/home/Share/.mint" ]
 then
 	pushd "/home/Share"
-	git clone https://github.com/boderu/Mint.git
+	git clone https://github.com/boderu/Mint.git .mint
 	popd
 fi
-pushd "/home/Share/Mint"
+pushd "/home/Share/.mint"
 git pull
 popd
 fncStep
@@ -176,12 +176,12 @@ fi
 fncStep
 
 #=======================================================================================================================
-$HOME/Mint/bin/installFrameworks.sh			; fncStep
-$HOME/Mint/bin/installLinks.sh				; fncStep
-$HOME/Mint/bin/installMintApplets.sh		; fncStep
-$HOME/Mint/bin/installNemoActions.sh		; fncStep
-$HOME/Mint/bin/installDesktop.sh			; fncStep
-$HOME/Mint/bin/installMozillaThunderbird.sh	; fncStep
+$HOME/.mint/bin/installFrameworks.sh			; fncStep
+$HOME/.mint/bin/installLinks.sh					; fncStep
+$HOME/.mint/bin/installMintApplets.sh			; fncStep
+$HOME/.mint/bin/installNemoActions.sh			; fncStep
+$HOME/.mint/bin/installDesktop.sh				; fncStep
+$HOME/.mint/bin/installMozillaThunderbird.sh	; fncStep
 
 #=======================================================================================================================
 echo

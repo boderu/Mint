@@ -14,9 +14,9 @@ fi
 
 pushd "$HOME/.local/share/nemo/actions/"
 
-if [ -e "$HOME/Mint/nemo-actions-download.conf" ]
+if [ -e "$HOME/.mint/nemo-actions-download.conf" ]
 then
-	cat "$HOME/Mint/nemo-actions-download.conf" | grep -v '^#' | grep -v '^$' | \
+	cat "$HOME/.mint/nemo-actions-download.conf" | grep -v '^#' | grep -v '^$' | \
 	while read LINE
 	do
 		echo "$LINE"
@@ -29,7 +29,7 @@ fi
 # eigene Nemo Actions verlinken - vorher defekte Links löschen
 find -L "$HOME/.local/share/nemo/actions/" -type l -exec rm -f {} \;
 
-ls "$HOME/Mint/NemoActions" |
+ls "$HOME/.mint/NemoActions" |
 while read FILE
 do
 	echo $FILE
@@ -41,7 +41,7 @@ do
 
 	# Link (neu) erstellen
 	echo "Link $FILE"
-	ln -s "$HOME/Mint/NemoActions/${FILE}" "$HOME/.local/share/nemo/actions/${FILE}"
+	ln -s "$HOME/.mint/NemoActions/${FILE}" "$HOME/.local/share/nemo/actions/${FILE}"
 	echo
 done
 

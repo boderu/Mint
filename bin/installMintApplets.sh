@@ -4,9 +4,9 @@ echo ; echo "Install additional Mint applets"
 
 pushd "$HOME/.local/share/cinnamon/applets/"
 
-if [ -e "$HOME/Mint/mint-actions-download.conf" ]
+if [ -e "$HOME/.mint/mint-actions-download.conf" ]
 then
-	cat "$HOME/Mint/mint-actions-download.conf" | grep -v '^#' | grep -v '^$' | \
+	cat "$HOME/.mint/mint-actions-download.conf" | grep -v '^#' | grep -v '^$' | \
 	while read LINE
 	do
 		if [ ! -d "$LINE" ]

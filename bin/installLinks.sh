@@ -25,7 +25,7 @@ function fncLink
 				if [ -e "$1" ]
 				then
 					# ja, die Quelle existiert
-					rm "$2"					# existierenden Link löschen
+					unlink "$2"				# existierenden Link löschen
 					ln -sv "$1" "$2"		# symbolischen Link erzeugen
 				else
 					# nein, die Quelle existiert nicht
@@ -65,48 +65,48 @@ function fncLink
 
 pushd $HOME
 
-fncLink "$HOME/Mint/.bashrc"								"$HOME/.bashrc"
-fncLink "$HOME/Mint/.bash_logout"							"$HOME/.bash_logout"
-fncLink "$HOME/Mint/.bash_aliases"							"$HOME/.bash_aliases"
-fncLink "$HOME/Mint/.profile"								"$HOME/.profile"
-fncLink "$HOME/Mint/.zshrc"									"$HOME/.zshrc"
-fncLink "$HOME/Mint/.selected_editor"						"$HOME/.selected_editor"
-fncLink "$HOME/Mint/bin"									"$HOME/bin"
-fncLink "$HOME/Mint/.ne"									"$HOME/.ne"
-fncLink "$HOME/Mint/.config/nemo/actions-tree.json"			"$HOME/.config/nemo/actions-tree.json"
-fncLink "$HOME/Mint/.config/broot"							"$HOME/.config/broot"
-fncLink "$HOME/Mint/.config/btop"							"$HOME/.config/btop"
-fncLink "$HOME/Mint/.config/darktable"						"$HOME/.config/darktable"
-fncLink "$HOME/Mint/.config/darktable"						"$HOME/.var/app/org.darktable.Darktable/config/darktable"
-fncLink "$HOME/Mint/.config/git-graph"						"$HOME/.config/git-graph"
-fncLink "$HOME/Mint/.config/htop"							"$HOME/.config/htop"
-fncLink "$HOME/Mint/.config/kicad"							"$HOME/.config/kicad"
-fncLink "$HOME/Mint/.config/lazygit"						"$HOME/.config/lazygit"
-fncLink "$HOME/Mint/.config/micro"							"$HOME/.config/micro"
-fncLink "$HOME/Mint/.config/vlc"							"$HOME/.config/vlc"
-#fncLink "$HOME/Mint/.local/share/broot"					"$HOME/.local/share/broot"
-fncLink "$HOME/Mint/.local/share/xed"						"$HOME/.local/share/xed"
-fncLink "$HOME/Mint/.vuescan"								"$HOME/.vuescan"
-fncLink "$HOME/Mint/Templates"								"$HOME/Vorlagen"
+fncLink "$HOME/.mint/.bashrc"								"$HOME/.bashrc"
+fncLink "$HOME/.mint/.bash_logout"							"$HOME/.bash_logout"
+fncLink "$HOME/.mint/.bash_aliases"							"$HOME/.bash_aliases"
+fncLink "$HOME/.mint/.profile"								"$HOME/.profile"
+fncLink "$HOME/.mint/.zshrc"								"$HOME/.zshrc"
+fncLink "$HOME/.mint/.selected_editor"						"$HOME/.selected_editor"
+fncLink "$HOME/.mint/bin"									"$HOME/bin"
+fncLink "$HOME/.mint/.ne"									"$HOME/.ne"
+fncLink "$HOME/.mint/.config/nemo/actions-tree.json"		"$HOME/.config/nemo/actions-tree.json"
+fncLink "$HOME/.mint/.config/broot"							"$HOME/.config/broot"
+fncLink "$HOME/.mint/.config/btop"							"$HOME/.config/btop"
+fncLink "$HOME/.mint/.config/darktable"						"$HOME/.config/darktable"
+fncLink "$HOME/.mint/.config/darktable"						"$HOME/.var/app/org.darktable.Darktable/config/darktable"
+fncLink "$HOME/.mint/.config/git-graph"						"$HOME/.config/git-graph"
+fncLink "$HOME/.mint/.config/htop"							"$HOME/.config/htop"
+fncLink "$HOME/.mint/.config/kicad"							"$HOME/.config/kicad"
+fncLink "$HOME/.mint/.config/lazygit"						"$HOME/.config/lazygit"
+fncLink "$HOME/.mint/.config/micro"							"$HOME/.config/micro"
+fncLink "$HOME/.mint/.config/vlc"							"$HOME/.config/vlc"
+#fncLink "$HOME/.mint/.local/share/broot"					"$HOME/.local/share/broot"
+fncLink "$HOME/.mint/.local/share/xed"						"$HOME/.local/share/xed"
+fncLink "$HOME/.mint/.vuescan"								"$HOME/.vuescan"
+fncLink "$HOME/.mint/Templates"								"$HOME/Vorlagen"
 
-#fncLink "$HOME/SynologyDrive/Mint/.config/darktable"		"$HOME/.config/darktable"
-#fncLink "$HOME/SynologyDrive/Mint/.config/darktable"		"$HOME/.var/app/org.darktable.Darktable/config/darktable"
+#fncLink "$HOME/SynologyDrive/.mint/.config/darktable"		"$HOME/.config/darktable"
+#fncLink "$HOME/SynologyDrive/.mint/.config/darktable"		"$HOME/.var/app/org.darktable.Darktable/config/darktable"
 
-fncLink "$HOME/SynologyDrive/Mint/.vuescanrc"				"$HOME/.vuescanrc"
-fncLink "$HOME/SynologyDrive/Mint/.ssh"						"$HOME/.ssh"
-fncLink "$HOME/SynologyDrive/Mint/.plst"					"$HOME/.plst"
-fncLink "$HOME/SynologyDrive/Mint/.gitconfig"				"$HOME/.gitconfig"
-fncLink "$HOME/SynologyDrive/Mint/.git-credentials"			"$HOME/.git-credentials"
-fncLink "$HOME/SynologyDrive/Mint/.local/share/kicad"		"$HOME/.local/share/kicad"
-fncLink "$HOME/SynologyDrive/Mint/.local/share/rhythmbox"	"$HOME/.local/share/rhythmbox"
-fncLink "$HOME/SynologyDrive/Mint/.local/share/strawberry"	"$HOME/.local/share/strawberry"
-fncLink "$HOME/SynologyDrive/Mint/.local/share/gnome-mines"	"$HOME/.local/share/gnome-mines"
-fncLink "$HOME/SynologyDrive/Mint/.local/share/widelands"	"$HOME/.local/share/widelands"
-fncLink "$HOME/SynologyDrive/Mint/.local/share/widelands"	"$HOME/.var/app/org.widelands.Widelands/.widelands"
-fncLink "$HOME/SynologyDrive/Mint/.local/share/widelands"	"$HOME/.var/app/org.widelands.Widelands/data/widelands"
+fncLink "$HOME/SynologyDrive/.mint/.vuescanrc"					"$HOME/.vuescanrc"
+fncLink "$HOME/SynologyDrive/.mint/.ssh"						"$HOME/.ssh"
+fncLink "$HOME/SynologyDrive/.mint/.plst"						"$HOME/.plst"
+fncLink "$HOME/SynologyDrive/.mint/.gitconfig"					"$HOME/.gitconfig"
+fncLink "$HOME/SynologyDrive/.mint/.git-credentials"			"$HOME/.git-credentials"
+fncLink "$HOME/SynologyDrive/.mint/.local/share/kicad"			"$HOME/.local/share/kicad"
+fncLink "$HOME/SynologyDrive/.mint/.local/share/rhythmbox"		"$HOME/.local/share/rhythmbox"
+fncLink "$HOME/SynologyDrive/.mint/.local/share/strawberry"		"$HOME/.local/share/strawberry"
+fncLink "$HOME/SynologyDrive/.mint/.local/share/gnome-mines"	"$HOME/.local/share/gnome-mines"
+fncLink "$HOME/SynologyDrive/.mint/.local/share/widelands"		"$HOME/.local/share/widelands"
+fncLink "$HOME/SynologyDrive/.mint/.local/share/widelands"		"$HOME/.var/app/org.widelands.Widelands/.widelands"
+fncLink "$HOME/SynologyDrive/.mint/.local/share/widelands"		"$HOME/.var/app/org.widelands.Widelands/data/widelands"
 
-fncLink 	"$HOME/SynologyDrive/Mint/.local/bin/avr8-gnu-toolchain-linux_x86_64"	\
-			"$HOME/.local/bin/avr8-gnu-toolchain-linux_x86_64"
+#fncLink 	"$HOME/SynologyDrive/.mint/.local/bin/avr8-gnu-toolchain-linux_x86_64"	\
+#			"$HOME/.local/bin/avr8-gnu-toolchain-linux_x86_64"
 
 fncLink "$HOME/SynologyDrive/Bilder"						"$HOME/Bilder"
 fncLink "$HOME/SynologyDrive/Dokumente"						"$HOME/Dokumente"
@@ -123,7 +123,7 @@ egrep -i boderu /etc/passwd >/dev/null
 if [ $? -eq 0 ]
 then
 	echo "User boderu:"
-#	fncLink "$HOME/Mint/.config/autostart"					"$HOME/.config/autostart"
+#	fncLink "$HOME/.mint/.config/autostart"					"$HOME/.config/autostart"
 	if [ -L "$HOME/.config/autostart" ] && [ -d "$HOME/.config/autostart" ]
 	then
 		echo "Repair autostart folder."
@@ -133,7 +133,7 @@ then
 		mv -v "$HOME/.config/_autostart" "$HOME/.config/autostart"
 	fi
 
-	fncLink "$HOME/Mint/.config/cinnamon/spices"			"$HOME/.config/cinnamon/spices"
+	fncLink "$HOME/.mint/.config/cinnamon/spices"			"$HOME/.config/cinnamon/spices"
 fi
 
 popd
