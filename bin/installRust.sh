@@ -5,8 +5,8 @@ echo ; echo "Current Rust and additional (cargo) packages"
 pushd $HOME
 
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
-sed -i '/^\. "\$HOME\/.cargo\/env"/d' $HOME/Mint/.bashrc
-sed -i '/^\. "\$HOME\/.cargo\/env"/d' $HOME/Mint/.profile
+sed -i '/^\. "\$HOME\/.cargo\/env"/d' $HOME/.mint/.bashrc
+sed -i '/^\. "\$HOME\/.cargo\/env"/d' $HOME/.mint/.profile
 
 . "$HOME/.cargo/env"
 

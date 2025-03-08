@@ -258,9 +258,9 @@ PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 
 export LANGUAGE='en_US.UTF-8'
 
-if [ -f ~/.cargo/env ]
+if [ -f $HOME/.cargo/env ]
 then
-	. ~/.cargo/env
+	. $HOME/.cargo/env
 fi
 
 #eval "$(thefuck --alias)"
