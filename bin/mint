@@ -82,6 +82,7 @@ $HOME/.mint/bin/installOllama.sh		; fncStep
 $HOME/.mint/bin/installRuby.sh			; fncStep
 $HOME/.mint/bin/installPython.sh		; fncStep
 $HOME/.mint/bin/installRust.sh			; fncStep
+$HOME/.mint/bin/installZellij.sh		; fncStep
 
 #=======================================================================================================================
 echo ; echo "arm-none-eabi-gdb"

@@ -8,10 +8,47 @@
       "accelerator": null
     },
     {
+      "uuid": "PAR2",
+      "type": "submenu",
+      "user-label": "PAR2",
+      "user-icon": "error-correct-symbolic",
+      "accelerator": null,
+      "children": [
+        {
+          "uuid": "par2-create.nemo_action",
+          "type": "action",
+          "user-label": null,
+          "user-icon": null,
+          "accelerator": null
+        },
+        {
+          "uuid": "par2-verify.nemo_action",
+          "type": "action",
+          "user-label": null,
+          "user-icon": null,
+          "accelerator": null
+        },
+        {
+          "uuid": "par2-repair.nemo_action",
+          "type": "action",
+          "user-label": null,
+          "user-icon": null,
+          "accelerator": null
+        },
+        {
+          "uuid": "par2-delete.nemo_action",
+          "type": "action",
+          "user-label": null,
+          "user-icon": null,
+          "accelerator": null
+        }
+      ]
+    },
+    {
       "uuid": "Bilder",
       "type": "submenu",
       "user-label": "Bilder",
-      "user-icon": null,
+      "user-icon": "folder-pictures-symbolic",
       "accelerator": null,
       "children": [
         {
@@ -41,7 +78,7 @@
       "uuid": "PDF",
       "type": "submenu",
       "user-label": "PDF",
-      "user-icon": null,
+      "user-icon": "pdfsam",
       "accelerator": null,
       "children": [
         {
@@ -85,7 +122,7 @@
       "uuid": "Senden",
       "type": "submenu",
       "user-label": "Senden",
-      "user-icon": null,
+      "user-icon": "blueman-send-symbolic",
       "accelerator": null,
       "children": [
         {
@@ -122,7 +159,7 @@
       "uuid": "Archive",
       "type": "submenu",
       "user-label": "Archive",
-      "user-icon": null,
+      "user-icon": "archive-manager",
       "accelerator": null,
       "children": [
         {
@@ -152,7 +189,7 @@
       "uuid": "Dateien",
       "type": "submenu",
       "user-label": "Dateien",
-      "user-icon": null,
+      "user-icon": "gtk-file",
       "accelerator": null,
       "children": [
         {
@@ -259,11 +296,18 @@
       "uuid": "Ordner",
       "type": "submenu",
       "user-label": "Ordner",
-      "user-icon": null,
+      "user-icon": "folder",
       "accelerator": null,
       "children": [
         {
           "uuid": "remove-empty-folders.nemo_action",
+          "type": "action",
+          "user-label": null,
+          "user-icon": null,
+          "accelerator": null
+        },
+        {
+          "uuid": "fetch-latest-youtube-video.nemo_action",
           "type": "action",
           "user-label": null,
           "user-icon": null,
@@ -385,13 +429,6 @@
     },
     {
       "uuid": "restart-cinnamon@claudiux.nemo_action",
-      "type": "action",
-      "user-label": null,
-      "user-icon": null,
-      "accelerator": null
-    },
-    {
-      "uuid": "par2-create.nemo_action",
       "type": "action",
       "user-label": null,
       "user-icon": null,

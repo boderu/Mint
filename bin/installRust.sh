@@ -14,6 +14,9 @@ cargo install du-dust
 cargo install exa
 cargo install eza
 cargo install git-graph
+cargo install fclones
+#cargo install --locked zellij
+
 
 popd
 

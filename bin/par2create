@@ -1,0 +1,67 @@
+#!/bin/env bash
+
+echo "Create PAR2 files ..."
+echo
+
+VAL_EXIT_OK=0
+VAL_EXIT_ERR_PARAM=1
+VAL_EXIT=$VAL_EXIT_OK
+
+FILELIST=$(mktemp)
+
+# sind mindestens zwei Parameter angegeben?
+if [ $# -ge 2 ]
+then
+	# ja, es sind mindestens zwei Parameter - der erste Parameter sollte das übergeordnete Verzeichnis sein
+	DIR_PARENT=$1
+
+	# sind es genau zwei Parameter?
+	if [ $# -ge 2 ]
+	then
+		# ja, es sind genau 2 Parameter -> der Name der PAR2-Datei ist der Basisname des 2. Parameters
+		NAMEPAR=$(basename $2 | sed 's/^\.//g')
+	else
+		# nein, es sind mehr als Parameter -> der Name der PAR2-Datei ist der übergeordnete Verzeichnisname
+		NAMEPAR=$(basename $DIR_PARENT | sed 's/^\.//g')
+	fi
+	echo "PAR2 name: $NAMEPAR"
+	echo
+
+	# ersten Parameter aus der Parameterliste entfernen
+	shift
+
+	# alle weiteren Parameter sind Dateien oder Verzeichnisse für PAR2
+	for ARG in "$@"
+	do
+		# ist der Parameter eine Datei?
+		if [ -f "$ARG" ]
+		then
+			# ja, der Parameter ist eine Datei
+			echo "$ARG" >> "$FILELIST"
+		else
+			# nein, der Parameter ist ein Verzeichnis
+			find "$ARG" ! -name '*.par2' -type f | grep -v '.git/' | sed 's/^/"/g' | sed 's/$/"/g' >> "$FILELIST"
+		fi
+	done
+
+	# erzeuge PAR2-Dateien mit 30% Redundanz (vorhandene werden gelöscht) 
+#	cat "$FILELIST"
+	pushd "$DIR_PARENT"
+#	rm -fv $(ls -a .${NAMEPAR}*.par2)
+	rm -fv .${NAMEPAR}*.par2
+	echo
+	par2 create -v -r30 -a ".$NAMEPAR" $(cat "$FILELIST")
+	popd
+else
+	echo "At least two parameters must be passed."
+	VAL_EXIT=$VAL_EXIT_ERR_PARAM
+fi
+
+rm -f "$FILELIST"
+
+echo
+echo "Exit value: $VAL_EXIT"
+read -p 'press Enter ...'
+exit $VAL_EXIT
+
+# EOF
