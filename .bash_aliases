@@ -11,6 +11,7 @@ alias i='inxi --full --ip --uuid --label --usb --raid --partitions-full --memory
 alias e='micro'
 alias b='br --sort-by-type-dirs-first --permissions --no-hidden --show-git-info --git-ignored --show-root-fs --no-trim-root'
 alias c='batcat'
+alias z='zellij'
 alias scanip="nmap -sn 192.168.1.0/24 | awk '/for/ {print substr(\$0,22)}'"
 alias gitlog='git log --pretty=format:"%h %s" --graph'
 alias lg='lazygit'
