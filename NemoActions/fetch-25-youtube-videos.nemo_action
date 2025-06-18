@@ -29,7 +29,7 @@ Active=true
 # The name to show in the menu, locale supported with standard desktop spec.
 # **** REQUIRED ****
 Name=✨ Fetch 25 YouTube videos
-Name[de]=✨ Download 25 YouTube videos
+Name[de]=✨ Download 25 YouTube-Videos
 
 # Tool tip, locale supported (Appears in the status bar)
 Comment=Fetch videos recursively. Action will be applied to %N and subfolders.
