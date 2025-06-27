@@ -182,14 +182,14 @@
         "default": "",
         "description": "Do not change, the time the alarm is set to expire",
         "tooltip": "Do not change, the time the alarm is set to expire",
-        "value": 1741000228969
+        "value": 1750703455691
     },
     "alarm_start": {
         "type": "generic",
         "default": "",
         "description": "Do not change, the time the alarm is set to expire",
         "tooltip": "Do not change, the time the alarm is set to expire",
-        "value": 1740999628969
+        "value": 1750703155691
     },
     "message": {
         "type": "generic",
@@ -391,6 +391,13 @@
             }
         ],
         "value": [
+            {
+                "hours": 1,
+                "minutes": 0,
+                "seconds": 0,
+                "label": "",
+                "message": ""
+            },
             {
                 "hours": 0,
                 "minutes": 45,
