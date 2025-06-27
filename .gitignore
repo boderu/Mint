@@ -6,3 +6,4 @@ bin/*.AppImage
 .config/micro/backups
 .config/darktable/shortcutsrc.defaults
 .config/broot/launcher
+bin/edit
