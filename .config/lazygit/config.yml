@@ -77,7 +77,7 @@ gui:
 git:
   paging:
     colorArg: always
-    pager: diff-so-fancy
+    #pager: diff-so-fancy
     useConfig: false
   commit:
     signOff: false
@@ -113,15 +113,15 @@ git:
   fetchAll: true # Pass --all flag when running git fetch. Set to false to fetch only origin (or the current branch's upstream remote if there is one)
   #branchLogCmd: 'git log --graph --color=always --abbrev-commit --decorate --date=relative --pretty=medium {{branchName}} --'
   #branchLogCmd: 'git-graph --model simple --no-pager --style round --format short'
-  allBranchesLogCmds:
-    - git-graph --model simple --no-pager --style round --format short
+#  allBranchesLogCmds:
+#   - git-graph --model simple --no-pager --style round --format short
   overrideGpg: false # prevents lazygit from spawning a separate process when using GPG
   disableForcePushing: false
   commitPrefixes: {}
   parseEmoji: false
   truncateCopiedCommitHashesTo: 12 # When copying commit hashes to the clipboard, truncate them to this length. Set to 40 to disable truncation.
-#  allBranchesLogCmds:
-#    - git log --graph --all --color=always --abbrev-commit --decorate --date=relative  --pretty=medium
+  allBranchesLogCmds:
+    - git log --graph --all --color=always --abbrev-commit --decorate --date=relative  --pretty=medium
 os:
   copyToClipboardCmd: '' # See 'Custom Command for Copying to Clipboard' section
   editPreset: ''
