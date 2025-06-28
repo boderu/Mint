@@ -23,6 +23,6 @@ do
 	fi
 	popd &> /dev/null
 done | \
-git-componentsbranch
+lazygit-componentsbranch
 
 # EOF ==================================================================================================================

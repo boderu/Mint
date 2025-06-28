@@ -667,9 +667,9 @@ customCommands:
         title: 'Switching to component'
         options:
           - name: 'Show changed components'
-            value: 'git-componentschanged'
+            value: 'lazygit-componentschanged'
           - name: 'Show all components'
-            value: 'git-componentsall'
+            value: 'lazygit-componentsall'
       - type: 'menuFromCommand'
         title: 'Component:'
         command: '{{index .PromptResponses 0}}'
@@ -678,11 +678,11 @@ customCommands:
         labelFormat: '{{ .component_path }} {{ .branch | blue }}'
     output: terminal
   - key: 'A'
-    command: 'git-componentsBranchCurrentSetTo.py -r {{.SelectedWorktree.Path | quote}}; echo done'
+    command: 'lazygit-componentsBranchCurrentSetTo.py -r {{.SelectedWorktree.Path | quote}}; echo done'
     context: 'status'
     description: "Set all components in components.conf to the active branches"
   - key: 'T'
-    command: 'git-tagger.py -r {{.SelectedWorktree.Path | quote}} -tn {{.Form.TagName | quote}} -tm {{.Form.TagMessage | quote}}'
+    command: 'lazygit-tagger.py -r {{.SelectedWorktree.Path | quote}} -tn {{.Form.TagName | quote}} -tm {{.Form.TagMessage | quote}}'
     context: 'status'
     description: "Create a tag with fixed components versions"
     prompts:
