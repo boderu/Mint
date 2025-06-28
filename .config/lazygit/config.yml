@@ -302,8 +302,6 @@ git:
     # If autoWrapCommitMessage is true, the width to wrap to
     autoWrapWidth: 72
 
-#    verbose: default # one of 'default' | 'always' | 'never'
-
   # Config relating to merging
   merging:
     # If true, run merges in a subprocess so that if a commit message is required, Lazygit will not hang
@@ -383,25 +381,9 @@ git:
     # (equivalent to passing the `--all` argument to `git log`)
     showWholeGraph: false
 
-#    # one of date-order, author-date-order, topo-order or default.
-#    # topo-order makes it easier to read the git log graph, but commits may not
-#    # appear chronologically. See https://git-scm.com/docs/git-log#_commit_ordering
-#    #
-#    # Deprecated: Configure this with `Log menu -> Commit sort order` (<c-l> in the commits window by default).
-#    order: 'date-order'
-#
-#    # one of always, never, when-maximised
-#    # this determines whether the git graph is rendered in the commits panel
-#    #
-#    # Deprecated: Configure this with `Log menu -> Show git graph` (<c-l> in the commits window by default).
-#    showGraph: 'always'
-
   # When copying commit hashes to the clipboard, truncate them to this
   # length. Set to 40 to disable truncation.
   truncateCopiedCommitHashesTo: 12
-
-#  obsolete?
-#  diffContextSize: 3 # how many lines of context are shown around a change in diffs
 
 # Periodic update checks
 update:
@@ -552,6 +534,7 @@ keybinding:
 
     # 'Files' appended for legacy reasons
     pullFiles: p
+
     refresh: R
     createPatchOptionsMenu: <c-p>
     nextTab: '<right>' #']'
@@ -726,3 +709,5 @@ customCommands:
           - value: 'push'
           - value: 'push --force-with-lease'
           - value: 'push --force'
+
+# EOF
