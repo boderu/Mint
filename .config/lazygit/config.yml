@@ -401,7 +401,7 @@ refresher:
 
   # Re-fetch interval in seconds.
   # Auto-fetch can be disabled via option 'git.autoFetch'.
-  fetchInterval: 60
+  fetchInterval: 120
 
 # If true, show a confirmation popup before quitting Lazygit
 confirmOnQuit: false
