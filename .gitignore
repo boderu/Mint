@@ -7,3 +7,4 @@ bin/*.AppImage
 .config/darktable/shortcutsrc.defaults
 .config/broot/launcher
 .config/cinnamon/spices/weather@mockturtl/17.json
+bin/edit
