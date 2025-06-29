@@ -7,8 +7,9 @@ gui:
 
   # See https://github.com/jesseduffield/lazygit/blob/master/docs/Config.md#custom-branch-color
   branchColorPatterns:
-    '^main/': '#11aaff' # use a light blue for branches beginning with 'main/'
-    'feature/': '#ff5733' # use a bright orange for branches containing 'feature'
+    'main': '#11aaff'
+    'feature/': '#d0d040'
+    'develop': '#00e000'
 
 #  branchColors: {} # obsolete?
 
@@ -280,7 +281,8 @@ git:
     # diff-so-fancy
     # delta --dark --paging=never
     # ydiff -p cat -s --wrap --width={{columnWidth}}
-    pager: ""
+    pager: 'delta --minus-style "syntax #420000" --plus-style "syntax #004200" --tabs 4 --dark --paging=never --line-numbers --hyperlinks --hyperlinks-file-link-format="lazygit-edit://{path}:{line}"'
+    # pager: 'delta --tabs 4 --dark --paging=never --line-numbers --hyperlinks --hyperlinks-file-link-format="lazygit-edit://{path}:{line}"'
 
     # If true, Lazygit will use whatever pager is specified in `$GIT_PAGER`, `$PAGER`, or your *git config*.
     # If the pager ends with something like ` | less` we will strip that part out,
@@ -346,13 +348,13 @@ git:
   autoStageResolvedConflicts: true
 
   # Command used when displaying the current branch git log in the main window
-  branchLogCmd: git log --graph --color=always --abbrev-commit --decorate --date=relative --pretty=medium {{branchName}} --
-#  branchLogCmd: 'git-graph --model simple --no-pager --style round --format short'
+  branchLogCmd: git log --graph --color=always --abbrev-commit --decorate --date=relative --expand-tabs=4 --pretty=medium {{branchName}} --
+  #branchLogCmd: 'git-graph --model simple --no-pager --style round --format="%h %ad %an%d%n%s%n%b%n "'
 
   # Commands used to display git log of all branches in the main window, they will be cycled in order of appearance
   # (array of strings)
   allBranchesLogCmds:
-    - git log --graph --all --color=always --abbrev-commit --decorate --date=relative  --pretty=medium
+    - git log --graph --all --color=always --abbrev-commit --decorate --date=relative  --expand-tabs=4 --pretty=medium
 #  allBranchesLogCmds:
 #   - git-graph --model simple --no-pager --style round --format short
 
