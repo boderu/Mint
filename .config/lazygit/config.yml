@@ -348,13 +348,13 @@ git:
   autoStageResolvedConflicts: true
 
   # Command used when displaying the current branch git log in the main window
-  branchLogCmd: git log --graph --color=always --abbrev-commit --decorate --date=relative --pretty=medium {{branchName}} --
-#  branchLogCmd: 'git-graph --model simple --no-pager --style round --format short'
+  branchLogCmd: git log --graph --color=always --abbrev-commit --decorate --date=relative --expand-tabs=4 --pretty=medium {{branchName}} --
+  #branchLogCmd: 'git-graph --model simple --no-pager --style round --format="%h %ad %an%d%n%s%n%b%n "'
 
   # Commands used to display git log of all branches in the main window, they will be cycled in order of appearance
   # (array of strings)
   allBranchesLogCmds:
-    - git log --graph --all --color=always --abbrev-commit --decorate --date=relative  --pretty=medium
+    - git log --graph --all --color=always --abbrev-commit --decorate --date=relative  --expand-tabs=4 --pretty=medium
 #  allBranchesLogCmds:
 #   - git-graph --model simple --no-pager --style round --format short
 
