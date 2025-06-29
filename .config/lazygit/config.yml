@@ -7,8 +7,9 @@ gui:
 
   # See https://github.com/jesseduffield/lazygit/blob/master/docs/Config.md#custom-branch-color
   branchColorPatterns:
-    '^main/': '#11aaff' # use a light blue for branches beginning with 'main/'
-    'feature/': '#ff5733' # use a bright orange for branches containing 'feature'
+    'main': '#11aaff'
+    'feature/': '#d0d040'
+    'develop': '#00e000'
 
 #  branchColors: {} # obsolete?
 
