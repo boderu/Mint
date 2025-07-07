@@ -1,6 +1,7 @@
 {
     "colorcolumn": 120,
     "colorscheme": "gruvbox",
+    "diffgutter": true,
     "hltaberrors": true,
     "hltrailingws": true,
     "indentchar": "",
