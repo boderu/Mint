@@ -53,7 +53,7 @@ image-source='xml:///usr/share/cinnamon-background-properties/linuxmint-wallpape
 [desktop/interface]
 cursor-blink-time=1200
 cursor-size=24
-cursor-theme='Bibata-Modern-Classic'
+cursor-theme='Bibata-Modern-Ice'
 font-name='Ubuntu Medium 10'
 gtk-theme='Mint-Y-Dark-Grey'
 icon-theme='Mint-Y-Grey'
@@ -163,4 +163,4 @@ sleep-inactive-ac-timeout=0
 sleep-inactive-battery-timeout=3600
 
 [theme]
-name='cinnamon'
+name='Mint-Y-Dark-Grey'
