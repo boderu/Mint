@@ -8,3 +8,4 @@ bin/*.AppImage
 .config/broot/launcher
 .config/cinnamon/spices/weather@mockturtl/17.json
 bin/edit
+.config/cinnamon/spices/cinnamon-timer@jake1164/cinnamon-timer@jake1164.json

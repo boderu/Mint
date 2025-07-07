@@ -16,7 +16,7 @@ cargo install eza
 cargo install git-graph
 cargo install fclones
 #cargo install --locked zellij
-
+cargo install --locked yazi-fm yazi-cli
 
 popd
 
