@@ -1,5 +1,7 @@
 [legacy]
+default-show-menubar=true
 menu-accelerator-enabled=false
+mnemonics-enabled=true
 
 [legacy/profiles:]
 default='424db45d-f24b-4723-9bae-7925fa25ba44'

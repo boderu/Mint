@@ -275,12 +275,12 @@
     "popup-width": {
         "type": "generic",
         "default": 590,
-        "value": 853.858642578125
+        "value": 805.9896850585938
     },
     "popup-height": {
         "type": "generic",
         "default": 515,
-        "value": 717.0524597167969
+        "value": 800.8307952880859
     },
     "reset-menu-size-button": {
         "type": "button",
