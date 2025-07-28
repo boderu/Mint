@@ -115,6 +115,7 @@ fncLink "$HOME/SynologyDrive/Downloads"						"$HOME/Downloads"
 #fncLink "$HOME/SynologyDrive/Calibre-Bibliothek"			"$HOME/Calibre-Bibliothek"
 fncLink "$HOME/SynologyDrive/Musik"							"$HOME/Musik"
 #fncLink "$HOME/SynologyDrive/Scans"						"$HOME/Scans"
+fncLink "$HOME/SynologyDrive/News"							"$HOME/News"
 
 fncLink "/home/boderu/Nextcloud/Photos"						"$HOME/Photos"
 fncLink "/home/boderu/Nextcloud/Calibre"					"$HOME/Calibre"
