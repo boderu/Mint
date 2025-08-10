@@ -56,7 +56,10 @@ do
 			while read URL
 			do
 				echo "$URL: $DATEAFTER"
-				yt-dlp  --socket-timeout 10 --ignore-config --download-archive '.archive' -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best' --downloader aria2c --dateafter $DATEAFTER $MAXDOWNLOADS "$URL"
+				yt-dlp  --socket-timeout 10 --ignore-config --download-archive '.archive' \
+				-f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best' --downloader aria2c \
+				--dateafter $DATEAFTER $MAXDOWNLOADS "$URL" \
+				-o "%(upload_date>%Y-%m-%d)s %(title)s [%(id)s].%(ext)s"
 				echo
 			done < .url
 		else
@@ -77,7 +80,7 @@ do
 	else
 		# nein, eine '.url' existiert nicht
 		echo "No URL found."
-	fi
+	fi # if dieses Verzeichnis hat eine Datei mit dem Namen .url
 
 	echo
 
