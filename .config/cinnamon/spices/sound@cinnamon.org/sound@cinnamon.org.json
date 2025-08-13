@@ -45,7 +45,8 @@
             "io.github.celluloid_player.Celluloid",
             "org.gnome.Rhythmbox3",
             "org.kde.kdeconnect.app",
-            "org.gnome.Totem"
+            "org.gnome.Totem",
+            "org.kde.elisa"
         ]
     },
     "section2": {
