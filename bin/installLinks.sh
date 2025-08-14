@@ -120,6 +120,7 @@ fncLink "$HOME/SynologyDrive/News"								"$HOME/News"
 fncLink "$HOME/Nextcloud/Photos"								"$HOME/Photos"
 fncLink "$HOME/Nextcloud/Calibre"								"$HOME/Calibre"
 fncLink "$HOME/Nextcloud/Music"									"$HOME/Musik"
+fncLink "$HOME/Nextcloud/Audiobooks"							"$HOME/Audiobooks"
 
 # Autostart-Links nur für User boderu
 egrep -i boderu /etc/passwd >/dev/null
