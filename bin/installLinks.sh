@@ -113,13 +113,13 @@ fncLink "$HOME/SynologyDrive/Dokumente"							"$HOME/Dokumente"
 fncLink "$HOME/SynologyDrive/Dokumente"							"$HOME/Documents"
 fncLink "$HOME/SynologyDrive/Downloads"							"$HOME/Downloads"
 #fncLink "$HOME/SynologyDrive/Calibre-Bibliothek"				"$HOME/Calibre-Bibliothek"
-#fncLink "$HOME/SynologyDrive/Musik"							"$HOME/Musik"
+fncLink "$HOME/SynologyDrive/Musik/Assetts"						"$HOME/Musik"
 #fncLink "$HOME/SynologyDrive/Scans"							"$HOME/Scans"
 fncLink "$HOME/SynologyDrive/News"								"$HOME/News"
 
 fncLink "$HOME/Nextcloud/Photos"								"$HOME/Photos"
 fncLink "$HOME/Nextcloud/Calibre"								"$HOME/Calibre"
-fncLink "$HOME/Nextcloud/Music"									"$HOME/Musik"
+#fncLink "$HOME/Nextcloud/Music"									"$HOME/Musik"
 fncLink "$HOME/Nextcloud/Audiobooks"							"$HOME/Audiobooks"
 
 # Autostart-Links nur für User boderu
