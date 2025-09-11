@@ -3,79 +3,78 @@
 require 'find'
 require 'fileutils'
 
-sDirDestination		= ""
-sDirSource			= File.dirname(__FILE__)
-asTargets			= []
-asDependencies		= []
-asDirAlbums2Sync	= []
+sDirDest			= ""						# deatination Music folder
+sDirSrc				= File.dirname(__FILE__)	# source Music folder
+asTargets			= []						# all file targets
+asDependencies		= []						# all dependencies of the file targets
+asDirAlbums2Sync	= []						# all album filders to synchronize
 
-# Zielverzeichnis ermitteln
+# all valid file extensions for the targets
+asExtensions		= ['.jpg', '.jpeg', '.png', '.ogg', '.m4a', '.m4v', '.mp3', '.mpg', '.mpeg', '.avi', '.mp4']
+
+# all additional valid file names for the targets/dependencies
+asBaseNames			= ['.album', '.sync']
+
+# get destination directory
 if File.exist?('.destination')
 	File.open('.destination').each do |sLine|
 		if !sLine.empty?
-			sDirDestination = sLine.strip
+			sDirDest = sLine.strip
 		end
 	end
 
-	if Dir.exist?(sDirDestination)
-		# alle Dateien zum Synchronisieren bestimmen
-		#puts "Find files for a synchronization."
-		Find.find(sDirSource) do |sItem|
+	if Dir.exist?(sDirDest)
+		# find all files for a synchronization
+		Find.find(sDirSrc) do |sItem|
 			if File.basename(sItem) == '.sync'
 				asDirAlbums2Sync << File.dirname(sItem)
 			end
 		end
 
-		# alle zu synchronisierenden Alben verarbeiten
+		# process all albums
 		asDirAlbums2Sync.each do |sDirAlbum|
-			# alle Elemente im Albumverzeichnis
+			# for all elements in the album directory
 			Find.find(sDirAlbum) do |sItem|
-				# Ist das Element eine reguläre Datei?
+				# is the element a normal file?
 				if File.file?(sItem)
-					if	File.extname(sItem)		== '.jpg'	||
-						File.extname(sItem)		== '.png'	||
-						File.basename(sItem)	== '.album'	||
-						File.basename(sItem)	== '.sync'	||
-						File.extname(sItem)		== '.ogg'	||
-						File.extname(sItem)		== '.m4a'	||
-						File.extname(sItem)		== '.mp3'
+					if asExtensions.include?(File.extname(sItem)) || asBaseNames.include?(File.basename(sItem))
 
 						asDependencies	<< sItem
-						asTargets		<< sItem.gsub(sDirSource, sDirDestination).gsub("\n", "")
-						#puts sItem.gsub(sDirSource, sDirDestination).gsub("\n", "")
+						asTargets		<< sItem.gsub(sDirSrc, sDirDest).gsub("\n", "")
 
 						# file target
-						file sItem.gsub(sDirSource, sDirDestination) => sItem do
-							FileUtils.mkdir_p(File.dirname(sItem.gsub(sDirSource, sDirDestination)))
-							FileUtils.cp(sItem, sItem.gsub(sDirSource, sDirDestination))
-							puts "\tFile copied: #{sItem}"
+						file sItem.gsub(sDirSrc, sDirDest) => sItem do
+							FileUtils.mkdir_p(File.dirname(sItem.gsub(sDirSrc, sDirDest)))
+							FileUtils.cp(sItem, sItem.gsub(sDirSrc, sDirDest))
+
+							if !".sync".eql?(File.basename(sItem))
+								puts "\tFile copied: #{sItem}"
+							end
 						end
 					end
 
 					if	File.extname(sItem)	== '.flac'
 
 						asDependencies	<< sItem
-						asTargets		<< sItem.gsub(sDirSource, sDirDestination).gsub('.flac', '.ogg')
+						asTargets		<< sItem.gsub(sDirSrc, sDirDest).gsub('.flac', '.ogg').gsub("\n", "")
 
 						# file target
-						file sItem.gsub(sDirSource, sDirDestination).gsub('.flac', '.ogg') => sItem do
-							sTarget = sItem.gsub(sDirSource, sDirDestination).gsub('.flac', '.ogg')
-							sCmd = "gst-launch-1.0 -q filesrc location='#{sItem}' ! decodebin ! audioconvert ! vorbisenc quality=0.6 ! oggmux ! filesink location='#{sTarget}'"
+						file sItem.gsub(sDirSrc, sDirDest).gsub('.flac', '.ogg').gsub("\n", "") => sItem do
+							sTarget = sItem.gsub(sDirSrc, sDirDest).gsub('.flac', '.ogg').gsub("\n", "")
+							sCmd =	"gst-launch-1.0 -q filesrc location='#{sItem}' "
+							sCmd <<	"! decodebin ! audioconvert ! vorbisenc quality=0.6 ! oggmux "
+							sCmd <<	"! filesink location='#{sTarget}'"
 							#puts sCmd
 							system(sCmd)
-							puts "\tFile created: #{sItem.gsub(sDirSource, sDirDestination).gsub('.flac', '.ogg')}"
-							#puts
+							puts "\tFile created: #{sItem.gsub(sDirSrc, sDirDest).gsub('.flac', '.ogg').gsub("\n", "")}"
 						end
-					end # if eine FLAC-Datei
-				end # if das Element ist eine reguläre Datei
-			end # find alle Elemente im Albumverzeichnis
-		end # each alle zu synchronisierenden Alben
+					end # if a flac file
+				end # if a normal file
+			end # for all files in the album directory
+		end # for all album directories
 
 
-		task :default => [:dotSyncClean, :synchronize, :desynchronize, :deleteEmptyFolders] do
-		#task :default => [:dotSyncClean, :synchronize, :deleteEmptyFolders] do
-		#task :default => :synchronize do
-		#task :default do
+		task :default => [:dotSyncClean, :synchronize, :desynchronize, :deleteOrphans, :deleteEmptyFolders] do
 			puts "Done."
 		end
 
@@ -85,25 +84,24 @@ if File.exist?('.destination')
 		end
 
 
-		# lösche im Zielordner rekursiv alle .sync Dateien
+		# delete all .sync files in the destination directory
 		task :dotSyncClean do
 			puts "Run task: dotSyncClean"
-			Find.find(sDirDestination) do |sItem|
+			Find.find(sDirDest) do |sItem|
 				if File.basename(sItem) == '.sync'
 					if File.exist?(sItem)
 						File.delete(sItem)
-						#puts "    File deleted: #{sItem}"
 					end
 				end
 			end
 		end # task :dotSyncClean
 
 
-		# im Zielordner alle Albumordner suchen, die nicht synchronisiert werden sollen
+		# looking for albums in the destination directory without synchronization
 		task :desynchronize do
 			puts "Run task: desynchronize"
 			asAlbums2Delete = []
-			Find.find(sDirDestination) do |sItem|
+			Find.find(sDirDest) do |sItem|
 				if File.basename(sItem) == '.album'
 					if !File.exist?("#{File.dirname(sItem)}/.sync")
 						asAlbums2Delete << File.dirname(sItem)
@@ -120,10 +118,10 @@ if File.exist?('.destination')
 		end # task :desynchronize
 
 
-		# lösche leere Verzeichnisse
+		# delete empty directories
 		task :deleteEmptyFolders do
 			puts "Run task: deleteEmptyFolders"
-			Find.find(sDirDestination) do |sItem|
+			Find.find(sDirDest) do |sItem|
 				if File.directory?(sItem)
 					if Dir.empty?(sItem)
 						Dir.delete(sItem)
@@ -134,25 +132,57 @@ if File.exist?('.destination')
 		end
 
 
+		# delete orphans in the destination directory
+		task :deleteOrphans do
+			puts "Run task: deleteOrphans"
+
+			# find all albums
+			asDirAlbums = []
+			Find.find(sDirDest) do |sItem|
+				if File.basename(sItem) == '.album'
+					asDirAlbums << File.dirname(sItem)
+				end
+			end
+
+			# compare all files of the destionation albums with the source albums
+			asDirAlbums.each do |sDir|
+				Find.find(sDir) do |sItem|
+					# git es dieses Element auch in der Quelle?
+					if	File.exist?(sItem.gsub(sDirDest, sDirSrc).gsub("\n", "")) ||
+						File.exist?(sItem.gsub(sDirDest, sDirSrc).gsub(".ogg", ".flac").gsub("\n", ""))
+						#puts "yes"
+					else
+						File.delete(sItem)
+						puts "    Orphan deleted: #{sItem}"
+					end
+				end
+			end
+		end # task :deleteOrphans
+
+
 		task :info do
-			puts "Source:      #{sDirSource}"
-			puts "Destination: #{sDirDestination}"
+			puts "Source:      #{sDirSrc}"
+			puts "Destination: #{sDirDest}"
 			puts
 
 			puts "Albums to synchronize (#{asDirAlbums2Sync.count}):"
 			asDirAlbums2Sync.each do |sItem|
-				puts "    #{sItem}"
+				#puts "    #{sItem}"
 			end
 
 			puts "Dependencies (#{asDependencies.count})"
+			asDependencies.each do |sItem|
+				#puts "    #{sItem}"
+			end
+
 			puts "Targets (#{asTargets.count}):"
 			asTargets.each do |sItem|
-				puts "    #{sItem}"
+				#puts "    #{sItem}"
 			end
 		end
 	else
 		puts "Destination directory does not exist!"
-	end # if sDirDestination not empty
+	end # if sDirDest not empty
 else
 	puts "File .destination does not exist."
 end # if .destination exist
