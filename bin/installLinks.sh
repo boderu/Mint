@@ -114,13 +114,14 @@ fncLink "$HOME/SynologyDrive/Dokumente"							"$HOME/Documents"
 fncLink "$HOME/SynologyDrive/Downloads"							"$HOME/Downloads"
 #fncLink "$HOME/SynologyDrive/Calibre-Bibliothek"				"$HOME/Calibre-Bibliothek"
 fncLink "$HOME/SynologyDrive/Musik/Assetts"						"$HOME/Musik"
+fncLink "$HOME/SynologyDrive/Audiobooks/Assetts"				"$HOME/Audiobooks"
 #fncLink "$HOME/SynologyDrive/Scans"							"$HOME/Scans"
 fncLink "$HOME/SynologyDrive/News"								"$HOME/News"
 
 fncLink "$HOME/Nextcloud/Photos"								"$HOME/Photos"
 fncLink "$HOME/Nextcloud/Calibre"								"$HOME/Calibre"
 #fncLink "$HOME/Nextcloud/Music"									"$HOME/Musik"
-fncLink "$HOME/Nextcloud/Audiobooks"							"$HOME/Audiobooks"
+#fncLink "$HOME/Nextcloud/Audiobooks"							"$HOME/Audiobooks"
 
 # Autostart-Links nur für User boderu
 egrep -i boderu /etc/passwd >/dev/null
