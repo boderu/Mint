@@ -1,5 +1,6 @@
 [/]
 can-change-accels=false
+clock-format='24h'
 clock-show-date=false
 clock-show-seconds=false
 cursor-blink=true
@@ -17,7 +18,7 @@ gtk-im-module=''
 gtk-im-preedit-style='callback'
 gtk-im-status-style='callback'
 gtk-key-theme='Default'
-gtk-theme='Mint-Y-Dark-Grey'
+gtk-theme='Mint-Y-Dark-Blue'
 gtk-timeout-initial=200
 gtk-timeout-repeat=20
 icon-theme='Mint-Y-Grey'
