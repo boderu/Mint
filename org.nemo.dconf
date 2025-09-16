@@ -1,5 +1,6 @@
 [desktop]
 font='Ubuntu Medium 10'
+trash-icon-visible=true
 volumes-visible=true
 
 [extensions/nemo-terminal]
