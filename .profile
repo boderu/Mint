@@ -31,6 +31,12 @@ then
 	PATH="$HOME/.local/bin:$PATH"
 fi
 
+# set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/go/bin" ]
+then
+	PATH="$HOME/go/bin:$PATH"
+fi
+
 # add path
 if [ -d "$HOME/.local/share/gem/ruby/3.0.0/bin" ]
 then

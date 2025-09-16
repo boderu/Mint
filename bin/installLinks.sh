@@ -108,15 +108,20 @@ fncLink "$HOME/SynologyDrive/.mint/.local/share/widelands"		"$HOME/.var/app/org.
 #fncLink 	"$HOME/SynologyDrive/.mint/.local/bin/avr8-gnu-toolchain-linux_x86_64"	\
 #			"$HOME/.local/bin/avr8-gnu-toolchain-linux_x86_64"
 
-fncLink "$HOME/SynologyDrive/Bilder"						"$HOME/Bilder"
-fncLink "$HOME/SynologyDrive/Dokumente"						"$HOME/Dokumente"
-fncLink "$HOME/SynologyDrive/Dokumente"						"$HOME/Documents"
-fncLink "$HOME/SynologyDrive/Downloads"						"$HOME/Downloads"
-fncLink "$HOME/SynologyDrive/Calibre-Bibliothek"			"$HOME/Calibre-Bibliothek"
-fncLink "$HOME/SynologyDrive/Musik"							"$HOME/Musik"
-#fncLink "$HOME/SynologyDrive/Scans"						"$HOME/Scans"
+fncLink "$HOME/SynologyDrive/Bilder"							"$HOME/Bilder"
+fncLink "$HOME/SynologyDrive/Dokumente"							"$HOME/Dokumente"
+fncLink "$HOME/SynologyDrive/Dokumente"							"$HOME/Documents"
+fncLink "$HOME/SynologyDrive/Downloads"							"$HOME/Downloads"
+#fncLink "$HOME/SynologyDrive/Calibre-Bibliothek"				"$HOME/Calibre-Bibliothek"
+fncLink "$HOME/SynologyDrive/Musik/Assetts"						"$HOME/Musik"
+fncLink "$HOME/SynologyDrive/Audiobooks/Assetts"				"$HOME/Audiobooks"
+#fncLink "$HOME/SynologyDrive/Scans"							"$HOME/Scans"
+fncLink "$HOME/SynologyDrive/News"								"$HOME/News"
 
-fncLink "/home/boderu/Nextcloud/Photos"						"$HOME/Photos"
+fncLink "$HOME/Nextcloud/Photos"								"$HOME/Photos"
+fncLink "$HOME/Nextcloud/Calibre"								"$HOME/Calibre"
+#fncLink "$HOME/Nextcloud/Music"									"$HOME/Musik"
+#fncLink "$HOME/Nextcloud/Audiobooks"							"$HOME/Audiobooks"
 
 # Autostart-Links nur für User boderu
 egrep -i boderu /etc/passwd >/dev/null
