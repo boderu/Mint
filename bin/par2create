@@ -13,16 +13,16 @@ FILELIST=$(mktemp)
 if [ $# -ge 2 ]
 then
 	# ja, es sind mindestens zwei Parameter - der erste Parameter sollte das übergeordnete Verzeichnis sein
-	DIR_PARENT=$1
+	DIR_PARENT="$1"
 
 	# sind es genau zwei Parameter?
 	if [ $# -ge 2 ]
 	then
 		# ja, es sind genau 2 Parameter -> der Name der PAR2-Datei ist der Basisname des 2. Parameters
-		NAMEPAR=$(basename $2 | sed 's/^\.//g')
+		NAMEPAR=$(basename "$2" | sed 's/^\.//g')
 	else
 		# nein, es sind mehr als Parameter -> der Name der PAR2-Datei ist der übergeordnete Verzeichnisname
-		NAMEPAR=$(basename $DIR_PARENT | sed 's/^\.//g')
+		NAMEPAR=$(basename "$DIR_PARENT" | sed 's/^\.//g')
 	fi
 	echo "PAR2 name: $NAMEPAR"
 	echo
@@ -37,20 +37,27 @@ then
 		if [ -f "$ARG" ]
 		then
 			# ja, der Parameter ist eine Datei
+#			echo "$ARG" | sed 's/^/"/g' | sed 's/$/"/g' >> "$FILELIST"
 			echo "$ARG" >> "$FILELIST"
 		else
 			# nein, der Parameter ist ein Verzeichnis
-			find "$ARG" ! -name '*.par2' -type f | grep -v '.git/' | sed 's/^/"/g' | sed 's/$/"/g' >> "$FILELIST"
+#			find "$ARG" ! -name '*.par2' -type f | grep -v '.git/' | sed 's/^/"/g' | sed 's/$/"/g' >> "$FILELIST"
+			find "$ARG" ! -name '*.par2' -type f >> "$FILELIST"
 		fi
 	done
 
-	# erzeuge PAR2-Dateien mit 30% Redundanz (vorhandene werden gelöscht) 
-#	cat "$FILELIST"
-	pushd "$DIR_PARENT"
+	# erzeuge PAR2-Dateien mit 30% Redundanz (vorhandene werden gelöscht)
+	echo "Filelist:"
+	cat $FILELIST | sed 's/\n/ /g'
+	echo "done." ; echo
+
+	echo "pushd" ; pushd "$DIR_PARENT"
 #	rm -fv $(ls -a .${NAMEPAR}*.par2)
 	rm -fv .${NAMEPAR}*.par2
 	echo
-	par2 create -v -r30 -a ".$NAMEPAR" $(cat "$FILELIST")
+#	echo create -v -r30 -a ".$NAMEPAR" $(cat $FILELIST | sed 's/\n/ /g')
+	readarray -t ARRAY < "$FILELIST"
+	par2 create -v -r30 -a "archive.par2" "${ARRAY[@]}"
 	popd
 else
 	echo "At least two parameters must be passed."
