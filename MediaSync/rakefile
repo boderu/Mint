@@ -10,7 +10,7 @@ asDependencies		= []						# all dependencies of the file targets
 asDirAlbums2Sync	= []						# all album filders to synchronize
 
 # all valid file extensions for the targets
-asExtensions		= ['.jpg', '.jpeg', '.png', '.ogg', '.m4a', '.m4v', '.mp3', '.mpg', '.mpeg', '.avi', '.mp4']
+asExtensions		= ['.jpg', '.jpeg', '.png', '.ogg', '.m4a', '.m4v', '.mp3', '.mpg', '.mpeg', '.avi', '.mp4', '.cbr', '.cbz', '.pdf']
 
 # all additional valid file names for the targets/dependencies
 asBaseNames			= ['.album', '.sync']
