@@ -106,6 +106,9 @@ fi
 #	source $HOME/.pyvenv/bin/activate
 #fi
 
+# Set up the Environment Variables for Espressif
+. $HOME/esp/esp-idf/export.sh
+
 # activate local settings if exists
 if [ -f "$HOME/.profile.local" ]
 then
