@@ -107,10 +107,10 @@ fi
 #fi
 
 # Set up the Environment Variables for Espressif
-if [ -f $HOME/esp/esp-idf/export.sh ]
-then
-	. $HOME/esp/esp-idf/export.sh
-fi
+#if [ -f $HOME/esp/esp-idf/export.sh ]
+#then
+#	source $HOME/esp/esp-idf/export.sh
+#fi
 
 # activate local settings if exists
 if [ -f "$HOME/.profile.local" ]
