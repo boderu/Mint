@@ -74,10 +74,12 @@ $HOME/.mint/bin/installDrawIO.sh		; fncStep
 $HOME/.mint/bin/installFrontDesign.sh	; fncStep
 $HOME/.mint/bin/installVueScan.sh		; fncStep
 $HOME/.mint/bin/installSegger.sh		; fncStep
+$HOME/.mint/bin/installBiome.sh			; fncStep
 $HOME/.mint/bin/installVSCode.sh		; fncStep
 $HOME/.mint/bin/installSysWorxx.sh		; fncStep
 $HOME/.mint/bin/installDiffusion.sh		; fncStep
 $HOME/.mint/bin/installCCS.sh			; fncStep
+$HOME/.mint/bin/installEspressif.sh		; fncStep
 $HOME/.mint/bin/installOllama.sh		; fncStep
 $HOME/.mint/bin/installRuby.sh			; fncStep
 $HOME/.mint/bin/installPython.sh		; fncStep

@@ -31,6 +31,12 @@ then
 	PATH="$HOME/.local/bin:$PATH"
 fi
 
+# set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/go/bin" ]
+then
+	PATH="$HOME/go/bin:$PATH"
+fi
+
 # add path
 if [ -d "$HOME/.local/share/gem/ruby/3.0.0/bin" ]
 then
@@ -98,6 +104,12 @@ fi
 #if [ -d "$HOME/.pyvenv" ]
 #then
 #	source $HOME/.pyvenv/bin/activate
+#fi
+
+# Set up the Environment Variables for Espressif
+#if [ -f $HOME/esp/esp-idf/export.sh ]
+#then
+#	source $HOME/esp/esp-idf/export.sh
 #fi
 
 # activate local settings if exists

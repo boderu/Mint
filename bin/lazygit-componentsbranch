@@ -1,0 +1,17 @@
+#!/bin/bash
+# ======================================================================================================================
+#
+# Dieses Skript ermittelt aus allen übergebenen Git-Repositories den zugehörigen branch.
+#
+# ======================================================================================================================
+
+# alle Verzeichnisse rekursiv durchsuchen und übergeordnetes Verzeichnis ermitteln
+while read DIRGIT
+do
+	pushd "$DIRGIT" &> /dev/null
+	GITBRANCH="$(git branch --show-current 2> /dev/null)"
+	printf '%-70s %-30s\n' $DIRGIT $GITBRANCH
+	popd &> /dev/null
+done
+
+# EOF ==================================================================================================================

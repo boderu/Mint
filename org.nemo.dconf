@@ -1,5 +1,6 @@
 [desktop]
 font='Ubuntu Medium 10'
+trash-icon-visible=true
 volumes-visible=true
 
 [extensions/nemo-terminal]
@@ -44,7 +45,7 @@ search-sort-column='name'
 search-visible-columns=['name', 'where', 'date_modified', 'size']
 
 [window-state]
-geometry='1135x923+392+62'
+geometry='1135x923+392+65'
 maximized=false
 sidebar-bookmark-breakpoint=5
 sidebar-width=242
