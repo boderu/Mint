@@ -149,3 +149,4 @@ source "$HOME/.config/broot/launcher/bash/br"
 # EOF
 
 source $HOME/.config/broot/launcher/bash/br
+. "/home/boderu/.deno/env"

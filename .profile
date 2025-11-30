@@ -118,4 +118,9 @@ then
 	source $HOME/.profile.local
 fi
 
+if [ -f "$HOME/.deno/env" ]
+then
+	source $HOME/.deno/env
+fi
+
 # EOF
