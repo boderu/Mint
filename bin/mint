@@ -85,6 +85,7 @@ $HOME/.mint/bin/installRuby.sh			; fncStep
 $HOME/.mint/bin/installPython.sh		; fncStep
 $HOME/.mint/bin/installRust.sh			; fncStep
 $HOME/.mint/bin/installZellij.sh		; fncStep
+$HOME/.mint/bin/installYTDLP.sh			; fncStep
 
 #=======================================================================================================================
 echo ; echo "arm-none-eabi-gdb"

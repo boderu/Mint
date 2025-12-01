@@ -12,7 +12,7 @@ echo ; sudo add-apt-repository --y ppa:libreoffice/ppa
 #echo ; sudo ppa-purge -y ppa:ubuntuhandbook1/shotwell
 #echo ; sudo ppa-purge -y ppa:ubuntuhandbook1/darktable
 #echo ; sudo ppa-purge -y ppa:freecad-maintainers/freecad-stable
-echo ; sudo add-apt-repository -y ppa:tomtomtom/yt-dlp
+echo ; sudo ppa-purge -y ppa:tomtomtom/yt-dlp
 #echo ; sudo ppa-purge -y ppa:longsleep/golang-backports
 echo ; sudo add-apt-repository --y ppa:misery/ppa								# Ausweis App
 echo ; sudo add-apt-repository --y ppa:aos1/diff-so-fancy
