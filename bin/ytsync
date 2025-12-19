@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+
+# über alle Verzeichnise und Unterverzeichnisse iterieren
+while read FILE_DOT_MOVE
+do
+	DIR_DOT_MOVE=$(dirname "$FILE_DOT_MOVE" | sed -e 's/^\.\///')
+	DIR_DESTINATION="$(head .destination)/$DIR_DOT_MOVE"
+	#echo "$DIR_DOT_MOVE"
+	echo "$DIR_DESTINATION"
+
+	mkdir --parents --verbose "$DIR_DESTINATION"
+	while read FILE
+	do
+		#FILE_BASENAME=$(basename "$FILE")
+		#echo "    $FILE"
+		if [ ! -z "$FILE" ]
+		then
+			mv "$FILE" "$DIR_DESTINATION/"
+		fi
+	done <<< $(find "./$DIR_DOT_MOVE" -type f -print | grep -v -E '/\.' | sort)
+	echo
+
+# zeilenweise Liste mit allen Verzeichnissen dem while-read-do-done Block übergeben (ohne versteckte Verzeichnisse)
+done <<< $(find . -type f -name '.move' -print | sort)
+
+#read -p "press Enter ..."
+
+# EOF

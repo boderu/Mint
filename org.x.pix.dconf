@@ -9,7 +9,7 @@ scroll-action='change-file'
 sidebar-sections=['GthFileProperties:expanded', 'GthFileComment:expanded', 'GthFileDetails:expanded', 'GthImageHistogram:expanded']
 sidebar-visible=true
 sort-inverse=false
-sort-type='file::mtime'
+sort-type='file::path'
 startup-location='file:///home/boderu/Bilder'
 statusbar-visible=true
 thumbnail-caption='comment::note,comment::time,standard::display-name,gth::file::display-size,general::dimensions'
@@ -18,8 +18,8 @@ thumbnail-size=256
 use-startup-location=true
 viewer-sidebar='hidden'
 viewer-thumbnails-orientation='vertical'
-window-height=1496
-window-width=2461
+window-height=1065
+window-width=2048
 
 [crop]
 aspect-ratio='square'

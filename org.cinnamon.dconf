@@ -155,6 +155,7 @@ night-light-temperature=uint32 2700
 [settings-daemon/plugins/power]
 critical-battery-action='shutdown'
 idle-brightness=10
+idle-dim-time=300
 lid-close-ac-action='suspend'
 lid-close-battery-action='suspend'
 lock-on-suspend=false
@@ -164,4 +165,4 @@ sleep-inactive-ac-timeout=0
 sleep-inactive-battery-timeout=3600
 
 [theme]
-name='Mint-Y-Dark-Grey'
+name='Mint-Y-Dark-Blue'
