@@ -290,3 +290,5 @@ then
 fi
 
 # EOF
+. "/home/boderu/.deno/env"
+source /home/boderu/.local/share/bash-completion/completions/deno.bash

@@ -22,6 +22,7 @@ mkdir -pv "$HOME/WsKiCAD"
 mkdir -pv "$HOME/WsXilinx"
 mkdir -pv "$HOME/WsXilinxSDK"
 mkdir -pv "$HOME/WsVSCode"
+mkdir -pv "$HOME/News"
 
 touch "$HOME/.sudo_as_admin_successful"
 

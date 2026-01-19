@@ -46,7 +46,9 @@
             "org.gnome.Rhythmbox3",
             "org.kde.kdeconnect.app",
             "org.gnome.Totem",
-            "org.kde.elisa"
+            "org.kde.elisa",
+            "kid3",
+            "com.github.neithern.g4music"
         ]
     },
     "section2": {

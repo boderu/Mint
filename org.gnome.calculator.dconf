@@ -11,5 +11,5 @@ source-currency=''
 source-units='degree'
 target-currency=''
 target-units='radian'
-window-position=(350, 158)
+window-position=(1023, 171)
 word-size=64

@@ -1,3 +1,5 @@
+# Add deno completions to search path
+if [[ ":$FPATH:" != *":/home/boderu/.zsh/completions:"* ]]; then export FPATH="/home/boderu/.zsh/completions:$FPATH"; fi
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -150,3 +152,6 @@ source "$HOME/.config/broot/launcher/bash/br"
 
 source $HOME/.config/broot/launcher/bash/br
 . "/home/boderu/.deno/env"
+# Initialize zsh completions (added by deno install script)
+autoload -Uz compinit
+compinit

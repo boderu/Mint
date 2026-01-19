@@ -12,6 +12,9 @@ terminal-position='bottom'
 captions=['size', 'none', 'none']
 default-zoom-level='larger'
 
+[list-view]
+enable-folder-expansion=true
+
 [plugins]
 disabled-actions=@as []
 disabled-extensions=@as []
@@ -45,7 +48,7 @@ search-sort-column='name'
 search-visible-columns=['name', 'where', 'date_modified', 'size']
 
 [window-state]
-geometry='1465x923+567+33'
+geometry='1481x923+219+62'
 maximized=false
 sidebar-bookmark-breakpoint=5
 sidebar-width=242

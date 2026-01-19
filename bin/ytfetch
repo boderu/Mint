@@ -93,6 +93,6 @@ do
 # zeilenweise Liste mit allen Verzeichnissen dem while-read-do-done Block übergeben (ohne versteckte Verzeichnisse)
 done <<< $(find . -type d -print | grep -v '/\.' | sed -e 's/^\.\///' | sort)
 
-#read -p "press Enter ..."
+read -p "press Enter ..."
 
 # EOF

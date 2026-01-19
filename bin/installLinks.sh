@@ -117,7 +117,7 @@ fncLink "$HOME/SynologyDrive/Musik/Assetts"						"$HOME/Musik"
 fncLink "$HOME/SynologyDrive/Audiobooks/Assetts"				"$HOME/Audiobooks"
 fncLink "$HOME/SynologyDrive/Comics/Assetts"					"$HOME/Comics"
 #fncLink "$HOME/SynologyDrive/Scans"							"$HOME/Scans"
-fncLink "$HOME/SynologyDrive/News"								"$HOME/News"
+#fncLink "$HOME/SynologyDrive/News"								"$HOME/News"
 
 fncLink "$HOME/Nextcloud/Photos"								"$HOME/Photos"
 fncLink "$HOME/Nextcloud/Calibre"								"$HOME/Calibre"
