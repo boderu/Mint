@@ -17,7 +17,7 @@
 #
 ########################################################################################################################
 
-source $HOME/.yt-dlp/bin/activate 
+#source $HOME/.yt-dlp/bin/activate 
 
 # wurde der Parameter verwendet?
 if [ $# == 1 ]
@@ -58,8 +58,13 @@ do
 			while read URL
 			do
 				echo "$URL: $DATEAFTER"
+#				yt-dlp  --socket-timeout 10 --ignore-config --download-archive '.archive' \
+#				-f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best' --downloader aria2c \
+#				--dateafter $DATEAFTER $MAXDOWNLOADS "$URL" \
+#				--playlist-reverse \
+#				-o "%(upload_date>%Y-%m-%d)s %(title)s [%(id)s].%(ext)s"
 				yt-dlp  --socket-timeout 10 --ignore-config --download-archive '.archive' \
-				-f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best' --downloader aria2c \
+				-f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best' \
 				--dateafter $DATEAFTER $MAXDOWNLOADS "$URL" \
 				--playlist-reverse \
 				-o "%(upload_date>%Y-%m-%d)s %(title)s [%(id)s].%(ext)s"
@@ -93,6 +98,6 @@ do
 # zeilenweise Liste mit allen Verzeichnissen dem while-read-do-done Block übergeben (ohne versteckte Verzeichnisse)
 done <<< $(find . -type d -print | grep -v '/\.' | sed -e 's/^\.\///' | sort)
 
-read -p "press Enter ..."
+#read -p "press Enter ..."
 
 # EOF
