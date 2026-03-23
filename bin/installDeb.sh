@@ -21,8 +21,8 @@ echo ; sudo add-apt-repository --y ppa:tomtomtom/yt-dlp
 #echo ; sudo ppa-purge -y ppa:nextcloud-devs/client
 #echo ; sudo ppa-purge -y ppa:kicad/kicad-7.0-releases
 #echo ; sudo ppa-purge -y ppa:kicad/kicad-8.0-releases
-echo ; sudo add-apt-repository -y ppa:kicad/kicad-9.0-releases
-
+echo ; sudo ppa-purge -y ppa:kicad/kicad-9.0-releases
+echo ; sudo add-apt-repository -y ppa:kicad/kicad-10.0-releases
 
 echo ; echo "Update existing Debian packages"
 sudo apt update
