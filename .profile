@@ -124,4 +124,3 @@ then
 fi
 
 # EOF
-. "/home/boderu/.deno/env"
