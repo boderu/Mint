@@ -95,6 +95,9 @@ export STM32CubeMX_PATH=/home/boderu/STM32CubeMX
 export EDITOR=micro
 export PYTORCH_CUDA_ALLOC_CONF=max_split_size_mb:32
 
+# Freerouting settings (for KiCAD, see https://github.com/freerouting/freerouting/blob/master/docs/settings.md)
+export FREEROUTING__FEATURE_FLAGS__MULTI_THREADING=false
+
 if [ -f ~/.cargo/env ]
 then
 	. ~/.cargo/env
