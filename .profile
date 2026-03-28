@@ -70,19 +70,19 @@ then
 fi
 
 # Microchip compilers
-if [ -d "/opt/microchip/xc8/v2.32/bin" ]
+if [ -d "/opt/microchip/xc8/v3.10/bin" ]
 then
-	PATH="/opt/microchip/xc8/v2.32/bin:$PATH"
+	PATH="/opt/microchip/xc8/v3.10/bin:$PATH"
 fi
 
-if [ -d "/opt/microchip/xc16/v1.70/bin" ]
+if [ -d "/opt/microchip/xc16/v2.10/bin" ]
 then
-	PATH="/opt/microchip/xc16/v1.70/bin:$PATH"
+	PATH="/opt/microchip/xc16/v2.10/bin:$PATH"
 fi
 
-if [ -d "/opt/microchip/xc32/v3.01/bin" ]
+if [ -d "/opt/microchip/xc32/v5.00/bin" ]
 then
-	PATH="/opt/microchip/xc32/v3.01/bin:$PATH"
+	PATH="/opt/microchip/xc32/v5.00/bin:$PATH"
 fi
 
 if [ -d "$HOME/.local/bin/avr8-gnu-toolchain-linux_x86_64/bin" ]
