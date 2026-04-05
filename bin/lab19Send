@@ -1,0 +1,64 @@
+#!/bin/bash
+
+# Konfiguration
+PORT="/dev/ttyUSB0"
+BAUD="19200"
+PROMPT=" ok"
+
+if [ "$#" -ne 1 ]
+then
+	echo "Use: $0 <dateiname.fs>"
+	exit 1
+fi
+
+FILE=$1
+
+# 1. DTR AKTIVIEREN (Reset/Initialisierung)
+# Nutzt Python, um DTR auf High zu setzen
+#python3 -c "import serial; s=serial.Serial('$PORT'); s.dtr=True; s.close()"
+
+# Kurze Pause, damit der Bootloader/Chip Zeit zum Starten hat (1 sec)
+sleep 1
+
+# Schnittstelle konfigurieren (raw mode, kein echo)
+stty -F "$PORT" "$BAUD" raw -echo -echoe -echok
+#stty -F "$PORT" "$BAUD" raw -echo -echoe -echok crtscts -ixon
+
+
+# Port zum Lesen und Schreiben öffnen (Dateideskriptor 3)
+exec 3<>"$PORT"
+
+echo "Transmit $FILE to $PORT..."
+
+while IFS= read -r line || [ -n "$line" ]
+do
+	# Zeile senden (mit Carriage Return \r für FlashForth)
+	echo -ne "$line\r" >&3
+
+	# Auf " ok" vom Device warten
+	buffer=""
+
+	while [[ ! "$buffer" =~ $PROMPT ]]
+	do
+		if read -u 3 -n 1 -t 2 char
+		then
+			buffer+="$char"
+		else
+			echo "Timeout: FlashForth is not responding!"
+			exit 1
+		fi
+	done
+
+	# Optional: Fortschritt anzeigen
+	echo "Sent: $line"
+done < <(expand -t 4 "$FILE")
+
+# Port schließen
+exec 3>&-
+
+# 3. DTR DEAKTIVIEREN (Nach Abschluss)
+#python3 -c "import serial; s=serial.Serial('$PORT'); s.dtr=False; s.close()"
+
+echo "Transmission finished."
+
+# EOF
