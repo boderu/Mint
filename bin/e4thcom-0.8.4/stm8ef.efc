@@ -1,0 +1,62 @@
+e4thcom: 0.8.4 \ stm8ef.efc : plug-in for stm8ef targets              MM-170912
+\ ------------------------------------------------------------------------------
+\                 (C) 2017-2020 manfred.mahlow@forth-ev.de
+\
+\      Tested with stm8eForth > 2.2.14 170916 MINDEV.ihx and SWIMCOM.ihx.
+\ ------------------------------------------------------------------------------
+cr
+<brown ." * Loading plug-in for stm8eForth > 2.2.14 (stm8ef.efc)" normal>
+cr
+."    Use the " <bright ." TAB " normal> ." key to cancel an upload process."
+
+e4thcom-0.8.4 definitions decimal
+
+here  07 c, ^NL c, 0 c, constant $^BEL^NL
+
+  : rx.1w ( c oid -- )
+  \ Modified terminal rx-handler for stm8eforth (supports 1-wire also). M-170910
+  \ Terminal display output formatting may be added here.
+    >self
+    dup ^CR = if drop exit then  \ ignore CR (required for 1-wire connection)
+    self rx.1 ;                  \ default rx-handler
+
+  terminal ' rx.1w terminal rx-handler !
+
+\ Protocol handler for STM8EF with NL/BEL support enabled.
+  :noname ( oid -- flag ) \ stm8ef
+     \ Wait while the target evalutes a line of uploaded source code. Return 
+     \ a true flag on error or if [Ctrl][B] was pressed. Return a false flag
+     \ otherwise.
+     >self  self rx-buf erase  white bright letters
+     begin
+       self rx?break ( c f ) if drop true exit then  \ exit on break
+       ( c ) dup self rx-buf append
+       dup 7 = over ^CR = or
+       if         
+         drop 
+       else
+         ( c ) dup self ?emit  ^NL =
+         if
+           \ ' ok^NL' , no error occured
+             s" ok" -1 self rx-buf compare$ 0= if false exit then
+           \ ' OK^NL' , no error occured
+             s" OK" -1 self rx-buf compare$ 0= if false exit then
+           \ '^BEL^NL' , an error occured
+             @voc $^BEL^NL 2 0 self rx-buf compare$ 0= if true exit then
+           \ reDef <name>^NL
+         then   
+       then
+     again ;
+
+terminal plug-in !
+terminal upper-case on
+terminal $prefix on
+s" mcu:target:lib" terminal path !
+warning off
+
+\ ------------------------------------------------------------------------------
+\ Last Revision: MM-200920 MFP 4.0.1 . 201003 0.8.2 --> 0.8.4
+\                MM-200318 2.2MK2c3.1  @self --> @class
+\                MM-190601 2.2MK2c2
+\                MM-180825 0.7.0
+

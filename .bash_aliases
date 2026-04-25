@@ -20,3 +20,4 @@ alias easy="cd $HOME/easy-diffusion && ./start.sh"
 alias o8='ollama run llama3.1:8b'
 alias o70='ollama run llama3.3:70b'
 alias help='tldr'
+alias e4='e4thcom'

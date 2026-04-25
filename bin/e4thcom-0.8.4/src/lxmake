@@ -1,0 +1,39 @@
+#/bin/sh
+
+# MM-190605
+#
+# Usage: ./lxmake 32|64
+#
+# Compiles the e4thcom binary and moves the binary and the e4thcom image file
+# to the e4thcom directory.
+#
+
+MSG1="Compiling e4thcom for $1Bit Linux ( HOSTTYPE $HOSTTYPE )"
+
+mkbin () {
+ 
+echo $MSG1
+
+( gcc mfp.c -o mfp -w -O2 -lm -ldl ) && \
+
+strip mfp  && \
+
+mv -vu mfp ../e4thcom && \
+
+echo "$HOSTTYPE" > ../__HOSTTYPE__
+
+}
+
+case "$1" in
+  32)
+  mkbin && cp -afTv e4thcom.i.32 ../e4thcom.i
+   ;;
+  64)
+  mkbin && cp -afTv e4thcom.i.64 ../e4thcom.i
+  ;;
+  *)
+  echo "OS Type missing. Usage: ./lxmake 32|64"
+esac
+
+exit
+

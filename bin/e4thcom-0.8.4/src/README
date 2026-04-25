@@ -1,0 +1,19 @@
+README
+
+The e4thcom program consists of two files, a binary file named e4thcom and an
+image file named e4thcom.i. The binary file loads the image file at program
+start. 
+
+The binary file and the image file must always have the same name and the image
+file must have the .i extension.
+
+e4thcom comes pre-compiled for X86_64 Linux but may be recompiled for X86_32
+or Raspbian_32.
+
+To recompile it open a terminal in the e4thcom-x.y.z/src directory and enter
+./lxmake 32|64. This creates the 32 or 64 Bit binary and moves it and the 
+required image file to the e4thcom-x.y.z directory. gcc warnings concerning 
+"unused results" can be ignored.
+
+MM-201003
+

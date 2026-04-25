@@ -1,0 +1,33 @@
+e4thcom: 0.8.4 \ test.efc : plug-in for target protocol evaluation     MM-150211
+
+cr <brown .( * Loading plug-in test.efc for target protocol evaluation.) normal>
+
+cr .(    * The e4thcom directory must be the current working directory !)
+cr .(    * Enter  #i test [Enter]  or  #i TEST [Enter]  to test the targets response.)
+cr
+
+e4thcom-0.8.4 definitions decimal
+
+:noname ( oid -- flag )
+   \ Wait while the target evakuates a line of uploaded code. Return a true
+   \ flag on error, a false flag otherwise.
+   >self  self rx-buf erase  1000 self timeout !  white bright letters
+   ." |>"
+   begin
+     self rx?timeout ( c f ) if drop cr false exit then
+     ( c ) dup self rx-buf append
+     ( c ) dup bl <
+     if \ c = control char
+       ( c ) [char] ^ emit base @ swap hex s>d <# # #s #> type base !
+     else
+       self ?emit
+     then
+   again ;
+
+terminal plug-in !
+
+\ Last Revision: MM-201003 MFP 4.0.1 , 0.8.2 --> 0.8.4
+\                MM-2.2MK2c3.1
+\                MM-190601 2.2MK2c2
+\                MM-180825 0.7.0
+

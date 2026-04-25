@@ -1,0 +1,1 @@
+/home/boderu/.mint/bin/e4thcom-0.8.4/e4thcom.i

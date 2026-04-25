@@ -1,0 +1,57 @@
+e4thcom: 0.8.4  \ amforth.efc : plug-in for amforth targets            MM-140831
+\
+\ Last tested with amforth 6.7 on Arduino Duemilanove.
+\
+\  BL^CR^NL>  received  =  error
+\  BLok       received  =  ok
+\  timeout =  target doesn't answer or is waiting for user imput
+
+cr
+<brown ." * Loading plug-in for AmForth (amforth.efc)" normal>
+cr
+."    Use the " <bright ." TAB " normal> ." key to cancel an upload process."
+
+e4thcom-0.8.4 definitions decimal
+
+  here 4 c, bl c, ^CR c, ^NL c, char > c, 0 c, constant $BL^CR^NL>
+
+  : ?EOL ( oid -- ) 
+    >self  begin 4 self timeout ! self rx?timeout 0= while drop repeat drop
+    self emit? @ if cr then ;
+
+  : target_error? ( oid -- )
+    >self  @voc $BL^CR^NL> count 0 self rx-buf compare$ 0= ;
+
+  :noname ( oid -- flag )
+   \ Wait while the target evalutes a line of uploaded source code. Return 
+   \ a true flag on error, a false flag otherwise.
+     >self white bright letters  self rx-buf erase
+     \ The target returns ^CR^NL when the host send a ^CR at the end of a line.
+     \ We replace it with a space here.
+     2 0 do self rx?break 2drop loop bl self ?emit
+     1000 self timeout !
+     begin
+       key? if \ send input to the target or cancel the current upload process
+         key dup 2 ( ^B ) = if drop self break-msg true exit then self tx.0
+       then
+       self rx
+       if \ no char received
+         drop self timeout ? if self rx-buf erase  250 self timeout ! then
+       else \ a char received
+         ( c ) dup self ?emit  self rx-buf append
+         s"  ok" 0 self rx-buf compare$ 0= if self ?EOL false exit then
+         self target_error? if self ?EOL true exit then
+         250 self timeout !
+       then
+     again ;
+
+terminal plug-in !
+terminal $prefix on  \ MM+190601
+s" mcu:target:lib" terminal path !
+warning off
+
+\ Last Revision: MM-200920 MFP 4.0.1 , 201003 0.8.2 --> 0.8.4
+\                MM-200318 2.2MK2c3.1  @self --> @class
+\                MM-190601 2.2MK2c2
+\                MM-180825 0.7.0
+
