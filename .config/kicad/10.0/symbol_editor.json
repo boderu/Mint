@@ -41,6 +41,9 @@
   },
   "drag_pins_along_with_edges": true,
   "edit_symbol_visible_columns": "0 1 2 3 4 5 6 7",
+  "editing": {
+    "arc_edit_mode": 0
+  },
   "field_editor": {
     "field_widths": {},
     "height": 0,
@@ -77,7 +80,7 @@
   "lib_table_width": 300,
   "lib_tree": {
     "column_widths": {
-      "Description": 299,
+      "Description": 488,
       "Item": 300
     },
     "columns": [
@@ -85,7 +88,7 @@
       "Description"
     ],
     "open_libs": [
-      "U.Logic"
+      "R.Vishay.SMM0207"
     ]
   },
   "library": {
@@ -153,7 +156,7 @@
     "aui_state": null,
     "cursor": {
       "always_show_cursor": true,
-      "cross_hair_mode": 0,
+      "cross_hair_mode": 1,
       "fullscreen_cursor": true
     },
     "display": 0,
@@ -209,12 +212,12 @@
       "user_grid_y": ""
     },
     "maximized": false,
-    "mru_path": "/home/boderu/Schreibtisch/KiCADv6",
-    "perspective": "layout2|name=InfoBar;caption=;state=131454;dir=1;layer=1;row=0;pos=0;prop=100000;bestw=20;besth=30;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=MainToolbar;caption=;state=139644;dir=1;layer=6;row=0;pos=0;prop=100000;bestw=903;besth=37;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=MsgPanel;caption=;state=131452;dir=3;layer=6;row=0;pos=0;prop=100000;bestw=400;besth=42;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=LibraryTree;caption=Bibliotheken;state=1996;dir=4;layer=3;row=0;pos=0;prop=100000;bestw=250;besth=-1;minw=250;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=PropertiesManager;caption=Eigenschaften;state=2099148;dir=4;layer=3;row=0;pos=1;prop=100000;bestw=300;besth=200;minw=240;minh=60;maxw=-1;maxh=-1;floatx=50;floaty=200;floatw=300;floath=400|name=SelectionFilter;caption=Auswahlfilter;state=2098636;dir=4;layer=3;row=0;pos=2;prop=0;bestw=180;besth=-1;minw=180;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=OptToolbar;caption=;state=139596;dir=4;layer=2;row=0;pos=0;prop=100000;bestw=34;besth=378;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=ToolsToolbar;caption=;state=139596;dir=2;layer=2;row=0;pos=0;prop=100000;bestw=34;besth=401;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=DrawFrame;caption=;state=768;dir=5;layer=0;row=0;pos=0;prop=100000;bestw=400;besth=149;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|dock_size(1,6,0)=37|dock_size(3,6,0)=42|dock_size(4,3,0)=302|dock_size(4,2,0)=34|dock_size(2,2,0)=34|dock_size(5,0,0)=402|",
-    "pos_x": 1557,
-    "pos_y": 607,
-    "size_x": 2251,
-    "size_y": 1506,
+    "mru_path": "/home/boderu/Frameworks/KiCAD/3D-Models/Encoder/ACZ11BR4E_15FA1_20C",
+    "perspective": "layout2|name=InfoBar;caption=;state=131454;dir=1;layer=1;row=0;pos=0;prop=100000;bestw=20;besth=30;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=TopMainToolbar;caption=;state=139632;dir=1;layer=6;row=0;pos=0;prop=100000;bestw=1102;besth=37;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=MsgPanel;caption=;state=131452;dir=3;layer=6;row=0;pos=0;prop=100000;bestw=400;besth=42;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=LeftToolbar;caption=;state=139596;dir=4;layer=2;row=0;pos=0;prop=100000;bestw=34;besth=330;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=RightToolbar;caption=;state=139596;dir=2;layer=2;row=0;pos=0;prop=100000;bestw=34;besth=417;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=DrawFrame;caption=;state=768;dir=5;layer=0;row=0;pos=0;prop=100000;bestw=400;besth=149;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=LibraryTree;caption=Bibliotheken;state=1996;dir=4;layer=3;row=0;pos=0;prop=100000;bestw=250;besth=-1;minw=250;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=PropertiesManager;caption=Eigenschaften;state=2099148;dir=4;layer=3;row=0;pos=1;prop=100000;bestw=300;besth=200;minw=240;minh=60;maxw=-1;maxh=-1;floatx=50;floaty=200;floatw=300;floath=400|name=SelectionFilter;caption=Auswahlfilter;state=2098636;dir=4;layer=3;row=0;pos=2;prop=0;bestw=180;besth=-1;minw=180;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|dock_size(3,6,0)=42|dock_size(4,3,0)=302|dock_size(5,0,0)=402|dock_size(1,6,0)=37|dock_size(4,2,0)=34|dock_size(2,2,0)=34|",
+    "pos_x": 0,
+    "pos_y": 0,
+    "size_x": 1920,
+    "size_y": 1040,
     "zoom_factors": [
       0.05,
       0.07,

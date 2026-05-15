@@ -156,12 +156,12 @@
   },
   "footprint_chooser": {
     "filter_on_pin_count": false,
-    "height": -1,
-    "sash_h": -1,
-    "sash_v": -1,
+    "height": 850,
+    "sash_h": 942,
+    "sash_v": 414,
     "sort_mode": 0,
     "use_fp_filters": false,
-    "width": -1
+    "width": 1615
   },
   "footprint_viewer": {
     "aui_state": null,
@@ -547,14 +547,18 @@
   },
   "lib_tree": {
     "column_widths": {
-      "Description": 308,
+      "Description": 640,
       "Item": 300
     },
     "columns": [
       "Item",
       "Description"
     ],
-    "open_libs": []
+    "open_libs": [
+      "-- Kürzlich benutzt --",
+      "Package_SO",
+      "Package_TO_SOT_SMD"
+    ]
   },
   "meta": {
     "version": 5
@@ -652,8 +656,8 @@
   },
   "system": {
     "file_history": [
-      "/home/boderu/WsKiCAD/lab19CANBusDistribution/lab19CANBusDistribution.kicad_pcb",
       "/home/boderu/WsKiCAD/lab19ResistorController/lab19ResistorController.kicad_pcb",
+      "/home/boderu/WsKiCAD/lab19CANBusDistribution/lab19CANBusDistribution.kicad_pcb",
       "/home/boderu/WsKiCAD/cbEval.STM32G0B1KET6/cbEval.STM32G0B1KET6.kicad_pcb",
       "/home/boderu/WsKiCAD/cbEval.CAN-Distribution/cbEval.CAN-Distribution.kicad_pcb",
       "/home/boderu/WsKiCAD/AFE_Testballon/AFE_Converter_2v0.kicad_pcb",
@@ -668,7 +672,7 @@
     "last_metric_units": 1,
     "max_undo_items": 0,
     "show_import_issues": true,
-    "units": 1
+    "units": 5
   },
   "tools": {
     "pns": {
@@ -852,11 +856,11 @@
     },
     "maximized": false,
     "mru_path": "",
-    "perspective": "layout2|name=InfoBar;caption=;state=131454;dir=1;layer=1;row=0;pos=0;prop=100000;bestw=20;besth=30;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=TopMainToolbar;caption=;state=139632;dir=1;layer=6;row=0;pos=0;prop=100000;bestw=1171;besth=37;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=TopAuxToolbar;caption=;state=139632;dir=1;layer=5;row=0;pos=0;prop=100000;bestw=1629;besth=37;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=MsgPanel;caption=;state=131452;dir=3;layer=6;row=0;pos=0;prop=100000;bestw=400;besth=42;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=LeftToolbar;caption=;state=139596;dir=4;layer=3;row=0;pos=0;prop=100000;bestw=34;besth=622;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=RightToolbar;caption=;state=139596;dir=2;layer=3;row=0;pos=0;prop=100000;bestw=34;besth=819;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=LayersManager;caption=Darstellung;state=1532;dir=2;layer=4;row=0;pos=0;prop=100000;bestw=220;besth=-1;minw=200;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=220;floath=480|name=SelectionFilter;caption=Auswahlfilter;state=1532;dir=2;layer=4;row=0;pos=1;prop=0;bestw=336;besth=-1;minw=336;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=336;floath=160|name=DesignBlocks;caption=Designblöcke;state=2099150;dir=2;layer=5;row=0;pos=0;prop=100000;bestw=300;besth=200;minw=240;minh=60;maxw=-1;maxh=-1;floatx=50;floaty=200;floatw=800;floath=600|name=PropertiesManager;caption=Eigenschaften;state=2098686;dir=4;layer=5;row=0;pos=0;prop=100000;bestw=300;besth=200;minw=240;minh=60;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=300;floath=200|name=DrawFrame;caption=;state=1020;dir=5;layer=0;row=0;pos=0;prop=100000;bestw=400;besth=149;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=NetInspector;caption=Netzinspektor;state=2098686;dir=3;layer=0;row=0;pos=0;prop=100000;bestw=300;besth=200;minw=240;minh=60;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=300;floath=200|name=Search;caption=Suche;state=2098686;dir=3;layer=0;row=0;pos=0;prop=100000;bestw=180;besth=100;minw=180;minh=60;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=480;floath=200|dock_size(3,6,0)=42|dock_size(2,4,0)=342|dock_size(5,0,0)=402|dock_size(1,6,0)=37|dock_size(1,5,0)=37|dock_size(4,3,0)=34|dock_size(2,3,0)=34|",
-    "pos_x": 1033,
-    "pos_y": 799,
-    "size_x": 2352,
-    "size_y": 1310,
+    "perspective": "layout2|name=InfoBar;caption=;state=131454;dir=1;layer=1;row=0;pos=0;prop=100000;bestw=20;besth=30;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=LoadNoticeInfoBar;caption=;state=131454;dir=1;layer=1;row=1;pos=0;prop=100000;bestw=20;besth=30;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=TopMainToolbar;caption=;state=139632;dir=1;layer=6;row=0;pos=0;prop=100000;bestw=1171;besth=37;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=TopAuxToolbar;caption=;state=139632;dir=1;layer=5;row=0;pos=0;prop=100000;bestw=1629;besth=37;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=MsgPanel;caption=;state=131452;dir=3;layer=6;row=0;pos=0;prop=100000;bestw=400;besth=42;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=LeftToolbar;caption=;state=139596;dir=4;layer=3;row=0;pos=0;prop=100000;bestw=34;besth=622;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=RightToolbar;caption=;state=139596;dir=2;layer=3;row=0;pos=0;prop=100000;bestw=34;besth=819;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=LayersManager;caption=Darstellung;state=1532;dir=2;layer=4;row=0;pos=0;prop=100000;bestw=220;besth=-1;minw=200;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=220;floath=480|name=SelectionFilter;caption=Auswahlfilter;state=1532;dir=2;layer=4;row=0;pos=1;prop=0;bestw=336;besth=-1;minw=336;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=336;floath=160|name=DesignBlocks;caption=Designblöcke;state=2099150;dir=2;layer=5;row=0;pos=0;prop=100000;bestw=300;besth=200;minw=240;minh=60;maxw=-1;maxh=-1;floatx=50;floaty=200;floatw=800;floath=600|name=PropertiesManager;caption=Eigenschaften;state=2098686;dir=4;layer=5;row=0;pos=0;prop=100000;bestw=300;besth=200;minw=240;minh=60;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=300;floath=200|name=DrawFrame;caption=;state=1020;dir=5;layer=0;row=0;pos=0;prop=100000;bestw=400;besth=149;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=NetInspector;caption=Netzinspektor;state=2098686;dir=3;layer=0;row=0;pos=0;prop=100000;bestw=300;besth=200;minw=240;minh=60;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=300;floath=200|name=Search;caption=Suche;state=2098686;dir=3;layer=0;row=0;pos=0;prop=100000;bestw=180;besth=100;minw=180;minh=60;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=480;floath=200|dock_size(3,6,0)=42|dock_size(2,4,0)=342|dock_size(5,0,0)=402|dock_size(1,6,0)=37|dock_size(1,5,0)=37|dock_size(4,3,0)=34|dock_size(2,3,0)=34|",
+    "pos_x": 0,
+    "pos_y": 0,
+    "size_x": 1920,
+    "size_y": 1040,
     "zoom_factors": [
       0.13,
       0.22,

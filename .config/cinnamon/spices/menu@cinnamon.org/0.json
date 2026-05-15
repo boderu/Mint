@@ -145,7 +145,7 @@
             }
         ],
         "default_category": "Linux Mint",
-        "value": "linuxmint-logo-ring-symbolic"
+        "value": "linuxmint-logo-ring"
     },
     "menu-icon-size": {
         "type": "spinbutton",
@@ -207,25 +207,25 @@
         "type": "switch",
         "default": false,
         "description": "Home",
-        "value": false
+        "value": true
     },
     "show-desktop": {
         "type": "switch",
         "default": true,
         "description": "Desktop",
-        "value": true
+        "value": false
     },
     "show-documents": {
         "type": "switch",
         "default": false,
         "description": "Documents",
-        "value": true
+        "value": false
     },
     "show-downloads": {
         "type": "switch",
         "default": true,
         "description": "Downloads",
-        "value": true
+        "value": false
     },
     "show-music": {
         "type": "switch",
@@ -249,7 +249,7 @@
         "type": "switch",
         "default": true,
         "description": "Other bookmarks",
-        "value": true
+        "value": false
     },
     "system-position": {
         "type": "combobox",
@@ -280,7 +280,7 @@
         "units": "px",
         "description": "Sidebar icon size",
         "dependency": "show-sidebar",
-        "value": 24
+        "value": 28
     },
     "sidebar-max-width": {
         "type": "spinbutton",
@@ -289,7 +289,7 @@
         "max": 600,
         "step": 1,
         "description": "Maximum sidebar width (px)",
-        "value": 180
+        "value": 200
     },
     "show-favorites": {
         "type": "switch",
@@ -301,7 +301,7 @@
         "type": "switch",
         "default": true,
         "description": "Recents",
-        "value": true
+        "value": false
     },
     "show-description": {
         "type": "switch",
@@ -361,7 +361,7 @@
     "popup-height": {
         "type": "generic",
         "default": 425,
-        "value": 800.8307952880859
+        "value": 628.3554534912109
     },
     "reset-menu-size-button": {
         "type": "button",

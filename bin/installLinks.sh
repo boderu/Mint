@@ -89,23 +89,23 @@ fncLink "$HOME/.mint/.local/share/xed"						"$HOME/.local/share/xed"
 fncLink "$HOME/.mint/.vuescan"								"$HOME/.vuescan"
 fncLink "$HOME/.mint/Templates"								"$HOME/Vorlagen"
 
-#fncLink "$HOME/SynologyDrive/.mint/.config/darktable"		"$HOME/.config/darktable"
-#fncLink "$HOME/SynologyDrive/.mint/.config/darktable"		"$HOME/.var/app/org.darktable.Darktable/config/darktable"
+#fncLink "$HOME/SynologyDrive/Config/.config/darktable"		"$HOME/.config/darktable"
+#fncLink "$HOME/SynologyDrive/Config/.config/darktable"		"$HOME/.var/app/org.darktable.Darktable/config/darktable"
 
-fncLink "$HOME/SynologyDrive/.mint/.vuescanrc"					"$HOME/.vuescanrc"
-fncLink "$HOME/SynologyDrive/.mint/.ssh"						"$HOME/.ssh"
-fncLink "$HOME/SynologyDrive/.mint/.plst"						"$HOME/.plst"
-fncLink "$HOME/SynologyDrive/.mint/.gitconfig"					"$HOME/.gitconfig"
-fncLink "$HOME/SynologyDrive/.mint/.git-credentials"			"$HOME/.git-credentials"
-fncLink "$HOME/SynologyDrive/.mint/.local/share/kicad"			"$HOME/.local/share/kicad"
-fncLink "$HOME/SynologyDrive/.mint/.local/share/rhythmbox"		"$HOME/.local/share/rhythmbox"
-fncLink "$HOME/SynologyDrive/.mint/.local/share/strawberry"		"$HOME/.local/share/strawberry"
-fncLink "$HOME/SynologyDrive/.mint/.local/share/gnome-mines"	"$HOME/.local/share/gnome-mines"
-fncLink "$HOME/SynologyDrive/.mint/.local/share/widelands"		"$HOME/.local/share/widelands"
-fncLink "$HOME/SynologyDrive/.mint/.local/share/widelands"		"$HOME/.var/app/org.widelands.Widelands/.widelands"
-fncLink "$HOME/SynologyDrive/.mint/.local/share/widelands"		"$HOME/.var/app/org.widelands.Widelands/data/widelands"
+fncLink "$HOME/SynologyDrive/Config/.vuescanrc"					"$HOME/.vuescanrc"
+fncLink "$HOME/SynologyDrive/Config/.ssh"						"$HOME/.ssh"
+fncLink "$HOME/SynologyDrive/Config/.plst"						"$HOME/.plst"
+fncLink "$HOME/SynologyDrive/Config/.gitconfig"					"$HOME/.gitconfig"
+fncLink "$HOME/SynologyDrive/Config/.git-credentials"			"$HOME/.git-credentials"
+fncLink "$HOME/SynologyDrive/Config/.local/share/kicad"			"$HOME/.local/share/kicad"
+fncLink "$HOME/SynologyDrive/Config/.local/share/rhythmbox"		"$HOME/.local/share/rhythmbox"
+fncLink "$HOME/SynologyDrive/Config/.local/share/strawberry"		"$HOME/.local/share/strawberry"
+fncLink "$HOME/SynologyDrive/Config/.local/share/gnome-mines"	"$HOME/.local/share/gnome-mines"
+fncLink "$HOME/SynologyDrive/Config/.local/share/widelands"		"$HOME/.local/share/widelands"
+fncLink "$HOME/SynologyDrive/Config/.local/share/widelands"		"$HOME/.var/app/org.widelands.Widelands/.widelands"
+fncLink "$HOME/SynologyDrive/Config/.local/share/widelands"		"$HOME/.var/app/org.widelands.Widelands/data/widelands"
 
-#fncLink 	"$HOME/SynologyDrive/.mint/.local/bin/avr8-gnu-toolchain-linux_x86_64"	\
+#fncLink 	"$HOME/SynologyDrive/Config/.local/bin/avr8-gnu-toolchain-linux_x86_64"	\
 #			"$HOME/.local/bin/avr8-gnu-toolchain-linux_x86_64"
 
 fncLink "$HOME/SynologyDrive/Bilder"							"$HOME/Bilder"
@@ -129,7 +129,7 @@ egrep -i boderu /etc/passwd >/dev/null
 if [ $? -eq 0 ]
 then
 	echo "User boderu:"
-#	fncLink "$HOME/.mint/.config/autostart"					"$HOME/.config/autostart"
+#	fncLink "$HOME/Config/.config/autostart"					"$HOME/.config/autostart"
 	if [ -L "$HOME/.config/autostart" ] && [ -d "$HOME/.config/autostart" ]
 	then
 		echo "Repair autostart folder."

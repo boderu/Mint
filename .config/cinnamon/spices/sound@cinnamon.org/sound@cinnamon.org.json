@@ -48,7 +48,8 @@
             "org.gnome.Totem",
             "org.kde.elisa",
             "kid3",
-            "com.github.neithern.g4music"
+            "com.github.neithern.g4music",
+            "com.github.rafostar.Clapper"
         ]
     },
     "section2": {

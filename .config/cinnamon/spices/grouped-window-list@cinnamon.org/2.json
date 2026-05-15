@@ -109,7 +109,7 @@
         "type": "checkbox",
         "default": true,
         "description": "Group windows by application",
-        "value": true
+        "value": false
     },
     "scroll-behavior": {
         "type": "combobox",
@@ -365,13 +365,7 @@
             "firefox.desktop",
             "org.gnome.Terminal.desktop"
         ],
-        "value": [
-            "org.gnome.Terminal.desktop",
-            "nemo.desktop",
-            "thunderbird.desktop",
-            "firefox.desktop",
-            "com.google.Chrome.desktop:flatpak"
-        ]
+        "value": []
     },
     "__md5__": "3df0dfb46c743f29a6405292b645807a"
 }
