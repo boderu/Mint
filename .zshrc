@@ -155,3 +155,5 @@ source $HOME/.config/broot/launcher/bash/br
 # Initialize zsh completions (added by deno install script)
 autoload -Uz compinit
 compinit
+
+source /home/boderu/.config/broot/launcher/bash/br

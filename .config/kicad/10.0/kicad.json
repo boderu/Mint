@@ -100,7 +100,7 @@
     "last_imperial_units": 0,
     "last_metric_units": 1,
     "last_received_update": "",
-    "last_update_check_time": "2026-05-10T19:03:32",
+    "last_update_check_time": "2026-05-15T20:23:55",
     "max_undo_items": 0,
     "open_projects": [
       "/home/boderu/WsKiCAD/lab19ResistorController/lab19ResistorController.kicad_pro"
@@ -273,7 +273,7 @@
     "pos_x": 117,
     "pos_y": 364,
     "size_x": 1465,
-    "size_y": 542,
+    "size_y": 510,
     "zoom_factors": [
       0.13,
       0.22,

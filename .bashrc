@@ -290,3 +290,5 @@ then
 fi
 
 # EOF
+
+source /home/boderu/.config/broot/launcher/bash/br

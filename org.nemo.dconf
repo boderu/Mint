@@ -9,7 +9,7 @@ default-visible=false
 terminal-position='bottom'
 
 [icon-view]
-captions=['size', 'none', 'none']
+captions=['size', 'permissions', 'none']
 default-zoom-level='larger'
 
 [list-view]
@@ -48,7 +48,7 @@ search-sort-column='name'
 search-visible-columns=['name', 'where', 'date_modified', 'size']
 
 [window-state]
-geometry='1481x923+219+62'
+geometry='1233x929+654+42'
 maximized=false
 sidebar-bookmark-breakpoint=5
 sidebar-width=242

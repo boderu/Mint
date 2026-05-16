@@ -1,5 +1,7 @@
 #!/bin/bash
+
 dconf load /org/cinnamon/ < org.cinnamon.dconf
+dconf load /com/linuxmint/mintmenu/ < com.linuxmint.mintmenu.dconf
 dconf load /org/nemo/ < org.nemo.dconf
 dconf load /org/x/editor/ < org.x.editor.dconf
 dconf load /org/x/pix/ < org.x.pix.dconf
@@ -8,3 +10,6 @@ dconf load /org/gnome/calculator/ < org.gnome.calculator.dconf
 dconf load /org/gnome/terminal/ < org.gnome.terminal.dconf
 dconf load /org/gnome/desktop/interface/ < org.gnome.desktop.interface.dconf
 dconf load /apps/guake/ < apps.guake.dconf
+dconf load /org/guake/ < org.guake.dconf
+
+# EOF

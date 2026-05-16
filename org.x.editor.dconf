@@ -4,7 +4,7 @@ active-plugins=['time', 'textsize', 'spell', 'sort', 'modelines', 'joinlines', '
 [plugins/filebrowser/on-load]
 root='file:///'
 tree-view=true
-virtual-root='file:///home/boderu/.mint/bin'
+virtual-root='file:///home/boderu/.mint'
 
 [preferences/editor]
 bracket-matching=true
@@ -33,5 +33,5 @@ history-search-for=['$DIRHOME', '/home/boderu']
 bottom-panel-size=140
 side-panel-active-page=-1725528271
 side-panel-size=200
-size=(1281, 791)
+size=(1491, 791)
 state=87168

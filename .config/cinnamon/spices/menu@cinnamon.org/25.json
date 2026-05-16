@@ -179,7 +179,7 @@
         "step": 1,
         "units": "px",
         "description": "Categories icon size",
-        "value": 22
+        "value": 24.0
     },
     "application-icon-size": {
         "type": "spinbutton",
@@ -189,7 +189,7 @@
         "step": 1,
         "units": "px",
         "description": "Applications icon size",
-        "value": 22
+        "value": 24.0
     },
     "show-sidebar": {
         "type": "switch",
@@ -207,7 +207,7 @@
         "type": "switch",
         "default": false,
         "description": "Home",
-        "value": true
+        "value": false
     },
     "show-desktop": {
         "type": "switch",
@@ -219,13 +219,13 @@
         "type": "switch",
         "default": false,
         "description": "Documents",
-        "value": false
+        "value": true
     },
     "show-downloads": {
         "type": "switch",
         "default": true,
         "description": "Downloads",
-        "value": false
+        "value": true
     },
     "show-music": {
         "type": "switch",
@@ -249,7 +249,7 @@
         "type": "switch",
         "default": true,
         "description": "Other bookmarks",
-        "value": false
+        "value": true
     },
     "system-position": {
         "type": "combobox",
@@ -280,7 +280,7 @@
         "units": "px",
         "description": "Sidebar icon size",
         "dependency": "show-sidebar",
-        "value": 28
+        "value": 24
     },
     "sidebar-max-width": {
         "type": "spinbutton",
@@ -289,7 +289,7 @@
         "max": 600,
         "step": 1,
         "description": "Maximum sidebar width (px)",
-        "value": 200
+        "value": 180
     },
     "show-favorites": {
         "type": "switch",
@@ -301,7 +301,7 @@
         "type": "switch",
         "default": true,
         "description": "Recents",
-        "value": false
+        "value": true
     },
     "show-description": {
         "type": "switch",
@@ -356,12 +356,12 @@
     "popup-width": {
         "type": "generic",
         "default": 665,
-        "value": 805.9896850585938
+        "value": 900
     },
     "popup-height": {
         "type": "generic",
         "default": 425,
-        "value": 628.3554534912109
+        "value": 710.8565368652344
     },
     "reset-menu-size-button": {
         "type": "button",
