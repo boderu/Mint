@@ -510,7 +510,7 @@ keybinding:
     markCommitAsBaseForRebase: B
     tagCommit: T
     checkoutCommit: <space>
-    resetCherryPick: <c-R>
+    resetCherryPick: <c-r>
     copyCommitAttributeToClipboard: "y"
     openLogMenu: <c-l>
     openInBrowser: o
@@ -622,22 +622,22 @@ customCommands:
       - type: 'input'
         title: 'Message for tag:'
         key: 'TagMessage'
-  - key: '<c-P>'
-    description: "Push to a specific remote repository"
-    context: 'global'
-    loadingText: 'Pushing ...'
-    prompts:
-      - type: 'menuFromCommand'
-        title: 'Which remote repository to push to?'
-        command: bash -c "git remote --verbose | grep '/.* (push)'"
-        filter: '(?P<remote>.*)\s+(?P<url>.*) \(push\)'
-        valueFormat: '{{ .remote }}'
-        labelFormat: '{{ .remote | bold | cyan }} {{ .url }}'
-      - type: 'menu'
-        title: 'How to push?'
-        options:
-          - value: 'push'
-          - value: 'push --force-with-lease'
-          - value: 'push --force'
+#  - key: '<c-P>'
+#    description: "Push to a specific remote repository"
+#    context: 'global'
+#    loadingText: 'Pushing ...'
+#    prompts:
+#      - type: 'menuFromCommand'
+#        title: 'Which remote repository to push to?'
+#        command: bash -c "git remote --verbose | grep '/.* (push)'"
+#        filter: '(?P<remote>.*)\s+(?P<url>.*) \(push\)'
+#        valueFormat: '{{ .remote }}'
+#        labelFormat: '{{ .remote | bold | cyan }} {{ .url }}'
+#      - type: 'menu'
+#        title: 'How to push?'
+#        options:
+#          - value: 'push'
+#          - value: 'push --force-with-lease'
+#          - value: 'push --force'
 
 # EOF
