@@ -39,29 +39,12 @@ $HOME/.mint/bin/installDirectories.sh	; fncStep
 
 if [ "$PARAM_NOGAMES" == "set" ]
 then
-	cat "$HOME/.mint/deb-install.conf" > "$HOME/.deb-install.conf"
-	cat "$HOME/.mint/deb-remove.conf" > "$HOME/.deb-remove.conf"
-	cat "$HOME/.mint/deb-games.conf" >> "$HOME/.deb-remove.conf"
-
-	cat "$HOME/.mint/flatpak-install.conf" > "$HOME/.flatpak-install.conf"
-	cat "$HOME/.mint/flatpak-remove.conf" > "$HOME/.flatpak-remove.conf"
-	cat "$HOME/.mint/flatpak-games.conf" >> "$HOME/.flatpak-remove.conf"
-else
-	cat "$HOME/.mint/deb-install.conf" > "$HOME/.deb-install.conf"
-	cat "$HOME/.mint/deb-remove.conf" > "$HOME/.deb-remove.conf"
-	cat "$HOME/.mint/deb-games.conf" >> "$HOME/.deb-install.conf"
-
-	cat "$HOME/.mint/flatpak-install.conf" > "$HOME/.flatpak-install.conf"
-	cat "$HOME/.mint/flatpak-remove.conf" > "$HOME/.flatpak-remove.conf"
-	cat "$HOME/.mint/flatpak-games.conf" >> "$HOME/.flatpak-install.conf"
+	touch "$HOME/.nogames"
 fi
-echo "Installation lists created"		; fncStep
+
 $HOME/.mint/bin/installDeb.sh			; fncStep
 $HOME/.mint/bin/installFlatpak.sh		; fncStep
-rm --force "$HOME/.deb-install.conf"
-rm --force "$HOME/.deb-remove.conf"
-rm --force "$HOME/.flatpak-install.conf"
-rm --force "$HOME/.flatpak-remove.conf"
+rm --force "$HOME/.nogames"
 
 $HOME/.mint/bin/installNerd.sh			; fncStep
 $HOME/.mint/bin/installFuzzyFinder.sh	; fncStep

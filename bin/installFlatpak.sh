@@ -4,6 +4,18 @@ pushd $HOME
 
 echo ; echo "Install and remove Flatpaks"
 
+if [ -e "$HOME/.nogames" ]
+then
+	cat "$HOME/.mint/flatpak-install.conf"	>	"$HOME/.flatpak-install.conf"
+	cat "$HOME/.mint/flatpak-remove.conf"	>	"$HOME/.flatpak-remove.conf"
+	cat "$HOME/.mint/flatpak-games.conf"	>>	"$HOME/.flatpak-remove.conf"
+else
+	cat "$HOME/.mint/flatpak-install.conf"	>	"$HOME/.flatpak-install.conf"
+	cat "$HOME/.mint/flatpak-remove.conf"	>	"$HOME/.flatpak-remove.conf"
+	cat "$HOME/.mint/flatpak-games.conf"	>>	"$HOME/.flatpak-install.conf"
+fi
+echo "Installation lists created"
+
 echo ; sudo flatpak update -y --noninteractive
 
 if [ -e "$HOME/.flatpak-remove.conf" ]
@@ -35,6 +47,9 @@ then
 		fi
 	done
 fi
+
+rm --force "$HOME/.flatpak-install.conf"
+rm --force "$HOME/.flatpak-remove.conf"
 
 popd
 

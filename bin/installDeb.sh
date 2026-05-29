@@ -2,6 +2,18 @@
 
 pushd $HOME
 
+if [ -e "$HOME/.nogames" ]
+then
+	cat "$HOME/.mint/deb-install.conf"	>	"$HOME/.deb-install.conf"
+	cat "$HOME/.mint/deb-remove.conf"	>	"$HOME/.deb-remove.conf"
+	cat "$HOME/.mint/deb-games.conf"	>>	"$HOME/.deb-remove.conf"
+else
+	cat "$HOME/.mint/deb-install.conf"	>	"$HOME/.deb-install.conf"
+	cat "$HOME/.mint/deb-remove.conf"	>	"$HOME/.deb-remove.conf"
+	cat "$HOME/.mint/deb-games.conf"	>>	"$HOME/.deb-install.conf"
+fi
+echo "Installation lists created"
+
 sudo chown -Rv _apt:root /var/cache/apt/archives/partial/
 sudo chmod -Rv 700 /var/cache/apt/archives/partial/
 
@@ -55,6 +67,9 @@ then
 		echo
 	done
 fi
+
+rm --force "$HOME/.deb-install.conf"
+rm --force "$HOME/.deb-remove.conf"
 
 popd
 
