@@ -179,7 +179,7 @@
         "step": 1,
         "units": "px",
         "description": "Categories icon size",
-        "value": 24.0
+        "value": 24
     },
     "application-icon-size": {
         "type": "spinbutton",
@@ -189,7 +189,7 @@
         "step": 1,
         "units": "px",
         "description": "Applications icon size",
-        "value": 24.0
+        "value": 24
     },
     "show-sidebar": {
         "type": "switch",
@@ -361,7 +361,7 @@
     "popup-height": {
         "type": "generic",
         "default": 425,
-        "value": 710.8565368652344
+        "value": 826.6654510498047
     },
     "reset-menu-size-button": {
         "type": "button",
