@@ -56,6 +56,7 @@ $HOME/.mint/bin/installCppCheck.sh		; fncStep
 $HOME/.mint/bin/installDrawIO.sh		; fncStep
 $HOME/.mint/bin/installFrontDesign.sh	; fncStep
 $HOME/.mint/bin/installVueScan.sh		; fncStep
+$HOME/.mint/bin/installJoplin.sh		; fncStep
 $HOME/.mint/bin/installSegger.sh		; fncStep
 $HOME/.mint/bin/installBiome.sh			; fncStep
 $HOME/.mint/bin/installVSCode.sh		; fncStep

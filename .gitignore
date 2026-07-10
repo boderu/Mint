@@ -9,3 +9,7 @@ bin/*.AppImage
 .config/cinnamon/spices/weather@mockturtl/17.json
 bin/edit
 .config/cinnamon/spices/cinnamon-timer@jake1164/cinnamon-timer@jake1164.json
+/.config/kicad/10.0/3d_viewer.json
+/.config/kicad/10.0/kicad.json
+/.config/kicad/10.0/kicad_common.json
+/.config/kicad/10.0/pcbnew.json

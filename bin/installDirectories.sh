@@ -23,6 +23,7 @@ mkdir -pv "$HOME/WsXilinx"
 mkdir -pv "$HOME/WsXilinxSDK"
 mkdir -pv "$HOME/WsVSCode"
 mkdir -pv "$HOME/News"
+mkdir -pv "$HOME/digiKam"
 
 touch "$HOME/.sudo_as_admin_successful"
 

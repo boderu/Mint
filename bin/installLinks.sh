@@ -121,6 +121,7 @@ fncLink "$HOME/SynologyDrive/Comics/Assetts"					"$HOME/Comics"
 
 fncLink "$HOME/Nextcloud/Photos"								"$HOME/Photos"
 fncLink "$HOME/Nextcloud/Calibre"								"$HOME/Calibre"
+fncLink "$HOME/Nextcloud/Nav"									"$HOME/Nav"
 #fncLink "$HOME/Nextcloud/Music"									"$HOME/Musik"
 #fncLink "$HOME/Nextcloud/Audiobooks"							"$HOME/Audiobooks"
 
