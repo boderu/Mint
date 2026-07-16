@@ -448,6 +448,7 @@ keybinding:
     decreaseRenameSimilarityThreshold: (
     openDiffTool: <c-t>
     appendNewline: '<a-enter>'
+    newWorktree: w
   status:
     checkForUpdate: u
     recentRepos: <enter>
@@ -489,8 +490,6 @@ keybinding:
     setUpstream: u
     fetchRemote: f
     sortOrder: s
-  worktrees:
-    viewWorktreeOptions: w
   commits:
     squashDown: s
     renameCommit: r
