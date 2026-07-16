@@ -10,8 +10,7 @@
             "sections": [
                 "section-mouse",
                 "section-keybinding",
-                "section-icon",
-                "section-lock"
+                "section-icon"
             ]
         },
         "section-mouse": {
@@ -34,13 +33,6 @@
             "keys": [
                 "use-symbolic-icon",
                 "icon-color"
-            ]
-        },
-        "section-lock": {
-            "type": "section",
-            "title": "Screen lock",
-            "keys": [
-                "screenlock"
             ]
         }
     },
@@ -75,11 +67,5 @@
         "dependency": "use-symbolic-icon",
         "value": "rgb(255,255,255)"
     },
-    "screenlock": {
-        "type": "switch",
-        "default": false,
-        "description": "Lock also cinnamon session",
-        "value": false
-    },
-    "__md5__": "c4bedfcfcf05d04fc56149bb36295962"
+    "__md5__": "f28155c38ab4600290989396d4a97c76"
 }
