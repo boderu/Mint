@@ -17,8 +17,14 @@ cargo install git-graph
 cargo install fclones
 cargo install typst-cli
 #cargo install --locked zellij
-#cargo install --locked yazi-fm yazi-cli
 cargo install deno --locked
+
+#cargo install --locked yazi-fm yazi-cli
+git clone https://github.com/sxyazi/yazi.git
+cd yazi
+cargo install --path yazi-fm --locked
+cd ..
+rm -R --force yazi
 
 popd
 
