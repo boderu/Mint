@@ -1,0 +1,9 @@
+[Nemo Action]
+Name=In .gpx umwandeln (GPSBabel)
+Comment=Konvertiert die ausgewählte(n) .fit-Datei(en) in .gpx
+
+Exec=convert_fit_to_gpx.sh %F
+
+Icon-Name=gtk-convert
+Selection=any
+Extensions=fit;
