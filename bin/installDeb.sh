@@ -22,7 +22,7 @@ echo ; sudo apt-get install -y --install-recommends ppa-purge
 echo ; sudo add-apt-repository --y ppa:libreoffice/ppa
 #echo ; sudo ppa-purge -y ppa:mozillateam/thunderbird-next
 #echo ; sudo ppa-purge -y ppa:ubuntuhandbook1/shotwell
-#echo ; sudo ppa-purge -y ppa:ubuntuhandbook1/darktable
+echo ; sudo add-apt-repository --y ppa:ubuntuhandbook1/darktable
 #echo ; sudo ppa-purge -y ppa:freecad-maintainers/freecad-stable
 #echo ; sudo ppa-purge -y ppa:tomtomtom/yt-dlp
 #echo ; sudo ppa-purge -y ppa:longsleep/golang-backports

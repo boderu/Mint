@@ -1,7 +1,7 @@
 darkroom/ui/auto_module_name_update=TRUE
 database/multiple_workspace=FALSE
 font_size=12,000000
-themes/condensed=false
+themes/condensed=FALSE
 themes/usercss=false
 ui/hide_tooltips=false
 ui/show_welcome_screen=FALSE
