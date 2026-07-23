@@ -35,7 +35,8 @@ done
 
 cd $HOME
 
-$HOME/.mint/bin/installDirectories.sh	; fncStep
+sudo $HOME/.mint/bin/installSudoTimeout.sh	; fncStep
+$HOME/.mint/bin/installDirectories.sh		; fncStep
 
 if [ "$PARAM_NOGAMES" == "set" ]
 then
