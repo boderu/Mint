@@ -24,6 +24,12 @@ mkdir -pv "$HOME/WsXilinxSDK"
 mkdir -pv "$HOME/WsVSCode"
 mkdir -pv "$HOME/News"
 mkdir -pv "$HOME/digiKam"
+#mkdir -pv "$HOME/Confidential"
+mkdir -pv "$HOME/Calibre"
+mkdir -pv "$HOME/Audiobooks"
+mkdir -pv "$HOME/Comics"
+mkdir -pv "$HOME/Manuals"
+mkdir -pv "$HOME/Photos"
 
 touch "$HOME/.sudo_as_admin_successful"
 
