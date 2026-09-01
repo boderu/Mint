@@ -30,6 +30,7 @@ mkdir -pv "$HOME/Audiobooks"
 mkdir -pv "$HOME/Comics"
 mkdir -pv "$HOME/Manuals"
 mkdir -pv "$HOME/Photos"
+mkdir -pv "$HOME/DCIM"
 
 touch "$HOME/.sudo_as_admin_successful"
 
