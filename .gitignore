@@ -13,3 +13,4 @@ bin/edit
 /.config/kicad/10.0/kicad.json
 /.config/kicad/10.0/kicad_common.json
 /.config/kicad/10.0/pcbnew.json
+/bin/yt-dlp
