@@ -4,15 +4,8 @@ echo ; echo "yt-dlp virtual environment"
 
 pushd $HOME
 
-if [ ! -d "$HOME/.yt-dlp" ]
-then
-	python3 -m venv "$HOME/.yt-dlp"
-fi
-
-source "$HOME/.yt-dlp/bin/activate"
-
-pip install -U yt-dlp
-pip install -U yt-dlp-ejs
+curl -L https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -o ~/.local/bin/yt-dlp
+chmod a+rx ~/.local/bin/yt-dlp  # Make executable
 
 popd
 
