@@ -10,6 +10,7 @@ sed -i '/^\. "\$HOME\/.cargo\/env"/d' $HOME/.mint/.profile
 
 . "$HOME/.cargo/env"
 
+cargo install --locked typst-cli
 cargo install du-dust
 cargo install exa
 cargo install eza
