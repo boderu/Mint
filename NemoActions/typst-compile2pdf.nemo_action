@@ -1,0 +1,9 @@
+[Nemo Action]
+Name=Typst zu PDF kompilieren
+Comment=Kompiliert ausgewählte .typ-Dateien in PDF-Dokumente
+Exec=typstCompile2PDF.sh %F
+Icon-Name=application-pdf
+Selection=notnone
+Extensions=typ;
+Quote=double
+Dependencies=typst;yad;
